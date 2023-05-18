@@ -1,0 +1,23 @@
+$default-font: "Montserrat", sans-serif;
+$figure-font: "Inter", sans-serif;
+
+$basic-color: #E4EEEE;
+$main-color: #089BAB;
+$button-color: #F7C78E;
+$figure-color: #FF7C02;
+
+$desktop: 1280px;
+$large-desktop: 1920px;
+
+@mixin font ($font-weight, $font-size) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $default-font;
+}
+
+@mixin figure ($font-weight, $font-size) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $figure-font;
+}
+

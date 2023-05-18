@@ -1,0 +1,17 @@
+@import "../layouts/variables.scss";
+
+.wrapper {
+    margin: auto;
+}
+
+@media screen and (min-width: $desktop) and (max-width: $large-desktop) {
+    .wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)){
+    .wrapper {
+        width: 75vw;
+    }
+}

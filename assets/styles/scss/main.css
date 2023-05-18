@@ -1,0 +1,27 @@
+@import "./layouts/normalize.css";
+@font-face {
+  font-family: "Montserrat";
+  src: url(../../../fonts/Montserrat.ttf);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../../../fonts/Inter.ttf);
+}
+.wrapper {
+  margin: auto;
+  background-color: aqua;
+  font-weight: 600;
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}/*# sourceMappingURL=main.css.map */

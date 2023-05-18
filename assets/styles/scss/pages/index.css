@@ -1,0 +1,14 @@
+.wrapper {
+  margin: auto;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}/*# sourceMappingURL=index.css.map */
