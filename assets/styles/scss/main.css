@@ -7,12 +7,48 @@
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
+.side-bar {
+  position: sticky;
+  height: 100vh;
+  border-radius: 0 60px 60px 0;
+  background-color: #089BAB;
+}
+.side-bar nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+  .side-bar {
+    width: 11.18%;
+  }
+  .side-bar nav {
+    width: 101%;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+  .side-bar {
+    width: 161px;
+  }
+  .side-bar nav {
+    width: 170px;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .side-bar {
+    width: 11.18%;
+  }
+  .side-bar nav {
+    width: 101%;
+    height: 100%;
+  }
+}
 .wrapper {
   margin: auto;
-  background-color: aqua;
-  font-weight: 600;
-  font-size: 60px;
-  font-family: "Montserrat", sans-serif;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1920px) {

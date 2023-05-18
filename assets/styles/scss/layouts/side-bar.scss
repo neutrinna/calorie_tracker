@@ -1,1 +1,57 @@
 @import "./variables.scss";
+
+// body {
+//     overflow: hidden;
+// }
+
+.side-bar {
+    position: sticky;
+
+    height: 100vh;
+
+    border-radius: 0 60px 60px 0;
+    background-color: $main-color;
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: $desktop) and (max-width: ($default-desktop - 1px )) {
+.side-bar {
+    width: 11.18%;
+    
+    nav {
+        width: 101%;
+        height: 100%;
+    }
+}
+}
+@media screen and (min-width: $default-desktop) and (max-width: $large-desktop){
+    .side-bar {
+        width: 161px;
+
+        nav {
+            width: 170px;
+            height: 100%;
+        }
+    }
+    
+}
+
+@media screen and (min-width: ($large-desktop + 1px )) {
+    .side-bar {
+        width: 11.18%;
+        
+        nav {
+            width: 101%;
+            height: 100%;
+        }
+    }
+}
+
+
