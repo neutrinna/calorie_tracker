@@ -7,12 +7,104 @@
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
+.articles-wrapper {
+  background-color: #E4EEEE;
+}
+
+.articles-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.articles-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #089BAB;
+  width: 70vw;
+  margin-top: 5vh;
+  margin-right: 10vw;
+  border-radius: 26px 26px 0 0;
+  cursor: pointer;
+}
+.articles-section__article {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  width: 100%;
+  padding: 2vh;
+  text-align: center;
+}
+.articles-section__article_food {
+  border-radius: 25px 0 0 0;
+}
+.articles-section__article_psycho {
+  border-radius: 0 25px 0 0;
+}
+.articles-section__link:hover {
+  color: #089BAB;
+  font-weight: 600;
+}
+.articles-section__article:hover {
+  background-color: white;
+  color: #089BAB;
+  font-weight: 600;
+  padding: 2vh;
+  margin: 0;
+}
+
+.articles-topics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 70vw;
+  margin: 3vh 0 4vh 0;
+  margin-right: 10vw;
+  grid-gap: 3vw;
+}
+.articles-topics__img {
+  max-width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.articles-topics__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  margin-top: 1.5vh;
+  margin-bottom: 0;
+  color: black;
+}
+.articles-topics__text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  margin-top: 1.5vh;
+}
+.articles-topics__link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.articles-topics__link:hover .articles-topics__title {
+  text-decoration: underline;
+}
+
+.articles-copy {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 0.6em;
+  letter-spacing: 0.5px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
 .wrapper {
   margin: auto;
-  background-color: aqua;
-  font-weight: 600;
-  font-size: 60px;
-  font-family: "Montserrat", sans-serif;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
