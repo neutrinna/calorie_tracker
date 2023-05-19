@@ -18,35 +18,95 @@
 		<!-- Инна -->
 
 		<!-- side-bar -->
-			<div class="side-bar">
-				<nav>
-					<li>
-						<a class="side-bar__link" href="./index.html"><img src="./assets/images/index/profile.svg"
-								alt="иконка ссылки на раздел профиль">Профиль</a>
-					</li>
-					<li>
-						<a class="side-bar__link" href="./pages/diary.html"><img src="./assets/images/index/diary.svg"
-								alt="иконка ссылки на раздел дневник">Дневник</a>
-					</li>
-					<li>
-						<a class="side-bar__link" href="./pages/charts.html"><img src="./assets/images/index/graph.svg"
-								alt="иконка ссылки на раздел динамика">Динамика</a>
-					</li>
-					<li>
-						<a class="side-bar__link" href="./pages/articles.html"><img src="./assets/images/index/sampling.svg"
-								alt="иконка ссылки на раздел Статьи">Статьи</a>
-					</li>
-				</nav>
-			</div>
+		<div class="side-bar">
+			<nav>
+				<li>
+					<a class="side-bar__link" href="./index.html"><img src="./assets/images/index/profile.svg"
+							alt="иконка ссылки на раздел профиль">Профиль</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/diary.html"><img src="./assets/images/index/diary.svg"
+							alt="иконка ссылки на раздел дневник">Дневник</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/charts.html"><img src="./assets/images/index/graph.svg"
+							alt="иконка ссылки на раздел динамика">Динамика</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/articles.html"><img src="./assets/images/index/sampling.svg"
+							alt="иконка ссылки на раздел Статьи">Статьи</a>
+				</li>
+			</nav>
+		</div>
 		<!-- side-bar -->
 		<main class="profile">
 			<div class="profile-welcome"></div>
 			<section class="profile-RSK">
 				<h1 class="profile-RSK__title">Вычислить рекомендованную <br> суточную калорийность</h1>
-				<form action="">
+				<form action="" class="profile-RSK__form">
+					<div class="profile-RSK__form-wrapper">
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Выберите цель:</p>
+							<select name="" id="">
+								<option value="">Снижение веса</option>
+								<option value="">Поддержание веса</option>
+								<option value="">Набор веса</option>
+							</select>
+						</div>
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Возраст:</p>
+							<input type="number">
+						</div>
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Пол:</p>
+							<select name="" id="">
+								<option value="">Мужской</option>
+								<option value="">Женский</option>
+							</select>
+						</div>
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Образ жизни:</p>
+							<select name="" id="">
+								<option value="">Сидячий</option>
+								<option value="">Малоактивный</option>
+								<option value="">Активный</option>
+								<option value="">Очень активный</option>
+							</select>
+						</div>
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Вес, кг:</p>
+							<input type="number">
+						</div>
+						<div class="profile-RSK__form-element">
+							<p class="profile-RSK__form-attribute">Рост, см:</p>
+							<input type="number">
+						</div>
+					</div>
+					<button>Вычислить РСК</button>
 
 				</form>
-				<div class="profile-RSK__recommendations"></div>
+				<div class="profile-RSK__recommendations">
+					<div class="profile-RSK__kkal">
+						<p class="font-black">Ваша дневная норма составляет</p>
+						<p class="font-orange">2153 ккал</p>
+					</div>
+					<div class="profile-RSK__macro">
+						<div>
+							<div class="profile-RSK__macroelement font-black">Белки</div>
+							<div class="profile-RSK__macroelement-amount font-blue">97 г</div>
+						</div>
+						<div>
+							<div class="profile-RSK__macroelement font-black">Жиры</div>
+							<div class="profile-RSK__macroelement-amount font-blue">54 г</div>
+						</div>
+						<div>
+							<div class="profile-RSK__macroelement font-black">Углеводы</div>
+							<div class="profile-RSK__macroelement-amount font-blue">319 г</div>
+						</div>
+					</div>
+					<div class="profile-RSK__weight font-black">Эффективный вес - <span class="font-blue">54 кг</span>
+					</div>
+				</div>
 			</section>
 		</main>
 

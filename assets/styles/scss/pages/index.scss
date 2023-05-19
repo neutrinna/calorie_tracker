@@ -2,6 +2,17 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.font-black{
+    color: $text-color;
+}
+.font-orange{
+    color: $figure-color;
+}
+.font-blue {
+    color: $main-color;
 }
 
 .profile {
@@ -39,11 +50,51 @@
 }
 
 .profile-RSK__recommendations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: 100%;
     height: 25.78vh;
 
     background-color: $basic-color;
     border-radius: 25px;
+}
+.profile-RSK__kkal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-RSK__macro{
+    display: flex;
+    justify-content: space-around;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.profile-RSK__form{
+    width: 100%;
+}
+.profile-RSK__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    height: 36.82vh;
+    width: 100%;
+}
+.profile-RSK__form-element {
+    display: flex;
+
+    margin-right: 18px;
+
+    color: $text-color;
 }
 
 
@@ -59,12 +110,36 @@
         @include font (400, 23px)
     }
     .profile-RSK__recommendations{
-        padding: 2.08vw;
+        padding: 3.16vh;
+    }
+    .profile-RSK__kkal {
+        line-height: 22px;
+        @include font (500, 17px);
+    }
+    .profile-RSK__macroelement {
+        line-height: 25px;
+
+        @include font (700, 17px)
+    }
+    .profile-RSK__macroelement-amount {
+        line-height: 25px;
+
+        @include figure (700, 17px)
     }
 
     .profile-welcome {
         width: 34.72vw;
         margin-right: 5.34vw;
+    }
+    .profile-RSK__weight {
+        @include font (400, 17px);
+
+        span {
+            @include figure (400, 17px);
+        }
+    }
+    .profile-RSK__form-attribute {
+        @include font (300, 17px);
     }
 }
 
@@ -87,6 +162,29 @@
         width: 500px;
         margin-right: 77px;
     }
+    .profile-RSK__kkal {
+        line-height: 35px;
+        @include font (500, 23px);
+    }
+    .profile-RSK__macroelement {
+        line-height: 35px;
+
+        @include font (700, 20px);
+    }
+    .profile-RSK__macroelement-amount {
+        line-height: 35px;
+
+        @include figure (700, 20px);
+    }
+    .profile-RSK__weight {
+        @include font (400, 20px);
+        span {
+            @include figure (400, 20px);
+        }
+    }
+    .profile-RSK__form-attribute {
+        @include font (300, 20px);
+    }
 }
 
 @media screen and (min-width: ($large-desktop + 1px)) {
@@ -104,7 +202,7 @@
         @include font (400, calc((100vw + 6360px)/360))
     }
     .profile-RSK__recommendations{
-        padding: 1.56vw;
+        padding: 2.24vh;
     }
 }
 
