@@ -1,7 +1,109 @@
-.wrapper {
-  margin: auto;
+* {
+  box-sizing: border-box;
 }
 
+.profile {
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+}
+
+.profile-RSK {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  background-color: white;
+  border-radius: 80px 0 0 80px;
+}
+
+.profile-RSK__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 13.48vh;
+  border-radius: 35px;
+  margin: 0;
+  text-align: center;
+  background-color: #089BAB;
+  color: white;
+}
+
+.profile-RSK__recommendations {
+  width: 100%;
+  height: 25.78vh;
+  background-color: #E4EEEE;
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+  .profile-RSK {
+    width: 43.54vw;
+    padding: 3.16vw;
+  }
+  .profile-RSK__title {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 23px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-RSK__recommendations {
+    padding: 2.08vw;
+  }
+  .profile-welcome {
+    width: 34.72vw;
+    margin-right: 5.34vw;
+  }
+}
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+  .profile-RSK {
+    width: 627px;
+    padding: 45px;
+  }
+  .profile-RSK__title {
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 23px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-RSK__recommendations {
+    padding: 30px;
+  }
+  .profile-welcome {
+    width: 500px;
+    margin-right: 77px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .profile-RSK {
+    width: 32.65vw;
+    padding: 2.34vw;
+  }
+  .profile-welcome {
+    width: 26.04vw;
+    margin-right: 4.01vw;
+  }
+  .profile-RSK__title {
+    font-weight: 400;
+    font-size: calc((100vw + 6360px) / 360);
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-RSK__recommendations {
+    padding: 1.56vw;
+  }
+}
+.wrapper {
+  margin: auto;
+  background-color: #E4EEEE;
+}
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    display: none;
+  }
+}
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
   .wrapper {
     max-width: 1440px;

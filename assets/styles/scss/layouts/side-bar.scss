@@ -5,9 +5,10 @@
 // }
 
 .side-bar {
-    position: sticky;
+    position: fixed;
     display: flex;
     align-items: center;
+    z-index: 10;
 
     height: 100vh;
 
@@ -34,7 +35,7 @@
             :hover {
                 margin-left: 8px;
 
-                transition-duration: 0.6s;
+                transition-duration: 0.4s;
             }
         }
     }
@@ -60,10 +61,10 @@
 
 @media screen and (min-width: $desktop) and (max-width: ($default-desktop - 1px)) {
     .side-bar {
-        width: 11.18%;
+        width: 11.18vw;
 
         nav {
-            width: 101%;
+            width: 100%;
         }
     }
 
@@ -88,7 +89,7 @@
 
 @media screen and (min-width: ($large-desktop + 1px)) {
     .side-bar {
-        width: 11.18%;
+        width: 8.38vw;
 
         nav {
             width: 101%;
@@ -96,6 +97,6 @@
     }
 
     .side-bar__link {
-        @include font (700, ((100vw + 13200px) / 1080))
+        @include font (700, calc((100vw + 13200px) / 1080))
     }
 }
