@@ -396,7 +396,8 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw + 8800px) / 540);
     font-family: "Montserrat", sans-serif;
@@ -405,8 +406,7 @@ button {
     width: 26vw;
     margin-right: 4vw;
   }
-  .profile-welcome__form-greet,
-  .profile-welcome__button-reg {
+  .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw + 12120px) / 540);
     font-family: "Montserrat", sans-serif;

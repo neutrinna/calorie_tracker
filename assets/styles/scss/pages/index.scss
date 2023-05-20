@@ -388,7 +388,8 @@ button {
     }
 
     .profile-RSK__form-button,
-    .profile-welcome__form-button {
+    .profile-welcome__form-button,
+    .profile-welcome__button-reg {
         @include font (600, calc((100vw + 8800px) / 540));
     }
 
@@ -396,8 +397,7 @@ button {
         width: 26vw;
         margin-right: 4vw;
     }
-    .profile-welcome__form-greet,
-    .profile-welcome__button-reg{
+    .profile-welcome__form-greet{
         @include font (600, calc((100vw + 12120px) / 540));
     }
 }
