@@ -1,1 +1,215 @@
+// -------------------------- DIARY------------------------------
 @import "../layouts/variables.scss";
+
+.wrapper {
+    margin: auto;
+}
+
+@media screen and (min-width: $desktop) and (max-width: $large-desktop) {
+    .wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)) {
+    .wrapper {
+        width: 75vw;
+    }
+}
+
+//размеры в пикселях
+
+@media (min-width: 1140px) and (max-width: $large-desktop) {
+
+    .diary-wrapper {
+        background-color: $basic-color;
+        height: 1083px;
+
+
+    }
+
+    // оболочка 
+    .diary-inner {
+        //border: 2px solid rgb(34, 33, 33);
+        width: 1101px;
+        background-color: white;
+        border-radius: 35px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        //margin-top: 50px;
+
+    }
+
+    // "мой рацион питания"
+    .diary-diet-tracker-header {
+        align-self: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        background-color: $main-color;
+
+        width: 537px;
+        height: 72px;
+        margin: 29px 0 25px 0;
+        border-radius: 25px;
+        @include font (400, 23px);
+    }
+
+    // контейнер, календарь и подвал дневника
+    .diary-diet-tracker {
+        //border: 1px solid red;
+
+        //оболочка кнопы календарь
+        &__calendar-btn {
+            height: 73px;
+            width: 100%;
+            border-radius: 35px 35px 0 0;
+            border: none;
+            @include font (400, 23px);
+            color: #000000B2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+        }
+
+        &__btn-arrow {
+            //стрелка вниз
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #000000B2;
+            border-right: 2px solid #000000B2;
+            transform: rotate(135deg);
+            margin-left: 15px;
+            margin-bottom: 0.3vw;
+        }
+
+        &__content {
+            @include font (400, 23px);
+
+        }
+
+        &__bottom-bar {
+            // синий подвальчик таблицы
+            background-color: $main-color;
+            height: 73px;
+            border-radius: 0 0 35px 35px;
+        }
+    }
+
+    // строки дневника
+    .diary-table-string {
+        display: flex;
+        justify-content: space-between;
+        height: 64px;
+
+
+
+        &__meal-name {
+            //border: 1px solid blue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 3%;
+            width: 15%;
+        }
+
+        &__meal-name_color_orange {
+            color: $figure-color;
+            font-weight: 700;
+        }
+
+        &__add-btn {
+            // кнопка-оболочка синего плюса
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin-top: 5%;
+
+        }
+
+        &__add-btn-img {
+            // синий плюс картинка
+            width: 35px;
+        }
+
+        &__column-names {
+            //border: 1px solid blue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 3%;
+            width: 70%;
+            @include font (400, 16px);
+
+        }
+
+        &__column-names_color_dark-blue {
+            color: $main-color;
+            font-weight: 700;
+        }
+
+
+        &_color_blue {
+            background-color: $basic-color;
+        }
+
+    }
+
+    .diary-water-tracker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 335px;
+        justify-content: space-evenly;
+
+        &__top-bar {
+            //border: 1px solid red;
+            @include font (400, 23px);
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__top-bar-name {
+            //background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 38%;
+
+        }
+
+        &__crrnt-res {
+            font-size: 25px;
+        }
+
+        &__top-res {
+            font-size: 25px;
+            color: #00000099;
+        }
+
+        &__text {
+            width: 88%;
+            line-height: 25px;
+            text-align: center;
+            @include font (400, 18px);
+            color: #000000B2;
+        }
+
+        &__img {
+            width: 60px;
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+// -----------------------END DIARY----------------------------
