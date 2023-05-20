@@ -9,11 +9,120 @@
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
 	<link rel="stylesheet" href="../assets/styles/scss/main.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/fonts.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.scss" />
+	<link rel="stylesheet" href="./../assets/styles/scss/pages/charts.scss" />
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="charts-wrapper">
+		
+		
+		<div class="charts-grid">
+			<div class="charts-grid-title">
+				<p class="charts-grid-title-text">Отслеживайте положительную и отрицательную динамику своего питания</p>
+			</div>
+			<div class="charts-grid-calorie">
+				<div class="charts-grid-calorie-text">
+					<p>Калории</p>
+				</div>
+				<select id="days" class="charts-block-btn-calorie">
+					<option value="today">Сегодня</option>
+					<option value="yesterday">Вчера</option>
+					<option value="2023-05-16">17 мая</option>
+					<option value="2023-05-15">16 мая</option>
+				</select>
 
+				<div class="charts-block-container-calorie">
+					<div class="charts-block-diagram-calorie">
+						<div class="charts-calorie-diagram-yellow"></div>
+						<div class="charts-calorie-diagram-green"></div>
+						<div class="charts-calorie-diagram-red"></div>
+						<div class="charts-calorie-diagram-salad"></div>
+					</div>
+					<div class="charts-calorie-caption">
+						<div class="charts-label charts-label-breakfast">Завтрак</div>
+						<div class="charts-label charts-label-lunch">Обед</div>
+						<div class="charts-label charts-label-dinner">Ужин</div>
+						<div class="charts-label charts-label-snack">Перекус</div>
+					</div>
+				</div>
+
+				<div class="charts-block-legend-calorie">
+					<div class="charts-legend-item-calorie">
+						<div class="charts-legend-item-yellow-calorie"></div>
+						<p>25% (350 ккал)</p>
+					</div>
+					<div class="charts-legend-item-calorie">
+						<div class="charts-legend-item-green-calorie"></div>
+						<p>40% (550 ккал)</p>
+					</div>
+					<div class="charts-legend-item-calorie">
+						<div class="charts-legend-item-red-calorie"></div>
+						<p>20% (330 ккал)</p>
+					</div>
+					<div class="charts-legend-item-calorie">
+						<div class="charts-legend-item-salad-calorie"></div>
+						<p>15% (270 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-grid-macro">
+				<div class="charts-grid-macro-text">
+					<p>Макроэлементы</p>
+				</div>
+				<select id="days" class="charts-block-btn-macro">
+					<option value="today">Сегодня</option>
+					<option value="yesterday">Вчера</option>
+					<option value="2023-05-16">17 мая</option>
+					<option value="2023-05-15">16 мая</option>
+				</select>
+
+				<div class="charts-block-container-macro">
+					<div class="charts-block-diagram-macro">
+						<div class="charts-macro-diagram-green"></div>
+						<div class="charts-macro-diagram-red"></div>
+						<div class="charts-macro-diagram-yellow"></div>
+					</div>
+					<div class="charts-macro-caption">
+						<div class="charts-label charts-label-carbohydrates">Углеводы</div>
+						<div class="charts-label charts-label-proteins">Белки</div>
+						<div class="charts-label charts-label-fats">Жиры</div>
+					</div>
+				</div>
+
+				<div class="charts-block-legend-macro">
+					<div class="charts-legend-item-macro">
+						<div class="charts-legend-item-green-macro"></div>
+						<p>50% (750 ккал)</p>
+					</div>
+					<div class="charts-legend-item-macro">
+						<div class="charts-legend-item-red-macro"></div>
+						<p>20% (300 ккал)</p>
+					</div>
+					<div class="charts-legend-item-macro">
+						<div class="charts-legend-item-yellow-macro"></div>
+						<p>30% (450 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-grid-weight">
+				<div class="charts-grid-weight-actual">
+					<p>Ваш вес - 55 кг</p>
+				</div>
+				<div class="charts-grid-weight-changes">
+					<div class="charts-grid-weight-dropped">
+						<p class="charts-grid-weight-dropped-text">Сброшено - <span class="charts-kg-red">5 кг</span></p>
+					</div>
+					<div class="charts-grid-weight-remained">
+						<p class="charts-grid-weight-remained-text">Осталось - <span class="charts-kg-green">5 кг</span></p>
+					</div>
+				</div>
+				<div class="charts-grid-weight-chart"></div>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
