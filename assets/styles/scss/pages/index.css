@@ -193,7 +193,9 @@ button {
 
 .profile-welcome__form-button {
   align-self: center;
-  margin-top: 3.8vh;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 4vh;
   width: 36%;
   height: 5.37vh;
   border: 0;

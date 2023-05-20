@@ -206,7 +206,9 @@ button {
 
 .profile-welcome__form-button {
     align-self: center;
-    margin-top: 3.8vh;
+    justify-self: flex-end;
+    position: absolute;
+    bottom: 4vh;
 
     @include button(36%, 5.37vh);
 }
