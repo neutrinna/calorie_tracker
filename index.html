@@ -10,14 +10,15 @@
 	<link rel="shortcut icon" href="./assets/icons/calories.png" />
 	<link rel="stylesheet" href="./assets/styles/scss/main.css" />
 	<link rel="stylesheet" href="./assets/styles/scss/pages/registration.css" />
+	<link rel="stylesheet" href="./assets/styles/scss/pages/customization.css" />
 </head>
 
 <body>
 	<div class="wrapper">
 
 		<!-- Анжела -->
-<div class="button">
-	<a href="#" id = "registration__pop-up_open" > Оставить заявку</a>
+<div class="button" onclick = "openRegistration()">
+	<a href="#" id = "registration__pop-up_open"  > Регистрация</a>
 </div>
 		<div class="registration__pop-up" id = "registration__pop-up">
 			<div class="registration__pop-up_container">
@@ -36,35 +37,39 @@
 
 					</form>
 
-					<div class="registration__pop-up_close" id = "registration__pop-up_close" >&#10006</div>
+					<div class="registration__pop-up_close" id = "registration__pop-up_close" onclick="closeRegistration()" >&#10006</div>
 				</div>
 			</div>
 
 		</div>
 
 		
-				<!-- <div class="customization__pop-up">
-					<div class="customization__pop-up_container">
-						<div class="customization__pop-up_body">
-							<p class = "customization__title">Регистрация</p>
-							<p class="customization__title_description">Введите Ваши данные:</p>
-							<form action="">
-								<input type="customization__text" placeholder="Имя">
-								<input type="customization__text" placeholder="Фамилия">
-								<input type="customization__text" placeholder="Дата рождения">
-								<input type="customization__text" placeholder="E-mail">
-								<input type="customization__text" placeholder="Пароль">
-								<input type="customization__text" placeholder="Повторите пароль">
-								<button>Ввод</button>
-								<button>Отмена</button>
-		
-							</form>
-		
-							<div class="registration__pop-up_close">&#10006</div>
-						</div>
-					</div>
-		
-				</div> -->
+				
+				<!-- <div class="button" onclick="openCustomization ()">
+	<a href="#" id = "customization__pop-up_open" > Настройки </a>
+</div>
+		<div class="customization__pop-up" id = "customization__pop-up">
+			<div class="customization__pop-up_container">
+				<div class="customization__pop-up_body">
+					<p class = "customization__title">Настройки</p>
+					<p class="customization__title_description">Введите Ваши данные:</p>
+					<form action="">
+						<input type="customization__text" placeholder="Имя">
+						<input type="customization__text" placeholder="Фамилия">
+						<input type="customization__text" placeholder="Дата рождения">
+						<input type="customization__text" placeholder="E-mail">
+						<input type="customization__text" placeholder="Пароль">
+						<input type="customization__text" placeholder="Повторите пароль">
+						<button>Ввод</button>
+						<button>Отмена</button>
+
+					</form>
+
+					<div class="customization__pop-up_close" id = "customization__pop-up_close" onclick="closeCustomization" >&#10006</div>
+				</div>
+			</div>
+
+		</div> -->
 
 		<!-- Анжела -->
 
@@ -72,6 +77,7 @@
 
 	<script src="./modules/profile.js"></script>
 	<script src="./modules/registration.js"></script>
+	<script src="./modules/customization.js"></script>
 	
 </body>
 
