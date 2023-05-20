@@ -1,156 +1,27 @@
 @import "./layouts/normalize.css";
+
 @font-face {
   font-family: "Montserrat";
   src: url(../../../fonts/Montserrat.ttf);
 }
+
 @font-face {
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
-@media (min-width: 1140px) and (max-width: 1920px) {
-  .diary-inner {
-    border: 2px solid rgb(34, 33, 33);
-    width: 1101px;
-    border-radius: 35px;
-    display: flex;
-    flex-direction: column;
-  }
-  .diary-diet-tracker-header {
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background-color: #089BAB;
-    width: 537px;
-    height: 72px;
-    margin: 29px 0 25px 0;
-    border-radius: 25px;
-    font-weight: 400;
-    font-size: 23px;
-    font-family: "Montserrat", sans-serif;
-  }
-  .diary-diet-tracker {
-    border: 1px solid red;
-  }
-  .diary-diet-tracker__calendar-btn {
-    height: 73px;
-    width: 100%;
-    border-radius: 35px 35px 0 0;
-    border: none;
-    font-weight: 400;
-    font-size: 23px;
-    font-family: "Montserrat", sans-serif;
-    color: rgba(0, 0, 0, 0.6980392157);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .diary-diet-tracker__btn-arrow {
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid rgba(0, 0, 0, 0.6980392157);
-    border-right: 2px solid rgba(0, 0, 0, 0.6980392157);
-    transform: rotate(135deg);
-    margin-left: 15px;
-    margin-bottom: 0.3vw;
-  }
-  .diary-diet-tracker__content {
-    font-weight: 400;
-    font-size: 23px;
-    font-family: "Montserrat", sans-serif;
-  }
-  .diary-diet-tracker__bottom-bar {
-    background-color: #089BAB;
-    height: 73px;
-    border-radius: 0 0 35px 35px;
-  }
-  .diary-table-string {
-    display: flex;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .diary-table-string__meal-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 3%;
-    width: 15%;
-  }
-  .diary-table-string__meal-name_color_orange {
-    color: #FF7C02;
-    font-weight: 700;
-  }
-  .diary-table-string__add-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-top: 5%;
-  }
-  .diary-table-string__add-btn-img {
-    width: 35px;
-  }
-  .diary-table-string__column-names {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 3%;
-    width: 70%;
-    font-weight: 400;
-    font-size: 16px;
-    font-family: "Montserrat", sans-serif;
-  }
-  .diary-table-string__column-names_color_dark-blue {
-    color: #089BAB;
-    font-weight: 700;
-  }
-  .diary-table-string_color_blue {
-    background-color: #E4EEEE;
-  }
-  .diary-water-tracker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 335px;
-    justify-content: space-evenly;
-  }
-  .diary-water-tracker__top-bar {
-    border: 1px solid red;
-    font-weight: 400;
-    font-size: 23px;
-    font-family: "Montserrat", sans-serif;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .diary-water-tracker__top-bar-name {
-    background-color: red;
-  }
-  .diary-water-tracker__crrnt-res {
-    font-size: 25px;
-  }
-  .diary-water-tracker__top-res {
-    font-size: 25px;
-    color: rgba(0, 0, 0, 0.6);
-  }
-  .diary-water-tracker__text {
-    width: 88%;
-    line-height: 25px;
-    text-align: center;
-    font-weight: 400;
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-    color: rgba(0, 0, 0, 0.6980392157);
-  }
-  .diary-water-tracker__img {
-    width: 60px;
-    cursor: pointer;
-  }
-}
+
 .wrapper {
   margin: auto;
+  background-color: aqua;
+  font-weight: 600;
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
@@ -158,8 +29,11 @@
     max-width: 1440px;
   }
 }
+
 @media screen and (min-width: 1921px) {
   .wrapper {
     width: 75vw;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
