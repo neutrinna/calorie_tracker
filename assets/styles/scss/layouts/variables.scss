@@ -23,3 +23,16 @@ $large-desktop: 1920px;
     font-family: $figure-font;
 }
 
+@mixin button ($width, $height) {
+    width: $width;
+    height: $height;
+
+    border: 0;
+    border-radius: 15px;
+
+    background-color: $button-color;
+    color: rgba(0, 0, 0, 0.7);
+
+    transition-duration: 1s;
+}
+
