@@ -1,84 +1,311 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой профиль</title>
+    <link rel="stylesheet" href="./assets/styles/scss/layouts/normalize.css" />
+    <link rel="shortcut icon" href="./assets/icons/calories.png" />
+    <link rel="stylesheet" href="./assets/styles/scss/main.css" />
+    <link rel="stylesheet" href="./assets/styles/scss/pages/registration.css" />
+    <link rel="stylesheet" href="./assets/styles/scss/pages/customization.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/scss/pages/customization.css"
+    />
+    <!-- <link rel="stylesheet" href="./assets/styles/scss/main.css" /> -->
+    <link rel="stylesheet" href="./assets/styles/scss/pages/index.css" />
+    <link rel="stylesheet" href="./assets/styles/scss/layouts/side-bar.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Мой профиль</title>
-	<link rel="stylesheet" href="./assets/styles/scss/layouts/normalize.css">
-	<link rel="shortcut icon" href="./assets/icons/calories.png" />
-	<link rel="stylesheet" href="./assets/styles/scss/main.css" />
-	<link rel="stylesheet" href="./assets/styles/scss/pages/registration.css" />
-	<link rel="stylesheet" href="./assets/styles/scss/pages/customization.css" />
-</head>
+  <body>
+    <!-- Анжела -->
+    <!-- Окно регистрации -->
+    <div class="registration__pop-up" id="registration__pop-up">
+      <div class="registration__pop-up_container">
+        <div class="registration__pop-up_body">
+          <p class="registration__title">Регистрация</p>
+          <p class="registration__title_description">Введите Ваши данные:</p>
+          <form action="" >
+            <input
+            id = "registration__text_name"
+              class="registration__text registration__text_name"
+              type=" text"
+              onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+              placeholder="Имя"
+            />
+            <input
+              class="registration__text registration__text_surname"
+              type="text"
+              onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+              placeholder="Фамилия"
+            />
+              <div>
+                <input
+                  type="date"
+                  id="bday"
+                  name="bday"
+                  class="registration__text_bday"
+                />
+              </div>
+            <input
+              class="registration__text registration__text_email"
+              type="email"
+              placeholder="E-mail"
+            />
+            <input
+              class="registration__text registration__text_password"
+              type="text"
+              placeholder="Пароль"
+            />
+            <input
+              class="registration__text"
+              type="text"
+              placeholder="Повторите пароль"
+            />
+            <button onclick = "registrationAdd ()">Ввод</button>
+            <p class="registration__pop-up_close" onclick="registrationAdd()">
+              Отмена
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Окно регистрации -->
 
-<body>
-	<div class="wrapper">
+    <!-- Окно настроек -->
 
-		<!-- Анжела -->
-<div class="button" onclick = "openRegistration()">
-	<a href="#" id = "registration__pop-up_open"  > Регистрация</a>
-</div>
-		<div class="registration__pop-up" id = "registration__pop-up">
-			<div class="registration__pop-up_container">
-				<div class="registration__pop-up_body">
-					<p class = "registration__title">Регистрация</p>
-					<p class="registration__title_description">Введите Ваши данные:</p>
-					<form action="">
-						<input type="registration__text" placeholder="Имя">
-						<input type="registration__text" placeholder="Фамилия">
-						<input type="registration__text" placeholder="Дата рождения">
-						<input type="registration__text" placeholder="E-mail">
-						<input type="registration__text" placeholder="Пароль">
-						<input type="registration__text" placeholder="Повторите пароль">
-						<button>Ввод</button>
-						<button>Отмена</button>
-
-					</form>
-
-					<div class="registration__pop-up_close" id = "registration__pop-up_close" onclick="closeRegistration()" >&#10006</div>
-				</div>
-			</div>
-
-		</div>
-
-		
-				
-				<!-- <div class="button" onclick="openCustomization ()">
-	<a href="#" id = "customization__pop-up_open" > Настройки </a>
-</div>
 		<div class="customization__pop-up" id = "customization__pop-up">
 			<div class="customization__pop-up_container">
 				<div class="customization__pop-up_body">
 					<p class = "customization__title">Настройки</p>
-					<p class="customization__title_description">Введите Ваши данные:</p>
+					<p class="customization__title_description">Редактировать информацию</p>
 					<form action="">
-						<input type="customization__text" placeholder="Имя">
-						<input type="customization__text" placeholder="Фамилия">
-						<input type="customization__text" placeholder="Дата рождения">
-						<input type="customization__text" placeholder="E-mail">
-						<input type="customization__text" placeholder="Пароль">
-						<input type="customization__text" placeholder="Повторите пароль">
-						<button>Ввод</button>
-						<button>Отмена</button>
+						<input id = "customization__name" class="customization__text" type="text" placeholder="Имя">
+						<input class="customization__text" type="text" placeholder="Фамилия">
+						<input class="customization__text" type="text" placeholder="Дата рождения">
+						<input class="customization__text" type="text" placeholder="E-mail">
+						<input class="customization__text" type="text" placeholder="Пароль">
+						<p class = "customization__title_description">Задать цель, кг:</p>
+						<input type="customization__text" >
+						<button >Сохранить</button>
 
 					</form>
 
-					<div class="customization__pop-up_close" id = "customization__pop-up_close" onclick="closeCustomization" >&#10006</div>
+					<div class="customization__pop-up_close" id = "customization__pop-up_close" onclick="closeCustomization ()" >&#10006</div>
 				</div>
 			</div>
 
-		</div> -->
+		</div> 
 
-		<!-- Анжела -->
+    <!-- Окно настроек -->
 
-	</div>
+     <!-- Анжела -->
 
-	<script src="./modules/profile.js"></script>
-	<script src="./modules/registration.js"></script>
-	<script src="./modules/customization.js"></script>
-	
-</body>
+    <div class="wrapper">
+      <!-- Инна -->
 
+      <!-- side-bar -->
+      <div class="side-bar">
+        <nav>
+          <li>
+            <a class="side-bar__link" href="./index.html"
+              ><img
+                src="./assets/images/index/profile.svg"
+                alt="иконка ссылки на раздел профиль"
+              />Профиль</a
+            >
+          </li>
+          <li>
+            <a class="side-bar__link" href="./pages/diary.html"
+              ><img
+                src="./assets/images/index/diary.svg"
+                alt="иконка ссылки на раздел дневник"
+              />Дневник</a
+            >
+          </li>
+          <li>
+            <a class="side-bar__link" href="./pages/charts.html"
+              ><img
+                src="./assets/images/index/graph.svg"
+                alt="иконка ссылки на раздел динамика"
+              />Динамика</a
+            >
+          </li>
+          <li>
+            <a class="side-bar__link" href="./pages/articles.html"
+              ><img
+                src="./assets/images/index/sampling.svg"
+                alt="иконка ссылки на раздел Статьи"
+              />Статьи</a
+            >
+          </li>
+        </nav>
+      </div>
+      <!-- side-bar -->
+
+      <!-- main -->
+      <main class="profile">
+        <div class="profile-welcome">
+          <div class="profile-welcome__wripper">
+            <form action="#" class="profile-welcome__form">
+              <img
+                src="./assets/images/index/circle.svg"
+                alt="логотип приложения в виде графика-доната"
+              />
+              <p class="profile-welcome__form-greet font-black">
+                Добро пожаловать!
+              </p>
+              <div class="profile-welcome__form-inputs">
+                <input
+                  type="text"
+                  placeholder="Логин"
+                  class="profile-welcome__form-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Пароль"
+                  class="profile-welcome__form-input"
+                />
+              </div>
+              <button class="profile-welcome__form-button">Войти</button>
+            </form>
+            <button
+              class="profile-welcome__button-reg"
+              id = "registration__pop-up_open"
+              onclick="openRegistration()"
+            >
+              Регистрация
+            </button>
+<!-- Анжела - кнопка для окна Настройки -->
+            <button
+            class="profile-welcome__button-reg"
+            id = "customization__pop-up_open"
+            
+            onclick=openCustomization()
+            >
+            Настройки
+          </button>
+<!-- Анжела - кнопка для окна Настройки -->
+
+  
+          </div>
+          <div class="profile-paternity font-black">Calorie tracker © 2023</div>
+        </div>
+        <section class="profile-RSK">
+          <h1 class="profile-RSK__title">
+            Вычислить рекомендованную <br />
+            суточную калорийность
+          </h1>
+          <form action="#" class="profile-RSK__form">
+            <div class="profile-RSK__form-wrapper">
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Выберите цель:</p>
+                <select
+                  name=""
+                  id=""
+                  class="font-black profile-RSK__form-input"
+                >
+                  <option value="">Снижение веса</option>
+                  <option value="">Поддержание веса</option>
+                  <option value="">Набор веса</option>
+                </select>
+              </div>
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Возраст:</p>
+                <input
+                  type="number"
+                  class="font-black profile-RSK__form-input"
+                />
+              </div>
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Пол:</p>
+                <select
+                  name=""
+                  id=""
+                  class="font-black profile-RSK__form-input"
+                >
+                  <option value="">Мужской</option>
+                  <option value="">Женский</option>
+                </select>
+              </div>
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Образ жизни:</p>
+                <select
+                  name=""
+                  id=""
+                  class="font-black profile-RSK__form-input"
+                >
+                  <option value="">Сидячий</option>
+                  <option value="">Малоактивный</option>
+                  <option value="">Активный</option>
+                  <option value="">Очень активный</option>
+                </select>
+              </div>
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Вес, кг:</p>
+                <input
+                  type="number"
+                  class="font-black profile-RSK__form-input"
+                />
+              </div>
+              <div class="profile-RSK__form-element">
+                <p class="profile-RSK__form-attribute">Рост, см:</p>
+                <input
+                  type="number"
+                  class="font-black profile-RSK__form-input"
+                />
+              </div>
+            </div>
+            <button class="profile-RSK__form-button">Вычислить РСК</button>
+          </form>
+
+          <div class="profile-RSK__recommendations">
+            <div class="profile-RSK__kkal">
+              <p class="font-black">Ваша дневная норма составляет</p>
+              <p class="font-orange">
+                <span class="font-figure">2153</span> ккал
+              </p>
+            </div>
+            <div class="profile-RSK__macro">
+              <div>
+                <div class="profile-RSK__macroelement font-black">Белки</div>
+                <div
+                  class="profile-RSK__macroelement-amount font-figure font-blue"
+                >
+                  97 г
+                </div>
+              </div>
+              <div>
+                <div class="profile-RSK__macroelement font-black">Жиры</div>
+                <div
+                  class="profile-RSK__macroelement-amount font-figure font-blue"
+                >
+                  54 г
+                </div>
+              </div>
+              <div>
+                <div class="profile-RSK__macroelement font-black">Углеводы</div>
+                <div
+                  class="profile-RSK__macroelement-amount font-figure font-blue"
+                >
+                  319 г
+                </div>
+              </div>
+            </div>
+            <div class="profile-RSK__weight font-black">
+              Эффективный вес - <span class="font-figure font-blue">54 кг</span>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- main -->
+
+      <!-- Инна -->
+    </div>
+
+    <script src="./modules/profile.js"></script>
+    <script src="./modules/registration.js"></script>
+  </body>
 </html>
