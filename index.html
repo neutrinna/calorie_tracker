@@ -21,19 +21,19 @@
 		<div class="side-bar">
 			<nav>
 				<li>
-					<a class="side-bar__link" href="./index.html"><img src="./assets/images/index/profile.svg"
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/profile.svg"
 							alt="иконка ссылки на раздел профиль">Профиль</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/diary.html"><img src="./assets/images/index/diary.svg"
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/diary.svg"
 							alt="иконка ссылки на раздел дневник">Дневник</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/charts.html"><img src="./assets/images/index/graph.svg"
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/graph.svg"
 							alt="иконка ссылки на раздел динамика">Динамика</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/articles.html"><img src="./assets/images/index/sampling.svg"
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/sampling.svg"
 							alt="иконка ссылки на раздел Статьи">Статьи</a>
 				</li>
 			</nav>
@@ -128,10 +128,23 @@
 		</main>
 		<!-- main -->
 
-		<!-- Инна -->
+
 	</div>
 
+	<!-- notification pop-up -->
+
+	<div class="profile-notification" id="profile-notification">
+		<div class="b-popup-content">
+			Text in Popup
+			<a href="javascript:popUpHide()">Hide popup</a>
+		</div>
+	</div>
+	<!-- notification pop-up -->
+
+	<!-- Инна -->
+	<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
 	<script src="./modules/profile.js"></script>
+	<script src="./modules/profile_user notification pop-up.js"></script>
 </body>
 
 </html>
