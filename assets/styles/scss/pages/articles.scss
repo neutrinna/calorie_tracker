@@ -26,9 +26,8 @@
         font-weight: 500;
         font-size: 0.9em;
         letter-spacing: 0.5px;
-        width: 100%;
-        padding: 2vh;
-        text-align: center;
+        padding: 2vh 0;
+
 
         &_food {
             border-radius: 25px 0 0 0;
@@ -39,15 +38,17 @@
         }
     }
 
-    &__link:hover {
-        color: $main-color;
-        font-weight: 600;
+    &__link {
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
     }
 
-    &__article:hover {
-        background-color: white;
-        color: $main-color;
-        font-weight: 600;
+    &__article:hover{
+        
+        background-color: white !important;
+        color: $main-color !important;
+        font-weight: 600 !important;
         padding: 2vh;
         margin: 0;
     }
@@ -80,7 +81,6 @@
 
     &__text {
         font-family: $default-font;
-        // text-align: justify; ???
         font-weight: 300;
         font-size: 0.85em;
         letter-spacing: 0.5px;
@@ -106,4 +106,57 @@
         color: rgba(0, 0, 0, 0.7);
         text-align: center;
         margin-bottom: 4vh;
+}
+
+// TOPICS
+
+@import "../layouts/variables.scss";
+
+.topic {
+    margin: 5vh 20vw 5vh 20vw;
+    
+    &__title {
+        font-family: $default-font;
+        font-weight: 500;
+        font-size: 1.5em;
+        letter-spacing: 0.7px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-family: $default-font;
+        font-weight: 700;
+        font-size: 0.9em;
+        letter-spacing: 0.7px;
+        text-align: center;
+    }
+
+    &__text {
+        font-family: $default-font;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 300;
+        font-size: 0.8em;
+        letter-spacing: 0.7px;
+        line-height: 4vh;
+        text-align: justify;
+
+        &_bold {
+            font-weight: 700;
+        }
+    }
+
+    &__img-left {
+        border-radius: 5px;
+        width: 25vw;
+        float: left;
+        margin-right: 2vw;
+
+    }
+
+    &__img-right {
+        border-radius: 5px;
+        width: 25vw;
+        float: right;
+        margin-left: 2vw;
+    }
 }

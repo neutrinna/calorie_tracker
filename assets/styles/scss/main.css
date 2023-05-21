@@ -33,9 +33,7 @@
   font-weight: 500;
   font-size: 0.9em;
   letter-spacing: 0.5px;
-  width: 100%;
-  padding: 2vh;
-  text-align: center;
+  padding: 2vh 0;
 }
 .articles-section__article_food {
   border-radius: 25px 0 0 0;
@@ -43,14 +41,15 @@
 .articles-section__article_psycho {
   border-radius: 0 25px 0 0;
 }
-.articles-section__link:hover {
-  color: #089BAB;
-  font-weight: 600;
+.articles-section__link {
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
 }
 .articles-section__article:hover {
-  background-color: white;
-  color: #089BAB;
-  font-weight: 600;
+  background-color: white !important;
+  color: #089BAB !important;
+  font-weight: 600 !important;
   padding: 2vh;
   margin: 0;
 }
@@ -101,6 +100,48 @@
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
   margin-bottom: 4vh;
+}
+
+.topic {
+  margin: 5vh 20vw 5vh 20vw;
+}
+.topic__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  letter-spacing: 0.7px;
+  text-align: center;
+}
+.topic__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: 0.7px;
+  text-align: center;
+}
+.topic__text {
+  font-family: "Montserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 300;
+  font-size: 0.8em;
+  letter-spacing: 0.7px;
+  line-height: 4vh;
+  text-align: justify;
+}
+.topic__text_bold {
+  font-weight: 700;
+}
+.topic__img-left {
+  border-radius: 5px;
+  width: 25vw;
+  float: left;
+  margin-right: 2vw;
+}
+.topic__img-right {
+  border-radius: 5px;
+  width: 25vw;
+  float: right;
+  margin-left: 2vw;
 }
 
 .wrapper {
