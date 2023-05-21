@@ -8,18 +8,45 @@
 	<title>Дневник питания</title>
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
-	<link rel="stylesheet" href="../assets/styles/scss/pages/diary.css" /> 
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" /> 
+	<link rel="stylesheet" href="../assets/styles/scss/pages/diary.css" />
+	
 	<!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
 </head>
 
 <body>
 	<div class="wrapper diary-wrapper">
 
-		<div class="diary-inner">
+		<!-- side-bar -->
+		<div class="side-bar">
+			<nav>
+				<li>
+					<a class="side-bar__link" href="./../index.html"><img src="./../assets/images/index/profile.svg"
+							alt="иконка ссылки на раздел профиль">Профиль</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./../pages/diary.html"><img src="./../assets/images/index/diary.svg"
+							alt="иконка ссылки на раздел дневник">Дневник</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./../pages/charts.html"><img src="./../assets/images/index/graph.svg"
+							alt="иконка ссылки на раздел динамика">Динамика</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./../pages/articles.html"><img src="./../assets/images/index/sampling.svg"
+							alt="иконка ссылки на раздел Статьи">Статьи</a>
+				</li>
+			</nav>
+		</div>
+		<!-- side-bar -->
+
+
+		<div class="diary-content-wrapper">
+
+		<main class="diary-inner">
 
             <div class="diary-diet-tracker-header"><span>Мой рацион питания</span></div>
-
-                        
+         
             <div class="diary-diet-tracker">
 						<!-- кнопка-заголовок таблицы дневника -->
                 <button class="diary-diet-tracker__calendar-btn">
@@ -111,30 +138,65 @@
             <div class="diary-water-tracker">
 				<div class="diary-water-tracker__top-bar">
 					<div class="diary-water-tracker__top-bar-name">
-						<img src="./../assets/diaryimg/diary-water-droplet 1.png" alt="капля воды">
+						<img class="diary-water-tracker__img-water-drop" src="./../assets/diaryimg/diary-water-droplet 1.png" alt="капля воды">
 						<div>Трекер воды</div>
 					</div>
-					<div><span class="diary-water-tracker__crrnt-res">1000 мл</span><span class="diary-water-tracker__top-res"> / 2000 мл</span></div>
+					<div><span class="diary-water-tracker__crrnt-res diary-water-tracker__top-res_font_inter">0</span> мл<span class="diary-water-tracker__top-res diary-water-tracker__top-res_font_inter"> / 1800</span> <span class="diary-water-tracker__top-res">мл</span></div>
 				</div>
 				<div class="diary-water-tracker__text">Отслеживайте свои ежедневные цели по поддержанию водного баланса. Если у вас нормальный вес, то рекомендовано 25-30 мл жидкости на 1 кг массы тела. То есть если вы весите 60 кг, то выпивать нужно 30х60 = 1800 мл или 1,8 л в день.</div>
-				<div class="diary-water-tracker__img-container">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
-					<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg" alt="стакан воды">
+
+					<form class="diary-water-tracker__form">
 					
-				</div>
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="9" id="id1"/>
+						<label for="id1" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="8" id="id2"/>
+						<label for="id2" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="7" id="id3"/>
+						<label for="id3" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="6" id="id4"/>
+						<label for="id4" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label> 
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="5" id="id5"/>
+						<label for="id5" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+						
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="4" id="id6"/>
+						<label for="id6" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="3" id="id7"/>
+						<label for="id7" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="2" id="id8"/>
+						<label for="id8" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="1" id="id9"/>
+						<label for="id9" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						</label>
+
+					</form>
+
 			</div>
-
-        </div>
-
-
-
+        </main>
+		</div>
 
 
 	</div>
