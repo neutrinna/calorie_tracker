@@ -81,7 +81,7 @@
   }
   .side-bar__link {
     font-weight: 700;
-    font-size: calc((100vw + 13200px) / 1080);
+    font-size: calc((100vw - 666px) / 89);
     font-family: "Montserrat", sans-serif;
   }
 }/*# sourceMappingURL=side-bar.css.map */
