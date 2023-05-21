@@ -83,8 +83,8 @@
         font-family: $default-font;
         font-weight: 300;
         font-size: 0.85em;
-        letter-spacing: 0.5px;
-        margin-top: 1.5vh;
+        letter-spacing: 0.7px;
+        margin: 1.5vh 0 2vh 0;
     }
 
     &__link {
@@ -108,14 +108,19 @@
         margin-bottom: 4vh;
 }
 
-// TOPICS
+// TOPICS 
 
-@import "../layouts/variables.scss";
+
+.topic-wrapper {
+    background-color: white;
+    margin-top: -5vh;
+}
 
 .topic {
-    margin: 5vh 20vw 5vh 20vw;
+    margin: 5vh 15vw 5vh 25vw;
     
     &__title {
+        padding-top: 6vh;
         font-family: $default-font;
         font-weight: 500;
         font-size: 1.5em;
@@ -129,6 +134,7 @@
         font-size: 0.9em;
         letter-spacing: 0.7px;
         text-align: center;
+        margin: 2vh 0;
     }
 
     &__text {
@@ -150,7 +156,7 @@
         width: 25vw;
         float: left;
         margin-right: 2vw;
-
+        margin-top: 2vh;
     }
 
     &__img-right {
@@ -158,5 +164,21 @@
         width: 25vw;
         float: right;
         margin-left: 2vw;
+        margin-top: 2vh;
+    }
+
+    &__back {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-family: $default-font;
+        font-weight: 700;
+        font-size: 1em;
+        letter-spacing: 0.8px;
+    }
+
+    &__img-back {
+        width: 30%;
     }
 }

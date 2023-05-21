@@ -71,8 +71,8 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.85em;
-  letter-spacing: 0.5px;
-  margin-top: 1.5vh;
+  letter-spacing: 0.7px;
+  margin: 1.5vh 0 2vh 0;
 }
 .articles-topics__link {
   text-decoration: none;
@@ -93,10 +93,16 @@
   margin-bottom: 4vh;
 }
 
+.topic-wrapper {
+  background-color: white;
+  margin-top: -5vh;
+}
+
 .topic {
-  margin: 5vh 20vw 5vh 20vw;
+  margin: 5vh 15vw 5vh 25vw;
 }
 .topic__title {
+  padding-top: 6vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.5em;
@@ -109,6 +115,7 @@
   font-size: 0.9em;
   letter-spacing: 0.7px;
   text-align: center;
+  margin: 2vh 0;
 }
 .topic__text {
   font-family: "Montserrat", sans-serif;
@@ -127,10 +134,25 @@
   width: 25vw;
   float: left;
   margin-right: 2vw;
+  margin-top: 2vh;
 }
 .topic__img-right {
   border-radius: 5px;
   width: 25vw;
   float: right;
   margin-left: 2vw;
+  margin-top: 2vh;
+}
+.topic__back {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 0.8px;
+}
+.topic__img-back {
+  width: 30%;
 }/*# sourceMappingURL=articles.css.map */
