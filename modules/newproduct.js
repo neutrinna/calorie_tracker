@@ -2,8 +2,8 @@ const addPopUpNewProduct = document.getElementById("productnotfound__popup-submi
 const closePopUpNewProduct = document.getElementById("productnotfound__popup-cancel");
 const popUpNotFound = document.getElementById("productnotfound__popup");
 const popUpAddNewProduct = document.getElementById("newproduct__popup");
-popUpAddNewProduct.style.display = "block";
-// popUpNotFound.style.display = "block";
+popUpAddNewProduct.style.display = "none";
+popUpNotFound.style.display = "block";
 
 addPopUpNewProduct.addEventListener("click", addNewProduct);
 closePopUpNewProduct.addEventListener("click", cancelNewProduct);

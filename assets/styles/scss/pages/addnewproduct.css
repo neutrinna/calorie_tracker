@@ -85,7 +85,7 @@
 }
 
 .newproduct__popup_energyvalue {
-  width: 92%;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
