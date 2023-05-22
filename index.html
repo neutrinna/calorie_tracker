@@ -146,34 +146,33 @@
 						<label for="newproduct__popup-name" class="popup__newproduct-label">Название продукта:</label>
 						<input class="popup__newproduct-input" type="text" name="product-name">
 						<div class="newproduct__popup_serving">
-						<label for="newproduct__popup-serving-size" class="popup__addnewproduct-label">Размер порции</label>
-						<input class="popup__newproduct-serving-input" type="number" name="serving-size" >
-						<select class="popup__newproduct-select" name="serving-unit" >
-							<option value="gr">граммы</option>
-							<option value="ml">миллилитры</option>
-						</select></div>
+							<label for="newproduct__popup-serving-size" class="popup__addnewproduct-label">Размер порции</label>
+							<input class="popup__newproduct-serving-input" type="number" name="serving-size">
+							<select class="popup__newproduct-select" name="serving-unit">
+								<option value="gr">граммы</option>
+								<option value="ml">миллилитры</option>
+							</select>
+						</div>
 					</div>
 					<div class="newproduct__popup_energyvalue">
 						<div class="newproduct__popup_table">
-						  <label for="newproduct__popup-calories" class="popup__new-product-label">Энергетическая ценность в ккал:</label>
-						  <input type="number" id="newproduct__popup-energy" name="calories" placeholder="ккал">
+							<label for="newproduct__popup-calories" class="popup__new-product-label">Энергетическая ценность в ккал:</label>
+							<input type="number" id="newproduct__popup-energy" name="calories" placeholder="ккал">
 						</div>
 						<div class="newproduct__popup_table">
-						  <label for="newproduct__popup-fat" class="popup__new-product-label">Жиры:
-						  <input type="number" id="newproduct__popup-energy" name="fat" placeholder="грамм">
+							<label for="newproduct__popup-fat" class="popup__new-product-label">Жиры:</label>
+							<input type="number" id="newproduct__popup-fat" name="fat" placeholder="грамм">
 						</div>
 						<div class="newproduct__popup_table">
-						  <label for="newproduct__popup-carbs" class="popup__new-product-label">Углеводы:</label>
-						  <input type="number" id="newproduct__popup-energy" name="carbs" placeholder="грамм">
-						
+							<label for="newproduct__popup-carbs" class="popup__new-product-label">Углеводы:</label>
+							<input type="number" id="newproduct__popup-carbs" name="carbs" placeholder="грамм">
 						</div>
 						<div class="newproduct__popup_table">
-						  <label for="newproduct__popup-protein" class="popup__new-product-label">Белки:</label>
-						  <input type="number" id="newproduct__popup-energy" name="protein" placeholder="грамм">
+							<label for="newproduct__popup-protein" class="popup__new-product-label">Белки:</label>
+							<input type="number" id="newproduct__popup-protein" name="protein" placeholder="грамм">
 						</div>
-					  </div>
-					  
-					<button type="submit" id="newproduct__popup-submit">Добавить</button>
+					</div>
+					<button type="submit" id="newproduct__popup-add">Добавить</button>
 					<button type="submit" id="newproduct__popup-cancel">Отмена</button>
 				</div>
 			</div>
@@ -189,24 +188,18 @@
 					<p class="productnotfound__popup_h3">Продукт не найден</p>
 					<p class="productnotfound__popup_h4">Добавить новый продукт?</p>
 					<div class="productnotfound__popup_btns">
-					<button type="submit" id="productnotfound__popup-submit" onclick="addNewProduct()">Добавить</button>
-					<button type="submit" id="productnotfound__popup-cancel" onclick="cancelNewProduct()">Отмена</button>
-					
+						<button type="submit" id="productnotfound__popup-add">Добавить</button>
+						<button type="submit" id="productnotfound__popup-cancel">Отмена</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-	
 	
 	<script src="./modules/newproduct.js"></script>
 	<script src="./modules/profile.js"></script>
 	
-</body>
-</html>
 	
 
-	<script src="./modules/profile.js"></script>
 </body>
-
 </html>

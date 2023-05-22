@@ -5,7 +5,7 @@
   }
 
   .productnotfound__popup {
-//  display: none; 
+  display: none;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -36,7 +36,7 @@
   }
 
   
-  #productnotfound__popup-submit,
+  #productnotfound__popup-add,
   #productnotfound__popup-cancel {
     align-self: center;
     width: 35%;
@@ -52,7 +52,7 @@
   #productnotfound__popup-cancel {
     background-color:rgb(228,238,238)
   }
-  #productnotfound__popup-submit:hover {
+  #productnotfound__popup-add:hover {
     transition-duration: 1s;
     background-color: #f7a337;
   }
