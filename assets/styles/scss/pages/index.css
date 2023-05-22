@@ -291,11 +291,11 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__recommendations {
-    padding: 4%;
+    padding: 3%;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw - 977px) / 18.5);
+    font-size: calc((100vw - 773px) / 27);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
@@ -304,8 +304,9 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
+    margin-left: 2%;
     font-weight: 400;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
@@ -332,7 +333,9 @@ button {
     margin-right: 5.35vw;
   }
   .profile-welcome__form img {
-    top: -27.2%;
+    top: -25.2%;
+    left: 35.26%;
+    width: 30%;
   }
   .profile-welcome__form-greet {
     margin-top: 5.52vh;
