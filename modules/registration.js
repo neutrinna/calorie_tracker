@@ -1,19 +1,3 @@
-const openPopUpRegistration = document.getElementById(
-  "registration__pop-up_open"
-);
-const closePopUpRegistration = document.getElementById(
-  "registration__pop-up_close"
-);
-const PopUpRegistration = document.getElementById("registration__pop-up");
-
-const openPopUpCustomization = document.getElementById(
-  "customization__pop-up_open"
-);
-const closePopUpCustomization = document.getElementById(
-  "customization__pop-up_close"
-);
-const PopUpCustomization = document.getElementById("customization__pop-up");
-
 function openRegistration() {
   document.getElementById("registration__pop-up").style.display = "block";
 }
@@ -22,33 +6,50 @@ function closeRegistration() {
   document.getElementById("registration__pop-up").style.display = "none";
 }
 
-let sharedData;
+const nameInput = document.getElementById("registration__text_name");
+const surnameInput = document.getElementById("registration__text_surname");
+const bdayInput = document.getElementById("registration__text_bday");
+const emailInput = document.getElementById("registration__text_email");
+const passwordInput = document.getElementById("registration__password");
+const submitBtn = document.getElementById("registration__submit");
 
 function registrationAdd() {
-  const nameRegistration = document.getElementById("registration__text_name");
-  nameRegistrationValue = nameRegistration.value;
-  let nameFirst =
-    nameRegistrationValue[0].toUpperCase() + nameRegistrationValue.slice(1);
-  console.log(nameFirst);
+  const name = nameInput.value;
+  const surname = surnameInput.value;
+  const bday = bdayInput.value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
 
-  const nameCustomization = document.getElementById("customization__name");
-  console.log(nameCustomization);
-  nameCustomizationValue = nameCustomization.innerText;
-  console.log(nameCustomizationValue);
-  nameCustomizationValue = nameFirst;
-  console.log(nameCustomizationValue);
-  console.log(sharedData);
+  const userData = {
+    name: name,
+    surname: surname,
+    bday: bday,
+    email: email,
+    password: password,
+  };
+
+  localStorage.setItem("userData", JSON.stringify(userData));
 }
+
+submitBtn.addEventListener("click", registrationAdd);
 
 function openCustomization() {
   document.getElementById("customization__pop-up").style.display = "block";
-  const nameCustomization = document.getElementById("customization__name");
-  nameCustomizationValue = nameCustomization.innerText;
-  console.log(nameCustomizationValue);
-  console.log(sharedData);
+
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  document.getElementById("customization__text_name").value = userData.name;
+  document.getElementById("customization__text_surname").value =
+    userData.surname;
+  document.getElementById("customization__text_bday").value = userData.bday;
+  document.getElementById("customization__text_email").value = userData.email;
+  document.getElementById("customization__text_password").value =
+    userData.password;
 }
 
-nameCustomizationValue.innerHTML = sharedData;
+document
+  .getElementById("customization__open")
+  .addEventListener("click", openCustomization);
 
 function closeCustomization() {
   document.getElementById("customization__pop-up").style.display = "none";

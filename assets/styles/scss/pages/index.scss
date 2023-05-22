@@ -60,6 +60,7 @@ button {
     background-color: $main-color;
     color: white;
     border-radius: 35px;
+    line-height: 140%;
 
     letter-spacing: 0.03em;
 }
@@ -69,7 +70,7 @@ button {
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 30px;
+    padding: 6% ;
     width: 100%;
     height: 25.78%;
 
@@ -93,7 +94,7 @@ button {
 
     width: 65.55%;
 
-    line-height: 35px;
+    line-height: 150%;
 
     div {
         display: flex;
@@ -196,8 +197,8 @@ button {
 
     img {
         width: 32%;
-        left: 33.6%;
-        top: -18.22%;
+        left: 34.6%;
+        top: -20.22%;
         position: absolute;
 
         border-radius: 50%;
@@ -226,7 +227,7 @@ button {
 
     width: 100%;
     height: 11.46vh;
-    margin-top: 2.23vh;
+    margin-top: 3.23vh;
 }
 
 .profile-welcome__form-input {
@@ -242,7 +243,7 @@ button {
 }
 
 .profile-welcome__form-greet{
-    margin-top: 7.52vh;
+    margin-top: 6.52vh;
 }
 
 .profile-welcome__button-reg{
@@ -264,17 +265,19 @@ button {
     }
 
     .profile-RSK__title {
-        line-height: 30px;
 
         @include font (400, 23px)
     }
+    .profile-RSK__recommendations{
+        padding: 4%
+    }
 
     .profile-RSK__kkal {
-        @include font (500, calc((100vw + 560px) / 80))
+        @include font (500, calc((100vw - 977px) / 18.5))
     }
 
     .profile-RSK__macro {
-        @include font (700, calc((100vw + 1760px) / 160))
+        @include font (700, calc((100vw - 373px) / 53))
     }
 
     .profile-RSK__weight {
@@ -301,6 +304,9 @@ button {
         width: 34.72vw;
         margin-right: 5.35vw;
     }
+    .profile-welcome__form img {
+        top: -22.2%;
+    }
 
     .profile-welcome__form-greet{
         @include font (600, calc((100vw + 2720px) / 160));
@@ -313,7 +319,6 @@ button {
     }
 
     .profile-RSK__title {
-        line-height: 30px;
 
         @include font (400, 23px)
     }
@@ -361,45 +366,46 @@ button {
     }
 
     .profile-RSK__title {
-        line-height: 30px;
-
-        @include font (400, calc((100vw + 6360px)/360))
+        @include font (400, calc((100vw + 45px)/85))
     }
 
     .profile-RSK__kkal {
-        @include font (500, calc((100vw + 11580px) / 540))
+        @include font (500, calc((100vw + 216px) / 85))
     }
 
     .profile-RSK__macro {
-        @include font (700, calc((100vw + 8880px) / 540))
+        @include font (700, calc((100vw - 210px) / 85))
     }
 
     .profile-RSK__weight {
-        @include font (400, calc((100vw + 8880px) / 540))
+        @include font (400, calc((100vw - 416px) / 75))
     }
 
     .profile-RSK__form-attribute,
     .profile-paternity {
-        @include font (300, calc((100vw + 8880px) / 540))
+        @include font (300, calc((100vw - 40px) / 94))
     }
 
     .profile-RSK__form-input,
     .profile-welcome__form-input {
-        @include font (300, calc((100vw + 7800px) / 540));
+        @include font (300, calc((100vw + 70px) / 110));
     }
 
     .profile-RSK__form-button,
     .profile-welcome__form-button,
     .profile-welcome__button-reg {
-        @include font (600, calc((100vw + 8800px) / 540));
+        @include font (600, calc((100vw - 211px) / 85));
     }
 
     .profile-welcome {
         width: 26vw;
         margin-right: 4vw;
     }
+    .profile-welcome__form img{
+        top: -17.22%;
+    }
     .profile-welcome__form-greet{
-        @include font (600, calc((100vw + 12120px) / 540));
+        @include font (600, calc((100vw - 290px) / 62));
     }
 }
 

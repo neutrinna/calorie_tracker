@@ -34,17 +34,20 @@
               type=" text"
               onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
               placeholder="Имя"
+              name = "username"
             />
             <input
               class="registration__text registration__text_surname"
+              id = "registration__text_surname"
               type="text"
               onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
               placeholder="Фамилия"
+              name = "surname"
             />
               <div>
                 <input
                   type="date"
-                  id="bday"
+                  id="registration__text_bday"
                   name="bday"
                   class="registration__text_bday"
                 />
@@ -52,20 +55,24 @@
             <input
               class="registration__text registration__text_email"
               type="email"
+              id="registration__text_email"
               placeholder="E-mail"
+              name="email"
             />
             <input
               class="registration__text registration__text_password"
               type="text"
+              id="registration__password"
               placeholder="Пароль"
+              name="password"
             />
             <input
               class="registration__text"
               type="text"
               placeholder="Повторите пароль"
             />
-            <button onclick = "registrationAdd ()">Ввод</button>
-            <p class="registration__pop-up_close" onclick="registrationAdd()">
+            <button id = "registration__submit" onclick = "registrationAdd ()">Ввод</button>
+            <p class="registration__pop-up_close" onclick="closeRegistration()">
               Отмена
             </p>
           </form>
@@ -82,13 +89,13 @@
 					<p class = "customization__title">Настройки</p>
 					<p class="customization__title_description">Редактировать информацию</p>
 					<form action="">
-						<input id = "customization__name" class="customization__text" type="text" placeholder="Имя">
-						<input class="customization__text" type="text" placeholder="Фамилия">
-						<input class="customization__text" type="text" placeholder="Дата рождения">
-						<input class="customization__text" type="text" placeholder="E-mail">
-						<input class="customization__text" type="text" placeholder="Пароль">
+						<input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя">
+						<input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
+						<input id = "customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+						<input id = "customization__text_email" class="customization__text" type="text" placeholder="E-mail">
+						<input class="customization__text_" type="text" placeholder="Пароль">
 						<p class = "customization__title_description">Задать цель, кг:</p>
-						<input type="customization__text" >
+						<input type="customization__text_password" >
 						<button >Сохранить</button>
 
 					</form>

@@ -59,6 +59,7 @@ button {
   background-color: #089BAB;
   color: white;
   border-radius: 35px;
+  line-height: 140%;
   letter-spacing: 0.03em;
 }
 
@@ -66,7 +67,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 30px;
+  padding: 6%;
   width: 100%;
   height: 25.78%;
   background-color: #E4EEEE;
@@ -86,7 +87,7 @@ button {
   display: flex;
   justify-content: space-between;
   width: 65.55%;
-  line-height: 35px;
+  line-height: 150%;
 }
 .profile-RSK__macro div {
   display: flex;
@@ -185,8 +186,8 @@ button {
 }
 .profile-welcome__form img {
   width: 32%;
-  left: 33.6%;
-  top: -18.22%;
+  left: 34.6%;
+  top: -20.22%;
   position: absolute;
   border-radius: 50%;
 }
@@ -216,7 +217,7 @@ button {
   justify-content: space-between;
   width: 100%;
   height: 11.46vh;
-  margin-top: 2.23vh;
+  margin-top: 3.23vh;
 }
 
 .profile-welcome__form-input {
@@ -230,7 +231,7 @@ button {
 }
 
 .profile-welcome__form-greet {
-  margin-top: 7.52vh;
+  margin-top: 6.52vh;
 }
 
 .profile-welcome__button-reg {
@@ -255,19 +256,21 @@ button {
     width: 43.54vw;
   }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
   }
+  .profile-RSK__recommendations {
+    padding: 4%;
+  }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw + 560px) / 80);
+    font-size: calc((100vw - 977px) / 18.5);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
     font-weight: 700;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
@@ -298,6 +301,9 @@ button {
     width: 34.72vw;
     margin-right: 5.35vw;
   }
+  .profile-welcome__form img {
+    top: -22.2%;
+  }
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw + 2720px) / 160);
@@ -309,7 +315,6 @@ button {
     width: 627px;
   }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
@@ -363,52 +368,54 @@ button {
     width: 32.66vw;
   }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
-    font-size: calc((100vw + 6360px) / 360);
+    font-size: calc((100vw + 45px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw + 11580px) / 540);
+    font-size: calc((100vw + 216px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
     font-weight: 700;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 210px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
     font-weight: 400;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 416px) / 75);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
   .profile-paternity {
     font-weight: 300;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
   .profile-welcome__form-input {
     font-weight: 300;
-    font-size: calc((100vw + 7800px) / 540);
+    font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
   .profile-welcome__form-button,
   .profile-welcome__button-reg {
     font-weight: 600;
-    font-size: calc((100vw + 8800px) / 540);
+    font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-welcome {
     width: 26vw;
     margin-right: 4vw;
   }
+  .profile-welcome__form img {
+    top: -17.22%;
+  }
   .profile-welcome__form-greet {
     font-weight: 600;
-    font-size: calc((100vw + 12120px) / 540);
+    font-size: calc((100vw - 290px) / 62);
     font-family: "Montserrat", sans-serif;
   }
 }
