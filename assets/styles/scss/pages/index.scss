@@ -335,10 +335,11 @@ button {
         margin-right: 5.35vw;
     }
     .profile-welcome__form img {
-        top: -22.2%;
+        top: -27.2%;
     }
 
     .profile-welcome__form-greet{
+        margin-top: 5.52vh;
         @include font (600, calc((100vw + 2720px) / 160));
     }
 }
