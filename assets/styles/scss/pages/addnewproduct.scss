@@ -5,7 +5,7 @@
   }
  
  .newproduct__popup {
-    display: block;
+    // display: none;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -78,7 +78,7 @@
     padding-left: 10px;
   }
   .newproduct__popup_energyvalue {
-    width: 92%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -94,7 +94,10 @@
     width: 20vh;
     white-space: nowrap;
   }
-  #newproduct__popup-energy {
+  #newproduct__popup-energy,
+  #newproduct__popup-fat,
+  #newproduct__popup-carbs,
+  #newproduct__popup-protein {
     width: 18vh;
     height: 5vh;
     border-radius: 15px;
@@ -105,7 +108,7 @@
     margin-left: 25px;
     padding-left: 10px;
   }
-  #newproduct__popup-submit {
+  #newproduct__popup-add {
     align-self: center;
     width: 35%;
     height: 40px;
@@ -117,7 +120,7 @@
     transition-duration: 1s;
     cursor: pointer;
   }
-  #newproduct__popup-submit:hover {
+  #newproduct__popup-add:hover {
     transition-duration: 1s;
     background-color: #f7a337;
   }

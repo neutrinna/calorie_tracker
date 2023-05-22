@@ -1,4 +1,4 @@
-const addPopUpNewProduct = document.getElementById("productnotfound__popup-submit");
+const addPopUpNewProduct = document.getElementById("productnotfound__popup-add");
 const closePopUpNewProduct = document.getElementById("productnotfound__popup-cancel");
 const popUpNotFound = document.getElementById("productnotfound__popup");
 const popUpAddNewProduct = document.getElementById("newproduct__popup");
