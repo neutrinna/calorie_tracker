@@ -35,7 +35,8 @@
 
             list-style-type: none;
             transition-duration: 0.6s;
-            :hover{
+
+            :hover {
                 transition-duration: 0.6s;
                 margin-left: 8%;
             }
@@ -86,7 +87,6 @@
     }
 
     .side-bar__link {
-        @include font (700, calc((100vw + 13200px) / 1080));
+        @include font (700, calc((100vw - 666px) / 89));
     }
 }
-
