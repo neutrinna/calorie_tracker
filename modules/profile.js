@@ -8,12 +8,15 @@ const activity = document.getElementById("activity");
 const weight = document.querySelector(".input-weight");
 const growth = document.querySelector(".input-growth");
 
-let resultRSK = document.querySelector(".result-rsk");
+const resultRSK = document.querySelector(".result-rsk");
 const protein = document.querySelector(".proteins");
 const fat = document.querySelector(".fats");
 const carbohydrate = document.querySelector(".carbohydrates");
+const optimalWeight = document.querySelector(".optimal-weight");
 
 const rateGole = 0.2;
+
+// норма РСК без учёта цели
 
 const getNormRSK = function () {
   if (gender.value == "male") {
@@ -37,13 +40,15 @@ const getNormRSK = function () {
   return resultRSK.innerHTML;
 };
 
+// РСК c учётом цели
+
 function resultGoal() {
   if (goal.value == "lose-weight") {
-    resultRSK.innerHTML = +getNormRSK() - +getNormRSK() * rateGole;
+    resultRSK.innerHTML = Math.round(+getNormRSK() - +getNormRSK() * rateGole);
   } else if (goal.value == "maintenance") {
-    resultRSK.innerHTML = getNormRSK();
+    resultRSK.innerHTML = Math.round(+getNormRSK());
   } else if (goal.value == "gain") {
-    resultRSK.innerHTML = +getNormRSK() + +getNormRSK() * rateGole;
+    resultRSK.innerHTML = Math.round(+getNormRSK() + +getNormRSK() * rateGole);
   }
   return resultRSK.innerHTML;
 }
@@ -51,19 +56,29 @@ function resultGoal() {
 // рассчёт БЖУ
 
 function countNutrients() {
-  let fatRes = +weight.value;
-  fat.innerHTML = fatRes;
-  let carbohydrateRes = 3 * +weight.value;
-  carbohydrate.innerHTML = carbohydrateRes;
-  protein.innerHTML = `${
-    (+resultGoal() - carbohydrateRes * 4 - fatRes * 9) / 4
-  }`;
-  return console.log(resultGoal());
+  if (goal.value == "lose-weight") {
+    protein.innerHTML = `${Math.round((+resultGoal() * 25) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 35) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 40) / 100 / 4)} г`;
+  } else if (goal.value == "maintenance" || goal.value == "gain") {
+    protein.innerHTML = `${Math.round((+resultGoal() * 20) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 30) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
+  }
+}
+
+// рассчёт эффективного веса
+
+function countWeight() {
+  optimalWeight.innerHTML = `${
+    +growth.value - 100 - (growth.value - 150) / 2
+  } кг`;
 }
 
 button.addEventListener("click", function () {
   resultGoal();
   countNutrients();
+  countWeight();
 });
 
 form.addEventListener("submit", (event) => {
