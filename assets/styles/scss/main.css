@@ -257,14 +257,13 @@
     font-size: calc((100vw - 320px) / 80);
     font-family: "Montserrat", sans-serif;
   }
-  .topic__text,
-  .topic__back {
+  .topic__text {
     font-weight: 300;
     font-size: calc((100vw - 0px) / 80);
     font-family: "Montserrat", sans-serif;
   }
   .topic__title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: calc((100vw - 320px) / 40);
     font-family: "Montserrat", sans-serif;
   }
@@ -276,6 +275,44 @@
   .topic__back {
     font-weight: 600;
     font-size: calc((100vw - 0px) / 80);
+    font-family: "Montserrat", sans-serif;
+  }
+}
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+  .articles-topics__title {
+    font-weight: 600;
+    font-size: calc((100vw + 714.5px) / 119.75);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-topics__text,
+  .articles-section__article {
+    font-weight: 300;
+    font-size: calc((100vw + 475px) / 119.75);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-copy {
+    font-weight: 300;
+    font-size: calc((100vw + 235.5px) / 119.75);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__text {
+    font-weight: 300;
+    font-size: calc((100vw + 714.5px) / 119.75);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__title {
+    font-weight: 600;
+    font-size: calc((100vw + 5265px) / 239.5);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__subtitle {
+    font-weight: 600;
+    font-size: calc((100vw + 1273px) / 159.6);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__back {
+    font-weight: 600;
+    font-size: calc((100vw + 714.5px) / 119.75);
     font-family: "Montserrat", sans-serif;
   }
 }

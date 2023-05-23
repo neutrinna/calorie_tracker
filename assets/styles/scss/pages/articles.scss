@@ -188,13 +188,12 @@
         @include font (300, calc(( 100vw - 320px ) / 80))
     }
 
-    .topic__text,
-    .topic__back {
+    .topic__text {
         @include font (300, calc(( 100vw - 0px ) / 80))
     }
 
     .topic__title {
-        @include font (500, calc(( 100vw - 320px ) / 40))
+        @include font (600, calc(( 100vw - 320px ) / 40))
     }
 
     .topic__subtitle {
@@ -205,6 +204,37 @@
         @include font (600, calc(( 100vw - 0px ) / 80))
     }
     
+}
+
+@media screen and (min-width: ($default-desktop + 1px)) and (max-width: $large-desktop) {
+    .articles-topics__title {
+        @include font (600, calc(( 100vw + 714.5px ) / 119.75))
+    }
+
+    .articles-topics__text,
+    .articles-section__article {
+        @include font (300, calc(( 100vw + 475px ) / 119.75))
+    }
+
+    .articles-copy {
+        @include font (300, calc(( 100vw + 235.5px ) / 119.75))
+    }
+
+    .topic__text {
+        @include font (300, calc(( 100vw + 714.5px ) / 119.75))
+    }
+
+    .topic__title {
+        @include font (600, calc(( 100vw + 5265px ) / 239.5))
+    }
+
+    .topic__subtitle {
+        @include font (600, calc(( 100vw + 1273px ) / 159.6))
+    }
+
+    .topic__back {
+        @include font (600, calc(( 100vw + 714.5px ) / 119.75))
+    }
 }
 
 // Nastya Klm
