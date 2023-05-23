@@ -251,6 +251,36 @@ button {
   background-color: #09b4c7;
 }
 
+.b-container {
+  width: 200px;
+  height: 150px;
+  background-color: #ccc;
+  margin: 0px auto;
+  padding: 10px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.profile-notification {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 11;
+  top: 0px;
+}
+
+.b-popup .b-popup-content {
+  margin: 40px auto 0px auto;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  background-color: #c5c5c5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #000;
+}
+
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
   .profile-RSK {
     width: 43.54vw;
@@ -261,11 +291,11 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__recommendations {
-    padding: 4%;
+    padding: 3%;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw - 977px) / 18.5);
+    font-size: calc((100vw - 773px) / 27);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
@@ -274,8 +304,9 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
+    margin-left: 2%;
     font-weight: 400;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
@@ -302,9 +333,12 @@ button {
     margin-right: 5.35vw;
   }
   .profile-welcome__form img {
-    top: -22.2%;
+    top: -25.2%;
+    left: 35.26%;
+    width: 30%;
   }
   .profile-welcome__form-greet {
+    margin-top: 5.52vh;
     font-weight: 600;
     font-size: calc((100vw + 2720px) / 160);
     font-family: "Montserrat", sans-serif;
