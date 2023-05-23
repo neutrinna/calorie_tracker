@@ -18,16 +18,26 @@ glassCountForm.addEventListener("change", handleFormChange)
 /// плавно скрыть-показать див
 
 const buttonBreakfast = document.getElementById("button-breakfast");
-const test = document.querySelector(".d-test"); 
+const accordeon = document.querySelector(".accordeon"); 
 
 const buttonLunch = document.getElementById("button-lunch")
-const test2 = document.querySelector(".d-test2");
+const accordeon2 = document.querySelector(".accordeon2");
+
+const buttonDinner = document.getElementById("button-dinner")
+const accordeon3 = document.querySelector(".accordeon3");
+
+const buttonSnack = document.getElementById("button-snack")
+const accordeon4 = document.querySelector(".accordeon4");
 
 
+buttonBreakfast.addEventListener('click', () => showAndHideDiv (accordeon, buttonBreakfast));
 
-buttonBreakfast.addEventListener('click', () => showAndHideDiv (test, buttonBreakfast));
+buttonLunch.addEventListener('click', () => showAndHideDiv (accordeon2, buttonLunch));
 
-buttonLunch.addEventListener('click', () => showAndHideDiv (test2, buttonLunch));
+buttonDinner.addEventListener('click', () => showAndHideDiv (accordeon3, buttonDinner));
+
+buttonSnack.addEventListener('click', () => showAndHideDiv (accordeon4, buttonSnack));
+
 
 
 function showAndHideDiv (a, b) {
@@ -51,36 +61,3 @@ function showAndHideDiv (a, b) {
     }
   
 };
-
-
-// .o2t-element--hidden {
-//     opacity: 0;
-//     visibility: hidden;
-//   height: 0px;
-//     transition: 0.55s opacity, 0.55s visibility;
-// }
-
-// .o2t-element:hover~.o2t-element--hidden {
-//     opacity: 1;
-//     visibility: visible;
-//     height: 45px;
-// /*     height: auto; */
-// /*   transition: 0.55s opacity, 0.55s  */
-//   transition: 0.5s
-// }
-
-
-// function showAndHideDiv (a, b) {
-
-//     if (a.style.display !== 'none') {
-
-//         a.style.display="none";
-//         b.classList.remove('diary-table-string__add-btn_focus');
-
-//     } else {
-//         a.style.display="block";
-//         b.classList.add('diary-table-string__add-btn_focus');
-//         //a.style.height = `${a.children.length*64}px`;
-//     }
-  
-// };
