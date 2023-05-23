@@ -119,14 +119,16 @@ body {
 
         margin-top: 5%;
 
-        transition-duration: 0.1s;
+        transition-duration: 0.7s;
 
-        :hover {
-            transition-duration: 0.1s;
-            margin-left: 6%;
-        }
+        // :hover {
+        //     transition-duration: 0.7s;
+        //     transform: rotate(45deg);
+        // }
 
     }
+
+
 
     &__add-btn-img {
         max-width: 35px;
@@ -154,6 +156,29 @@ body {
 
 }
 
+/////////////закрытие-открытие кнопок "+"////////////////////
+
+.diary-table-string__add-btn_focus {
+    transition-duration: 0.7s;
+    transform: rotate(45deg);
+}
+
+.d-test_hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0px;
+    transition: 0.7s opacity, 0.55s visibility;
+}
+
+
+// .d-test_hidden {
+//     display: none;
+//     transition: 1s;
+// }
+
+
+
+//////////////////////////////////////////////////
 .diary-water-tracker {
     display: flex;
     flex-direction: column;
