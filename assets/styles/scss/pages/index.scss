@@ -198,7 +198,6 @@ button {
     img {
         width: 32%;
         left: 34.6%;
-        top: -20.22%;
         position: absolute;
 
         border-radius: 50%;
@@ -293,6 +292,9 @@ button {
     .profile-RSK {
         width: 43.54vw;
     }
+    .profile-welcome img {
+        top: -26.2%;
+    }
 
     .profile-RSK__title {
 
@@ -347,6 +349,9 @@ button {
     .profile-RSK {
         width: 627px;
     }
+    .profile-welcome img {
+        top: -22.2%;
+    }
 
     .profile-RSK__title {
 
@@ -393,6 +398,9 @@ button {
 @media screen and (min-width: ($large-desktop + 1px)) {
     .profile-RSK {
         width: 32.66vw;
+    }
+    .profile-welcome img {
+        top: -22.2%;
     }
 
     .profile-RSK__title {
