@@ -1,20 +1,29 @@
-const addPopUpNewProduct = document.getElementById("productnotfound__popup-add");
-const closePopUpNewProduct = document.getElementById("productnotfound__popup-cancel");
-const popUpNotFound = document.getElementById("productnotfound__popup");
-const popUpAddNewProduct = document.getElementById("newproduct__popup");
+const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
+const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
+const popUpNotFound = document.querySelector(".productnotfound__popup");
+const popUpAddNewProduct = document.querySelector(".newproduct__popup");
+const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel")
 popUpAddNewProduct.style.display = "none";
 popUpNotFound.style.display = "block";
 
-addPopUpNewProduct.addEventListener("click", addNewProduct);
-closePopUpNewProduct.addEventListener("click", cancelNewProduct);
+openPopUpNewProduct.addEventListener("click", openNewProduct);
+closePopUpNotFound.addEventListener("click", closeNotFound);
+closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
-function addNewProduct(event) {
+function openNewProduct(event) {
     event.preventDefault();
     popUpNotFound.style.display = "none";
     popUpAddNewProduct.style.display = "block";
 }
 
-function cancelNewProduct(event) {
+function closeNotFound(event) {
     event.preventDefault();
     popUpNotFound.style.display = "none";
+    popUpAddNewProduct.style.display = "none";
 }
+
+function closeNewProduct(event) {
+    event.preventDefault();
+    popUpAddNewProduct.style.display = "none";
+}
+
