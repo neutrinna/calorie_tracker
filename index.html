@@ -62,7 +62,7 @@
             <input
               class="registration__text registration__text_password"
               type="text"
-              id="registration__password"
+              id="registration__text_password"
               placeholder="Пароль"
               name="password"
             />
@@ -88,7 +88,7 @@
 				<div class="customization__pop-up_body">
 					<p class = "customization__title">Настройки</p>
 					<p class="customization__title_description">Редактировать информацию</p>
-					<form action="">
+					<form id = "profile">
 						<input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя">
 						<input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
 						<input id = "customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
@@ -113,44 +113,28 @@
     <div class="wrapper">
       <!-- Инна -->
 
-      <!-- side-bar -->
-      <div class="side-bar">
-        <nav>
-          <li>
-            <a class="side-bar__link" href="./index.html"
-              ><img
-                src="./assets/images/index/profile.svg"
-                alt="иконка ссылки на раздел профиль"
-              />Профиль</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/diary.html"
-              ><img
-                src="./assets/images/index/diary.svg"
-                alt="иконка ссылки на раздел дневник"
-              />Дневник</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/charts.html"
-              ><img
-                src="./assets/images/index/graph.svg"
-                alt="иконка ссылки на раздел динамика"
-              />Динамика</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/articles.html"
-              ><img
-                src="./assets/images/index/sampling.svg"
-                alt="иконка ссылки на раздел Статьи"
-              />Статьи</a
-            >
-          </li>
-        </nav>
-      </div>
-      <!-- side-bar -->
+		<!-- side-bar -->
+		<div class="side-bar">
+			<nav>
+				<li>
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/profile.svg"
+							alt="иконка ссылки на раздел профиль">Профиль</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/diary.svg"
+							alt="иконка ссылки на раздел дневник">Дневник</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/graph.svg"
+							alt="иконка ссылки на раздел динамика">Динамика</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link" href="#"><img src="./assets/images/index/sampling.svg"
+							alt="иконка ссылки на раздел Статьи">Статьи</a>
+				</li>
+			</nav>
+		</div>
+		<!-- side-bar -->
 
       <!-- main -->
       <main class="profile">
@@ -164,19 +148,23 @@
               <p class="profile-welcome__form-greet font-black">
                 Добро пожаловать!
               </p>
+              <form id="login">
               <div class="profile-welcome__form-inputs">
                 <input
-                  type="text"
-                  placeholder="Логин"
+                  type="email"
+                  id="email" required
+                  placeholder="Email"
                   class="profile-welcome__form-input"
                 />
                 <input
-                  type="text"
+                  type="password"
+                  id="password" required
                   placeholder="Пароль"
                   class="profile-welcome__form-input"
                 />
               </div>
-              <button class="profile-welcome__form-button">Войти</button>
+              <button class="profile-welcome__form-button">Войти</button></form>
+            
             </form>
             <button
               class="profile-welcome__button-reg"
@@ -309,10 +297,25 @@
       </main>
       <!-- main -->
 
-      <!-- Инна -->
-    </div>
 
-    <script src="./modules/profile.js"></script>
-    <script src="./modules/registration.js"></script>
-  </body>
+	</div>
+
+	<!-- notification pop-up -->
+
+	<div class="profile-notification" id="profile-notification">
+		<div class="b-popup-content">
+			Text in Popup
+			<a href="javascript:popUpHide()">Hide popup</a>
+		</div>
+	</div>
+	<!-- notification pop-up -->
+
+	<!-- Инна -->
+	<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+	<script src="./modules/profile.js"></script>
+	<script src="./modules/profile_user notification pop-up.js"></script>
+	<script src="./modules/registration.js"></script>
+	<script src="./modules/registrationJson.js"></script>
+</body>
+
 </html>

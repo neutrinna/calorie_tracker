@@ -2,8 +2,13 @@
 @import "../layouts/variables.scss";
 //@import "../layouts/side-bar.scss";
 
-.diary-wrapper {
+body {
     background-color: $basic-color;
+}
+
+.diary-wrapper {
+    //background-color: $basic-color;
+    margin: auto;
 
 }
 
@@ -113,7 +118,17 @@
         cursor: pointer;
 
         margin-top: 5%;
+
+        transition-duration: 0.7s;
+
+        // :hover {
+        //     transition-duration: 0.7s;
+        //     transform: rotate(45deg);
+        // }
+
     }
+
+
 
     &__add-btn-img {
         max-width: 35px;
@@ -141,6 +156,29 @@
 
 }
 
+/////////////закрытие-открытие кнопок "+"////////////////////
+
+.diary-table-string__add-btn_focus {
+    transition-duration: 0.7s;
+    transform: rotate(45deg);
+}
+
+.d-test_hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0px;
+    transition: 0.7s opacity, 0.55s visibility;
+}
+
+
+// .d-test_hidden {
+//     display: none;
+//     transition: 1s;
+// }
+
+
+
+//////////////////////////////////////////////////
 .diary-water-tracker {
     display: flex;
     flex-direction: column;
@@ -174,10 +212,15 @@
         font-size: 25px;
     }
 
+    &__crrnt-res-ml {
+        font-size: 25px;
+    }
+
     &__top-res {
         font-size: 25px;
         color: #00000099;
     }
+
 
     &__top-res_font_inter {
         @include figure (400, 25px);
@@ -206,11 +249,12 @@
     &__label:hover,
     &__label:hover~&__label {
         opacity: 1;
-        transition-duration: 500ms;
+        transition-duration: 1s;
     }
 
     &__label {
-        opacity: 0.5;
+        opacity: 0.25;
+        transition-duration: 1s;
     }
 
     &__input {
@@ -220,7 +264,7 @@
 
     &__input:checked~&__label {
         opacity: 1;
-        transition-duration: 500ms;
+        transition-duration: 1s;
     }
 
 
@@ -260,14 +304,27 @@
     }
 
     .diary-water-tracker__crrnt-res,
-    .diary-water-tracker__top-res {
+    .diary-water-tracker__top-res,
+    .diary-water-tracker__crrnt-res-ml {
         font-size: 1.6vw;
     }
 
 }
 
-@media screen and (min-width: ($large-desktop + 1px)) {
+@media screen and (min-width: $desktop) and (max-width: $large-desktop) {
+    .diary-wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (max-width: ($desktop - 1px)) {
     .wrapper {
+        display: none;
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)) {
+    .diary-wrapper {
         width: 75vw;
         margin: auto;
     }
@@ -284,7 +341,8 @@
     }
 
     .diary-water-tracker__crrnt-res,
-    .diary-water-tracker__top-res {
+    .diary-water-tracker__top-res,
+    .diary-water-tracker__crrnt-res-ml {
         font-size: 1.6vw;
     }
 
