@@ -60,8 +60,7 @@ button {
 .profile-RSK__recommendations {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 6%;
+  justify-content: space-evenly;
   width: 100%;
   height: 25.78%;
   background-color: #E4EEEE;
@@ -91,7 +90,7 @@ button {
 }
 
 .profile-RSK__weight {
-  margin-top: 2%;
+  margin: 2% 0 0 5%;
 }
 .profile-RSK__weight span {
   font-weight: 700;
@@ -123,6 +122,8 @@ button {
 .profile-RSK__form-input {
   width: 60%;
   height: 4.29vh;
+  min-height: 35px;
+  max-height: 90px;
   padding-left: 8px;
   background-color: #E4EEEE;
   border: 1px solid #089BAB;
@@ -135,6 +136,8 @@ button {
   align-self: center;
   width: 41%;
   height: 12%;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -170,28 +173,27 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 42.87vh;
   padding: 9.34% 9%;
   background-color: white;
   border-radius: 35px;
 }
 .profile-welcome__form img {
-  width: 32%;
-  left: 34.6%;
-  position: absolute;
+  margin-top: -30%;
+  width: 36%;
   border-radius: 50%;
 }
 
 .profile-welcome__form-button {
   align-self: center;
-  justify-self: flex-end;
-  position: absolute;
-  bottom: 4vh;
+  margin-top: 5%;
   width: 36%;
   height: 5.37vh;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -209,12 +211,15 @@ button {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 11.46vh;
-  margin-top: 3.23vh;
+  height: 10.46vh;
+  min-height: 80px;
+  margin-top: 4.23vh;
 }
 
 .profile-welcome__form-input {
   height: 4.29vh;
+  min-height: 35px;
+  max-height: 90px;
   padding-left: 8px;
   background-color: #E4EEEE;
   border: 1px solid #089BAB;
@@ -224,12 +229,14 @@ button {
 }
 
 .profile-welcome__form-greet {
-  margin-top: 6.52vh;
+  margin-top: 5%;
 }
 
 .profile-welcome__button-reg {
   width: 44%;
   height: 5.37vh;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -323,16 +330,10 @@ button {
   .profile-RSK {
     width: 43.54vw;
   }
-  .profile-welcome img {
-    top: -26.2%;
-  }
   .profile-RSK__title {
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
-  }
-  .profile-RSK__recommendations {
-    padding: 3%;
   }
   .profile-RSK__kkal {
     font-weight: 500;
@@ -345,7 +346,6 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
-    margin-left: 2%;
     font-weight: 400;
     font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
@@ -373,16 +373,13 @@ button {
     width: 34.72vw;
     margin-right: 5.35vw;
   }
-  .profile-welcome__form img {
-    top: -25.2%;
-    left: 35.26%;
-    width: 30%;
-  }
   .profile-welcome__form-greet {
-    margin-top: 5.52vh;
     font-weight: 600;
     font-size: calc((100vw + 2720px) / 160);
     font-family: "Montserrat", sans-serif;
+  }
+  .profile-welcome__form-inputs {
+    margin-top: 3.23vh;
   }
   .profile-notification__text {
     font-weight: 500;
@@ -395,7 +392,7 @@ button {
     width: 627px;
   }
   .profile-welcome img {
-    top: -22.2%;
+    top: -17.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
@@ -439,6 +436,9 @@ button {
   .profile-welcome {
     width: 500px;
     margin-right: 77px;
+  }
+  .profile-welcome__form img {
+    top: -22%;
   }
   .profile-welcome__form-greet {
     font-weight: 600;
