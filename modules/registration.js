@@ -10,7 +10,7 @@ const nameInput = document.getElementById("registration__text_name");
 const surnameInput = document.getElementById("registration__text_surname");
 const bdayInput = document.getElementById("registration__text_bday");
 const emailInput = document.getElementById("registration__text_email");
-const passwordInput = document.getElementById("registration__password");
+const passwordInput = document.getElementById("registration__text_password");
 const submitBtn = document.getElementById("registration__submit");
 
 function registrationAdd() {
@@ -20,15 +20,22 @@ function registrationAdd() {
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  const userData = {
-    name: name,
-    surname: surname,
-    bday: bday,
-    email: email,
-    password: password,
-  };
+  localStorage;
+  let userData = localStorage.getItem("userData");
+  if (!userData) {
+    userData = {};
+  } else {
+    userData = JSON.parse(userData);
+  }
+
+  userData.name = name;
+  userData.surname = surname;
+  userData.bday = bday;
+  userData.email = email;
+  userData.password = password;
 
   localStorage.setItem("userData", JSON.stringify(userData));
+  userData = JSON.parse(localStorage.getItem("userData"));
 }
 
 submitBtn.addEventListener("click", registrationAdd);
