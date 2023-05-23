@@ -37,17 +37,12 @@
   justify-content: space-between;
   align-items: center;
   width: 60%;
-  height: 57.7%;
+  height: 61.7%;
   cursor: pointer;
 }
 .side-bar nav li {
   width: 100%;
   list-style-type: none;
-  transition-duration: 0.6s;
-}
-.side-bar nav li :hover {
-  transition-duration: 0.6s;
-  margin-left: 9%;
 }
 
 .side-bar__link {
@@ -58,6 +53,11 @@
   width: 100%;
   text-decoration: none;
   color: white;
+  transition-duration: 0.6s;
+}
+.side-bar__link :hover {
+  transition-duration: 0.6s;
+  margin-left: 20%;
 }
 .side-bar__link img {
   width: 67%;
@@ -94,8 +94,12 @@
     font-family: "Montserrat", sans-serif;
   }
 }
-.diary-wrapper {
+body {
   background-color: #E4EEEE;
+}
+
+.diary-wrapper {
+  margin: auto;
 }
 
 .diary-content-wrapper {
@@ -184,6 +188,7 @@
   border: none;
   cursor: pointer;
   margin-top: 5%;
+  transition-duration: 0.7s;
 }
 .diary-table-string__add-btn-img {
   max-width: 35px;
@@ -204,6 +209,18 @@
 }
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string__add-btn_focus {
+  transition-duration: 0.7s;
+  transform: rotate(45deg);
+}
+
+.d-test_hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0px;
+  transition: 0.7s opacity, 0.55s visibility;
 }
 
 .diary-water-tracker {
@@ -235,6 +252,9 @@
 .diary-water-tracker__crrnt-res {
   font-size: 25px;
 }
+.diary-water-tracker__crrnt-res-ml {
+  font-size: 25px;
+}
 .diary-water-tracker__top-res {
   font-size: 25px;
   color: rgba(0, 0, 0, 0.6);
@@ -264,10 +284,11 @@
 }
 .diary-water-tracker__label:hover, .diary-water-tracker__label:hover ~ .diary-water-tracker__label {
   opacity: 1;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 .diary-water-tracker__label {
-  opacity: 0.5;
+  opacity: 0.25;
+  transition-duration: 1s;
 }
 .diary-water-tracker__input {
   visibility: hidden;
@@ -275,7 +296,7 @@
 }
 .diary-water-tracker__input:checked ~ .diary-water-tracker__label {
   opacity: 1;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
@@ -301,12 +322,23 @@
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-  .diary-water-tracker__top-res {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .diary-wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (max-width: 1279px) {
   .wrapper {
+    display: none;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .diary-wrapper {
     width: 75vw;
     margin: auto;
   }
@@ -320,7 +352,8 @@
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-  .diary-water-tracker__top-res {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
@@ -332,12 +365,6 @@
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #E4EEEE;
 }
@@ -467,6 +494,7 @@ button {
   align-self: center;
   width: 41%;
   height: 12%;
+  min-height: 44px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -504,7 +532,7 @@ button {
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  width: 100%;
+  width: 92%;
   height: 42.87vh;
   padding: 9.34% 9%;
   background-color: white;
@@ -524,6 +552,7 @@ button {
   bottom: 4vh;
   width: 36%;
   height: 5.37vh;
+  min-height: 44px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -542,6 +571,7 @@ button {
   justify-content: space-between;
   width: 100%;
   height: 11.46vh;
+  min-height: 44px;
   margin-top: 3.23vh;
 }
 
@@ -562,6 +592,7 @@ button {
 .profile-welcome__button-reg {
   width: 44%;
   height: 5.37vh;
+  min-height: 44px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -573,17 +604,7 @@ button {
 
 .profile-welcome__button-reg:hover {
   transition-duration: 1s;
-  background-color: #09b4c7;
-}
-
-.b-container {
-  width: 200px;
-  height: 150px;
-  background-color: #ccc;
-  margin: 0px auto;
-  padding: 10px;
-  font-size: 30px;
-  color: #fff;
+  background-color: #148794;
 }
 
 .profile-notification {
@@ -596,19 +617,77 @@ button {
   top: 0px;
 }
 
-.b-popup .b-popup-content {
-  margin: 40px auto 0px auto;
-  width: 100px;
-  height: 40px;
+.profile-notification__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
+  max-width: 738px;
+  width: 51.25vw;
+  max-height: 268px;
+  height: 26.17vh;
   padding: 10px;
-  background-color: #c5c5c5;
-  border-radius: 5px;
+  margin: 9.76vh auto 0px auto;
+  border: solid 7px #F7C78E;
+  background-color: white;
+  border-radius: 35px;
   box-shadow: 0px 0px 10px #000;
+}
+.profile-notification__content img {
+  width: 8.8%;
+  margin-bottom: 1.19%;
+}
+.profile-notification__content div {
+  text-align: center;
+}
+
+.profile-notification__text {
+  line-height: 180%;
+}
+.profile-notification__text a {
+  color: #089BAB;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.profile-user__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 29vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__kkal {
+  width: 100%;
+  height: 34vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__water {
+  width: 100%;
+  height: 8.7vh;
+  margin-top: 4.3vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__date {
+  width: 100%;
+  height: 1.95vh;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
   .profile-RSK {
     width: 43.54vw;
+  }
+  .profile-welcome img {
+    top: -26.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
@@ -616,11 +695,11 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__recommendations {
-    padding: 4%;
+    padding: 3%;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw - 977px) / 18.5);
+    font-size: calc((100vw - 773px) / 27);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
@@ -629,8 +708,9 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
+    margin-left: 2%;
     font-weight: 400;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
@@ -656,18 +736,24 @@ button {
     width: 34.72vw;
     margin-right: 5.35vw;
   }
-  .profile-welcome__form img {
-    top: -26.2%;
-  }
   .profile-welcome__form-greet {
+    margin-top: 5.52vh;
     font-weight: 600;
     font-size: calc((100vw + 2720px) / 160);
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
 }
 @media screen and (min-width: 1441px) and (max-width: 1920px) {
   .profile-RSK {
     width: 627px;
+  }
+  .profile-welcome img {
+    top: -22.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
@@ -717,10 +803,18 @@ button {
     font-size: 26px;
     font-family: "Montserrat", sans-serif;
   }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+  }
 }
 @media screen and (min-width: 1921px) {
   .profile-RSK {
     width: 32.66vw;
+  }
+  .profile-welcome img {
+    top: -22.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
@@ -771,6 +865,11 @@ button {
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw - 290px) / 62);
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
 }
