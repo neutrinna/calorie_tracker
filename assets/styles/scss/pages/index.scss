@@ -301,11 +301,11 @@ button {
         @include font (400, 23px)
     }
     .profile-RSK__recommendations{
-        padding: 4%
+        padding: 3%
     }
 
     .profile-RSK__kkal {
-        @include font (500, calc((100vw - 977px) / 18.5))
+        @include font (500, calc((100vw - 773px) / 27))
     }
 
     .profile-RSK__macro {
@@ -313,7 +313,8 @@ button {
     }
 
     .profile-RSK__weight {
-        @include font (400, calc((100vw + 1760px) / 160));
+        margin-left: 2%;
+        @include font (400, calc((100vw - 373px) / 53));
     }
 
     .profile-RSK__form-attribute,
@@ -337,10 +338,13 @@ button {
         margin-right: 5.35vw;
     }
     .profile-welcome__form img {
-        top: -22.2%;
+        top: -25.2%;
+        left: 35.26%;
+        width: 30%;
     }
 
     .profile-welcome__form-greet{
+        margin-top: 5.52vh;
         @include font (600, calc((100vw + 2720px) / 160));
     }
 }

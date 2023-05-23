@@ -47,7 +47,7 @@
 }
 .side-bar nav li :hover {
   transition-duration: 0.6s;
-  margin-left: 8%;
+  margin-left: 9%;
 }
 
 .side-bar__link {
@@ -610,9 +610,6 @@ button {
   .profile-RSK {
     width: 43.54vw;
   }
-  .profile-welcome img {
-    top: -26.2%;
-  }
   .profile-RSK__title {
     font-weight: 400;
     font-size: 23px;
@@ -660,7 +657,7 @@ button {
     margin-right: 5.35vw;
   }
   .profile-welcome__form img {
-    top: -22.2%;
+    top: -26.2%;
   }
   .profile-welcome__form-greet {
     font-weight: 600;
@@ -671,9 +668,6 @@ button {
 @media screen and (min-width: 1441px) and (max-width: 1920px) {
   .profile-RSK {
     width: 627px;
-  }
-  .profile-welcome img {
-    top: -22.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
@@ -727,9 +721,6 @@ button {
 @media screen and (min-width: 1921px) {
   .profile-RSK {
     width: 32.66vw;
-  }
-  .profile-welcome img {
-    top: -22.2%;
   }
   .profile-RSK__title {
     font-weight: 400;
