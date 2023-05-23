@@ -2,12 +2,6 @@
 @import '../layouts/fonts.scss';
 // Inna
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color: $basic-color;
 }
@@ -70,7 +64,7 @@ button {
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 6% ;
+    padding: 6%;
     width: 100%;
     height: 25.78%;
 
@@ -241,57 +235,113 @@ button {
     cursor: pointer;
 }
 
-.profile-welcome__form-greet{
+.profile-welcome__form-greet {
     margin-top: 6.52vh;
 }
 
-.profile-welcome__button-reg{
+.profile-welcome__button-reg {
     @include button(44%, 5.37vh);
 
     background-color: $main-color;
     color: white;
 }
 
-.profile-welcome__button-reg:hover{
+.profile-welcome__button-reg:hover {
     transition-duration: 1s;
-    background-color: #09b4c7;
+    background-color: #148794;
 }
 
-.b-container{
-    width:200px;
-    height:150px;
-    background-color: #ccc;
-    margin:0px auto;
-    padding:10px;
-    font-size:30px;
-    color: #fff;
-}
 .profile-notification {
-    position:fixed;
-    width:100%;
-    min-height:100%;
-    
-    background-color: rgba(0,0,0,0.5);
-    overflow:hidden;
+    position: fixed;
+
+    width: 100%;
+    min-height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 
     z-index: 11;
-    top:0px;
-}
-.b-popup .b-popup-content{
-    margin:40px auto 0px auto;
-    width:100px;
-    height: 40px;
-    padding:10px;
-    background-color: #c5c5c5;
-    border-radius:5px;
-    box-shadow: 0px 0px 10px #000;
+    top: 0px;
 }
 
+.profile-notification__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 500px;
+    max-width: 738px;
+    width: 51.25vw;
+    max-height: 268px;
+    height: 26.17vh;
+    padding: 10px;
+    margin: 9.76vh auto 0px auto;
+    border: solid 7px $button-color;
+
+    background-color: white;
+    border-radius: 35px;
+    box-shadow: 0px 0px 10px #000;
+
+    img {
+        width: 8.8%;
+        margin-bottom: 1.19%;
+    }
+
+    div {
+        text-align: center;
+    }
+}
+
+.profile-notification__text {
+    line-height: 180%;
+
+    a {
+        color: $main-color;
+        text-decoration: none;
+        font-weight: 600;
+    }
+}
+
+.profile-user__data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 29vh;
+
+    background-color: white;
+    border-radius: 35px;
+}
+.profile-user__kkal{
+    width: 100%;
+    height: 34vh;
+
+    background-color: white;
+    border-radius: 35px;
+}
+
+.profile-user__water {
+    width: 100%;
+    height: 8.7vh;
+    margin-top: 4.3vh;
+
+    background-color: white;
+    border-radius: 35px;
+}
+
+.profile-user__date{
+    width: 100%;
+    height: 1.95vh;
+}
 
 @media screen and (min-width: $desktop) and (max-width: $default-desktop) {
     .profile-RSK {
         width: 43.54vw;
     }
+
     .profile-welcome img {
         top: -26.2%;
     }
@@ -300,7 +350,8 @@ button {
 
         @include font (400, 23px)
     }
-    .profile-RSK__recommendations{
+
+    .profile-RSK__recommendations {
         padding: 3%
     }
 
@@ -337,15 +388,20 @@ button {
         width: 34.72vw;
         margin-right: 5.35vw;
     }
+
     .profile-welcome__form img {
         top: -25.2%;
         left: 35.26%;
         width: 30%;
     }
 
-    .profile-welcome__form-greet{
+    .profile-welcome__form-greet {
         margin-top: 5.52vh;
         @include font (600, calc((100vw + 2720px) / 160));
+    }
+
+    .profile-notification__text {
+        @include font (500, 18px);
     }
 }
 
@@ -353,6 +409,7 @@ button {
     .profile-RSK {
         width: 627px;
     }
+
     .profile-welcome img {
         top: -22.2%;
     }
@@ -394,8 +451,13 @@ button {
         width: 500px;
         margin-right: 77px;
     }
-    .profile-welcome__form-greet{
+
+    .profile-welcome__form-greet {
         @include font (600, 26px);
+    }
+
+    .profile-notification__text {
+        @include font (500, 25px);
     }
 }
 
@@ -403,6 +465,7 @@ button {
     .profile-RSK {
         width: 32.66vw;
     }
+
     .profile-welcome img {
         top: -22.2%;
     }
@@ -443,11 +506,17 @@ button {
         width: 26vw;
         margin-right: 4vw;
     }
-    .profile-welcome__form img{
+
+    .profile-welcome__form img {
         top: -17.22%;
     }
-    .profile-welcome__form-greet{
+
+    .profile-welcome__form-greet {
         @include font (600, calc((100vw - 290px) / 62));
+    }
+
+    .profile-notification__text {
+        @include font (500, calc((100vw + 12580px) / 580));
     }
 }
 
@@ -472,6 +541,11 @@ button {
     height: auto;
     background-color: $basic-color;
 }
+// .profile-welcome__wripper,
+// .profile-paternity {
+//     display: none;
+// }
+
 
 @media screen and (max-width: ($desktop - 1px)) {
     .wrapper {
@@ -491,5 +565,6 @@ button {
     }
 
 }
+
 // Inna
 // wrapper
