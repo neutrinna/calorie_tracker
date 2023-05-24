@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const commentElem = document.createElement('div');
       commentElem.classList.add('elem');
       commentElem.innerHTML = `
-        <p style="width: 400px">${searchResult}</p>`;
+        <div class="search-result">${searchResult}</div>`;
 
       const grammInput = document.createElement('input');
       grammInput.setAttribute('type', 'number');
@@ -22,16 +22,15 @@ document.addEventListener("DOMContentLoaded", function() {
       grammInput.style.border = '1px solid rgb(10, 155, 171)';
       grammInput.style.height = '40px';
       grammInput.style.borderRadius = '10px';
-      grammInput.style.marginLeft = '35%';
+      grammInput.style.marginLeft = '30%';
       grammInput.style.textAlign = 'center';
 
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
-      checkbox.style.marginRight = '25%';
+      checkbox.style.marginRight = '20%';
       checkbox.style.verticalAlign = 'middle';
       checkbox.style.transform = 'scale(1.5)';
 
-     
 
       fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
         .then(response => response.json())
@@ -65,7 +64,7 @@ function openPopupProductNotFound(message) {
 const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
 const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
 const popUpAddNewProduct = document.querySelector(".diary__newproduct__popup");
-const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel")
+const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
 popUpAddNewProduct.style.display = "none";
 popUpNotFound.style.display = "none";
 
