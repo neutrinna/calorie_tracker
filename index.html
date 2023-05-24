@@ -27,45 +27,56 @@
         <div class="registration__pop-up_body">
           <p class="registration__title">Регистрация</p>
           <p class="registration__title_description">Введите Ваши данные:</p>
-          <form action="" >
+		  <form action="" >
             <input
             id = "registration__text_name"
               class="registration__text registration__text_name"
               type=" text"
               onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
               placeholder="Имя"
+              name = "username"
             />
             <input
               class="registration__text registration__text_surname"
+              id = "registration__text_surname"
               type="text"
               onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
               placeholder="Фамилия"
+              name = "surname"
             />
               <div>
                 <input
                   type="date"
-                  id="bday"
+                  id="registration__text_bday"
                   name="bday"
-                  class="registration__text_bday"
+                  class="registration__text_bday registration__text"
                 />
               </div>
             <input
               class="registration__text registration__text_email"
               type="email"
+              id="registration__text_email"
               placeholder="E-mail"
+              name="email"
             />
+			<label for="password"></label>
             <input
               class="registration__text registration__text_password"
-              type="text"
+              type="password"
+              id="registration__text_password"
               placeholder="Пароль"
+              name="password"
             />
+			<label for="passwordRepeat"></label>
             <input
               class="registration__text"
-              type="text"
+			  id="registration__text_passwordRepeat"
+              type="password"
               placeholder="Повторите пароль"
+			  name="passwordRepeat"
             />
-            <button onclick = "registrationAdd ()">Ввод</button>
-            <p class="registration__pop-up_close" onclick="registrationAdd()">
+            <button id = "registration__submit" onclick = "registrationAdd ()">Ввод</button>
+            <p class="registration__pop-up_close" onclick="closeRegistration()">
               Отмена
             </p>
           </form>
@@ -81,14 +92,14 @@
 				<div class="customization__pop-up_body">
 					<p class = "customization__title">Настройки</p>
 					<p class="customization__title_description">Редактировать информацию</p>
-					<form action="">
-						<input id = "customization__name" class="customization__text" type="text" placeholder="Имя">
-						<input class="customization__text" type="text" placeholder="Фамилия">
-						<input class="customization__text" type="text" placeholder="Дата рождения">
-						<input class="customization__text" type="text" placeholder="E-mail">
-						<input class="customization__text" type="text" placeholder="Пароль">
+					<form id = "profile">
+						<input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя">
+						<input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
+						<input id = "customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+						<input id = "customization__text_email" class="customization__text" type="text" placeholder="E-mail">
+						<input class="customization__text_password customization__text" type="text" placeholder="Пароль">
 						<p class = "customization__title_description">Задать цель, кг:</p>
-						<input type="customization__text" >
+						<input type = "number" placeholder="Введите число от 0 до 100" class="customization__text " max = "100" min = "0" step = "1" >
 						<button >Сохранить</button>
 
 					</form>
@@ -142,7 +153,27 @@
 						</div>
 						<button class="profile-welcome__form-button">Войти</button>
 					</form>
-					<button class="profile-welcome__button-reg">Регистрация</button>
+					<!-- Анжела - кнопка для окна Регистрация -->
+					<button
+					class="profile-welcome__button-reg"
+					id = "registration__pop-up_open"
+					onclick="openRegistration()"
+				  >
+					Регистрация
+				  </button>
+				  <!-- Анжела - кнопка для окна Регистрация -->
+
+				  <!-- Анжела - кнопка для окна Настройки(временно) -->
+				  <button
+				  class="profile-welcome__button-reg"
+				  id = "customization__pop-up_open"
+				  
+				  onclick=openCustomization()
+				  >
+				  Настройки
+				</button>
+	  <!-- Анжела - кнопка для окна Настройки -->
+
 				</div>
 				<div class="profile-paternity font-black">Calorie tracker © 2023</div>
 				<!-- <img src="" alt="шестеренки для выхода в меню настроек"> -->
@@ -317,6 +348,8 @@
 	<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
 	<script src="./modules/profile.js"></script>
 	<script src="./modules/profile_user notification pop-up.js"></script>
+	<script src="./modules/registration.js"></script>
+	<script src="./modules/customization.js"></script>
 </body>
 
 </html>

@@ -23,11 +23,11 @@
   margin: auto;
   width: 80%;
   max-width: 586px;
-  height: 821px;
+  height: 80%;
   background-color: rgb(247, 245, 245);
   border-radius: 35px;
   text-align: center;
-  padding: 80px 15px 48px 15px;
+  padding: 3% 15px 1% 15px;
   position: relative;
 }
 
@@ -36,7 +36,7 @@
   margin: 25px auto 0px auto;
   width: 80%;
   max-width: 410px;
-  height: 44px;
+  height: 4.29vh;
   padding: 7px 17px;
   background-color: rgb(228, 238, 238);
   border-radius: 15px;
@@ -52,8 +52,8 @@
   cursor: pointer;
   display: block;
   width: 220px;
-  height: 55px;
-  margin: 60px auto 0px auto;
+  height: 5.37vh;
+  margin: 5% auto 0px auto;
   border: none;
   color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -61,7 +61,7 @@
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  font-size: 26px;
+  font-size: calc((100vw + 1760px) / 160);
   line-height: 30px;
 }
 
@@ -78,7 +78,7 @@
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  font-size: 26px;
+  font-size: calc((100vw + 2720px) / 160);
   line-height: 15px;
 }
 
@@ -86,15 +86,15 @@
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 300;
-  font-size: 24px;
+  font-size: calc((100vw + 2720px) / 160);
   line-height: 30px;
-  padding-top: 35px;
+  padding-top: 3%;
 }
 
 .customization__text {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
+  font-size: calc((100vw + 1440px) / 160);
   line-height: 30px;
 }/*# sourceMappingURL=customization.css.map */
