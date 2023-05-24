@@ -28,17 +28,12 @@
   justify-content: space-between;
   align-items: center;
   width: 60%;
-  height: 57.7%;
+  height: 61.7%;
   cursor: pointer;
 }
 .side-bar nav li {
   width: 100%;
   list-style-type: none;
-  transition-duration: 0.6s;
-}
-.side-bar nav li :hover {
-  transition-duration: 0.6s;
-  margin-left: 8%;
 }
 
 .side-bar__link {
@@ -49,6 +44,11 @@
   width: 100%;
   text-decoration: none;
   color: white;
+  transition-duration: 0.6s;
+}
+.side-bar__link :hover {
+  transition-duration: 0.6s;
+  margin-left: 20%;
 }
 .side-bar__link img {
   width: 67%;
@@ -81,7 +81,7 @@
   }
   .side-bar__link {
     font-weight: 700;
-    font-size: calc((100vw + 13200px) / 1080);
+    font-size: calc((100vw - 666px) / 89);
     font-family: "Montserrat", sans-serif;
   }
 }/*# sourceMappingURL=side-bar.css.map */

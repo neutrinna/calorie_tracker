@@ -6,12 +6,6 @@
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #E4EEEE;
 }
@@ -59,14 +53,14 @@ button {
   background-color: #089BAB;
   color: white;
   border-radius: 35px;
+  line-height: 140%;
   letter-spacing: 0.03em;
 }
 
 .profile-RSK__recommendations {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
+  justify-content: space-evenly;
   width: 100%;
   height: 25.78%;
   background-color: #E4EEEE;
@@ -86,7 +80,7 @@ button {
   display: flex;
   justify-content: space-between;
   width: 65.55%;
-  line-height: 35px;
+  line-height: 150%;
 }
 .profile-RSK__macro div {
   display: flex;
@@ -96,7 +90,7 @@ button {
 }
 
 .profile-RSK__weight {
-  margin-top: 2%;
+  margin: 2% 0 0 5%;
 }
 .profile-RSK__weight span {
   font-weight: 700;
@@ -128,6 +122,8 @@ button {
 .profile-RSK__form-input {
   width: 60%;
   height: 4.29vh;
+  min-height: 35px;
+  max-height: 90px;
   padding-left: 8px;
   background-color: #E4EEEE;
   border: 1px solid #089BAB;
@@ -140,6 +136,8 @@ button {
   align-self: center;
   width: 41%;
   height: 12%;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -175,29 +173,27 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 42.87vh;
   padding: 9.34% 9%;
   background-color: white;
   border-radius: 35px;
 }
 .profile-welcome__form img {
-  width: 32%;
-  left: 33.6%;
-  top: -18.22%;
-  position: absolute;
+  margin-top: -30%;
+  width: 36%;
   border-radius: 50%;
 }
 
 .profile-welcome__form-button {
   align-self: center;
-  justify-self: flex-end;
-  position: absolute;
-  bottom: 4vh;
+  margin-top: 5%;
   width: 36%;
   height: 5.37vh;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -215,12 +211,15 @@ button {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 11.46vh;
-  margin-top: 2.23vh;
+  height: 10.46vh;
+  min-height: 80px;
+  margin-top: 4.23vh;
 }
 
 .profile-welcome__form-input {
   height: 4.29vh;
+  min-height: 35px;
+  max-height: 90px;
   padding-left: 8px;
   background-color: #E4EEEE;
   border: 1px solid #089BAB;
@@ -230,12 +229,14 @@ button {
 }
 
 .profile-welcome__form-greet {
-  margin-top: 7.52vh;
+  margin-top: 5%;
 }
 
 .profile-welcome__button-reg {
   width: 44%;
   height: 5.37vh;
+  min-height: 44px;
+  max-height: 105px;
   border: 0;
   border-radius: 15px;
   background-color: #F7C78E;
@@ -247,7 +248,82 @@ button {
 
 .profile-welcome__button-reg:hover {
   transition-duration: 1s;
-  background-color: #09b4c7;
+  background-color: #148794;
+}
+
+.profile-notification {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 11;
+  top: 0px;
+}
+
+.profile-notification__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
+  max-width: 738px;
+  width: 51.25vw;
+  max-height: 268px;
+  height: 26.17vh;
+  padding: 10px;
+  margin: 9.76vh auto 0px auto;
+  border: solid 7px #F7C78E;
+  background-color: white;
+  border-radius: 35px;
+  box-shadow: 0px 0px 10px #000;
+}
+.profile-notification__content img {
+  width: 8.8%;
+  margin-bottom: 1.19%;
+}
+.profile-notification__content div {
+  text-align: center;
+}
+
+.profile-notification__text {
+  line-height: 180%;
+}
+.profile-notification__text a {
+  color: #089BAB;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.profile-user__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 29vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__kkal {
+  width: 100%;
+  height: 34vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__water {
+  width: 100%;
+  height: 8.7vh;
+  margin-top: 4.3vh;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.profile-user__date {
+  width: 100%;
+  height: 1.95vh;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
@@ -255,24 +331,23 @@ button {
     width: 43.54vw;
   }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw + 560px) / 80);
+    font-size: calc((100vw - 773px) / 27);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
     font-weight: 700;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
     font-weight: 400;
-    font-size: calc((100vw + 1760px) / 160);
+    font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
@@ -303,13 +378,23 @@ button {
     font-size: calc((100vw + 2720px) / 160);
     font-family: "Montserrat", sans-serif;
   }
+  .profile-welcome__form-inputs {
+    margin-top: 3.23vh;
+  }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+  }
 }
 @media screen and (min-width: 1441px) and (max-width: 1920px) {
   .profile-RSK {
     width: 627px;
   }
+  .profile-welcome img {
+    top: -17.2%;
+  }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
@@ -352,9 +437,17 @@ button {
     width: 500px;
     margin-right: 77px;
   }
+  .profile-welcome__form img {
+    top: -22%;
+  }
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: 26px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: 25px;
     font-family: "Montserrat", sans-serif;
   }
 }
@@ -362,53 +455,63 @@ button {
   .profile-RSK {
     width: 32.66vw;
   }
+  .profile-welcome img {
+    top: -22.2%;
+  }
   .profile-RSK__title {
-    line-height: 30px;
     font-weight: 400;
-    font-size: calc((100vw + 6360px) / 360);
+    font-size: calc((100vw + 45px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__kkal {
     font-weight: 500;
-    font-size: calc((100vw + 11580px) / 540);
+    font-size: calc((100vw + 216px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__macro {
     font-weight: 700;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 210px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__weight {
     font-weight: 400;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 416px) / 75);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
   .profile-paternity {
     font-weight: 300;
-    font-size: calc((100vw + 8880px) / 540);
+    font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
   .profile-welcome__form-input {
     font-weight: 300;
-    font-size: calc((100vw + 7800px) / 540);
+    font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
   .profile-welcome__form-button,
   .profile-welcome__button-reg {
     font-weight: 600;
-    font-size: calc((100vw + 8800px) / 540);
+    font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
   }
   .profile-welcome {
     width: 26vw;
     margin-right: 4vw;
   }
+  .profile-welcome__form img {
+    top: -17.22%;
+  }
   .profile-welcome__form-greet {
     font-weight: 600;
-    font-size: calc((100vw + 12120px) / 540);
+    font-size: calc((100vw - 290px) / 62);
+    font-family: "Montserrat", sans-serif;
+  }
+  .profile-notification__text {
+    font-weight: 500;
+    font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
 }

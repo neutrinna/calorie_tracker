@@ -26,7 +26,7 @@
         align-items: center;
 
         width: 60%;
-        height: 57.7%;
+        height: 61.7%;
 
         cursor: pointer;
 
@@ -34,11 +34,6 @@
             width: 100%;
 
             list-style-type: none;
-            transition-duration: 0.6s;
-            :hover{
-                transition-duration: 0.6s;
-                margin-left: 8%;
-            }
         }
     }
 }
@@ -53,6 +48,13 @@
 
     text-decoration: none;
     color: white;
+
+    transition-duration: 0.6s;
+
+    :hover {
+        transition-duration: 0.6s;
+        margin-left: 20%;
+    }
 
     img {
         width: 67%;
@@ -86,7 +88,6 @@
     }
 
     .side-bar__link {
-        @include font (700, calc((100vw + 13200px) / 1080));
+        @include font (700, calc((100vw - 666px) / 89));
     }
 }
-
