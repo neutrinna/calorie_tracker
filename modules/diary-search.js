@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const commentElem = document.createElement('div');
       commentElem.classList.add('elem');
       commentElem.innerHTML = `
-        <p style="width: 200px">${searchResult}</p>`;
+        <p style="width: 400px">${searchResult}</p>`;
 
       const grammInput = document.createElement('input');
       grammInput.setAttribute('type', 'number');
@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
       grammInput.style.border = '1px solid rgb(10, 155, 171)';
       grammInput.style.height = '40px';
       grammInput.style.borderRadius = '10px';
-      grammInput.style.marginLeft = '20%';
+      grammInput.style.marginLeft = '35%';
       grammInput.style.textAlign = 'center';
 
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
-      checkbox.style.marginRight = '20%';
+      checkbox.style.marginRight = '25%';
       checkbox.style.verticalAlign = 'middle';
       checkbox.style.transform = 'scale(1.5)';
 
@@ -83,6 +83,8 @@ function closeNotFound(event) {
     event.preventDefault();
     popUpNotFound.style.display = "none";
     popUpAddNewProduct.style.display = "none";
+    document.getElementById('diary-search').value = '';
+
 }
 
 function closeNewProduct(event) {
