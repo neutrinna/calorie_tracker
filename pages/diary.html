@@ -10,6 +10,10 @@
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" /> 
 	<link rel="stylesheet" href="../assets/styles/scss/pages/diary.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/addnewproduct.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/productnotfound.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/search.css" />
+
 	
 	<!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
 </head>
@@ -186,27 +190,6 @@
 							<div>Ж</div>
 						</div>
 					</div>
-					
-					<!-- скрытый див №3 выпадающего списка, строки продуктов сюда ---->
-					<div class="accordeon4 accordeon_hidden">
-
-						<div class="diary-table-string ">
-							<div class="diary-table-string__meal-name">
-								Тест
-							</div>
-							<div class="diary-table-string__column-names">
-								<div>Вес, г</div>
-								<div>Ккал</div>
-								<div>У</div>
-								<div>Б</div>
-								<div>Ж</div>
-							</div>
-						</div>
-	
-						</div>
-						<!-------------------------->
-
-					
 
 					<div class="diary-table-string">
 						<div class="diary-table-string__meal-name diary-table-string__meal-name_color_orange">
@@ -226,7 +209,7 @@
 				</div>
 						<!-- синий подвальчик таблицы дневника -->
                 <div class="diary-diet-tracker__bottom-bar"></div>
-            </div>
+           
 
                         <!-- трекер воды -->
             <div class="diary-water-tracker">
@@ -289,15 +272,86 @@
 						</label>
 
 					</form>
-
-			</div>
-        </main>
-		</div>
-
-
+				</div>
+			
+			<!-- Алла -->
+			<!-- Форма поиска продукта по штрих-коду -->
+			<form class ="diary__form__search">     
+				<label for="search"></label>
+				<input type="text" id="diary-search" name="search" placeholder="Поиск еды (введите цифры со штрих-кода)">
+		<div id="search__show__result"></div></form>
 	</div>
+        </main>
+	<!-- Алла -->
+	<!-- Поп ап добавить новый продукт -->
+	<div class="wrapper">
+		<div class="diary__newproduct__popup">
+			<div class="diary__newproduct__popup_container">
+				<div class="newproduct__popup_body">
+					<div class="newproduct__popup_heading">Добавить новый продукт</div>
+					<div class="newproduct__popup_product">
+						<label for="newproduct__popup-brand" class="popup__newproduct-label">Марка продукта:</label>
+						<input type="text" class="popup__newproduct-input" name="product-brand">
+						<label for="newproduct__popup-name" class="popup__newproduct-label">Название продукта:</label>
+						<input class="popup__newproduct-input" type="text" name="product-name">
+						<div class="newproduct__popup_serving">
+							<label for="newproduct__popup-serving-size" class="popup__addnewproduct-label">Размер порции</label>
+							<input class="popup__newproduct-serving-input" type="number" name="serving-size">
+							<select class="popup__newproduct-select" name="serving-unit">
+								<option value="gr">граммы</option>
+								<option value="ml">миллилитры</option>
+							</select>
+						</div>
+					</div>
+					<div class="newproduct__popup_energyvalue">
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-calories" class="popup__new-product-label">Энергетическая ценность в ккал:</label>
+							<input type="number" id="newproduct__popup-energy" name="calories" placeholder="ккал">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-fat" class="popup__new-product-label">Жиры:</label>
+							<input type="number" id="newproduct__popup-fat" name="fat" placeholder="грамм">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-carbs" class="popup__new-product-label">Углеводы:</label>
+							<input type="number" id="newproduct__popup-carbs" name="carbs" placeholder="грамм">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-protein" class="popup__new-product-label">Белки:</label>
+							<input type="number" id="newproduct__popup-protein" name="protein" placeholder="грамм">
+						</div>
+					</div>
+					<button type="submit" id="newproduct__popup-add">Добавить</button>
+					<button type="submit" id="newproduct__popup-cancel">Отмена</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Алла -->
+	<!-- Поп ап продукт не найден -->
+	<div class="wrapper">
+		<div class="diary__productnotfound__popup">
+			<div class="diary__productnotfound__popup_container">
+				<div class="diary__productnotfound__popup_body">
+					<img class="diary__productnotfoune__popup_img" src="../assets/images/diary/diary_cart.png" alt="иконка корзины">
+					<p class="diary__productnotfound__popup_h3">Продукт не найден</p>
+					<p class="diary__productnotfound__popup_h4">Добавить новый продукт?</p>
+					<div class="diary__productnotfound__popup_btns">
+						<button type="submit" id="productnotfound__popup-add">Добавить</button>
+						<button type="submit" id="productnotfound__popup-cancel">Отмена</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+	
 
 	<script src="../modules/diary.js"></script>
+	<script src="../modules/diary-search.js"></script>
+
 </body>
 
 </html>

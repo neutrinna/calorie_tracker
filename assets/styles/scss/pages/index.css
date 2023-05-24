@@ -514,20 +514,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 1440px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
@@ -602,20 +602,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
@@ -660,20 +660,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
