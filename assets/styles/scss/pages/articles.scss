@@ -77,7 +77,7 @@
 
     &__text {
         letter-spacing: 0.7px;
-        margin: 1.5vh 0 2vh 0;
+        margin: 1.5vh 0 2.5vh 0;
     }
 
     &__link {
@@ -96,6 +96,7 @@
         color: rgba(0, 0, 0, 0.7);
         text-align: center;
         margin-bottom: 4vh;
+        margin-left: 10%;
 }
 
 // TOPICS 
@@ -118,7 +119,7 @@
     &__subtitle {
         letter-spacing: 0.8px;
         text-align: center;
-        margin: 2vh 0;
+        margin: 3vh 0;
     }
 
     &__text {
@@ -126,6 +127,7 @@
         letter-spacing: 0.7px;
         line-height: 4vh;
         text-align: justify;
+        margin: 2vh 0;
 
         &_bold {
             font-weight: 700;
@@ -159,6 +161,15 @@
     &__img-back {
         width: 30%;
     }
+
+    &__list {
+        margin-left: 5vw;
+    }
+
+    &__top {
+        margin: 3vh 0;
+
+    }
 }
 
 .articles-section__article,
@@ -189,15 +200,15 @@
     }
 
     .topic__text {
-        @include font (300, calc(( 100vw - 0px ) / 80))
+        @include font (300, calc(( 100vw - 160px ) / 80))
     }
 
     .topic__title {
-        @include font (600, calc(( 100vw - 320px ) / 40))
+        @include font (600, calc(( 100vw - 2880px ) / -80))
     }
 
     .topic__subtitle {
-        @include font (600, calc(( 100vw - 533px ) / 53))
+        @include font (600, 14px)
     }
 
     .topic__back {
@@ -225,11 +236,11 @@
     }
 
     .topic__title {
-        @include font (600, calc(( 100vw + 5265px ) / 239.5))
+        @include font (600, calc(( 100vw - 4px ) / 79.8))
     }
 
     .topic__subtitle {
-        @include font (600, calc(( 100vw + 1273px ) / 159.6))
+        @include font (600, calc(( 100vw + 1912px ) / 239.5))
     }
 
     .topic__back {

@@ -70,9 +70,9 @@ function countNutrients() {
 // рассчёт эффективного веса
 
 function countWeight() {
-  optimalWeight.innerHTML = `${
+  optimalWeight.innerHTML = `${Math.round(
     +growth.value - 100 - (growth.value - 150) / 2
-  } кг`;
+  )} кг`;
 }
 
 button.addEventListener("click", function () {

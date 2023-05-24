@@ -63,7 +63,7 @@
 }
 .articles-topics__text {
   letter-spacing: 0.7px;
-  margin: 1.5vh 0 2vh 0;
+  margin: 1.5vh 0 2.5vh 0;
 }
 .articles-topics__link {
   text-decoration: none;
@@ -79,6 +79,7 @@
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
   margin-bottom: 4vh;
+  margin-left: 10%;
 }
 
 .topic-wrapper {
@@ -97,13 +98,14 @@
 .topic__subtitle {
   letter-spacing: 0.8px;
   text-align: center;
-  margin: 2vh 0;
+  margin: 3vh 0;
 }
 .topic__text {
   color: rgba(0, 0, 0, 0.6);
   letter-spacing: 0.7px;
   line-height: 4vh;
   text-align: justify;
+  margin: 2vh 0;
 }
 .topic__text_bold {
   font-weight: 700;
@@ -131,6 +133,12 @@
 }
 .topic__img-back {
   width: 30%;
+}
+.topic__list {
+  margin-left: 5vw;
+}
+.topic__top {
+  margin: 3vh 0;
 }
 
 .articles-section__article,
@@ -163,17 +171,17 @@
   }
   .topic__text {
     font-weight: 300;
-    font-size: calc((100vw - 0px) / 80);
+    font-size: calc((100vw - 160px) / 80);
     font-family: "Montserrat", sans-serif;
   }
   .topic__title {
     font-weight: 600;
-    font-size: calc((100vw - 320px) / 40);
+    font-size: calc((100vw - 2880px) / -80);
     font-family: "Montserrat", sans-serif;
   }
   .topic__subtitle {
     font-weight: 600;
-    font-size: calc((100vw - 533px) / 53);
+    font-size: 14px;
     font-family: "Montserrat", sans-serif;
   }
   .topic__back {
@@ -206,12 +214,12 @@
   }
   .topic__title {
     font-weight: 600;
-    font-size: calc((100vw + 5265px) / 239.5);
+    font-size: calc((100vw - 4px) / 79.8);
     font-family: "Montserrat", sans-serif;
   }
   .topic__subtitle {
     font-weight: 600;
-    font-size: calc((100vw + 1273px) / 159.6);
+    font-size: calc((100vw + 1912px) / 239.5);
     font-family: "Montserrat", sans-serif;
   }
   .topic__back {

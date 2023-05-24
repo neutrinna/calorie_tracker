@@ -1,5 +1,9 @@
-.diary-wrapper {
+body {
   background-color: #E4EEEE;
+}
+
+.diary-wrapper {
+  margin: auto;
 }
 
 .diary-content-wrapper {
@@ -88,6 +92,7 @@
   border: none;
   cursor: pointer;
   margin-top: 5%;
+  transition-duration: 0.7s;
 }
 .diary-table-string__add-btn-img {
   max-width: 35px;
@@ -108,6 +113,18 @@
 }
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string__add-btn_focus {
+  transition-duration: 0.7s;
+  transform: rotate(45deg);
+}
+
+.d-test_hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0px;
+  transition: 0.7s opacity, 0.55s visibility;
 }
 
 .diary-water-tracker {
@@ -139,6 +156,9 @@
 .diary-water-tracker__crrnt-res {
   font-size: 25px;
 }
+.diary-water-tracker__crrnt-res-ml {
+  font-size: 25px;
+}
 .diary-water-tracker__top-res {
   font-size: 25px;
   color: rgba(0, 0, 0, 0.6);
@@ -168,10 +188,11 @@
 }
 .diary-water-tracker__label:hover, .diary-water-tracker__label:hover ~ .diary-water-tracker__label {
   opacity: 1;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 .diary-water-tracker__label {
-  opacity: 0.5;
+  opacity: 0.25;
+  transition-duration: 1s;
 }
 .diary-water-tracker__input {
   visibility: hidden;
@@ -179,7 +200,7 @@
 }
 .diary-water-tracker__input:checked ~ .diary-water-tracker__label {
   opacity: 1;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
@@ -205,12 +226,23 @@
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-  .diary-water-tracker__top-res {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .diary-wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (max-width: 1279px) {
   .wrapper {
+    display: none;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .diary-wrapper {
     width: 75vw;
     margin: auto;
   }
@@ -224,7 +256,8 @@
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-  .diary-water-tracker__top-res {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }/*# sourceMappingURL=diary.css.map */
