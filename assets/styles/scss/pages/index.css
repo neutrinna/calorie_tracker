@@ -332,10 +332,80 @@ button {
 }
 
 .profile-user__kkal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 34vh;
+  padding: 2.44vh 6.35% 2.44vh 7.29%;
   background-color: white;
   border-radius: 35px;
+}
+
+.profile-user__kkal-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-user__kkal-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.profile-user__kkal-name {
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.profile-user__kkal-amount {
+  font-weight: 400;
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
+}
+
+.profile-user__doughnut-chart {
+  height: 17.28vh;
+}
+
+.profile-user__macro {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 8.83vh;
+  margin-top: 2.92vh;
+}
+
+.profile-user__macro-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+.profile-user__macro-block h3 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.profile-user__macro-amount {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.profile-user__macro-scale {
+  width: 100%;
+  height: 1.46vh;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 5px;
 }
 
 .profile-user__water {
@@ -485,9 +555,10 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-user__data-age {
-    font-size: calc((100vw - 160px) / 80);
+    font-size: calc((100vw + 160px) / 80);
   }
-  .profile-user__date h2 {
+  .profile-user__date h2,
+  .profile-user__kkal-amount {
     font-size: calc((100vw - 106px) / 53);
   }
   .profile-user__date-value {
@@ -495,6 +566,15 @@ button {
   }
   .profile-user__states-block {
     font-size: 20px;
+  }
+  .profile-user__kkal-name {
+    font-size: calc((100vw + 160px) / 80);
+  }
+  .profile-user__macro-block h3 {
+    font-size: calc((100vw - 373px) / 53);
+  }
+  .profile-user__macro-amount {
+    font-size: calc((100vw + 1440px) / 160);
   }
 }
 @media screen and (min-width: 1441px) and (max-width: 1920px) {

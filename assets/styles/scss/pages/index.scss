@@ -190,7 +190,8 @@ button {
     background-color: white;
     border-radius: 35px;
 }
-.profile-welcome__img{
+
+.profile-welcome__img {
     position: absolute;
     top: -7.81vh;
 
@@ -236,7 +237,7 @@ button {
     cursor: pointer;
 }
 
-.profile-welcome__form-greet{
+.profile-welcome__form-greet {
     margin-top: 12%
 }
 
@@ -304,6 +305,7 @@ button {
         font-weight: 600;
     }
 }
+
 .profile-user__settings {
     align-self: flex-end;
 
@@ -312,6 +314,7 @@ button {
 
     cursor: pointer;
 }
+
 .profile-user {
     position: relative;
     display: flex;
@@ -342,12 +345,77 @@ button {
         height: 15.62vh;
     }
 }
-.profile-user__kkal{
+
+.profile-user__kkal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
     width: 100%;
     height: 34vh;
+    padding: 2.44vh 6.35% 2.44vh 7.29%;
 
     background-color: white;
     border-radius: 35px;
+}
+
+.profile-user__kkal-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.profile-user__kkal-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 50%;
+}
+
+.profile-user__kkal-name {
+    @include font (400, 20px)
+}
+.profile-user__kkal-amount{
+    @include figure (400, 25px)
+}
+
+.profile-user__doughnut-chart {
+    height: 17.28vh;
+}
+.profile-user__macro {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 8.83vh;
+    margin-top: 2.92vh;
+}
+.profile-user__macro-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 30%; 
+
+    h3 {
+        color: $text-color;
+        @include font (400, 20px);
+    }
+}
+.profile-user__macro-amount {
+    color: $text-color;
+    @include figure (400, 18px);
+}
+.profile-user__macro-scale{
+    width: 100%;
+    height: 1.46vh;
+
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 5px;
 }
 
 .profile-user__water {
@@ -359,7 +427,7 @@ button {
     border-radius: 35px;
 }
 
-.profile-user__date{
+.profile-user__date {
     display: flex;
     justify-content: space-between;
 
@@ -367,7 +435,7 @@ button {
     height: 3.95vh;
     padding: 0 3% 0 3%;
 
-    h2 {    
+    h2 {
         @include font (700, 25px);
     }
 }
@@ -375,6 +443,7 @@ button {
 .profile-user__date-value {
     @include font (400, 22px)
 }
+
 .profile-user__date-devider {
     display: flex;
     flex-direction: column;
@@ -390,7 +459,7 @@ button {
     width: 100%;
 }
 
-.profile-user__states{
+.profile-user__states {
     display: flex;
     justify-content: space-between;
 
@@ -399,9 +468,10 @@ button {
     height: 5.76vh;
 }
 
-.profile-user__data-name{
+.profile-user__data-name {
     @include font (600, 26px);
 }
+
 .profile-user__data-age {
     margin-top: 1vh;
 
@@ -423,7 +493,7 @@ button {
     color: $main-color;
 }
 
-.profile-user__states-value{
+.profile-user__states-value {
     font-family: $figure-font;
 }
 
@@ -472,6 +542,7 @@ button {
     .profile-welcome__form-greet {
         @include font (600, calc((100vw + 2720px) / 160));
     }
+
     .profile-welcome__form-inputs {
         margin-top: 3.23vh;
     }
@@ -479,20 +550,35 @@ button {
     .profile-notification__text {
         @include font (500, 18px);
     }
+
     .profile-user__data-name {
         @include font (600, calc((100vw + 640px) / 80));
     }
+
     .profile-user__data-age {
-        font-size:  calc((100vw - 160px) / 80);
+        font-size: calc((100vw + 160px) / 80);
     }
-    .profile-user__date h2 {
+
+    .profile-user__date h2,
+    .profile-user__kkal-amount {
         font-size: calc((100vw - 106px) / 53);
     }
-    .profile-user__date-value{
+
+    .profile-user__date-value {
         font-size: calc((100vw - 266px) / 53);
     }
+
     .profile-user__states-block {
         font-size: 20px;
+    }
+    .profile-user__kkal-name {
+        font-size: calc((100vw + 160px) / 80);
+    }
+    .profile-user__macro-block h3 {
+        font-size: calc((100vw - 373px) / 53);
+    }
+    .profile-user__macro-amount {
+        font-size: calc((100vw + 1440px) / 160);
     }
 }
 
@@ -620,10 +706,12 @@ button {
     height: auto;
     background-color: $basic-color;
 }
+
 .profile-welcome__wripper,
 .profile-paternity {
     display: none;
 }
+
 // .profile-user,
 // .profile-user__settings{
 //     display: none;
