@@ -1,0 +1,31 @@
+.diary__form__search {
+  max-width: 1101px;
+  height: 35px;
+  border-radius: 35px;
+}
+
+#diary-search {
+  width: 100%;
+  height: 50px;
+  border-radius: 35px;
+  background: url(/assets/images/diary/diary-search.png) no-repeat 3px 3px;
+  background-color: rgb(246, 199, 142);
+  border: 0cm;
+  padding-left: 6%;
+}
+
+.elem {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  height: 50px;
+  border: 1px solid rgb(10, 155, 171);
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 10px;
+  justify-content: space-between;
+}
+
+.search-result {
+  width: 50%;
+}/*# sourceMappingURL=search.css.map */
