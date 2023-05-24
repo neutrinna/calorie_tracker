@@ -380,11 +380,12 @@ button {
     @include font (400, 20px)
 }
 .profile-user__kkal-amount{
+    margin-bottom: 2%;
     @include figure (400, 25px)
 }
 
 .profile-user__doughnut-chart {
-    height: 17.28vh;
+    height: 18.28vh;
 }
 .profile-user__macro {
     display: flex;
@@ -392,7 +393,7 @@ button {
 
     width: 100%;
     height: 8.83vh;
-    margin-top: 2.92vh;
+    margin-top: 1vh;
 }
 .profile-user__macro-block {
     display: flex;
@@ -417,14 +418,63 @@ button {
     background-color: rgba(0, 0, 0, 0.185);
     border-radius: 5px;
 }
+.profile-user__macro-scale-line {
+    height: 100%;
+    border-radius: 5px;
+}
+.profile-user__macro-scale-line_carbs {
+    width: 55%;
+
+    background-color: rgba(0, 195, 255, 0.6);
+}
+.profile-user__macro-scale-line_protein {
+    width: 55%;
+
+    background-color: rgba(255, 0, 21, 0.6);
+}
+.profile-user__macro-scale-line_fat {
+    width: 55%;
+
+    background-color: rgba(255, 217, 0, 0.6);
+}
+
+.profile-user__water-img{
+    height: 4.88vh;
+    margin-left: 5%;
+}
 
 .profile-user__water {
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
     height: 8.7vh;
     margin-top: 4.3vh;
 
     background-color: white;
     border-radius: 35px;
+}
+
+.profile-user__water-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 41.5%;
+    height: 100%;
+
+    @include font (400, 23px);
+}
+.profile-user__water-amount {
+    display: flex;
+    align-items: center;
+
+    margin-right: 10%;
+
+    @include font (400, 25px);
+    // span {
+    //     margin-left: 1%;
+    // }
 }
 
 .profile-user__date {
@@ -579,6 +629,12 @@ button {
     }
     .profile-user__macro-amount {
         font-size: calc((100vw + 1440px) / 160);
+    }
+    .profile-user__water-tracker {
+        font-size: calc((100vw + 400px) / 80);
+    }
+    .profile-user__water-amount {
+        font-size: calc((100vw - 106px) / 53);
     }
 }
 

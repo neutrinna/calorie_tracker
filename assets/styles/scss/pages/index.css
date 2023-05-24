@@ -364,13 +364,14 @@ button {
 }
 
 .profile-user__kkal-amount {
+  margin-bottom: 2%;
   font-weight: 400;
   font-size: 25px;
   font-family: "Inter", sans-serif;
 }
 
 .profile-user__doughnut-chart {
-  height: 17.28vh;
+  height: 18.28vh;
 }
 
 .profile-user__macro {
@@ -378,7 +379,7 @@ button {
   justify-content: space-between;
   width: 100%;
   height: 8.83vh;
-  margin-top: 2.92vh;
+  margin-top: 1vh;
 }
 
 .profile-user__macro-block {
@@ -408,12 +409,59 @@ button {
   border-radius: 5px;
 }
 
+.profile-user__macro-scale-line {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.profile-user__macro-scale-line_carbs {
+  width: 55%;
+  background-color: rgba(0, 195, 255, 0.6);
+}
+
+.profile-user__macro-scale-line_protein {
+  width: 55%;
+  background-color: rgba(255, 0, 21, 0.6);
+}
+
+.profile-user__macro-scale-line_fat {
+  width: 55%;
+  background-color: rgba(255, 217, 0, 0.6);
+}
+
+.profile-user__water-img {
+  height: 4.88vh;
+  margin-left: 5%;
+}
+
 .profile-user__water {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 8.7vh;
   margin-top: 4.3vh;
   background-color: white;
   border-radius: 35px;
+}
+
+.profile-user__water-tracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 41.5%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 23px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.profile-user__water-amount {
+  display: flex;
+  align-items: center;
+  margin-right: 10%;
+  font-weight: 400;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .profile-user__date {
@@ -514,20 +562,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 1440px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
@@ -576,6 +624,12 @@ button {
   .profile-user__macro-amount {
     font-size: calc((100vw + 1440px) / 160);
   }
+  .profile-user__water-tracker {
+    font-size: calc((100vw + 400px) / 80);
+  }
+  .profile-user__water-amount {
+    font-size: calc((100vw - 106px) / 53);
+  }
 }
 @media screen and (min-width: 1441px) and (max-width: 1920px) {
   .profile-RSK {
@@ -602,20 +656,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
@@ -660,20 +714,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;

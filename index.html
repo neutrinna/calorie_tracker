@@ -104,38 +104,42 @@
 									<div class="profile-user__kkal-amount">240</div>
 								</div>
 							</div>
-							<div class="profile-user__doughnut-chart"><canvas id="doughnut"></canvas>
+							<div class="profile-user__doughnut-chart">
+								<canvas id="doughnut"></canvas>
 							</div>
 						</div>
 						<div class="profile-user__macro">
 							<div class="profile-user__macro-block">
 								<h3>Углеводы</h3>
 								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line"></div>
+									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_carbs">
+									</div>
 								</div>
 								<div class="profile-user__macro-amount">142.6 г</div>
 							</div>
 							<div class="profile-user__macro-block">
 								<h3>Белки</h3>
 								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line"></div>
+									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_protein">
+									</div>
 								</div>
 								<div class="profile-user__macro-amount">94.4 г</div>
 							</div>
-							<div  class="profile-user__macro-block">
+							<div class="profile-user__macro-block">
 								<h3>Жиры</h3>
 								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line"></div>
+									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_fat">
+									</div>
 								</div>
 								<div class="profile-user__macro-amount">47.1 г</div>
 							</div>
 						</div>
 					</div>
 					<div class="profile-user__water">
-						<div>
-							<img src="./assets/images/index/water-droplet.svg" alt="Рисунок капли">Трекер воды
-						</div>
-						<div>1250 ml <span>/ 2000 ml</span></div>
+						<div class="profile-user__water-tracker">
+						<img class="profile-user__water-img" src="./assets/images/index/water-droplet.svg"
+							alt="Рисунок капли">Трекер воды</div>
+						<div class="profile-user__water-amount">1250 ml  <span class="font-black"> / 2000 ml</span></div>
 					</div>
 				</div>
 			</div>
@@ -233,5 +237,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<script src="./modules/profile.js"></script>
+	<script src="./modules/profile_user notification pop-up.js"></script>
 </body>
+
 </html>
