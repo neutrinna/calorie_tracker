@@ -183,25 +183,25 @@ button {
     justify-content: center;
     position: relative;
 
-    width: 90%;
+    width: 85%;
     height: 42.87vh;
     padding: 9.34% 9%;
 
     background-color: white;
     border-radius: 35px;
+}
+.profile-welcome__img{
+    position: absolute;
+    top: -7.81vh;
 
-    img {
-        margin-top: -30%;
+    height: 16.63vh;
 
-        width: 36%;
-
-        border-radius: 50%;
-    }
+    border-radius: 50%;
 }
 
 .profile-welcome__form-button {
     align-self: center;
-    margin-top: 5%;
+    margin-top: 7%;
 
     @include button(36%, 5.37vh);
 }
@@ -237,7 +237,7 @@ button {
 }
 
 .profile-welcome__form-greet{
-    margin-top: 5%
+    margin-top: 12%
 }
 
 
@@ -304,8 +304,26 @@ button {
         font-weight: 600;
     }
 }
+.profile-user__settings {
+    align-self: flex-end;
+
+    margin-top: 3.51vh;
+    height: 5.37vh;
+
+    cursor: pointer;
+}
+.profile-user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100vh;
+}
 
 .profile-user__data {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -313,9 +331,16 @@ button {
 
     width: 100%;
     height: 29vh;
+    padding: 3.9vh;
 
     background-color: white;
     border-radius: 35px;
+
+    img {
+        position: absolute;
+        top: -7.81vh;
+        height: 15.62vh;
+    }
 }
 .profile-user__kkal{
     width: 100%;
@@ -335,8 +360,71 @@ button {
 }
 
 .profile-user__date{
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
-    height: 1.95vh;
+    height: 3.95vh;
+    padding: 0 3% 0 3%;
+
+    h2 {    
+        @include font (700, 25px);
+    }
+}
+
+.profile-user__date-value {
+    @include font (400, 22px)
+}
+.profile-user__date-devider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    width: 35%;
+}
+
+.profile-user__date-line {
+    border-bottom: 1px solid $text-color;
+    height: 50%;
+    width: 100%;
+}
+
+.profile-user__states{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 2vh;
+    width: 65.8%;
+    height: 5.76vh;
+}
+
+.profile-user__data-name{
+    @include font (600, 26px);
+}
+.profile-user__data-age {
+    margin-top: 1vh;
+
+    @include font (400, 16px);
+}
+
+.profile-user__states-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    text-align: center;
+
+    @include font (400, 25px);
+}
+
+.profile-user__states-name {
+    color: $main-color;
+}
+
+.profile-user__states-value{
+    font-family: $figure-font;
 }
 
 @media screen and (min-width: $desktop) and (max-width: $default-desktop) {
@@ -391,15 +479,26 @@ button {
     .profile-notification__text {
         @include font (500, 18px);
     }
+    .profile-user__data-name {
+        @include font (600, calc((100vw + 640px) / 80));
+    }
+    .profile-user__data-age {
+        font-size:  calc((100vw - 160px) / 80);
+    }
+    .profile-user__date h2 {
+        font-size: calc((100vw - 106px) / 53);
+    }
+    .profile-user__date-value{
+        font-size: calc((100vw - 266px) / 53);
+    }
+    .profile-user__states-block {
+        font-size: 20px;
+    }
 }
 
 @media screen and (min-width: ($default-desktop + 1px)) and (max-width: $large-desktop) {
     .profile-RSK {
         width: 627px;
-    }
-
-    .profile-welcome img {
-        top: -17.2%;
     }
 
     .profile-RSK__title {
@@ -439,9 +538,6 @@ button {
         width: 500px;
         margin-right: 77px;
     }
-    .profile-welcome__form img {
-        top: -22%
-    }
 
     .profile-welcome__form-greet {
         @include font (600, 26px);
@@ -455,10 +551,6 @@ button {
 @media screen and (min-width: ($large-desktop + 1px)) {
     .profile-RSK {
         width: 32.66vw;
-    }
-
-    .profile-welcome img {
-        top: -22.2%;
     }
 
     .profile-RSK__title {
@@ -498,10 +590,6 @@ button {
         margin-right: 4vw;
     }
 
-    .profile-welcome__form img {
-        top: -17.22%;
-    }
-
     .profile-welcome__form-greet {
         @include font (600, calc((100vw - 290px) / 62));
     }
@@ -532,8 +620,12 @@ button {
     height: auto;
     background-color: $basic-color;
 }
-// .profile-welcome__wripper,
-// .profile-paternity {
+.profile-welcome__wripper,
+.profile-paternity {
+    display: none;
+}
+// .profile-user,
+// .profile-user__settings{
 //     display: none;
 // }
 

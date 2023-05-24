@@ -45,7 +45,7 @@
 			<div class="profile-welcome">
 				<div class="profile-welcome__wripper">
 					<form action="#" class="profile-welcome__form">
-						<img src="./assets/images/index/circle.svg" alt="логотип приложения в виде графика-доната">
+						<img class="profile-welcome__img" src="./assets/images/index/circle.svg" alt="логотип приложения в виде графика-доната">
 						<p class="profile-welcome__form-greet font-black">Добро пожаловать!</p>
 						<div class="profile-welcome__form-inputs">
 							<input type="text" placeholder="Логин" class="profile-welcome__form-input">
@@ -56,31 +56,35 @@
 					<button class="profile-welcome__button-reg">Регистрация</button>
 				</div>
 				<div class="profile-paternity font-black">Calorie tracker © 2023</div>
-				<!-- <img src="" alt="шестеренки для выхода в меню настроек"> -->
-				<!-- <div class="profile-user">
+
+				<div class="profile-user">
+					<img class="profile-user__settings" src="./assets/images/index/settings.svg" alt="шестеренки для выхода в меню настроек">
 					<div class="profile-user__data">
-						<img src="" alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
-						<div>Кристина Иванова</div>
-						<div>26 лет</div>
-						<div>
-							<div>
-								<div>Вес</div>
-								<div>60 кг</div>
+						<img src="./assets/images/index/avatar.svg" alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
+						<div class="profile-user__data-name">Кристина Иванова</div>
+						<div class="profile-user__data-age font-black">26 лет</div>
+						<div class="profile-user__states">
+							<div class="profile-user__states-block">
+								<div class="profile-user__states-name">Вес</div>
+								<div class="profile-user__states-value font-black">60 кг</div>
 							</div>
-							<div>
-								<div>Рост</div>
-								<div>166 см</div>
+							<div class="profile-user__states-block">
+								<div class="profile-user__states-name">Рост</div>
+								<div class="profile-user__states-value font-black">166 см</div>
 							</div>
-							<div>
-								<div>Цель</div>
-								<div>55 кг</div>
+							<div class="profile-user__states-block">
+								<div class="profile-user__states-name">Цель</div>
+								<div class="profile-user__states-value font-orange">55 кг</div>
 							</div>
 						</div>
 					</div>
 					<div class="profile-user__date" >
-						<div>Сводка</div>
-						<div></div>
-						<div>14 мая 2023</div>
+						<h2 class="font-blue">Сводка</h2>
+						<div class="profile-user__date-devider">
+							<div class="profile-user__date-line"></div>
+							<div></div>
+						</div>
+						<div class="profile-user__date-value font-black">14 мая 2023</div>
 					</div>
 					<div class="profile-user__kkal">
 						<div>
@@ -114,11 +118,11 @@
 					</div>
 					<div class="profile-user__water" >
 						<div>
-							<img src="" alt="Рисунок капли">Трекер воды
+							<img src="./assets/images/index/water-droplet.svg" alt="Рисунок капли">Трекер воды
 						</div>
 						<div>1250 ml <span>/ 2000 ml</span></div>
 					</div>
-				</div> -->
+				</div>
 			</div>
 			<section class="profile-RSK">
 				<h1 class="profile-RSK__title">Вычислить рекомендованную <br> суточную калорийность</h1>
