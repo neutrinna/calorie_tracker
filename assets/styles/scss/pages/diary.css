@@ -92,11 +92,7 @@ body {
   border: none;
   cursor: pointer;
   margin-top: 5%;
-  transition-duration: 0.1s;
-}
-.diary-table-string__add-btn :hover {
-  transition-duration: 0.1s;
-  margin-left: 6%;
+  transition-duration: 0.7s;
 }
 .diary-table-string__add-btn-img {
   max-width: 35px;
@@ -117,6 +113,18 @@ body {
 }
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string__add-btn_focus {
+  transition-duration: 0.7s;
+  transform: rotate(45deg);
+}
+
+.d-test_hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0px;
+  transition: 0.7s opacity, 0.55s visibility;
 }
 
 .diary-water-tracker {

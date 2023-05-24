@@ -10,6 +10,10 @@
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" /> 
 	<link rel="stylesheet" href="../assets/styles/scss/pages/diary.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/addnewproduct.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/productnotfound.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/pages/search.css" />
+
 	
 	<!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
 </head>
@@ -59,8 +63,8 @@
 					<div class="diary-table-string">
 						<div class="diary-table-string__meal-name">
 							Завтрак
-							<button class="diary-table-string__add-btn">
-							<img class="diary-table-string__add-btn-img" src="./../assets/diaryimg/diary-add-button.svg" alt="плюс"></button>
+							<button class="diary-table-string__add-btn" id="button-breakfast">
+							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
 						</div>
 						<div class="diary-table-string__column-names">
 							<div>Вес, г</div>
@@ -70,12 +74,13 @@
 							<div>Ж</div>
 						</div>
 					</div>
+					<!-- тест скрытого дива выпадающего списка ---->
 
-					<div class="diary-table-string diary-table-string_color_blue">
+					<div class="d-test d-test_hidden">
+
+					<div class="diary-table-string ">
 						<div class="diary-table-string__meal-name">
-							Обед
-							<button class="diary-table-string__add-btn">
-							<img class="diary-table-string__add-btn-img" src="./../assets/diaryimg/diary-add-button.svg" alt="плюс"></button>
+							Тест
 						</div>
 						<div class="diary-table-string__column-names">
 							<div>Вес, г</div>
@@ -88,9 +93,87 @@
 
 					<div class="diary-table-string">
 						<div class="diary-table-string__meal-name">
+							Тест
+						</div>
+						<div class="diary-table-string__column-names">
+							<div>160</div>
+							<div>120</div>
+							<div>3</div>
+							<div>2</div>
+							<div>5</div>
+						</div>
+					</div>
+
+					<div class="diary-table-string">
+						<div class="diary-table-string__meal-name">
+							Тест
+						</div>
+						<div class="diary-table-string__column-names">
+							<div>160</div>
+							<div>120</div>
+							<div>3</div>
+							<div>2</div>
+							<div>5</div>
+						</div>
+					</div>
+
+
+				</div>
+					<!-------------------------->
+
+					<div class="diary-table-string diary-table-string_color_blue">
+						<div class="diary-table-string__meal-name">
+							Обед
+							<button class="diary-table-string__add-btn" id="button-lunch">
+							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
+						</div>
+						<div class="diary-table-string__column-names">
+							<div>Вес, г</div>
+							<div>Ккал</div>
+							<div>У</div>
+							<div>Б</div>
+							<div>Ж</div>
+						</div>
+					</div>
+
+					<!-- тест скрытого дива выпадающего списка 2 ---->
+
+					<div class="d-test2 d-test_hidden">
+
+						<div class="diary-table-string ">
+							<div class="diary-table-string__meal-name">
+								Тест
+							</div>
+							<div class="diary-table-string__column-names">
+								<div>160</div>
+								<div>120</div>
+								<div>3</div>
+								<div>2</div>
+								<div>5</div>
+							</div>
+						</div>
+	
+						<div class="diary-table-string">
+							<div class="diary-table-string__meal-name">
+								Тест
+							</div>
+							<div class="diary-table-string__column-names">
+								<div>450</div>
+								<div>124</div>
+								<div>8</div>
+								<div>6</div>
+								<div>7</div>
+							</div>
+						</div>
+	
+					</div>
+						<!-------------------------->
+
+					<div class="diary-table-string">
+						<div class="diary-table-string__meal-name">
 							Ужин
 							<button class="diary-table-string__add-btn">
-							<img class="diary-table-string__add-btn-img" src="./../assets/diaryimg/diary-add-button.svg" alt="плюс"></button>
+							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
 						</div>
 						<div class="diary-table-string__column-names">
 							<div>Вес, г</div>
@@ -105,7 +188,7 @@
 						<div class="diary-table-string__meal-name">
 							Перекус
 							<button class="diary-table-string__add-btn">
-							<img class="diary-table-string__add-btn-img" src="./../assets/diaryimg/diary-add-button.svg" alt="плюс"></button>
+							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
 						</div>
 						<div class="diary-table-string__column-names">
 							<div>Вес, г</div>
@@ -128,7 +211,6 @@
 							<div>Ж</div>
 						</div>
 					</div>
-					
 				</div>
 						<!-- синий подвальчик таблицы дневника -->
                 <div class="diary-diet-tracker__bottom-bar"></div>
@@ -138,7 +220,7 @@
             <div class="diary-water-tracker">
 				<div class="diary-water-tracker__top-bar">
 					<div class="diary-water-tracker__top-bar-name">
-						<img class="diary-water-tracker__img-water-drop" src="./../assets/diaryimg/diary-water-droplet 1.png" alt="капля воды">
+						<img class="diary-water-tracker__img-water-drop" src="./../assets/images/diary/diary-water-droplet 1.png" alt="капля воды">
 						<div>Трекер воды</div>
 					</div>
 					<div>
@@ -151,59 +233,129 @@
 					
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="9" id="id1"/>
 						<label for="id1" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="8" id="id2"/>
 						<label for="id2" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="7" id="id3"/>
 						<label for="id3" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="6" id="id4"/>
 						<label for="id4" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label> 
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="5" id="id5"/>
 						<label for="id5" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 						
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="4" id="id6"/>
 						<label for="id6" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="3" id="id7"/>
 						<label for="id7" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="2" id="id8"/>
 						<label for="id8" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 						<input class="diary-water-tracker__input" type="radio" name="glass" value="1" id="id9"/>
 						<label for="id9" class="diary-water-tracker__label">
-						<img class="diary-water-tracker__img" src="./../assets/diaryimg/diary-glass-of-water.svg">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
 						</label>
 
 					</form>
 
 			</div>
+			<!-- Алла -->
+			<!-- Форма поиска продукта по штрих-коду -->
+			<form class ="diary__form__search">     
+				<label for="search"></label>
+				<input type="text" id="diary-search" name="search" placeholder="Поиск еды (введите цифры со штрих-кода)">
+		<div id="search__show__result"></div></form>
         </main>
+	<!-- Алла -->
+	<!-- Поп ап добавить новый продукт -->
+	<div class="wrapper">
+		<div class="diary__newproduct__popup">
+			<div class="diary__newproduct__popup_container">
+				<div class="newproduct__popup_body">
+					<div class="newproduct__popup_heading">Добавить новый продукт</div>
+					<div class="newproduct__popup_product">
+						<label for="newproduct__popup-brand" class="popup__newproduct-label">Марка продукта:</label>
+						<input type="text" class="popup__newproduct-input" name="product-brand">
+						<label for="newproduct__popup-name" class="popup__newproduct-label">Название продукта:</label>
+						<input class="popup__newproduct-input" type="text" name="product-name">
+						<div class="newproduct__popup_serving">
+							<label for="newproduct__popup-serving-size" class="popup__addnewproduct-label">Размер порции</label>
+							<input class="popup__newproduct-serving-input" type="number" name="serving-size">
+							<select class="popup__newproduct-select" name="serving-unit">
+								<option value="gr">граммы</option>
+								<option value="ml">миллилитры</option>
+							</select>
+						</div>
+					</div>
+					<div class="newproduct__popup_energyvalue">
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-calories" class="popup__new-product-label">Энергетическая ценность в ккал:</label>
+							<input type="number" id="newproduct__popup-energy" name="calories" placeholder="ккал">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-fat" class="popup__new-product-label">Жиры:</label>
+							<input type="number" id="newproduct__popup-fat" name="fat" placeholder="грамм">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-carbs" class="popup__new-product-label">Углеводы:</label>
+							<input type="number" id="newproduct__popup-carbs" name="carbs" placeholder="грамм">
+						</div>
+						<div class="newproduct__popup_table">
+							<label for="newproduct__popup-protein" class="popup__new-product-label">Белки:</label>
+							<input type="number" id="newproduct__popup-protein" name="protein" placeholder="грамм">
+						</div>
+					</div>
+					<button type="submit" id="newproduct__popup-add">Добавить</button>
+					<button type="submit" id="newproduct__popup-cancel">Отмена</button>
+				</div>
+			</div>
 		</div>
-
-
 	</div>
+	<!-- Алла -->
+	<!-- Поп ап продукт не найден -->
+	<div class="wrapper">
+		<div class="diary__productnotfound__popup">
+			<div class="diary__productnotfound__popup_container">
+				<div class="diary__productnotfound__popup_body">
+					<img class="diary__productnotfoune__popup_img" src="../assets/images/diary/diary_cart.png" alt="иконка корзины">
+					<p class="diary__productnotfound__popup_h3">Продукт не найден</p>
+					<p class="diary__productnotfound__popup_h4">Добавить новый продукт?</p>
+					<div class="diary__productnotfound__popup_btns">
+						<button type="submit" id="productnotfound__popup-add">Добавить</button>
+						<button type="submit" id="productnotfound__popup-cancel">Отмена</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+	
 
 	<script src="../modules/diary.js"></script>
+	<script src="../modules/diary-search.js"></script>
+
 </body>
 
 </html>
