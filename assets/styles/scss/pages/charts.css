@@ -139,32 +139,31 @@
 
 .charts-calorie__diagram-yellow {
     width: 15%;
-    height: 25%;
+    height: 0%;
     background-color: #FFEE54;
 }
 
 .charts-calorie__diagram-green {
     width: 15%;
-    height: 40%;
+    height: 0%;
     background-color: #089BAB;
 }
 
 .charts-calorie__diagram-red {
     width: 15%;
-    height: 20%;
+    height: 0%;
     background-color: #FF7C02;
 }
 
 .charts-calorie__diagram-salad{
     width: 15%;
-    height: 15%;
+    height: 0%;
     background-color: #A1D28A;
 }
 
 .charts-calorie__caption,
 .charts-macro__caption {
     display: flex;
-    /* gap: 5%; */
     justify-content: space-evenly;
 
     width: 90%;
@@ -265,19 +264,19 @@
 
 .charts-macro__diagram-green {
     width: 15%;
-    height: 50%;
+    height: 0%;
     background-color: #089BAB;
 }
 
 .charts-macro__diagram-red {
     width: 15%;
-    height: 20%;
+    height: 0%;
     background-color: #E06B6B;
 }
 
 .charts-macro__diagram-yellow {
     width: 15%;
-    height: 30%;
+    height: 0%;
     background-color: #FFEE54;
 }
 

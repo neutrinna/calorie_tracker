@@ -61,3 +61,43 @@ function showAndHideDiv (a, b) {
     }
   
 };
+
+// Настя Кольцова - начало - для charts.js
+
+const setKcalOrMacroAttribute = (element) => {
+    const kcalOrMacroValue = element.innerText.split(' ')[0];
+    element.setAttribute('data', kcalOrMacroValue);
+};
+
+const breakfastAmountElement = document.querySelector('.diary-kcal__breakfast-amount');
+setKcalOrMacroAttribute(breakfastAmountElement);
+const lunchAmountElement = document.querySelector('.diary-kcal__lunch-amount');
+setKcalOrMacroAttribute(lunchAmountElement);
+const dinnerAmountElement = document.querySelector('.diary-kcal__dinner-amount');
+setKcalOrMacroAttribute(dinnerAmountElement);
+const snackAmountElement = document.querySelector('.diary-kcal__snack-amount');
+setKcalOrMacroAttribute(snackAmountElement);
+
+const carboAmountElement = document.querySelector('.diary-macro__carbo-amount');
+setKcalOrMacroAttribute(carboAmountElement);
+const proteinAmountElement = document.querySelector('.diary-macro__protein-amount');
+setKcalOrMacroAttribute(proteinAmountElement);
+const fatsAmountElement = document.querySelector('.diary-macro__fats-amount');
+setKcalOrMacroAttribute(fatsAmountElement);
+
+
+const setLocalStorageItem = (key, selector, attribute) => {
+    const value = document.querySelector(selector).getAttribute(attribute);
+    localStorage.setItem(key, value);
+};
+
+setLocalStorageItem('breakfastAmount', '.diary-kcal__breakfast-amount', 'data');
+setLocalStorageItem('lunchAmount', '.diary-kcal__lunch-amount', 'data');
+setLocalStorageItem('dinnerAmount', '.diary-kcal__dinner-amount', 'data');
+setLocalStorageItem('snackAmount', '.diary-kcal__snack-amount', 'data');
+
+setLocalStorageItem('carboAmount', '.diary-macro__carbo-amount', 'data');
+setLocalStorageItem('proteinAmount', '.diary-macro__protein-amount', 'data');
+setLocalStorageItem('fatsAmount', '.diary-macro__fats-amount', 'data');
+
+// Настя Кольцова - конец - для charts.js
