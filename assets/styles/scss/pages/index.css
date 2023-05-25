@@ -771,6 +771,11 @@ button {
 
 .profile-welcome__wripper,
 .profile-paternity {
+  display: block;
+}
+
+.profile-user,
+.profile-user__settings {
   display: none;
 }
 

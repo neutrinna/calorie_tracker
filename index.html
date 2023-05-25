@@ -59,6 +59,7 @@
             <input
               class="registration__text registration__text_email"
               type="email"
+              onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
               id="registration__text_email"
               placeholder="E-mail"
               name="email"
@@ -146,15 +147,16 @@
         <main class="profile">
             <div class="profile-welcome">
                 <div class="profile-welcome__wripper">
-                    <form action="#" class="profile-welcome__form">
+                    <form action="#" class="profile-welcome__form" id = "loginForm">
                         <img class="profile-welcome__img" src="./assets/images/index/circle.svg"
                             alt="логотип приложения в виде графика-доната">
                         <p class="profile-welcome__form-greet font-black">Добро пожаловать!</p>
                         <div class="profile-welcome__form-inputs">
-                            <input type="text" placeholder="Логин" class="profile-welcome__form-input">
-                            <input type="text" placeholder="Пароль" class="profile-welcome__form-input">
+                            <input id = "loginEmail" type="email" placeholder="email" class="profile-welcome__form-input" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
+                            >
+                            <input  id = "loginPassword" type="password" placeholder="Пароль" class="profile-welcome__form-input">
                         </div>
-                        <button class="profile-welcome__form-button">Войти</button>
+                        <button class="profile-welcome__form-button" onclick="loginForm()">Войти</button>
                     </form>
                     <!-- Анжела - кнопка для окна Регистрация -->
                     <button
@@ -344,6 +346,7 @@
         </div>
     </div>
     <!-- notification pop-up -->
+
 
 	<!-- Инна -->
 	<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>

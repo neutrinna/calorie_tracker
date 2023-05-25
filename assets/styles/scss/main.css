@@ -1128,8 +1128,8 @@ button {
   background-color: #E4EEEE;
 }
 
-.profile-welcome__wripper,
-.profile-paternity {
+.profile-user,
+.profile-user__settings {
   display: none;
 }
 

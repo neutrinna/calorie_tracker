@@ -6,13 +6,8 @@ function registrationAdd() {
     const password = passwordInput.value;
     const passwordRepeat = passwordRepeatInput.value;
   
-    // проверка, что все поля заполнены
-    // if (!name || !surname || !bday || !email || !password || !passwordRepeat)  {
-    //   alert("Заполните все поля!");
-    //   return;
-    // }
-  
-    if (name && surname && bday && email && password && passwordRepeat) {
+   
+    if (name && surname && bday && email && password ) {
       // код, который будет выполнен, если все переменные имеют значение
     } else {
       alert("Заполните все поля!");
@@ -20,8 +15,8 @@ function registrationAdd() {
     }
   
     function checkPassword() {
-      const password = document.getElementById('password').value;
-      const passwordRepeat = document.getElementById('passwordRepeat').value;
+      const password = document.getElementById('registration__text_password').value;
+      const passwordRepeat = document.getElementById('registration__text_passwordRepeat').value;
     
       if (password === '' || passwordRepeat === '') {
         alert('Заполните оба поля');
@@ -78,11 +73,11 @@ function registrationAdd() {
   const bdayInput = document.getElementById("registration__text_bday");
   const emailInput = document.getElementById("registration__text_email");
   const passwordInput = document.getElementById("registration__text_password");
-  const passwordRepeatdInput = document.getElementById("registration__text_passwordRepeat");
+  const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
   const submitBtn = document.getElementById("registration__submit");
   
-  // добавляем обработчик на кнопку "Зарегистрироваться"
-  submitBtn.addEventListener("click", registrationAdd);
+  // // добавляем обработчик на кнопку "Зарегистрироваться"
+  // submitBtn.addEventListener("click", registrationAdd);
   
   // функции открытия/закрытия попапа "Регистрация"
   function openRegistration() {
@@ -107,10 +102,6 @@ function registrationAdd() {
   function getUsers() {
     return JSON.parse(localStorage.getItem("userData")) || [];
   }
-  
-  // function dropdown() {
-  //   document.getElementById("dropdown__pop-up_close").style.display = "none";
-  // }
   
   function openDropdown() {
     document.getElementById("myDropdown").style.display = "block";
