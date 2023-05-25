@@ -1,28 +1,46 @@
-const loginForm = document.getElementById('loginForm');
-const emailInput = document.getElementById('loginEmail');
-const passwordInput = document.getElementById('loginPassword');
+const userData = JSON.parse(localStorage.getItem('userData'));
+console.log (userData)
+console.log (userData[5].email)
+console.log (userData[5].password)
+console.log (userData.length)
 
-function loginForm()  {
 
-  const storedUsername = localStorage.getItem('loginEmail');
-  const storedPassword = localStorage.getItem('loginPassword');
+function loginUser()  { 
+    const emailInputValue = document.getElementById('loginEmail').value; 
+    const passwordInputValue = document.getElementById('loginPassword').value; 
+    let userFound = false; // добавляем переменную
+   
+    for (var i = 0; i < userData.length; i++) { 
+      if (emailInputValue === userData[i].email && passwordInputValue === userData[i].password) { 
+        console.log("Данные совпадают"); 
+        userFound = true; // если пользователь найден, меняем значение переменной
+        document.getElementById("profile-welcome__wripper").style.display = "none"; 
+        document.getElementById("profile-paternity").style.display = "none"; 
+        document.getElementById("profile-user").style.display = "block"; 
+        document.getElementById("profile-user__settings").style.display = "block"; 
 
-  const enteredEmail = emailInput.value;
-  const enteredPassword = passwordInput.value;
+        document.getElementById('customization__text_name').value = userData[i].name; 
+        document.getElementById('customization__text_surname').value = userData[i].surname; 
+        document.getElementById('customization__text_bday').value = userData[i].bday; 
+        document.getElementById('customization__text_email').value = userData[i].email; 
+        document.getElementById('customization__text_password').value = userData[i].password; 
 
-  if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
-    // Введенные данные верны
-    // Дополнительный код здесь
-    document.getElementById("profile-welcome__wripper").style.display = "none";
-    document.getElementById("profile-paternity").style.display = "none";
 
-    document.getElementById("profile-user").style.display = "block";
-    document.getElementById("profile-user__settings").style.display = "block";
-
-  } else {
-    // Введенные данные неверны
-    // Дополнительный код здесь
-    alert(`Пользователя с таким именем не существует, зарегистрируйтесь!`);
-
+        break; // выходим из цикла, так как дальше перебирать нет смысла
+      }
+    }
+  
+    if (!userFound) { // проверяем, был ли найден пользователь
+      console.log("Данные не совпадают"); 
+      alert(`Пользователя с таким именем не существует, зарегистрируйтесь!`); 
+    }
   }
-};
+
+  function exit()  { 
+        document.getElementById("profile-welcome__wripper").style.display = "block"; 
+        document.getElementById("profile-paternity").style.display = "block"; 
+        document.getElementById("profile-user").style.display = "none"; 
+        document.getElementById("profile-user__settings").style.display = "none"; 
+  }
+
+
