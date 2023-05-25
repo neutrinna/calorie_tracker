@@ -8,13 +8,183 @@
 	<title>Мои результаты</title>
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
-	<link rel="stylesheet" href="../assets/styles/scss/main.css" />
+	<!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/fonts.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
+	<link rel="stylesheet" href="./../assets/styles/scss/pages/charts.css" />
 </head>
 
-<body>
+<body class="charts-body">
 	<div class="wrapper">
+		
+		<!-- side-bar -->
+		<div class="side-bar">
+			<nav>
+				<li>
+					<a class="side-bar__link" href="./../index.html"><img src="./../assets/images/index/profile.svg"
+							alt="иконка ссылки на раздел профиль">Профиль</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/diary.html"><img src="./../assets/images/index/diary.svg"
+							alt="иконка ссылки на раздел дневник">Дневник</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/charts.html"><img src="./../assets/images/index/graph.svg"
+							alt="иконка ссылки на раздел динамика">Динамика</a>
+				</li>
+				<li>
+					<a class="side-bar__link" href="./pages/articles.html"><img src="./../assets/images/index/sampling.svg"
+							alt="иконка ссылки на раздел Статьи">Статьи</a>
+				</li>
+			</nav>
+		</div>
+		<!-- side-bar -->
 
+		<!-- Настя Кольцова -->
+
+		<!-- charts section -->
+
+		<div class="charts-main">
+			<div class="charts-title">
+				<p>Отслеживайте положительную и отрицательную динамику своего питания</p>
+			</div>
+			<div class="charts-calorie">
+				<div>
+					<p>Калории</p>
+				</div>
+
+				<select id="days" class="charts-calorie__btn">
+					<option value="today">Сегодня</option>
+					<option value="yesterday">Вчера</option>
+					<option value="2023-05-16">17 мая</option>
+					<option value="2023-05-15">16 мая</option>
+				</select>
+
+				<div class="charts-calorie__container">
+					<div class="charts-calorie__diagram">
+						<div class="charts-calorie__diagram-yellow"></div>
+						<div class="charts-calorie__diagram-green"></div>
+						<div class="charts-calorie__diagram-red"></div>
+						<div class="charts-calorie__diagram-salad"></div>
+					</div>
+					<div class="charts-calorie__caption">
+						<div class="charts-calorie__label">Завтрак</div>
+						<div class="charts-calorie__label">Обед</div>
+						<div class="charts-calorie__label">Ужин</div>
+						<div class="charts-calorie__label">Перекус</div>
+					</div>
+				</div>
+
+				<div class="charts-calorie__legend">
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__yellow"></div>
+						<p>25% (350 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__green"></div>
+						<p>40% (550 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__red"></div>
+						<p>20% (330 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__salad"></div>
+						<p>15% (270 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-macro">
+				<div>
+					<p>Макроэлементы</p>
+				</div>
+				<select id="days" class="charts-macro__btn">
+					<option value="today">Сегодня</option>
+					<option value="yesterday">Вчера</option>
+					<option value="2023-05-16">17 мая</option>
+					<option value="2023-05-15">16 мая</option>
+				</select>
+
+				<div class="charts-macro__container">
+					<div class="charts-macro__diagram">
+						<div class="charts-macro__diagram-green"></div>
+						<div class="charts-macro__diagram-red"></div>
+						<div class="charts-macro__diagram-yellow"></div>
+					</div>
+					<div class="charts-macro__caption">
+						<div class="charts-macro__label">Углеводы</div>
+						<div class="charts-macro__label">Белки</div>
+						<div class="charts-macro__label">Жиры</div>
+					</div>
+				</div>
+
+				<div class="charts-macro__legend">
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__green"></div>
+						<p>50% (750 ккал)</p>
+					</div>
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__red"></div>
+						<p>20% (300 ккал)</p>
+					</div>
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__yellow"></div>
+						<p>30% (450 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-weight">
+				<div class="charts-weight__actual">
+					<p>Ваш вес - 55 кг</p>
+				</div>
+				<div class="charts-weight__changes">
+					<div class="charts-weight__dropped">
+						<p class="charts-grid-weight-dropped-text">Сброшено - <span class="charts-kg-red">5 кг</span></p>
+					</div>
+					<div class="charts-weight__remained">
+						<p class="charts-grid-weight-remained-text">Осталось - <span class="charts-kg-green">5 кг</span></p>
+					</div>
+				</div>
+				<div class="charts-weight__dynamics">
+					<div class="charts-weight__initial">
+						<div class="charts-weight__caption-initial">
+							<div class="charts-initial__label charts-label__initial-weight">60 кг</div>
+							<div class="charts-initial__label charts-label__initial-text">начальный вес</div>
+						</div>
+					</div>
+
+					<div class="charts-weight__current">
+						<!-- <div class="charts-weight__caption-initial">
+							<div class="charts-initial__label charts-label__initial-weight">60 кг</div>
+							<div class="charts-initial__label charts-label__initial-text">начальный вес</div>
+						</div> -->
+					</div>
+
+					<div class="charts-weight__target">
+						<div class="charts-weight__caption-target">
+							<div class="charts-target__label charts-label__target-weight">50 кг</div>
+							<div class="charts-target__label charts-label__target-text">желаемый вес</div>
+						</div>
+					</div>
+
+					<div class="charts-weight__months">
+						<div class="charts-weight__month charts-weight__first-month">
+							<p>май 2023</p>
+						</div>
+						<div class="charts-weight__month">
+							<p>июнь 2023</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<!-- charts section -->
+
+	<!-- Настя Кольцова -->
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="../modules/charts.js"></script>
