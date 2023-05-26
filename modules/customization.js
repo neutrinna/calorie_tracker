@@ -1,9 +1,4 @@
 const userData = JSON.parse(localStorage.getItem('userData'));
-console.log (userData)
-console.log (userData[5].email)
-console.log (userData[5].password)
-console.log (userData.length)
-
 
 function loginUser()  { 
     const emailInputValue = document.getElementById('loginEmail').value; 
