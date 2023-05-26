@@ -134,6 +134,7 @@ button {
 
 .profile-RSK__form-button {
   align-self: center;
+  cursor: pointer;
   width: 41%;
   height: 12%;
   min-height: 44px;
