@@ -3,6 +3,27 @@ const popUpAddNewProduct = document.querySelector(".diary__newproduct__popup");
 popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 
+let totalWeight = 0;
+let totalCalories = 0;
+let totalCarbs = 0;
+let totalProteins = 0;
+let totalFats = 0;
+
+function updateTotalValues() {
+  const totalDiv = document.querySelector('.diary-table-string-2');
+
+  totalDiv.innerHTML = `
+    <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
+      <div>${totalWeight.toFixed(0)}</div>
+      <div>${totalCalories.toFixed(0)}</div>
+      <div>${totalCarbs.toFixed(0)}</div>
+      <div>${totalProteins.toFixed(0)}</div>
+      <div>${totalFats.toFixed(0)}</div>
+    </div>
+  `;
+}
+
+// on click search result//
 document.addEventListener("DOMContentLoaded", function() {
   const forms = document.querySelectorAll(".diary__form__search");
 
@@ -30,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         checkbox.style.verticalAlign = 'middle';
         checkbox.style.transform = 'scale(1.5)';
 
+        // checkbox checked //
         checkbox.addEventListener('change', function() {
           if (checkbox.checked) {
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
@@ -46,15 +68,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`)
                   const diaryTableStringDiv = document.createElement('div');
-                  diaryTableStringDiv.classList.add('diary-table-string');
+                  diaryTableStringDiv.classList.add('diary-table-string-1');
 
                   const mealNameDiv = document.createElement('div');
-                  mealNameDiv.classList.add('diary-table-string__meal-name');
+                  mealNameDiv.classList.add('diary-table-string-1__meal-name');
                   mealNameDiv.innerHTML = `
                     <p>${productName}</p>`;
 
                   const columnNamesDiv = document.createElement('div');
-                  columnNamesDiv.classList.add('diary-table-string__column-names');
+                  columnNamesDiv.classList.add('diary-table-string-1__column-names');
                   columnNamesDiv.style.display = 'flex';
                   columnNamesDiv.innerHTML = `
                     <div>${grammInput.value}</div>
@@ -68,6 +90,14 @@ document.addEventListener("DOMContentLoaded", function() {
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                  
+                  // total weight //
+                  totalWeight += Number(grammInput.value);
+                  totalCalories += (calories * grammInput.value) / 100;
+                  totalCarbs += (carbs * grammInput.value) / 100;
+                  totalProteins += (proteins * grammInput.value) / 100;
+                  totalFats += (fats * grammInput.value) / 100;
+
+                  updateTotalValues();
                 }
               })
               .catch(error => {
@@ -75,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
               });
           }
         });
-
+        // product search //
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
@@ -124,6 +154,7 @@ function openNewProduct(event) {
 function closeNotFound(event) {
   event.preventDefault();
   popUpNotFound.style.display = "none";
+  input.innerHTML = "";  
 }
 
 function closeNewProduct(event) {
