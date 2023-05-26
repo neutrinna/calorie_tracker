@@ -57,6 +57,7 @@
     margin-right: 59px;
     
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 /* TITLE */
@@ -110,7 +111,7 @@
     width: 32%;
     height: 12%;
 
-    background-color: #F7C78E;
+    background-color: #f7c78e;
     color: black;
     text-align: center;
     border-radius: 15px;
@@ -152,7 +153,7 @@
 .charts-calorie__diagram-red {
     width: 15%;
     height: 0%;
-    background-color: #FF7C02;
+    background-color: #E06B6B;
 }
 
 .charts-calorie__diagram-salad{
@@ -231,7 +232,7 @@
 
 .charts-macro {
     grid-column: 1 / 2;
-    grid-row: 3 / 4;
+    grid-row: 3 / 6;
 
     margin-bottom: 10%;
     margin-right: 10%;
@@ -344,7 +345,7 @@
     border-radius: 25px;
 
     width: 60%;
-    height: 8%;
+    height: 13%;
 
     margin-left: 20%;
     padding-top: 15px;
@@ -386,9 +387,8 @@
 
 .charts-weight__dynamics {
     width: 100%;
-    height: 77%;
 
-    margin-top: 15%;
+    margin-top: 10%;
 
     border-left: 3px solid #089BAB;
     border-bottom: 3px solid #089BAB;
@@ -397,109 +397,74 @@
     justify-content: space-between;
 }
 
-.charts-weight__initial {
-    width: 100%;
-    height: 74px;
-
-    border-bottom: 2px solid #FF2B2B;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
-}
-
-.charts-weight__caption-initial {
-    display: flex;
-    gap: 0;
-
-    width: 100%;
-}
-
-.charts-initial__label {
-    text-align: center;
-    margin-bottom: 8px;
-
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
-    opacity: 70%;
-}
-
-.charts-label__initial-weight {
-    margin-left: 2%;
-}
-
-.charts-label__initial-text {
-    margin-left: 27%;
-}
-
 .charts-weight__current {
     width: 100%;
-    height: 75%;
+    height: 220px;
 }
 
-.charts-weight__target {
-    width: 100%;
-    height: 32px;
-    
-    border-top: 2px solid #A1D28A;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
-
-    margin-bottom: 0;
-}
-
-.charts-weight__caption-target {
-    display: flex;
-    gap: 0;
+.charts-form {
+    grid-column: 2 / 3;
+    grid-row: 4 / 6;
 
     width: 100%;
-}
+    height: 130px;
 
-.charts-target__label {
-    text-align: center;
-    margin-bottom: 8px;
+    padding: 5%;
 
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
-    opacity: 70%;
-}
+    background-color: white;
+    border-radius: 35px;
 
-.charts-label__target-weight {
-    margin-left: 2%;
-}
-
-.charts-label__target-text {
-    margin-left: 27%;
-}
-
-.charts-weight__months {
     display: flex;
-    height: 5.5%;
-    margin-top: 2%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15%;
 }
 
-.charts-weight__month {
-    width: 50%;
-    height: 100%;
+.charts-form > div {
+    width: 100%;
 }
 
-.charts-weight__month > p {
-    font-size: 12px;
-    opacity: 70%;
-    line-height: 1.25%;
-    text-align: center;
-
-    margin-top: 10%;
+.charts-form > label {
+    display: inline-block;
+    margin-bottom: 4%;
 }
 
-.charts-weight__first-month {
-    border-right: 1px solid #089BAB;
+#charts-weight-input,
+#charts-date-input {
+    width: 30%;
+    height: 11%;
+    min-height: 35px;
+    max-height: 90px;
+    padding-left: 8px;
+    background-color: #E4EEEE;
+    border: 1px solid #089BAB;
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+
+    margin-right: 2%;
 }
 
+.charts-add-weight-btn {
+    align-self: center;
+    cursor: pointer;
+    width: 35%;
+    height: 11%;
+    min-height: 38px;
+    max-height: 105px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #F7C78E;
+    color: rgba(0, 0, 0, 0.7);
+    transition-duration: 1s;
+}
+
+.charts-add-weight-btn:hover {
+    transition-duration: 1s;
+    background-color: #f7a337;
+}
+
+#weightList {
+    display: none;
+}
 /* // Настя Кольцова - конец */
