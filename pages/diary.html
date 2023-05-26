@@ -76,20 +76,12 @@
 					</div>
 
 					<!-- скрытый див выпадающего списка, строки продуктов сюда ---->
-					<div class="accordeon accordeon_hidden">
-					<div class="diary-table-string ">
-						<div class="diary-table-string__meal-name">
-							Тест
-						</div>
-						<div class="diary-table-string__column-names">
-							<div>Вес, г</div>
-							<div>Ккал</div>
-							<div>У</div>
-							<div>Б</div>
-							<div>Ж</div>
-						</div>
+					<div class="accordeon1 accordeon_hidden">
+					<div class="diary-table-string-1">
 						
 					</div>
+
+		
 					<!-------------------------->
 					<!-- Алла -->
 			<!-- Форма поиска продукта по штрих-коду -->
@@ -118,32 +110,11 @@
 
 					<div class="accordeon2 accordeon_hidden">
 
-						<div class="diary-table-string ">
-							<div class="diary-table-string__meal-name">
-								Тест
+						<div class="diary-table-string-1 ">
 							</div>
-							<div class="diary-table-string__column-names">
-								<div>160</div>
-								<div>120</div>
-								<div>3</div>
-								<div>2</div>
-								<div>5</div>
-							</div>
-						</div>
-	
-						<div class="diary-table-string">
-							<div class="diary-table-string__meal-name">
-								Тест
-							</div>
-							<div class="diary-table-string__column-names">
-								<div>450</div>
-								<div>124</div>
-								<div>8</div>
-								<div>6</div>
-								<div>7</div>
-							</div>
-						</div>
-	<!-- Алла -->
+								
+							
+						<!-- Алла -->
 			<!-- Форма поиска продукта по штрих-коду -->
 			<form class ="diary__form__search">     
 				<label for="search"></label>
@@ -170,18 +141,8 @@
 					<!-- скрытый див №3 выпадающего списка, строки продуктов сюда ---->
 					<div class="accordeon3 accordeon_hidden">
 
-						<div class="diary-table-string ">
-							<div class="diary-table-string__meal-name">
-								Тест
-							</div>
-							<div class="diary-table-string__column-names">
-								<div>Вес, г</div>
-								<div>Ккал</div>
-								<div>У</div>
-								<div>Б</div>
-								<div>Ж</div>
-							</div>
-						</div>
+						<div class="diary-table-string-1 "></div>
+							
 	<!-- Алла -->
 			<!-- Форма поиска продукта по штрих-коду -->
 			<form class ="diary__form__search">     
@@ -192,25 +153,11 @@
 						<!-------------------------->
 
 						
-					<div class="diary-table-string diary-table-string_color_blue">
-						<div class="diary-table-string__meal-name">
-							Перекус
-							<button id="button-snack" class="diary-table-string__add-btn">
-							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
-						</div>
-						<div class="diary-table-string__column-names">
-							<div>Вес, г</div>
-							<div>Ккал</div>
-							<div>У</div>
-							<div>Б</div>
-							<div>Ж</div>
-						</div>
-					</div>
-					<div class="accordeon4 accordeon_hidden">
-
-						<div class="diary-table-string ">
+						<div class="diary-table-string diary-table-string_color_blue">
 							<div class="diary-table-string__meal-name">
-								Тест
+								Перекус
+								<button class="diary-table-string__add-btn" id="button-lunch">
+								<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
 							</div>
 							<div class="diary-table-string__column-names">
 								<div>Вес, г</div>
@@ -220,24 +167,44 @@
 								<div>Ж</div>
 							</div>
 						</div>
-	<!-- Алла -->
-			<!-- Форма поиска продукта по штрих-коду -->
-			<form class ="diary__form__search">     
-				<label for="search"></label>
-				<input type="text" id="diary-search-4" name="search" placeholder="Поиск еды (введите цифры со штрих-кода)">
-		<div id="search__show__result-4"></div></form>
+	
+						<!-- скрытый див №4 выпадающего списка, строки продуктов сюда ---->
+	
+						<div class="accordeon4 accordeon_hidden">
+	
+							<div class="diary-table-string ">
+								<div class="diary-table-string__meal-name">
+									Тест
+								</div>
+								<div class="diary-table-string__column-names">
+									<div>160</div>
+									<div>120</div>
+									<div>3</div>
+									<div>2</div>
+									<div>5</div>
+								</div>
+							</div>					
+		<!-- Алла -->
+				<!-- Форма поиска продукта по штрих-коду -->
+				<form class ="diary__form__search">     
+					<label for="search"></label>
+					<input type="text" id="diary-search-2" name="search" placeholder="Поиск еды (введите цифры со штрих-кода)">
+			<div id="search__show__result-2"></div></form>
+						</div>	
 						</div>
+	
+						
 
 					<div class="diary-table-string">
 						<div class="diary-table-string__meal-name diary-table-string__meal-name_color_orange">
 							Итого
 						</div>
 						<div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
-							<div>Вес, г</div>
-							<div>Ккал</div>
-							<div>У</div>
-							<div>Б</div>
-							<div>Ж</div>
+							<div id="weight">Вес, г</div>
+							<div id="calories">Ккал</div>
+							<div id="carbs">У</div>
+							<div id="protein">Б</div>
+							<div id="fat">Ж</div>
 						</div>
 					</div>
 					

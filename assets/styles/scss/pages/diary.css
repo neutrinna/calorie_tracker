@@ -71,11 +71,13 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
+.diary-table-string-,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
   height: 64px;
 }
+.diary-table-string-__meal-name,
 .diary-table-string__meal-name {
   display: flex;
   justify-content: space-between;
@@ -83,10 +85,12 @@ body {
   margin-left: 3%;
   width: 15%;
 }
+.diary-table-string-__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
+.diary-table-string-__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
   border: none;
@@ -94,9 +98,11 @@ body {
   margin-top: 5%;
   transition-duration: 0.7s;
 }
+.diary-table-string-__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
+.diary-table-string-__column-names,
 .diary-table-string__column-names {
   display: flex;
   justify-content: space-between;
@@ -107,10 +113,12 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
+.diary-table-string-__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
 }
+.diary-table-string-_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
 }
@@ -213,7 +221,8 @@ body {
   .diary-water-tracker__img {
     width: 3.5vw;
   }
-  .diary-table-string__column-names {
+  .diary-table-string__column-names-1,
+.diary-table-string__column-names {
     width: 45vw;
   }
   .diary-water-tracker__text,

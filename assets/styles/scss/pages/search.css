@@ -1,7 +1,4 @@
-.diary__form__search-1,
-.diary__form__search-2,
-.diary__form__search-3,
-.diary__form__search-4 {
+.diary__form__search-1, .diary__form__search-2, .diary__form__search-3, .diary__form__search-4 {
   max-width: 1101px;
   height: 35px;
   border-radius: 35px;
@@ -38,4 +35,14 @@
 
 .search-result {
   width: 60%;
+}
+
+.inputStyle {
+  background-color: white;
+  border: 1px solid rgb(10, 155, 171);
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 25%;
+  text-align: center;
 }/*# sourceMappingURL=search.css.map */

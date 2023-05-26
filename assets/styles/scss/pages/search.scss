@@ -1,15 +1,17 @@
 @import "../layouts/variables.scss";
 
-.diary__form__search-1,
-.diary__form__search-2,
-.diary__form__search-3,
-.diary__form__search-4 {
+.diary__form{
+&__search-1,
+&__search-2,
+&__search-3,
+&__search-4
+{
   max-width: 1101px;
   height: 35px;
   border-radius: 35px;
   @include font (400, 20px);
 }
-
+}
 #diary-search-1,
 #diary-search-2,
 #diary-search-3,
@@ -38,3 +40,14 @@
     width: 60%;
     
 }
+.inputStyle {
+background-color: white;
+border: 1px solid rgb(10,155,171);
+width: 100px;
+height: 40px;
+border-radius: 10px;
+margin-left: 25%;
+text-align: center;
+}
+
+

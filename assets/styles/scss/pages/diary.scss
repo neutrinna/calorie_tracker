@@ -90,11 +90,12 @@ body {
 }
 
 // строки дневника
+.diary-table-string-,
 .diary-table-string {
     display: flex;
     justify-content: space-between;
-
     height: 64px;
+
 
     &__meal-name {
         display: flex;
@@ -125,9 +126,7 @@ body {
         //     transition-duration: 0.7s;
         //     transform: rotate(45deg);
         // }
-
     }
-
 
 
     &__add-btn-img {
@@ -287,7 +286,7 @@ body {
             width: 3.5vw;
         }
     }
-
+    .diary-table-string__column-names-1,
     .diary-table-string__column-names {
         width: 45vw;
     }
