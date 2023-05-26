@@ -120,5 +120,15 @@ new Chart(doughnut, {
 // АЛЕКСАНДРА
 
 const waterAmount = document.querySelector(".profile-user__water-amount_data");
-waterAmount.textContent = `${localStorage.getItem('WaterTracker')} мл`;
+
+if (localStorage.getItem('WaterTracker') == null) {
+  waterAmount.textContent = '0 мл'
+} else {
+  waterAmount.textContent = `${localStorage.getItem('WaterTracker')} мл`;
+}
+
+
+
+// waterAmount.textContent = "";
+// waterAmount.textContent = + `${localStorage.getItem('WaterTracker')} мл`
 
