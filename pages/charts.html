@@ -148,32 +148,31 @@
 					</div>
 				</div>
 				<div class="charts-weight__dynamics">
-					<div class="charts-weight__initial">
-						<div class="charts-weight__caption-initial">
-							<div class="charts-initial__label charts-label__initial-weight">60 кг</div>
-							<div class="charts-initial__label charts-label__initial-text">начальный вес</div>
-						</div>
-					</div>
-
-					<div class="charts-weight__current"></div>
-
-					<div class="charts-weight__target">
-						<div class="charts-weight__caption-target">
-							<div class="charts-target__label charts-label__target-weight">50 кг</div>
-							<div class="charts-target__label charts-label__target-text">желаемый вес</div>
-						</div>
-					</div>
-
-					<div class="charts-weight__months">
-						<div class="charts-weight__month charts-weight__first-month">
-							<p>май 2023</p>
-						</div>
-						<div class="charts-weight__month">
-							<p>июнь 2023</p>
-						</div>
+					<div class="charts-weight__current">
+						<canvas id="charts-weight__current-lb"></canvas>
 					</div>
 				</div>
 			</div>
+
+			<div class="charts-form">
+				<div>
+					<label for="charts-weight-input">Введите ваш вес:</label>
+					<input type="number" id="charts-weight-input" name="weight">
+				</div>
+				
+				<div>
+					<label for="charts-date-input">Дата:</label>
+				<input type="date" id="charts-date-input" name="date" min="{{new Date().toISOString().split('T')[0]}}">
+
+				<button class="charts-add-weight-btn" disabled>Добавить вес</button>
+				</div>
+			</div>
+			
+			<div id="weightList">
+				<ul>
+				</ul>
+			</div>
+			
 		</div>
 	</div>
 
@@ -181,7 +180,7 @@
 
 	<!-- Настя Кольцова -->
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="./../modules/charts.js" type="module"></script>
 </body>
 
