@@ -5,11 +5,13 @@ const trackerInput = document.querySelector(".diary-water-tracker__form");
 const glassCountRes = document.querySelector(".diary-water-tracker__crrnt-res");
 
 
+
 const handleFormChange = (e) => {
     const glassCount = e.target.value;
     console.log(glassCount)
-    glassCountRes.textContent = `${glassCount*200}`;
-    return e.target.value
+    let waterTrackerResult = `${glassCount*200}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
+    glassCountRes.textContent = waterTrackerResult; 
+    localStorage.setItem('WaterTracker', `${waterTrackerResult}`); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
 }
 
 glassCountForm.addEventListener("change", handleFormChange)
@@ -61,3 +63,6 @@ function showAndHideDiv (a, b) {
     }
   
 };
+
+//трекер воды
+

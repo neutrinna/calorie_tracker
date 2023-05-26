@@ -115,3 +115,10 @@ new Chart(doughnut, {
 // chart
 
 // ИННА
+
+
+// АЛЕКСАНДРА
+
+const waterAmount = document.querySelector(".profile-user__water-amount_data");
+waterAmount.textContent = `${localStorage.getItem('WaterTracker')} мл`;
+
