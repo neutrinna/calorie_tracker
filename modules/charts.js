@@ -2,6 +2,43 @@
 
 // charts js section
 
+// настройки графика веса
+
+const weightGraph = document.getElementById('charts-weight__current-lb');
+
+const updateChart = () => {
+    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
+    const dates = Object.keys(weightList).sort();
+    chart.data.labels = dates;
+    chart.data.datasets[0].data = dates.map((date) => {
+        const weights = weightList[date];
+        return weights.reduce((sum, weight) => sum + weight, 0) / weights.length;
+    });
+    chart.update();
+};
+
+const chart = new Chart(weightGraph, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'вес, кг',
+            data: [],
+            borderWidth: 1,
+            backgroundColor: "#F7C78E",
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+// Вывод данных калорий и макроэлементов в диаграмму
+
 const getAmount = (key) => parseInt(localStorage.getItem(key), 10);
 
 const calculatePercentageAndHeight = (amount, totalCount) => ({
@@ -60,3 +97,114 @@ const updateMacroChart = () => {
 
 updateCalorieChart();
 updateMacroChart();
+
+// Ввод и сохранение веса
+
+const weightInput = document.getElementById('charts-weight-input');
+const dateInput = document.getElementById('charts-date-input');
+const addButton = document.querySelector('.charts-add-weight-btn');
+
+const validateWeight = () => {
+    const weight = weightInput.value;
+    if (isNaN(weight) || weight === '' || weight <= 0) {
+        alert('Введите корректное значение веса.');
+        return false;
+    }
+    return true;
+};
+
+const roundWeight = (weight) => {
+    return Math.round(weight * 10) / 10;
+};
+
+const saveWeight = () => {
+    const weight = roundWeight(weightInput.value);
+    const date = dateInput.value;
+    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
+    if (!weightList[date]) {
+        weightList[date] = [weight];
+    } else {
+    weightList[date].push(weight);
+    }
+    localStorage.setItem('weightList', JSON.stringify(weightList));
+    displayWeights();
+};
+
+const getWeightsByDate = (date) => {
+    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
+    if (weightList[date]) {
+        return weightList[date];
+    } else {
+        return [];
+    }
+};
+
+const displayWeights = () => {
+    const weightList = document.getElementById('weightList');
+    weightList.innerHTML = '';
+    const dates = Object.keys(JSON.parse(localStorage.getItem('weightList') || {}));
+    const today = new Date().toISOString().slice(0, 10);
+    if (dates.includes(today)) {
+        const weights = getWeightsByDate(today);
+        const lastWeight = weights[weights.length - 1];
+        const actualWeight = document.querySelector('.charts-weight__actual p');
+        actualWeight.textContent = `Ваш вес - ${lastWeight} кг`;
+    }
+    dates.forEach((date) => {
+        const weightListItem = document.createElement('li');
+        const weights = getWeightsByDate(date);
+        const weightListItems = weights.map((weight) => {
+            return '<li>' + weight + '</li>';
+        }).join('');
+        weightListItem.innerHTML = `
+            <h3>${date}</h3>
+            <ul>
+            ${weightListItems}
+            </ul>
+        `;
+        weightList.appendChild(weightListItem);
+    });
+    updateChart();
+};
+
+
+addButton.addEventListener('click', () => {
+    if (validateWeight()) {
+        saveWeight();
+        weightInput.value = '';
+        addButton.disabled = true;
+    }
+});
+
+weightInput.addEventListener('input', validateInputs);
+dateInput.addEventListener('change', validateInputs);
+
+displayWeights();
+updateChart();
+
+function validateInputs() {
+    const weight = Number(weightInput.value);
+    if (isNaN(weight) || weight <= 0) {
+        addButton.disabled = true;
+        return false;
+    }
+
+    const selectedDate = new Date(dateInput.value);
+    const today = new Date();
+    if (selectedDate < today) {
+        addButton.disabled = false;
+    } else {
+        addButton.disabled = true;
+    }
+
+    if (weight && selectedDate && !addButton.disabled) {
+        addButton.disabled = false;
+    } else {
+        addButton.disabled = true;
+    }
+}
+
+weightInput.addEventListener('input', validateInputs);
+dateInput.addEventListener('change', validateInputs);
+
+// localStorage.removeItem('weightList');
