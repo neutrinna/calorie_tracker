@@ -1,7 +1,12 @@
+const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
+const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
+const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
+const addNewProduct = document.getElementById("newproduct__popup-add");
 const popUpNotFound = document.querySelector(".diary__productnotfound__popup");
 const popUpAddNewProduct = document.querySelector(".diary__newproduct__popup");
 popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
+const loader = document.getElementById('diary-loader');
 
 let totalWeight = 0;
 let totalCalories = 0;
@@ -51,6 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         checkbox.style.verticalAlign = 'middle';
         checkbox.style.transform = 'scale(1.5)';
 
+        loader.style.display = 'block';
+
         // checkbox checked //
         checkbox.addEventListener('change', function() {
           if (checkbox.checked) {
@@ -89,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
+                  loader.style.display = 'none';
                  
                   // total weight //
                   totalWeight += Number(grammInput.value);
@@ -115,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
               const productName = product.product_name;
               commentElem.innerHTML = `
                 <p>${productName}</p>`;
+                loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
               commentElem.appendChild(checkbox);
@@ -123,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
               searchResultDiv.appendChild(commentElem);
             } else {
               openPopupProductNotFound();
+              searchResultDiv.innerHTML = '';
+              input.value = '';
             }
           })
           .catch(error => {
@@ -135,11 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function openPopupProductNotFound(message) {
   popUpNotFound.style.display = "block";
+  loader.style.display = 'none';
 }
-
-const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
-const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
-const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
 
 openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
@@ -149,15 +157,18 @@ function openNewProduct(event) {
   event.preventDefault();
   popUpNotFound.style.display = "none";
   popUpAddNewProduct.style.display = "block";
+  loader.style.display = 'none';
 }
 
 function closeNotFound(event) {
   event.preventDefault();
   popUpNotFound.style.display = "none";
-  input.innerHTML = "";  
+  loader.style.display = 'none';
+
 }
 
 function closeNewProduct(event) {
   event.preventDefault();
   popUpAddNewProduct.style.display = "none";
+  loader.style.display = 'none';
 }
