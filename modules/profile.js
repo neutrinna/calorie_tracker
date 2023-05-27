@@ -164,16 +164,18 @@ document.getElementById("profile-user").style.display = "flex"; }
 
 // АЛЕКСАНДРА
 
-const waterAmount = document.querySelector(".profile-user__water-amount_data");
+// данные трекера воды
 
-if (localStorage.getItem('WaterTracker') == null) {
+const waterAmount = document.querySelector(".profile-user__water-amount_data");
+const topWaterAmount = document.getElementById('topWaterAmount');
+
+if (localStorage.getItem('waterTracker') == null) {
   waterAmount.textContent = '0 мл'
 } else {
-  waterAmount.textContent = `${localStorage.getItem('WaterTracker')} мл`;
+  waterAmount.textContent = `${localStorage.getItem('waterTracker')} мл`;
 }
 
+topWaterAmount.textContent = `/ ${localStorage.getItem('waterAmountByWeightRWaterTracker')} мл`;
 
-
-// waterAmount.textContent = "";
-// waterAmount.textContent = + `${localStorage.getItem('WaterTracker')} мл`
+// данные трекера воды
 

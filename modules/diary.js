@@ -3,16 +3,21 @@
 const glassCountForm = document.querySelector(".diary-water-tracker__form");
 const trackerInput = document.querySelector(".diary-water-tracker__form");
 const glassCountRes = document.querySelector(".diary-water-tracker__crrnt-res");
+const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res");
 
 
+let waterAmountByWeight = localStorage.getItem(`weightForWaterTracker`)*30;
+localStorage.setItem('waterAmountByWeightRWaterTracker', `${waterAmountByWeight}`);
+neededWaterAmount.textContent = `/ ${waterAmountByWeight}`;
 
 const handleFormChange = (e) => {
     const glassCount = e.target.value;
     console.log(glassCount)
-    let waterTrackerResult = `${glassCount*200}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
+    let waterTrackerResult = `${glassCount*(waterAmountByWeight/10)}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
     glassCountRes.textContent = waterTrackerResult; 
-    localStorage.setItem('WaterTracker', `${waterTrackerResult}`); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
+    localStorage.setItem('waterTracker', `${waterTrackerResult}`); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
 }
+
 
 glassCountForm.addEventListener("change", handleFormChange)
 
@@ -63,6 +68,8 @@ function showAndHideDiv (a, b) {
     }
   
 };
+
+
 
 // Настя Кольцова - начало - для charts.js
 
