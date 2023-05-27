@@ -21,15 +21,19 @@ function loginUser()  {
 
       document.getElementById("customization__text_name").value =
         userData[i].name[0].toUpperCase() + userData[i].name.slice(1);
-      let Inputname = document.getElementById("customization__text_name").value;
+      let InputName = document.getElementById("customization__text_name").value;
       document.getElementById("customization__text_surname").value =
         userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1);
+        let InputSurname = document.getElementById("customization__text_surname").value
       document.getElementById("customization__text_bday").value =
         userData[i].bday;
+        let InputBday = document.getElementById("customization__text_bday").value
       document.getElementById("customization__text_email").value =
         userData[i].email;
+        let InputEmail = document.getElementById("customization__text_email").value
       document.getElementById("customization__text_password").value =
         userData[i].password;
+        let InputPassword = document.getElementById("customization__text_password").value
 
       document.getElementById("profile-user__data-name").textContent =
         (userData[i].name[0].toUpperCase() +
@@ -37,25 +41,23 @@ function loginUser()  {
         " " +
         (userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1));
 
-      var now = new Date(); //Текущая дата
-      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени
-      var dob = new Date(userData[i].bday); //Дата рождения
-      var dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году
-      var age; //Возраст
+        var now = new Date(); //Текущая дата 
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
+        var dob = new Date(userData[i].bday);  //Дата рождения 
+        var dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
+        var age; //Возраст 
+        
+        //Возраст = текущий год - год рождения 
+        age = today.getFullYear() - dob.getFullYear(); 
+        //Если ДР в этом году ещё предстоит, то вычитаем из age один год 
+        if (today < dobnow) { 
+          age = age-1; 
+        } 
+        
+        console.log (`Возраст: ${age}`);
+        document.getElementById('profile-user__data-age').textContent = age; 
 
-      //Возраст = текущий год - год рождения
-      age = today.getFullYear() - dob.getFullYear();
-      //Если ДР в этом году ещё предстоит, то вычитаем из age один год
-      if (today < dobnow) {
-        age = age - 1;
-      }
-
-      console.log(`Возраст: ${age}`);
-      document.getElementById("profile-user__data-age ").textContent = age;
-
-      window.localStorage.setItem(userData[i].name, Inputname);
-
-      break; // выходим из цикла, так как дальше перебирать нет смысла
+           break; // выходим из цикла, так как дальше перебирать нет смысла
     }
   }
 
@@ -67,7 +69,6 @@ function loginUser()  {
 }
 
 function customizationSave() {
-  document.getElementById('profile-user__data-name').textContent = document.getElementById('customization__text_name').value;
   document.getElementById("customization__pop-up").style.display = "none";
 }
 

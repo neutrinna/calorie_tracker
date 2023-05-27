@@ -135,7 +135,7 @@
   border-radius: 15px;
   position: absolute;
   background-color: #089bab;
-  min-width: 200px;
+  min-width: 225px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -164,4 +164,5 @@
   right: 15px;
   font-size: 21px;
   cursor: pointer;
+  color: white;
 }/*# sourceMappingURL=customization.css.map */
