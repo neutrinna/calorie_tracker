@@ -1,6 +1,7 @@
 // Nastya Klm
 const form = document.getElementById("form-rsk");
 const button = document.querySelector(".calculate-rsk");
+const btnSave = document.querySelector(".profile-RSK__form-button-save"); // сохранить данные в профиль
 
 const goal = document.getElementById("goal");
 const age = document.querySelector(".input-age");
@@ -16,6 +17,11 @@ const carbohydrate = document.querySelector(".carbohydrates");
 const optimalWeight = document.querySelector(".optimal-weight");
 
 const rateGole = 0.2;
+
+// Данные профиля
+const currentWeight = document.querySelector(".current-weight"); // Вес
+const currentGrowth = document.querySelector(".current-growth"); // Рост
+const leftCalories = document.querySelector(".left-calories"); // Сводка - осталось калорий
 
 // норма РСК без учёта цели
 
@@ -76,15 +82,27 @@ function countWeight() {
   )} кг`;
 }
 
+// Сохранить данные в профиль
+
+function saveData() {
+  currentWeight.innerHTML = `${weight.value} кг`;
+  currentGrowth.innerHTML = `${growth.value} см`;
+  leftCalories.innerHTML = resultRSK.innerHTML;
+}
+
 button.addEventListener("click", function () {
   resultGoal();
   countNutrients();
   countWeight();
 });
 
+btnSave.addEventListener("click", function () {
+  saveData();
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  event.target.reset();
+  //event.target.reset();
 });
 // Nastya Klm
 
