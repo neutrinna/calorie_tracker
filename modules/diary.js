@@ -18,7 +18,7 @@ glassCountForm.addEventListener("change", handleFormChange)
 /// плавно скрыть-показать див
 
 const buttonBreakfast = document.getElementById("button-breakfast");
-const accordeon = document.querySelector(".accordeon"); 
+const accordeon = document.querySelector(".accordeon1"); 
 
 const buttonLunch = document.getElementById("button-lunch")
 const accordeon2 = document.querySelector(".accordeon2");

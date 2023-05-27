@@ -1,7 +1,7 @@
 .wrapper {
   font-family: "Montserrat";
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .diary__newproduct__popup {
@@ -10,8 +10,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgb(63, 61, 61);
-  z-index: 2;
+  background-color: rgba(63, 61, 61, 0.5);
+  z-index: 11;
 }
 
 .diary__newproduct__popup_container {
@@ -84,15 +84,15 @@
 }
 
 .newproduct__popup_energyvalue {
-  width: 100%;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: column;
   border-radius: 25px 25px 20px 20px;
   background-color: rgb(228, 238, 238);
   text-align: left;
-  padding: 25px 20px 20px 20px;
-  margin-top: 15px;
+  padding: 0px 0px 0px 25px;
+  margin-top: 10px;
 }
 
 .newproduct__popup_table {

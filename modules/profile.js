@@ -1,6 +1,7 @@
 // Nastya Klm
 const form = document.getElementById("form-rsk");
 const button = document.querySelector(".calculate-rsk");
+const btnSave = document.querySelector(".profile-RSK__form-button-save"); // сохранить данные в профиль
 
 const goal = document.getElementById("goal");
 const age = document.querySelector(".input-age");
@@ -16,6 +17,11 @@ const carbohydrate = document.querySelector(".carbohydrates");
 const optimalWeight = document.querySelector(".optimal-weight");
 
 const rateGole = 0.2;
+
+// Данные профиля
+const currentWeight = document.querySelector(".current-weight"); // Вес
+const currentGrowth = document.querySelector(".current-growth"); // Рост
+const leftCalories = document.querySelector(".left-calories"); // Сводка - осталось калорий
 
 // норма РСК без учёта цели
 
@@ -76,42 +82,81 @@ function countWeight() {
   )} кг`;
 }
 
+// Сохранить данные в профиль
+
+function saveData() {
+  currentWeight.innerHTML = `${weight.value} кг`;
+  currentGrowth.innerHTML = `${growth.value} см`;
+  leftCalories.innerHTML = resultRSK.innerHTML;
+}
+
 button.addEventListener("click", function () {
   resultGoal();
   countNutrients();
   countWeight();
 });
 
+btnSave.addEventListener("click", function () {
+  saveData();
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  event.target.reset();
+  //event.target.reset();
 });
 // Nastya Klm
+
+
 
 // ИННА
 
 // chart
-const doughnut = document.getElementById("doughnut");
+const doughnut = document.getElementById('doughnut');
+const macro = document.querySelectorAll(`.profile-user__macro-amount_span`);
+const macroAmount = [];
+
+for(let macroElement of macro){
+    macroAmount.push(`${macroElement.textContent}`);
+}
+
 
 new Chart(doughnut, {
-  type: "doughnut",
-  data: {
-    // labels: ['Выполнено за неделю', 'Не выполнено за неделю'],
-    datasets: [
-      {
-        // label: 'Задач',
-        data: [5, 6, 8],
-        borderWidth: 1,
-        backgroundColor: ["#E16527", "#089BAA", "#FCDC29"],
-        borderColor: [
-          "rgba(0, 0, 0, 0.7)",
-          "rgba(0, 0, 0, 0.7)",
-          "rgba(0, 0, 0, 0.7)",
-        ],
-      },
-    ],
-  },
+    type: 'doughnut',
+    data: {
+        // labels: ['Углеводы', 'Белки', 'Жиры'],
+        datasets: [{
+            label: 'грамм',
+            data: macroAmount,
+            borderWidth: 1,
+            backgroundColor: ['#089BAA','#E16527', '#FCDC29'],
+            borderColor: ['rgba(0, 0, 0, 0.7)','rgba(0, 0, 0, 0.7)', 'rgba(0, 0, 0, 0.7)']
+        }]
+    }
 });
 // chart
 
+
+// data
+let kkalTaken = 0;
+const kkalTakenNode = document.querySelector(`.profile-user__kkal-amount`);
+
+for (let i=0; i<macroAmount.length; i++){
+    i===2? kkalTaken += macroAmount[i]*9: kkalTaken += macroAmount[i]*4;
+}
+
+kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
+// data
+
+// time
+const dateNode = document.querySelector(`.profile-user__date-value`);
+dateNode.textContent = moment().format("DD/MM/YYYY")
+// time
+
+
+// page load
+if (localStorage.getItem('loged') === "true") {
+document.getElementById("profile-welcome__wripper").style.display = "none"; 
+document.getElementById("profile-paternity").style.display = "none"; 
+document.getElementById("profile-user").style.display = "flex"; }
+// page load
 // ИННА

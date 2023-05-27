@@ -1,3 +1,13 @@
+  // получаем элементы формы
+  const nameInput = document.getElementById("registration__text_name");
+  const surnameInput = document.getElementById("registration__text_surname");
+  const bdayInput = document.getElementById("registration__text_bday");
+  const emailInput = document.getElementById("registration__text_email");
+  const passwordInput = document.getElementById("registration__text_password");
+  const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
+  const submitBtn = document.getElementById("registration__submit");
+  
+
 function registrationAdd() {
     const name = nameInput.value;
     const surname = surnameInput.value;
@@ -7,7 +17,7 @@ function registrationAdd() {
     const passwordRepeat = passwordRepeatInput.value;
   
    
-    if (name && surname && bday && email && password ) {
+    if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
     } else {
       alert("Заполните все поля!");
@@ -15,8 +25,6 @@ function registrationAdd() {
     }
   
     function checkPassword() {
-      const password = document.getElementById('registration__text_password').value;
-      const passwordRepeat = document.getElementById('registration__text_passwordRepeat').value;
     
       if (password === '' || passwordRepeat === '') {
         alert('Заполните оба поля');
@@ -67,21 +75,15 @@ function registrationAdd() {
     passwordRepeatInput.value = "";
   }
   
-  // получаем элементы формы
-  const nameInput = document.getElementById("registration__text_name");
-  const surnameInput = document.getElementById("registration__text_surname");
-  const bdayInput = document.getElementById("registration__text_bday");
-  const emailInput = document.getElementById("registration__text_email");
-  const passwordInput = document.getElementById("registration__text_password");
-  const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
-  const submitBtn = document.getElementById("registration__submit");
-  
+
   // // добавляем обработчик на кнопку "Зарегистрироваться"
   // submitBtn.addEventListener("click", registrationAdd);
   
   // функции открытия/закрытия попапа "Регистрация"
   function openRegistration() {
+    // e.eventPreventDefault();
     document.getElementById("registration__pop-up").style.display = "block";
+    popUpHide()
   }
   
   function closeRegistration() {
