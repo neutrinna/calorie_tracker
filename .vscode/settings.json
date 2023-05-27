@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "calorie_tracker"
+    "liveServer.settings.multiRootWorkspaceName": "calorie_tracker",
+    "liveServer.settings.port": 5501
 }

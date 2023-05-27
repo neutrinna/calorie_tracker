@@ -1,185 +1,236 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мой профиль</title>
-    <link rel="stylesheet" href="./assets/styles/scss/layouts/normalize.css">
-    <link rel="shortcut icon" href="./assets/icons/calories.png" />
-    <!-- <link rel="stylesheet" href="./assets/styles/scss/main.css" /> -->
-    <link rel="stylesheet" href="./assets/styles/scss/pages/index.css">
-    <link rel="stylesheet" href="./assets/styles/scss/layouts/side-bar.css">
-    <link rel="stylesheet" href="./assets/styles/scss/pages/productnotfound.css">
-    <link rel="stylesheet" href="./assets/styles/scss/pages/addnewproduct.css">
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <!-- Инна -->
-      <!-- side-bar -->
-      <div class="side-bar">
-        <nav>
-          <li>
-            <a class="side-bar__link" href="./index.html"
-              ><img
-                src="./assets/images/index/profile.svg"
-                alt="иконка ссылки на раздел профиль"
-              />Профиль</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/diary.html"
-              ><img
-                src="./assets/images/index/diary.svg"
-                alt="иконка ссылки на раздел дневник"
-              />Дневник</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/charts.html"
-              ><img
-                src="./assets/images/index/graph.svg"
-                alt="иконка ссылки на раздел динамика"
-              />Динамика</a
-            >
-          </li>
-          <li>
-            <a class="side-bar__link" href="./pages/articles.html"
-              ><img
-                src="./assets/images/index/sampling.svg"
-                alt="иконка ссылки на раздел Статьи"
-              />Статьи</a
-            >
-          </li>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мой профиль</title>
+  <link rel="stylesheet" href="./assets/styles/scss/layouts/normalize.css">
+  <link rel="shortcut icon" href="./assets/icons/calories.png" />
+  <!-- <link rel="stylesheet" href="./assets/styles/scss/main.css" /> -->
+  <link rel="stylesheet" href="./assets/styles/scss/pages/index.css">
+  <link rel="stylesheet" href="./assets/styles/scss/layouts/side-bar.css">
+  <link rel="stylesheet" href="./assets/styles/scss/pages/productnotfound.css">
+  <link rel="stylesheet" href="./assets/styles/scss/pages/addnewproduct.css">
+  <link rel="stylesheet" href="./assets/styles/scss/pages/registration.css" />
+  <link rel="stylesheet" href="./assets/styles/scss/pages/customization.css" />
+
+</head>
+
+<body>
+  <!-- Анжела -->
+  <!-- Окно регистрации -->
+  <div class="registration__pop-up" id="registration__pop-up">
+    <div class="registration__pop-up_container">
+      <div class="registration__pop-up_body">
+        <p class="registration__title">Регистрация</p>
+        <p class="registration__title_description">Введите Ваши данные:</p>
+        <form action="">
+          <input id="registration__text_name" class="registration__text registration__text_name" type=" text"
+            onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}" placeholder="Имя" name="username" />
+          <input class="registration__text registration__text_surname" id="registration__text_surname" type="text"
+            onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}" placeholder="Фамилия" name="surname" />
+          <div>
+            <input type="date" id="registration__text_bday" name="bday"
+              class="registration__text_bday registration__text" />
+          </div>
+          <input class="registration__text registration__text_email" type="email"
+            onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" id="registration__text_email"
+            placeholder="E-mail" name="email" />
+          <label for="password"></label>
+          <input class="registration__text registration__text_password" type="password" id="registration__text_password"
+            placeholder="Пароль" name="password" />
+          <label for="passwordRepeat"></label>
+          <input class="registration__text" id="registration__text_passwordRepeat" type="password"
+            placeholder="Повторите пароль" name="passwordRepeat" />
+          <button id="registration__submit" onclick="registrationAdd ()">Ввод</button>
+          <p class="registration__pop-up_close" onclick="closeRegistration()">
+            Отмена
+          </p>
+        </form>
       </div>
-      <!-- side-bar -->
+    </div>
+  </div>
+  <!-- Окно регистрации -->
 
-		<!-- side-bar -->
-		<div class="side-bar">
-			<nav>
-				<li>
-					<a class="side-bar__link" href="./index.html"><img src="./assets/images/index/profile.svg"
-							alt="иконка ссылки на раздел профиль">Профиль</a>
-				</li>
-				<li class="side-bar__menu">
-					<a class="side-bar__link" href="#"><img src="./assets/images/index/diary.svg"
-							alt="иконка ссылки на раздел дневник">Дневник</a>
-				</li>
-				<li class="side-bar__menu">
-					<a class="side-bar__link" href="#"><img src="./assets/images/index/graph.svg"
-							alt="иконка ссылки на раздел динамика">Динамика</a>
-				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/articles.html"><img src="./assets/images/index/sampling.svg"
-							alt="иконка ссылки на раздел Статьи">Статьи</a>
-				</li>
-			</nav>
-		</div>
-		<!-- side-bar -->
+  <!-- Окно настроек -->
 
-		<!-- main -->
-		<main class="profile">
-			<div class="profile-welcome">
-				<div class="profile-welcome__wripper">
-					<form action="#" class="profile-welcome__form">
-						<img class="profile-welcome__img" src="./assets/images/index/circle.svg"
-							alt="логотип приложения в виде графика-доната">
-						<p class="profile-welcome__form-greet font-black">Добро пожаловать!</p>
-						<div class="profile-welcome__form-inputs">
-							<input type="text" placeholder="Логин" class="profile-welcome__form-input">
-							<input type="text" placeholder="Пароль" class="profile-welcome__form-input">
-						</div>
-						<button class="profile-welcome__form-button">Войти</button>
-					</form>
-					<button class="profile-welcome__button-reg">Регистрация</button>
-				</div>
-				<div class="profile-paternity font-black">Calorie tracker © 2023</div>
+  <div class="customization__pop-up" id="customization__pop-up">
+    <div class="customization__pop-up_container">
+      <div class="customization__pop-up_body">
+        <p class="customization__title">Настройки</p>
+        <p class="customization__title_description">Редактировать информацию</p>
+        <form id="profile">
+          <input id="customization__text_name" class="customization__text" type="text" placeholder="Имя">
+          <input id="customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
+          <input id="customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+          <input id="customization__text_email" class="customization__text" type="text" placeholder="E-mail">
+          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
+          <p class="customization__title_description">Задать цель, кг:</p>
+          <input type="number" placeholder="Введите число от 0 до 100" class="customization__text " max="100" min="0"
+            step="1">
+          <button>Сохранить</button>
 
-				<div class="profile-user">
-					<img class="profile-user__settings" src="./assets/images/index/settings.svg"
-						alt="шестеренки для выхода в меню настроек">
-					<div class="profile-user__data">
-						<img src="./assets/images/index/avatar.svg"
-							alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
-						<div class="profile-user__data-name">Кристина Иванова</div>
-						<div class="profile-user__data-age font-black">26 лет</div>
-						<div class="profile-user__states">
-							<div class="profile-user__states-block">
-								<div class="profile-user__states-name">Вес</div>
-								<div class="profile-user__states-value font-black current-weight">60 кг</div>
-							</div>
-							<div class="profile-user__states-block">
-								<div class="profile-user__states-name">Рост</div>
-								<div class="profile-user__states-value font-black current-growth">166 см</div>
-							</div>
-							<div class="profile-user__states-block">
-								<div class="profile-user__states-name">Цель</div>
-								<div class="profile-user__states-value font-orange">55 кг</div>
-							</div>
-						</div>
-					</div>
-					<div class="profile-user__date">
-						<h2 class="font-blue">Сводка</h2>
-						<div class="profile-user__date-devider">
-							<div class="profile-user__date-line"></div>
-							<div></div>
-						</div>
-						<div class="profile-user__date-value font-black">14 мая 2023</div>
-					</div>
-					<div class="profile-user__kkal">
-						<div class="profile-user__kkal-wrapper">
-							<div>
-								<div class="profile-user__kkal-block">
-									<h3 class="profile-user__kkal-name font-black">Употреблено калорий:</h3>
-									<div class="profile-user__kkal-amount">1360</div>
-								</div>
-								<div class="profile-user__kkal-block">
-									<h3 class="profile-user__kkal-name font-black">Осталось калорий:</h3>
-									<div class="profile-user__kkal-amount left-calories">240</div>
-								</div>
-							</div>
-							<div class="profile-user__doughnut-chart">
-								<canvas id="doughnut"></canvas>
-							</div>
-						</div>
-						<div class="profile-user__macro">
-							<div class="profile-user__macro-block">
-								<h3>Углеводы</h3>
-								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_carbs">
-									</div>
-								</div>
-								<div class="profile-user__macro-amount">142.6 г</div>
-							</div>
-							<div class="profile-user__macro-block">
-								<h3>Белки</h3>
-								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_protein">
-									</div>
-								</div>
-								<div class="profile-user__macro-amount">94.4 г</div>
-							</div>
-							<div class="profile-user__macro-block">
-								<h3>Жиры</h3>
-								<div class="profile-user__macro-scale">
-									<div class="profile-user__macro-scale-line profile-user__macro-scale-line_fat">
-									</div>
-								</div>
-								<div class="profile-user__macro-amount">47.1 г</div>
-							</div>
-						</div>
-					</div>
-					<div class="profile-user__water">
-						<div class="profile-user__water-tracker">
-						<img class="profile-user__water-img" src="./assets/images/index/water-droplet.svg"
-							alt="Рисунок капли">Трекер воды</div>
-						<div class="profile-user__water-amount">1250 ml  <span class="font-black"> / 2000 ml</span></div>
-					</div>
-				</div>
+        </form>
+
+        <div class="customization__pop-up_close" id="customization__pop-up_close" onclick="closeCustomization ()">
+          &#10006</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Окно настроек -->
+
+  <!-- Анжела -->
+
+  <div class="wrapper">
+    <!-- Инна -->
+
+    <!-- side-bar -->
+    <div class="side-bar">
+      <nav>
+        <li>
+          <a class="side-bar__link side-bar__link_profile" href="#"><img src="./assets/images/index/profile.svg"
+              alt="иконка ссылки на раздел профиль">Профиль</a>
+        </li>
+        <li class="side-bar__menu">
+          <a class="side-bar__link  side-bar__link_diary" href="#"><img src="./assets/images/index/diary.svg"
+              alt="иконка ссылки на раздел дневник">Дневник</a>
+        </li>
+        <li class="side-bar__menu">
+          <a class="side-bar__link side-bar__link_charts" href="#"><img src="./assets/images/index/graph.svg"
+              alt="иконка ссылки на раздел динамика">Динамика</a>
+        </li>
+        <li class="side-bar__menu">
+          <a class="side-bar__link  side-bar__link_articles" href="#"><img src="./assets/images/index/sampling.svg"
+              alt="иконка ссылки на раздел Статьи">Статьи</a>
+        </li>
+      </nav>
+    </div>
+    <!-- side-bar -->
+
+    <!-- main -->
+    <main class="profile">
+      <div class="profile-welcome">
+        <div class="profile-welcome__wripper" id="profile-welcome__wripper">
+          <form action="#" class="profile-welcome__form">
+            <img class="profile-welcome__img" src="./assets/images/index/circle.svg"
+              alt="логотип приложения в виде графика-доната">
+            <p class="profile-welcome__form-greet font-black">Добро пожаловать!</p>
+            <div class="profile-welcome__form-inputs">
+              <input id="loginEmail" type="email" placeholder="email" class="profile-welcome__form-input"
+                onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');">
+              <input id="loginPassword" type="password" placeholder="Пароль" class="profile-welcome__form-input">
+            </div>
+            <button class="profile-welcome__form-button" onclick="loginUser()">Войти</button>
+          </form>
+
+          <!-- Анжела - кнопка для окна Регистрация -->
+          <button class="profile-welcome__button-reg" id="registration__pop-up_open" onclick="openRegistration()">
+            Регистрация
+          </button>
+          <!-- Анжела - кнопка для окна Регистрация -->
         </div>
-        <div class="profile-RSK__recommendations-container">
+        <div class="profile-paternity font-black" id="profile-paternity">Calorie tracker © 2023</div>
+
+        <div class="profile-user" id="profile-user">
+          <img class="profile-user__settings" id="profile-user__settings" src="./assets/images/index/settings.svg"
+            alt="шестеренки для выхода в меню настроек" onclick="openDropdown()">
+          <!-- выпадающее меню -шестерёнки -->
+          <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#" onclick="openCustomization()">Редактировать профиль</a>
+              <a href="#">Сменить аккаунт</a>
+              <a href="#" onclick="exit()">Выйти</a>
+              <div class="dropdown__pop-up_close" id="dropdown__pop-up_close" onclick="closedropdown ()">&#10006</div>
+            </div>
+          </div>
+          <!-- выпадающее меню -шестерёнки -->
+          <div class="profile-user__data">
+            <img src="./assets/images/index/avatar.svg"
+              alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
+            <div class="profile-user__data-name">Кристина Иванова</div>
+            <div class="profile-user__data-age font-black">26 лет</div>
+            <div class="profile-user__states">
+              <div class="profile-user__states-block">
+                <div class="profile-user__states-name">Вес</div>
+                <div class="profile-user__states-value font-black">60 кг</div>
+              </div>
+              <div class="profile-user__states-block">
+                <div class="profile-user__states-name">Рост</div>
+                <div class="profile-user__states-value font-black">166 см</div>
+              </div>
+              <div class="profile-user__states-block">
+                <div class="profile-user__states-name">Цель</div>
+                <div class="profile-user__states-value font-orange">55 кг</div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-user__date">
+            <h2 class="font-blue">Сводка</h2>
+            <div class="profile-user__date-devider">
+              <div class="profile-user__date-line"></div>
+              <div></div>
+            </div>
+            <div class="profile-user__date-value font-black">14 мая 2023</div>
+          </div>
+          <div class="profile-user__kkal">
+            <div class="profile-user__kkal-wrapper">
+              <div class="profile-user__kkal-wrapper-data">
+                <div class="profile-user__kkal-block">
+                  <h3 class="profile-user__kkal-name font-black">Употреблено калорий:</h3>
+                  <div class="profile-user__kkal-amount">1360</div>
+                </div>
+                <div class="profile-user__kkal-block">
+                  <h3 class="profile-user__kkal-name font-black">Осталось калорий:</h3>
+                  <div class="profile-user__kkal-amount">240</div>
+                </div>
+              </div>
+              <div class="profile-user__doughnut-chart">
+                <canvas id="doughnut"></canvas>
+              </div>
+            </div>
+            <div class="profile-user__macro">
+              <div class="profile-user__macro-block">
+                <h3>Углеводы</h3>
+                <div class="profile-user__macro-scale">
+                  <div class="profile-user__macro-scale-line profile-user__macro-scale-line_carbs">
+                  </div>
+                </div>
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">142.6</span> г
+                </div>
+              </div>
+              <div class="profile-user__macro-block">
+                <h3>Белки</h3>
+                <div class="profile-user__macro-scale">
+                  <div class="profile-user__macro-scale-line profile-user__macro-scale-line_protein">
+                  </div>
+                </div>
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">94.4</span> г
+                </div>
+              </div>
+              <div class="profile-user__macro-block">
+                <h3>Жиры</h3>
+                <div class="profile-user__macro-scale">
+                  <div class="profile-user__macro-scale-line profile-user__macro-scale-line_fat">
+                  </div>
+                </div>
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">47.1</span> г
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-user__water">
+            <div class="profile-user__water-tracker">
+              <img class="profile-user__water-img" src="./assets/images/index/water-droplet.svg"
+                alt="Рисунок капли">Трекер воды</div>
+            <div class="profile-user__water-amount">1250 ml <span class="font-black"> / 2000 ml</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-RSK__recommendations-container">
         <section class="profile-RSK">
           <h1 class="profile-RSK__title">
             Вычислить рекомендованную <br />
@@ -246,14 +297,11 @@
                 />
               </div>
             </div>
-            <button
-              type="submit"
-              class="profile-RSK__form-button calculate-rsk"
-            >
+            <button type="submit" class="profile-RSK__form-button calculate-rsk">
               Вычислить РСК
             </button>
           </form>
-
+      
           <div class="profile-RSK__recommendations">
             <div class="profile-RSK__kkal">
               <p class="font-black">Ваша дневная норма составляет</p>
@@ -264,70 +312,78 @@
             <div class="profile-RSK__macro">
               <div>
                 <div class="profile-RSK__macroelement font-black">Белки</div>
-                <div
-                  class="profile-RSK__macroelement-amount font-figure font-blue"
-                >
+                <div class="profile-RSK__macroelement-amount font-figure font-blue">
                   <span class="proteins">125 г</span>
                 </div>
               </div>
               <div>
                 <div class="profile-RSK__macroelement font-black">Жиры</div>
-                <div
-                  class="profile-RSK__macroelement-amount font-figure font-blue"
-                >
+                <div class="profile-RSK__macroelement-amount font-figure font-blue">
                   <span class="fats">60 г</span>
                 </div>
               </div>
               <div>
                 <div class="profile-RSK__macroelement font-black">Углеводы</div>
-                <div
-                  class="profile-RSK__macroelement-amount font-figure font-blue"
-                >
+                <div class="profile-RSK__macroelement-amount font-figure font-blue">
                   <span class="carbohydrates">240 г</span>
                 </div>
               </div>
             </div>
             <div class="profile-RSK__weight font-black">
-              Эффективный вес -
+              Эффективный вес - 
               <span class="font-figure font-blue optimal-weight">59 кг</span>
             </div>
           </div>
         </section>
         <button
-              type="submit"
-              class="profile-RSK__form-button profile-RSK__form-button-save calculate-rsk "
-            >
-              Сохранить данные в профиль
-            </button>
-          </div>
-      </main>
+          type="submit"
+          class="profile-RSK__form-button profile-RSK__form-button-save calculate-rsk"
+        >
+          Сохранить данные в профиль
+        </button>
+      </div>
+      
+    </main>
 
-		<!-- Инна -->
-	</div>
+    <!-- Инна -->
+  </div>
 
-	<!-- notification pop-up -->
+  <!-- notification pop-up -->
 
-	<div class="profile-notification" id="profile-notification">
-		<div class="profile-notification__content">
-			<img src="./assets/images/index/info.svg" alt="Иконка с i в кружочке">
-			<div>
-				<p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
-						href="#">войдите</a> в личный кабинет</p>
-				<p class="profile-notification__text"> или <a class="profile-notification__reg"
-						href="">зарегистрируйтесь</a></p>
-			</div>
-		</div>
-	</div>
-	<!-- notification pop-up -->
+  <div class="profile-notification" id="profile-notification">
+    <div class="profile-notification__content">
+      <img src="./assets/images/index/info.svg" alt="Иконка с i в кружочке">
+      <div>
+        <p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
+            href="#">войдите</a> в личный кабинет</p>
+        <p class="profile-notification__text"> или <a class="profile-notification__reg" href="#" onclick="openRegistration()"
+            >зарегистрируйтесь</a></p>
+      </div>
+    </div>
+  </div>
+  <!-- notification pop-up -->
 
-	<!-- Инна -->
-	<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Инна -->
+  <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
-	<script src="./modules/profile.js"></script>
-	<script src="./modules/profile_user notification pop-up.js"></script>
+  <script src="./modules/notification.js"></script>
+  <script src="./modules/profile.js"></script>
+  <script src="./modules/registration.js"></script>
+  <script src="./modules/customization.js"></script>
+  <script src="./modules/side-bar.js"></script>
+
 </body>
 
-    <script src="./modules/profile.js"></script>
-  </body>
+
+
 </html>
+
+
+
+
+
+
+
+

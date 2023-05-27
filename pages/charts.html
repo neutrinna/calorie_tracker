@@ -16,25 +16,25 @@
 
 <body class="charts-body">
 	<div class="wrapper">
-		
+
 		<!-- side-bar -->
 		<div class="side-bar">
 			<nav>
 				<li>
-					<a class="side-bar__link" href="./../index.html"><img src="./../assets/images/index/profile.svg"
-							alt="иконка ссылки на раздел профиль">Профиль</a>
+					<a class="side-bar__link side-bar__link_profile" href="#"><img
+							src="../assets/images/index/profile.svg" alt="иконка ссылки на раздел профиль">Профиль</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/diary.html"><img src="./../assets/images/index/diary.svg"
+				<li class="side-bar__menu">
+					<a class="side-bar__link  side-bar__link_diary" href="#"><img src="../assets/images/index/diary.svg"
 							alt="иконка ссылки на раздел дневник">Дневник</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/charts.html"><img src="./../assets/images/index/graph.svg"
+				<li class="side-bar__menu">
+					<a class="side-bar__link side-bar__link_charts" href="#"><img src="../assets/images/index/graph.svg"
 							alt="иконка ссылки на раздел динамика">Динамика</a>
 				</li>
-				<li>
-					<a class="side-bar__link" href="./pages/articles.html"><img src="./../assets/images/index/sampling.svg"
-							alt="иконка ссылки на раздел Статьи">Статьи</a>
+				<li class="side-bar__menu">
+					<a class="side-bar__link  side-bar__link_articles" href="#"><img
+							src="../assets/images/index/sampling.svg" alt="иконка ссылки на раздел Статьи">Статьи</a>
 				</li>
 			</nav>
 		</div>
@@ -141,39 +141,41 @@
 				</div>
 				<div class="charts-weight__changes">
 					<div class="charts-weight__dropped">
-						<p class="charts-grid-weight-dropped-text">Сброшено - <span class="charts-kg-red">5 кг</span></p>
+						<p class="charts-grid-weight-dropped-text">Сброшено - <span class="charts-kg-red">5 кг</span>
+						</p>
 					</div>
 					<div class="charts-weight__remained">
-						<p class="charts-grid-weight-remained-text">Осталось - <span class="charts-kg-green">5 кг</span></p>
+						<p class="charts-grid-weight-remained-text">Осталось - <span class="charts-kg-green">5 кг</span>
+						</p>
 					</div>
 				</div>
 				<div class="charts-weight__dynamics">
-					<div class="charts-weight__initial">
-						<div class="charts-weight__caption-initial">
-							<div class="charts-initial__label charts-label__initial-weight">60 кг</div>
-							<div class="charts-initial__label charts-label__initial-text">начальный вес</div>
-						</div>
-					</div>
-
-					<div class="charts-weight__current"></div>
-
-					<div class="charts-weight__target">
-						<div class="charts-weight__caption-target">
-							<div class="charts-target__label charts-label__target-weight">50 кг</div>
-							<div class="charts-target__label charts-label__target-text">желаемый вес</div>
-						</div>
-					</div>
-
-					<div class="charts-weight__months">
-						<div class="charts-weight__month charts-weight__first-month">
-							<p>май 2023</p>
-						</div>
-						<div class="charts-weight__month">
-							<p>июнь 2023</p>
-						</div>
+					<div class="charts-weight__current">
+						<canvas id="charts-weight__current-lb"></canvas>
 					</div>
 				</div>
 			</div>
+
+			<div class="charts-form">
+				<div>
+					<label for="charts-weight-input">Введите ваш вес:</label>
+					<input type="number" id="charts-weight-input" name="weight">
+				</div>
+
+				<div>
+					<label for="charts-date-input">Дата:</label>
+					<input type="date" id="charts-date-input" name="date"
+						min="{{new Date().toISOString().split('T')[0]}}">
+
+					<button class="charts-add-weight-btn" disabled>Добавить вес</button>
+				</div>
+			</div>
+
+			<div id="weightList">
+				<ul>
+				</ul>
+			</div>
+
 		</div>
 	</div>
 
@@ -181,8 +183,9 @@
 
 	<!-- Настя Кольцова -->
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="./../modules/charts.js" type="module"></script>
+	<script src="../modules/side-bar-other.js"></script>
 </body>
 
 </html>

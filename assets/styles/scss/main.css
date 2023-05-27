@@ -397,11 +397,15 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
+.diary-table-string-2,
+.diary-table-string-1,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
   height: 64px;
 }
+.diary-table-string-2__meal-name,
+.diary-table-string-1__meal-name,
 .diary-table-string__meal-name {
   display: flex;
   justify-content: space-between;
@@ -409,10 +413,14 @@ body {
   margin-left: 3%;
   width: 15%;
 }
+.diary-table-string-2__meal-name_color_orange,
+.diary-table-string-1__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
+.diary-table-string-2__add-btn,
+.diary-table-string-1__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
   border: none;
@@ -420,9 +428,13 @@ body {
   margin-top: 5%;
   transition-duration: 0.7s;
 }
+.diary-table-string-2__add-btn-img,
+.diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
+.diary-table-string-2__column-names,
+.diary-table-string-1__column-names,
 .diary-table-string__column-names {
   display: flex;
   justify-content: space-between;
@@ -433,10 +445,15 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
+.diary-table-string-2__column-names_color_dark-blue,
+.diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
+  text-align: left;
 }
+.diary-table-string-2_color_blue,
+.diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
 }
@@ -741,7 +758,7 @@ button {
 }
 
 .profile-RSK__form-button-save {
-  margin-top: 5vh;
+  margin: 3vh 0;
 }
 
 .profile-RSK__form-button:hover {
@@ -952,7 +969,7 @@ button {
 .profile-user__kkal-block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 50%;
 }
 
@@ -969,8 +986,12 @@ button {
   font-family: "Inter", sans-serif;
 }
 
+.profile-user__kkal-wrapper-data {
+  width: 60%;
+}
+
 .profile-user__doughnut-chart {
-  height: 18.28vh;
+  width: 30%;
 }
 
 .profile-user__macro {
@@ -1047,7 +1068,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 41.5%;
+  width: 44.5%;
   height: 100%;
   font-weight: 400;
   font-size: 23px;
@@ -1066,8 +1087,9 @@ button {
 .profile-user__date {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 3.95vh;
+  height: 7vh;
   padding: 0 3% 0 3%;
 }
 .profile-user__date h2 {
@@ -1215,7 +1237,7 @@ button {
     font-size: 20px;
   }
   .profile-user__kkal-name {
-    font-size: calc((100vw + 160px) / 80);
+    font-size: calc((100vw - 160px) / 80);
   }
   .profile-user__macro-block h3 {
     font-size: calc((100vw - 373px) / 53);
@@ -1345,6 +1367,32 @@ button {
     font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
+  .profile-user__data-name,
+  .profile-user__states-name,
+  .profile-user__kkal-amount,
+  .profile-user__water-amount {
+    font-size: calc((100vw + 365px) / 91);
+  }
+  .profile-user__data-age {
+    font-size: calc((100vw - 457px) / 91);
+  }
+  .profile-user__states-value,
+  .profile-user__date h2 {
+    font-size: calc((100vw + 365px) / 91);
+  }
+  .profile-user__date-value {
+    font-size: calc((100vw + 91px) / 91);
+  }
+  .profile-user__kkal-name,
+  .profile-user__macro-block h3 {
+    font-size: calc((100vw - 91px) / 91);
+  }
+  .profile-user__macro-amount_span {
+    font-size: calc((100vw - 274px) / 91);
+  }
+  .profile-user__water-tracker {
+    font-size: calc((100vw + 182px) / 91);
+  }
 }
 .font-black {
   color: rgba(0, 0, 0, 0.7);
@@ -1370,6 +1418,10 @@ button {
 
 .profile-welcome__wripper,
 .profile-paternity {
+  display: flex;
+}
+
+.profile-user {
   display: none;
 }
 

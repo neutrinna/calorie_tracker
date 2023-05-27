@@ -363,7 +363,7 @@ button {
 .profile-user__kkal-block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 50%;
 }
 
@@ -380,8 +380,12 @@ button {
   font-family: "Inter", sans-serif;
 }
 
+.profile-user__kkal-wrapper-data {
+  width: 60%;
+}
+
 .profile-user__doughnut-chart {
-  height: 18.28vh;
+  width: 30%;
 }
 
 .profile-user__macro {
@@ -458,7 +462,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 41.5%;
+  width: 44.5%;
   height: 100%;
   font-weight: 400;
   font-size: 23px;
@@ -477,8 +481,9 @@ button {
 .profile-user__date {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 3.95vh;
+  height: 7vh;
   padding: 0 3% 0 3%;
 }
 .profile-user__date h2 {
@@ -626,7 +631,7 @@ button {
     font-size: 20px;
   }
   .profile-user__kkal-name {
-    font-size: calc((100vw + 160px) / 80);
+    font-size: calc((100vw - 160px) / 80);
   }
   .profile-user__macro-block h3 {
     font-size: calc((100vw - 373px) / 53);
@@ -756,6 +761,32 @@ button {
     font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
+  .profile-user__data-name,
+  .profile-user__states-name,
+  .profile-user__kkal-amount,
+  .profile-user__water-amount {
+    font-size: calc((100vw + 365px) / 91);
+  }
+  .profile-user__data-age {
+    font-size: calc((100vw - 457px) / 91);
+  }
+  .profile-user__states-value,
+  .profile-user__date h2 {
+    font-size: calc((100vw + 365px) / 91);
+  }
+  .profile-user__date-value {
+    font-size: calc((100vw + 91px) / 91);
+  }
+  .profile-user__kkal-name,
+  .profile-user__macro-block h3 {
+    font-size: calc((100vw - 91px) / 91);
+  }
+  .profile-user__macro-amount_span {
+    font-size: calc((100vw - 274px) / 91);
+  }
+  .profile-user__water-tracker {
+    font-size: calc((100vw + 182px) / 91);
+  }
 }
 .font-black {
   color: rgba(0, 0, 0, 0.7);
@@ -781,6 +812,10 @@ button {
 
 .profile-welcome__wripper,
 .profile-paternity {
+  display: flex;
+}
+
+.profile-user {
   display: none;
 }
 

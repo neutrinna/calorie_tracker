@@ -11,8 +11,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgb(63, 61, 61);
-  z-index: 2;
+  background-color: rgb(63, 61, 61, .5);
+  z-index: 11;
 }
   
   .diary__productnotfound__popup_container {
@@ -44,7 +44,7 @@
     border: 0;
     border-radius: 10px;
     background-color: #F7C78E;
-    margin-top: 20px;
+    margin-top: 10px;
     color: rgba(0, 0, 0, 0.7);
     transition-duration: 1s;
     cursor: pointer;
