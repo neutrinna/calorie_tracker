@@ -2,7 +2,7 @@
 const menu = document.querySelectorAll(".side-bar__menu");
 const welcomMenu = document.querySelector(".profile-welcome__wripper");
 
-$(document).ready(function () {  
+$(document).ready(function () {
     popUpHide();
 });
 
@@ -18,9 +18,14 @@ function popUpHide() {
     $("#profile-notification").hide();
 }
 
-for(let menuItem of menu) {
+for (let menuItem of menu) {
     menuItem.addEventListener("click", () => {
-        if(welcomMenu.style.display == "") popUpShow()
+
+        if (document.querySelector(".profile-user").style.display === "flex") {
+            document.querySelector(".side-bar__link_diary").href = "./pages/diary.html";
+            document.querySelector(".side-bar__link_charts").href = "./pages/charts.html";
+        }
+        if (welcomMenu.style.display == "") popUpShow();
     })
 }
 

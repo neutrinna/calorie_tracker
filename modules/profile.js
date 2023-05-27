@@ -88,6 +88,8 @@ form.addEventListener("submit", (event) => {
 });
 // Nastya Klm
 
+
+
 // ИННА
 
 // chart
@@ -130,7 +132,7 @@ kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
 // time
 const dateNode = document.querySelector(`.profile-user__date-value`);
 dateNode.textContent = moment().format("DD/MM/YYYY")
-
 // time
+
 
 // ИННА
