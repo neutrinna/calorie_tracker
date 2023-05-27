@@ -12,9 +12,107 @@
     <link rel="stylesheet" href="./assets/styles/scss/layouts/side-bar.css">
     <link rel="stylesheet" href="./assets/styles/scss/pages/productnotfound.css">
     <link rel="stylesheet" href="./assets/styles/scss/pages/addnewproduct.css">
+    <link rel="stylesheet" href="./assets/styles/scss/pages/registration.css" />
+    <link rel="stylesheet" href="./assets/styles/scss/pages/customization.css" />
+    
   </head>
 
   <body>
+<!-- Анжела -->
+    <!-- Окно регистрации -->
+    <div class="registration__pop-up" id="registration__pop-up">
+        <div class="registration__pop-up_container">
+          <div class="registration__pop-up_body">
+            <p class="registration__title">Регистрация</p>
+            <p class="registration__title_description">Введите Ваши данные:</p>
+            <form action="" >
+              <input
+              id = "registration__text_name"
+                class="registration__text registration__text_name"
+                type=" text"
+                onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+                placeholder="Имя"
+                name = "username"
+              />
+              <input
+                class="registration__text registration__text_surname"
+                id = "registration__text_surname"
+                type="text"
+                onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+                placeholder="Фамилия"
+                name = "surname"
+              />
+                <div>
+                  <input
+                    type="date"
+                    id="registration__text_bday"
+                    name="bday"
+                    class="registration__text_bday registration__text"
+                  />
+                </div>
+              <input
+                class="registration__text registration__text_email"
+                type="email"
+                onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
+                id="registration__text_email"
+                placeholder="E-mail"
+                name="email"
+              />
+              <label for="password"></label>
+              <input
+                class="registration__text registration__text_password"
+                type="password"
+                id="registration__text_password"
+                placeholder="Пароль"
+                name="password"
+              />
+              <label for="passwordRepeat"></label>
+              <input
+                class="registration__text"
+                id="registration__text_passwordRepeat"
+                type="password"
+                placeholder="Повторите пароль"
+                name="passwordRepeat"
+              />
+              <button id = "registration__submit" onclick = "registrationAdd ()">Ввод</button>
+              <p class="registration__pop-up_close" onclick="closeRegistration()">
+                Отмена
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Окно регистрации -->
+  
+      <!-- Окно настроек -->
+  
+          <div class="customization__pop-up" id = "customization__pop-up">
+              <div class="customization__pop-up_container">
+                  <div class="customization__pop-up_body">
+                      <p class = "customization__title">Настройки</p>
+                      <p class="customization__title_description">Редактировать информацию</p>
+                      <form id = "profile">
+                          <input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя">
+                          <input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
+                          <input id = "customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+                          <input id = "customization__text_email" class="customization__text" type="text" placeholder="E-mail">
+                          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
+                          <p class = "customization__title_description">Задать цель, кг:</p>
+                          <input type = "number" placeholder="Введите число от 0 до 100" class="customization__text " max = "100" min = "0" step = "1" >
+                          <button >Сохранить</button>
+  
+                      </form>
+  
+                      <div class="customization__pop-up_close" id = "customization__pop-up_close" onclick="closeCustomization ()" >&#10006</div>
+                  </div>
+              </div>
+  
+          </div> 
+  
+      <!-- Окно настроек -->
+  
+       <!-- Анжела -->
+
     <div class="wrapper">
       <!-- Инна -->
       <!-- side-bar -->
@@ -82,24 +180,43 @@
 		<!-- main -->
 		<main class="profile">
 			<div class="profile-welcome">
-				<div class="profile-welcome__wripper">
+				<div class="profile-welcome__wripper" id="profile-welcome__wripper">
 					<form action="#" class="profile-welcome__form">
 						<img class="profile-welcome__img" src="./assets/images/index/circle.svg"
 							alt="логотип приложения в виде графика-доната">
 						<p class="profile-welcome__form-greet font-black">Добро пожаловать!</p>
 						<div class="profile-welcome__form-inputs">
-							<input type="text" placeholder="Логин" class="profile-welcome__form-input">
-							<input type="text" placeholder="Пароль" class="profile-welcome__form-input">
+							<input id = "loginEmail" type="email" placeholder="email" class="profile-welcome__form-input" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');">
+							<input id = "loginPassword" type="password" placeholder="Пароль" class="profile-welcome__form-input">
 						</div>
-						<button class="profile-welcome__form-button">Войти</button>
+						<button class="profile-welcome__form-button" onclick="loginUser()">Войти</button>
 					</form>
-					<button class="profile-welcome__button-reg">Регистрация</button>
+                    
+					 <!-- Анжела - кнопка для окна Регистрация -->
+                     <button
+                     class="profile-welcome__button-reg"
+                     id = "registration__pop-up_open"
+                     onclick="openRegistration()"
+                   >
+                     Регистрация
+                   </button>
+                   <!-- Анжела - кнопка для окна Регистрация -->
 				</div>
-				<div class="profile-paternity font-black">Calorie tracker © 2023</div>
+				<div class="profile-paternity font-black" id = "profile-paternity">Calorie tracker © 2023</div>
 
-				<div class="profile-user">
-					<img class="profile-user__settings" src="./assets/images/index/settings.svg"
-						alt="шестеренки для выхода в меню настроек">
+				<div class="profile-user" id = "profile-user">
+					<img class="profile-user__settings" id="profile-user__settings" src="./assets/images/index/settings.svg"
+						alt="шестеренки для выхода в меню настроек" onclick="openDropdown()">
+                            <!-- выпадающее меню -шестерёнки -->
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content">
+                        <a href="#" onclick = "openCustomization()" >Редактировать профиль</a>
+                        <a href="#">Сменить аккаунт</a>
+                        <a href="#" onclick="exit()" >Выйти</a>
+                        <div class="dropdown__pop-up_close" id = "dropdown__pop-up_close" onclick="closedropdown ()" >&#10006</div>
+                        </div>
+                    </div>
+                    <!-- выпадающее меню -шестерёнки -->
 					<div class="profile-user__data">
 						<img src="./assets/images/index/avatar.svg"
 							alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
@@ -306,7 +423,7 @@
 				<p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
 						href="#">войдите</a> в личный кабинет</p>
 				<p class="profile-notification__text"> или <a class="profile-notification__reg"
-						href="">зарегистрируйтесь</a></p>
+						href="" onclick="openRegistration()">зарегистрируйтесь</a></p>
 			</div>
 		</div>
 	</div>
@@ -319,8 +436,11 @@
 
 	<script src="./modules/profile.js"></script>
 	<script src="./modules/profile_user notification pop-up.js"></script>
+
 </body>
 
     <script src="./modules/profile.js"></script>
+    <script src="./modules/registration.js"></script>
+	<script src="./modules/customization.js"></script>
   </body>
 </html>

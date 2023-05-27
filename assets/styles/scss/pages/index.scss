@@ -795,13 +795,13 @@ button {
 
 .profile-welcome__wripper,
 .profile-paternity {
-    display: none;
+    display: block;
 }
 
-// .profile-user,
-// .profile-user__settings{
-//     display: none;
-// }
+.profile-user,
+.profile-user__settings{
+    display: none;
+}
 
 
 @media screen and (max-width: ($desktop - 1px)) {
