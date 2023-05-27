@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         loader.style.display = 'block';
 
-        // checkbox checked //
+        // checkbox checked adding meal//
         checkbox.addEventListener('change', function() {
           if (checkbox.checked) {
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
@@ -76,11 +76,10 @@ document.addEventListener("DOMContentLoaded", function() {
                   const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`)
                   const diaryTableStringDiv = document.createElement('div');
                   diaryTableStringDiv.classList.add('diary-table-string-1');
-
                   const mealNameDiv = document.createElement('div');
                   mealNameDiv.classList.add('diary-table-string-1__meal-name');
                   mealNameDiv.innerHTML = `
-                    <p>${productName}</p>`;
+                    <div>${productName}</div>`;
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
                  
-                  // total weight //
+                  // total weight calculation//
                   totalWeight += Number(grammInput.value);
                   totalCalories += (calories * grammInput.value) / 100;
                   totalCarbs += (carbs * grammInput.value) / 100;
@@ -122,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
               const product = res.product;
               const productName = product.product_name;
               commentElem.innerHTML = `
-                <p>${productName}</p>`;
+                <div>${productName}</div>`;
                 loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
