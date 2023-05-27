@@ -83,7 +83,9 @@ function registrationAdd() {
   
   // функции открытия/закрытия попапа "Регистрация"
   function openRegistration() {
+    // e.eventPreventDefault();
     document.getElementById("registration__pop-up").style.display = "block";
+    popUpHide()
   }
   
   function closeRegistration() {
