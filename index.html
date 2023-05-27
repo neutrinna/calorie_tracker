@@ -92,14 +92,14 @@
                       <p class = "customization__title">Настройки</p>
                       <p class="customization__title_description">Редактировать информацию</p>
                       <form id = "profile">
-                          <input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя">
-                          <input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия">
-                          <input id = "customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
-                          <input id = "customization__text_email" class="customization__text" type="text" placeholder="E-mail">
-                          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
+                          <input id = "customization__text_name" class="customization__text" type="text" placeholder="Имя" onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}">
+                          <input id = "customization__text_surname" class="customization__text" type="text" placeholder="Фамилия" onKeyUp="if(/[^а-яА-ЯёЁ]/i.test(this.value)){this.value='';}">
+                          <input id = "customization__text_bday" class="customization__text" type="data" name ="bday" placeholder="Дата рождения">
+                          <input id = "customization__text_email" class="customization__text" type="email" placeholder="E-mail" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');">
+                          <input id="customization__text_password" class="customization__text" type="password" placeholder="Пароль">
                           <p class = "customization__title_description">Задать цель, кг:</p>
                           <input type = "number" placeholder="Введите число от 0 до 100" class="customization__text " max = "100" min = "0" step = "1" >
-                          <button >Сохранить</button>
+                          <button  >Сохранить</button>
   
                       </form>
   
@@ -213,15 +213,15 @@
                         <a href="#" onclick = "openCustomization()" >Редактировать профиль</a>
                         <a href="#">Сменить аккаунт</a>
                         <a href="#" onclick="exit()" >Выйти</a>
-                        <div class="dropdown__pop-up_close" id = "dropdown__pop-up_close" onclick="closedropdown ()" >&#10006</div>
+                        <div class="dropdown__pop-up_close" id = "dropdown__pop-up_close" onclick="closeDropdown ()" >&#10006</div>
                         </div>
                     </div>
                     <!-- выпадающее меню -шестерёнки -->
 					<div class="profile-user__data">
 						<img src="./assets/images/index/avatar.svg"
 							alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
-						<div class="profile-user__data-name">Кристина Иванова</div>
-						<div class="profile-user__data-age font-black">26 лет</div>
+						<div class="profile-user__data-name" id = "profile-user__data-name">Кристина Иванова</div>
+						<div class="profile-user__data-age font-black" id="profile-user__data-age ">26 лет</div>
 						<div class="profile-user__states">
 							<div class="profile-user__states-block">
 								<div class="profile-user__states-name">Вес</div>
