@@ -24,6 +24,7 @@ for (let menuItem of menu) {
         if (document.querySelector(".profile-user").style.display === "flex") {
             document.querySelector(".side-bar__link_diary").href = "./pages/diary.html";
             document.querySelector(".side-bar__link_charts").href = "./pages/charts.html";
+            document.querySelector(".side-bar__link_articles").href = "./pages/articles.html";
         }
         if (welcomMenu.style.display == "") popUpShow();
     })
