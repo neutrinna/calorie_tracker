@@ -90,11 +90,13 @@ body {
 }
 
 // строки дневника
+.diary-table-string-2,
+.diary-table-string-1,
 .diary-table-string {
     display: flex;
     justify-content: space-between;
-
     height: 64px;
+
 
     &__meal-name {
         display: flex;
@@ -125,9 +127,7 @@ body {
         //     transition-duration: 0.7s;
         //     transform: rotate(45deg);
         // }
-
     }
-
 
 
     &__add-btn-img {
@@ -148,6 +148,7 @@ body {
     &__column-names_color_dark-blue {
         color: $main-color;
         font-weight: 700;
+        text-align: left;
     }
 
     &_color_blue {
@@ -347,5 +348,6 @@ body {
     }
 
 }
+
 
 // -----------------------END ALEKSANDRA----------------------------

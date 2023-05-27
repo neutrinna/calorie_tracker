@@ -159,7 +159,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-  .articles-section__article {
+.articles-section__article {
     font-weight: 300;
     font-size: calc((100vw - 160px) / 80);
     font-family: "Montserrat", sans-serif;
@@ -197,7 +197,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-  .articles-section__article {
+.articles-section__article {
     font-weight: 300;
     font-size: calc((100vw + 475px) / 119.75);
     font-family: "Montserrat", sans-serif;
