@@ -1,5 +1,5 @@
 const userData = JSON.parse(localStorage.getItem('userData'));
-// let loged = false;
+let loged = false;
 
 function loginUser()  { 
     const emailInputValue = document.getElementById('loginEmail').value; 
@@ -11,6 +11,8 @@ function loginUser()  {
       console.log(`passwordInputValue: ${passwordInputValue} userData[i].password:${userData[i].password}`);
       if (emailInputValue === userData[i].email && passwordInputValue === userData[i].password) { 
         console.log("Данные совпадают"); 
+        loged = true;
+        window.localStorage.setItem(`loged`,`${loged}`);
         userFound = true; // если пользователь найден, меняем значение переменной
         document.getElementById("profile-welcome__wripper").style.display = "none"; 
         document.getElementById("profile-paternity").style.display = "none"; 
@@ -34,9 +36,11 @@ function loginUser()  {
   }
 
   function exit()  { 
+    loged = false;
         document.getElementById("profile-welcome__wripper").style.display = "flex"; 
         document.getElementById("profile-paternity").style.display = "flex"; 
         document.getElementById("profile-user").style.display = "none"; 
+        window.localStorage.setItem(`loged`,`${loged}`);
   }
 
 

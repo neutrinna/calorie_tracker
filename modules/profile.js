@@ -135,4 +135,10 @@ dateNode.textContent = moment().format("DD/MM/YYYY")
 // time
 
 
+// page load
+if (localStorage.getItem('loged') === "true") {
+document.getElementById("profile-welcome__wripper").style.display = "none"; 
+document.getElementById("profile-paternity").style.display = "none"; 
+document.getElementById("profile-user").style.display = "flex"; }
+// page load
 // ИННА
