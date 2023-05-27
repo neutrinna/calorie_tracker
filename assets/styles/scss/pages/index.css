@@ -67,6 +67,11 @@ button {
   border-radius: 25px;
 }
 
+.profile-RSK__recommendations-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile-RSK__kkal {
   display: flex;
   flex-direction: column;
@@ -144,6 +149,10 @@ button {
   background-color: #F7C78E;
   color: rgba(0, 0, 0, 0.7);
   transition-duration: 1s;
+}
+
+.profile-RSK__form-button-save {
+  margin: 3vh 0;
 }
 
 .profile-RSK__form-button:hover {
