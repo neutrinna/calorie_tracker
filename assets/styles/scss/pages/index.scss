@@ -485,7 +485,7 @@ button {
     align-items: center;
 
     width: 100%;
-    height: 3.95vh;
+    height: 7vh;
     padding: 0 3% 0 3%;
 
     h2 {
@@ -795,11 +795,10 @@ button {
 
 .profile-welcome__wripper,
 .profile-paternity {
-    display: block;
+    display: flex;
 }
 
-.profile-user,
-.profile-user__settings{
+.profile-user{
     display: none;
 }
 

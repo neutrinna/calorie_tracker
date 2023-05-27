@@ -11,8 +11,8 @@ function loginUser()  {
         userFound = true; // если пользователь найден, меняем значение переменной
         document.getElementById("profile-welcome__wripper").style.display = "none"; 
         document.getElementById("profile-paternity").style.display = "none"; 
-        document.getElementById("profile-user").style.display = "block"; 
-        document.getElementById("profile-user__settings").style.display = "block"; 
+        document.getElementById("profile-user").style.display = "flex"; 
+        document.getElementById("profile-user__settings").style.display = "flex"; 
 
         document.getElementById('customization__text_name').value = userData[i].name; 
         document.getElementById('customization__text_surname').value = userData[i].surname; 
@@ -32,7 +32,7 @@ function loginUser()  {
   }
 
   function exit()  { 
-        document.getElementById("profile-welcome__wripper").style.display = "block"; 
+        document.getElementById("profile-welcome__wripper").style.display = "flex"; 
         document.getElementById("profile-paternity").style.display = "block"; 
         document.getElementById("profile-user").style.display = "none"; 
         document.getElementById("profile-user__settings").style.display = "none"; 

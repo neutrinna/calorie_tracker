@@ -13,8 +13,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgb(63, 61, 61);
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
 }
 
 .registration__pop-up.active {
