@@ -55,7 +55,7 @@ function loginUser()  {
         } 
         
         console.log (`Возраст: ${age}`);
-        document.getElementById('profile-user__data-age').textContent = age; 
+        document.getElementById('profile-user__data-age').textContent = "Возраст: " + age; 
 
            break; // выходим из цикла, так как дальше перебирать нет смысла
     }
