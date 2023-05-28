@@ -106,6 +106,7 @@ const addButton = document.querySelector('.charts-add-weight-btn');
 
 const validateWeight = () => {
     const weight = weightInput.value;
+    localStorage.setItem('weightForWaterTracker', `${weight}`);
     if (isNaN(weight) || weight === '' || weight <= 0) {
         alert('Введите корректное значение веса.');
         return false;

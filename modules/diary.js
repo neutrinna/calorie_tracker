@@ -3,14 +3,21 @@
 const glassCountForm = document.querySelector(".diary-water-tracker__form");
 const trackerInput = document.querySelector(".diary-water-tracker__form");
 const glassCountRes = document.querySelector(".diary-water-tracker__crrnt-res");
+const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res");
 
+
+let waterAmountByWeight = localStorage.getItem(`weightForWaterTracker`)*30;
+localStorage.setItem('waterAmountByWeightRWaterTracker', `${waterAmountByWeight}`);
+neededWaterAmount.textContent = `/ ${waterAmountByWeight}`;
 
 const handleFormChange = (e) => {
     const glassCount = e.target.value;
     console.log(glassCount)
-    glassCountRes.textContent = `${glassCount*200}`;
-    return e.target.value
+    let waterTrackerResult = `${glassCount*(waterAmountByWeight/10)}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
+    glassCountRes.textContent = waterTrackerResult; 
+    localStorage.setItem('waterTracker', `${waterTrackerResult}`); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
 }
+
 
 glassCountForm.addEventListener("change", handleFormChange)
 
@@ -61,6 +68,35 @@ function showAndHideDiv (a, b) {
     }
   
 };
+
+
+
+const search1 = document.getElementById(`diary-search-1`);
+search1.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeight (accordeon);}
+  })
+
+const search2 = document.getElementById(`diary-search-2`);
+search2.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeight (accordeon2);}
+  })
+
+const search3 = document.getElementById(`diary-search-3`);
+search3.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeight (accordeon3);}
+  })
+
+const search4 = document.getElementById(`diary-search-4`);
+search4.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeight (accordeon4);}
+  })
+
+
+function countAccordeonHeight (a) {
+    a.style.height = `${a.children.length*64+64}px`;
+}
+
+
 
 // Настя Кольцова - начало - для charts.js
 
