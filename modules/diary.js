@@ -1,21 +1,23 @@
 // трекер воды
-
 const glassCountForm = document.querySelector(".diary-water-tracker__form");
 const trackerInput = document.querySelector(".diary-water-tracker__form");
 const glassCountRes = document.querySelector(".diary-water-tracker__crrnt-res");
 const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res");
+const user = JSON.parse(localStorage.getItem(`currentUser`)); 
 
 
-let waterAmountByWeight = localStorage.getItem(`weightForWaterTracker`)*30;
-localStorage.setItem('waterAmountByWeightRWaterTracker', `${waterAmountByWeight}`);
-neededWaterAmount.textContent = `/ ${waterAmountByWeight}`;
+// let waterAmountByWeight = localStorage.getItem(`weightForWaterTracker`)*30;
+// localStorage.setItem('waterAmountByWeightRWaterTracker', `${waterAmountByWeight}`);
+// localStorage.setItem(`currentUser`, JSON.stringify(user));
+// neededWaterAmount.textContent = `/ ${waterAmountByWeight}`;
 
 const handleFormChange = (e) => {
     const glassCount = e.target.value;
     console.log(glassCount)
-    let waterTrackerResult = `${glassCount*(waterAmountByWeight/10)}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
+    let waterTrackerResult = `${glassCount*200}`; // РЕЗУЛЬТАТ ТРЕКЕРА ВОДЫ
     glassCountRes.textContent = waterTrackerResult; 
-    localStorage.setItem('waterTracker', `${waterTrackerResult}`); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
+    user[2] = waterTrackerResult;
+    localStorage.setItem(`currentUser`, JSON.stringify(user)); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
 }
 
 

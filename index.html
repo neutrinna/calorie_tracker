@@ -28,9 +28,11 @@
         <p class="registration__title_description">Введите Ваши данные:</p>
         <form action="">
           <input id="registration__text_name" class="registration__text registration__text_name" type=" text"
-          onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}" placeholder="Имя" name="username" />
+            onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+            placeholder="Имя" name="username" />
           <input class="registration__text registration__text_surname" id="registration__text_surname" type="text"
-          onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}" placeholder="Фамилия" name="surname" />
+            onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+            placeholder="Фамилия" name="surname" />
           <div>
             <input type="date" id="registration__text_bday" name="bday"
               class="registration__text_bday registration__text" />
@@ -62,10 +64,15 @@
         <p class="customization__title">Настройки</p>
         <p class="customization__title_description">Редактировать информацию</p>
         <form id="profile">
-          <input id="customization__text_name" onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}" class="customization__text" type="text" placeholder="Имя">
-          <input id="customization__text_surname" onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}" class="customization__text" type="text" placeholder="Фамилия">
+          <input id="customization__text_name"
+            onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+            class="customization__text" type="text" placeholder="Имя">
+          <input id="customization__text_surname"
+            onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
+            class="customization__text" type="text" placeholder="Фамилия">
           <input id="customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
-          <input id="customization__text_email" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" class="customization__text" type="text" placeholder="E-mail">
+          <input id="customization__text_email" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
+            class="customization__text" type="text" placeholder="E-mail">
           <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
           <p class="customization__title_description">Задать цель, кг:</p>
           <input type="number" placeholder="Введите число от 0 до 100" class="customization__text " max="100" min="0"
@@ -150,8 +157,8 @@
           <div class="profile-user__data">
             <img src="./assets/images/index/avatar.svg"
               alt="Аватарка пользователя по умолчанию в виде мужчины в кружочке">
-            <div class="profile-user__data-name" id = "profile-user__data-name">Кристина Иванова</div>
-            <div class="profile-user__data-age font-black" id = "profile-user__data-age" >26 лет</div>
+            <div class="profile-user__data-name" id="profile-user__data-name">Кристина Иванова</div>
+            <div class="profile-user__data-age font-black" id="profile-user__data-age">26 лет</div>
             <div class="profile-user__states">
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Вес</div>
@@ -159,11 +166,11 @@
               </div>
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Рост</div>
-                <div class="profile-user__states-value font-black">166 см</div>
+                <div class="profile-user__states-value profile-user__states-value_growth font-black">-</div>
               </div>
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Цель</div>
-                <div class="profile-user__states-value font-orange profile-user__target-weight">55 кг</div>
+                <div class="profile-user__states-value font-orange profile-user__target-weight">-</div>
               </div>
             </div>
           </div>
@@ -225,7 +232,8 @@
             <div class="profile-user__water-tracker">
               <img class="profile-user__water-img" src="./assets/images/index/water-droplet.svg"
                 alt="Рисунок капли">Трекер воды</div>
-                <div class="profile-user__water-amount"> <span class="profile-user__water-amount_data"> </span> <span class="font-black" id="topWaterAmount"> / 2000 мл</span></div>
+            <div class="profile-user__water-amount"> <span class="profile-user__water-amount_data"> </span> <span
+                class="font-black" id="topWaterAmount"> / 2000 мл</span></div>
           </div>
         </div>
       </div>
@@ -273,9 +281,14 @@
               <input type="number" class="font-black profile-RSK__form-input input-growth" />
             </div>
           </div>
-          <button type="submit" class="profile-RSK__form-button calculate-rsk">
-            Вычислить РСК
-          </button>
+          <div class="profile-RSK__form-add"> <button type="submit" class="profile-RSK__form-button calculate-rsk">
+              Вычислить РСК
+            </button>
+            <div class="profile-RSK__checkbox">            
+              <div>Сохранить данные в профиль</div>
+            <input type="checkbox" id="profile-RSK__checkbox"></div>
+          </div>
+
         </form>
 
         <div class="profile-RSK__recommendations">
@@ -324,8 +337,8 @@
       <div>
         <p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
             href="#">войдите</a> в личный кабинет</p>
-        <p class="profile-notification__text"> или <a class="profile-notification__reg" href="#" onclick="openRegistration()"
-            >зарегистрируйтесь</a></p>
+        <p class="profile-notification__text"> или <a class="profile-notification__reg" href="#"
+            onclick="openRegistration()">зарегистрируйтесь</a></p>
       </div>
     </div>
   </div>

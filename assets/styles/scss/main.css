@@ -53,7 +53,6 @@
   width: 100%;
   text-decoration: none;
   color: white;
-  transition-duration: 0.6s;
 }
 .side-bar__link :hover {
   transition-duration: 0.6s;
@@ -62,6 +61,7 @@
 .side-bar__link img {
   width: 67%;
   margin-bottom: 13px;
+  transition-duration: 0.6s;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
@@ -255,7 +255,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-.articles-section__article {
+  .articles-section__article {
     font-weight: 300;
     font-size: calc((100vw - 160px) / 80);
     font-family: "Montserrat", sans-serif;
@@ -293,7 +293,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-.articles-section__article {
+  .articles-section__article {
     font-weight: 300;
     font-size: calc((100vw + 475px) / 119.75);
     font-family: "Montserrat", sans-serif;
@@ -397,13 +397,14 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
+.diary-table-string-2,
 .diary-table-string-1,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
   height: 64px;
 }
-
+.diary-table-string-2__meal-name,
 .diary-table-string-1__meal-name,
 .diary-table-string__meal-name {
   display: flex;
@@ -412,13 +413,13 @@ body {
   margin-left: 3%;
   width: 15%;
 }
-
+.diary-table-string-2__meal-name_color_orange,
 .diary-table-string-1__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
-
+.diary-table-string-2__add-btn,
 .diary-table-string-1__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
@@ -427,16 +428,13 @@ body {
   margin-top: 5%;
   transition-duration: 0.7s;
 }
-
+.diary-table-string-2__add-btn-img,
 .diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
+.diary-table-string-2__column-names,
 .diary-table-string-1__column-names,
-.diary-table-string__add-btn-img {
-  max-width: 35px;
-}
-
 .diary-table-string__column-names {
   display: flex;
   justify-content: space-between;
@@ -447,13 +445,14 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
-
+.diary-table-string-2__column-names_color_dark-blue,
 .diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
+  text-align: left;
 }
-
+.diary-table-string-2_color_blue,
 .diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
@@ -561,17 +560,17 @@ body {
     width: 45vw;
   }
   .diary-water-tracker__text,
-.diary-water-tracker__top-bar-name,
-.diary-table-string__meal-name,
-.diary-diet-tracker__calendar-btn {
+  .diary-water-tracker__top-bar-name,
+  .diary-table-string__meal-name,
+  .diary-diet-tracker__calendar-btn {
     font-size: 1.5vw;
   }
   .diary-table-string__column-names {
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-.diary-water-tracker__top-res,
-.diary-water-tracker__crrnt-res-ml {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
@@ -591,17 +590,17 @@ body {
     margin: auto;
   }
   .diary-water-tracker__text,
-.diary-water-tracker__top-bar-name,
-.diary-table-string__meal-name,
-.diary-diet-tracker__calendar-btn {
+  .diary-water-tracker__top-bar-name,
+  .diary-table-string__meal-name,
+  .diary-diet-tracker__calendar-btn {
     font-size: 1.2vw;
   }
   .diary-table-string__column-names {
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-.diary-water-tracker__top-res,
-.diary-water-tracker__crrnt-res-ml {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
@@ -753,6 +752,18 @@ button {
   transition-duration: 1s;
 }
 
+.profile-RSK__form-button_add {
+  width: 41%;
+  height: 12%;
+  min-height: 44px;
+  max-height: 105px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #F7C78E;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+}
+
 .profile-RSK__form-button:hover {
   transition-duration: 1s;
   background-color: #f7a337;
@@ -794,6 +805,7 @@ button {
   position: absolute;
   top: -7.81vh;
   height: 16.63vh;
+  max-height: 8.3vw;
   border-radius: 50%;
 }
 
@@ -877,9 +889,9 @@ button {
   justify-content: center;
   align-items: center;
   min-width: 500px;
-  max-width: 738px;
+  max-width: 80vh;
   width: 51.25vw;
-  max-height: 268px;
+  max-height: 12vw;
   height: 26.17vh;
   padding: 10px;
   margin: 9.76vh auto 0px auto;
@@ -983,7 +995,8 @@ button {
 }
 
 .profile-user__doughnut-chart {
-  width: 30%;
+  width: 40%;
+  max-width: 17.28vh;
 }
 
 .profile-user__macro {
@@ -1081,7 +1094,7 @@ button {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3.95vh;
+  height: 7vh;
   padding: 0 3% 0 3%;
 }
 .profile-user__date h2 {
@@ -1175,20 +1188,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 1440px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
@@ -1219,7 +1232,6 @@ button {
     font-size: calc((100vw + 160px) / 80);
   }
   .profile-user__date h2,
-
   .profile-user__kkal-amount {
     font-size: calc((100vw - 106px) / 53);
   }
@@ -1270,20 +1282,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
@@ -1328,20 +1340,20 @@ button {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-.profile-paternity {
+  .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-.profile-welcome__form-input {
+  .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-.profile-welcome__form-button,
-.profile-welcome__button-reg {
+  .profile-welcome__form-button,
+  .profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
@@ -1354,6 +1366,10 @@ button {
     font-weight: 600;
     font-size: calc((100vw - 290px) / 62);
     font-family: "Montserrat", sans-serif;
+  }
+  .profile-notification__content {
+    max-width: 55vh;
+    max-height: 9vw;
   }
   .profile-notification__text {
     font-weight: 500;
