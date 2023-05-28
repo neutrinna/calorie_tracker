@@ -91,6 +91,7 @@
 								<div id="search__show__result-1"></div>
 							</form>
 						</div>
+						<!-------------------------->
 
 					<div class="diary-table-string diary-table-string_color_blue">
 						<div class="diary-table-string__meal-name">
@@ -184,50 +185,50 @@
 	
 						
 
-					<div class="diary-table-string">
-						<div class="diary-table-string__meal-name diary-table-string__meal-name_color_orange">
-							Итого
+						<div class="diary-table-string">
+							<div class="diary-table-string__meal-name diary-table-string__meal-name_color_orange">
+								Итого
+							</div>
+							<div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue diary-table-string-2">
+								<div>Вес, г</div>
+								<div>Ккал</div>
+								<div class="diary-macro__carbo-amount">У</div>
+								<div class="diary-macro__protein-amount">Б</div>
+								<div class="diary-macro__fats-amount">Ж</div>
+							</div>
 						</div>
-						<div class="diary-table-string-2"></div>
 
+					</div>	
+			
+						<!-- синий подвальчик таблицы дневника -->
+                <div class="diary-diet-tracker__bottom-bar"></div>
+			
+           
 
+                        <!-- трекер воды -->
+            	<div class="diary-water-tracker">
+				<div class="diary-water-tracker__top-bar">
+					<div class="diary-water-tracker__top-bar-name">
+						<img class="diary-water-tracker__img-water-drop" src="./../assets/images/diary/diary-water-droplet 1.png" alt="капля воды">
+						<div>Трекер воды</div>
 					</div>
+					<div>
+						<span class="diary-water-tracker__crrnt-res diary-water-tracker__top-res_font_inter">0</span> <span class="diary-water-tracker__crrnt-res-ml">мл</span><span class="diary-water-tracker__top-res diary-water-tracker__top-res_font_inter"> / 2000</span> <span class="diary-water-tracker__top-res">мл</span>
+					</div>
+				</div>
+				<div class="diary-water-tracker__text">Отслеживайте свои ежедневные цели по поддержанию водного баланса. Если у вас нормальный вес, то рекомендовано 25-30 мл жидкости на 1 кг массы тела. То есть если вы весите 60 кг, то выпивать нужно 30х60 = 1800 мл или 1,8 л в день.</div>
 
+					<form class="diary-water-tracker__form">
 
-					<!-------------------------->
-
-
-					<!-- синий подвальчик таблицы дневника -->
-					<div class="diary-diet-tracker__bottom-bar"></div>
-
-
-					<!-- трекер воды -->
-					<div class="diary-water-tracker">
-						<div class="diary-water-tracker__top-bar">
-							<div class="diary-water-tracker__top-bar-name">
-								<img class="diary-water-tracker__img-water-drop"
-									src="./../assets/images/diary/diary-water-droplet 1.png" alt="капля воды">
-								<div>Трекер воды</div>
-							</div>
-							<div>
-								<span
-									class="diary-water-tracker__crrnt-res diary-water-tracker__top-res_font_inter">0</span>
-								<span class="diary-water-tracker__crrnt-res-ml">мл</span><span
-									class="diary-water-tracker__top-res diary-water-tracker__top-res_font_inter"> /
-									1800</span> <span class="diary-water-tracker__top-res">мл</span>
-							</div>
-						</div>
-						<div class="diary-water-tracker__text">Отслеживайте свои ежедневные цели по поддержанию водного
-							баланса. Если у вас нормальный вес, то рекомендовано 25-30 мл жидкости на 1 кг массы тела.
-							То есть если вы весите 60 кг, то выпивать нужно 30х60 = 1800 мл или 1,8 л в день.</div>
-
-						<form class="diary-water-tracker__form">
-
-							<input class="diary-water-tracker__input" type="radio" name="glass" value="9" id="id1" />
-							<label for="id1" class="diary-water-tracker__label">
-								<img class="diary-water-tracker__img"
-									src="./../assets/images/diary/diary-glass-of-water.svg">
-							</label>
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="10" id="id0"/>
+						<label for="id0" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
+						</label>
+					
+						<input class="diary-water-tracker__input" type="radio" name="glass" value="9" id="id1"/>
+						<label for="id1" class="diary-water-tracker__label">
+						<img class="diary-water-tracker__img" src="./../assets/images/diary/diary-glass-of-water.svg">
+						</label>
 
 							<input class="diary-water-tracker__input" type="radio" name="glass" value="8" id="id2" />
 							<label for="id2" class="diary-water-tracker__label">
@@ -279,6 +280,8 @@
 
 						</form>
 					</div>
+
+			</div>		
 			</main>
 			<!-- Алла -->
 			<!-- Поп ап добавить новый продукт -->

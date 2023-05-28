@@ -17,7 +17,7 @@ function registrationAdd() {
     const passwordRepeat = passwordRepeatInput.value;
   
    
-    if (name && surname && bday && email && password ) {
+    if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
     } else {
       alert("Заполните все поля!");
@@ -25,8 +25,6 @@ function registrationAdd() {
     }
   
     function checkPassword() {
-    //   const password = document.getElementById('registration__text_password').value;
-    //   const passwordRepeat = document.getElementById('registration__text_passwordRepeat').value;
     
       if (password === '' || passwordRepeat === '') {
         alert('Заполните оба поля');

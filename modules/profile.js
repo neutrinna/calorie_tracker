@@ -141,4 +141,35 @@ document.getElementById("profile-welcome__wripper").style.display = "none";
 document.getElementById("profile-paternity").style.display = "none"; 
 document.getElementById("profile-user").style.display = "flex"; }
 // page load
+
+
+// currentUser
+let user = JSON.parse(localStorage.getItem('currentUser'));
+document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
+document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`; 
+// currentUser
 // ИННА
+
+
+// Настя Кольцова
+// значение целевого веса
+const targetWeight = document.querySelector('.profile-user__target-weight').textContent;
+localStorage.setItem('targetWeight', targetWeight);
+// Настя Кольцова
+
+// АЛЕКСАНДРА
+
+// данные трекера воды
+
+const waterAmount = document.querySelector(".profile-user__water-amount_data");
+const topWaterAmount = document.getElementById('topWaterAmount');
+
+if (localStorage.getItem('waterTracker') == null) {
+  waterAmount.textContent = '0 мл'
+} else {
+  waterAmount.textContent = `${localStorage.getItem('waterTracker')} мл`;
+}
+
+topWaterAmount.textContent = `/ ${localStorage.getItem('waterAmountByWeightRWaterTracker')} мл`;
+
+// данные трекера воды
