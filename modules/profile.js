@@ -160,22 +160,3 @@ document.getElementById("profile-paternity").style.display = "none";
 document.getElementById("profile-user").style.display = "flex"; }
 // page load
 // ИННА
-
-
-// АЛЕКСАНДРА
-
-// данные трекера воды
-
-const waterAmount = document.querySelector(".profile-user__water-amount_data");
-const topWaterAmount = document.getElementById('topWaterAmount');
-
-if (localStorage.getItem('waterTracker') == null) {
-  waterAmount.textContent = '0 мл'
-} else {
-  waterAmount.textContent = `${localStorage.getItem('waterTracker')} мл`;
-}
-
-topWaterAmount.textContent = `/ ${localStorage.getItem('waterAmountByWeightRWaterTracker')} мл`;
-
-// данные трекера воды
-
