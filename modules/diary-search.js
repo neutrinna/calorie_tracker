@@ -55,7 +55,7 @@ function retrieveTotalValues() {
   }
   return null;
 }
-
+// total daily nutrition
 function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
@@ -155,7 +155,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   totalFats += (fats * grammInput.value) / 100;  
                   };
 
-                  updateTotalValues();
+                 
+                  updateTotalValues()
                   storeTotalValues();
                   storeMealEaten(mealEaten);
                 }
