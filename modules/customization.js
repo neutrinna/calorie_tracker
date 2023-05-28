@@ -64,6 +64,7 @@ function loginUser() {
       document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
       document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`;
       currentUser = [];
+      document.querySelector(".profile-RSK__checkbox").style.display = "flex";
 
       break; // выходим из цикла, так как дальше перебирать нет смысла
     }
@@ -90,5 +91,6 @@ function exit() {
   usersDataArr.push(window.localStorage.getItem(`currentUser`));
   window.localStorage.setItem(`usersDataArr`, JSON.stringify(usersDataArr));
   window.localStorage.setItem(`currentUser`, ``);
+  document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
 
 }

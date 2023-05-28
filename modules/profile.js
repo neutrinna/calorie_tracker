@@ -1,3 +1,5 @@
+let user = JSON.parse(localStorage.getItem('currentUser'));
+
 // Nastya Klm
 const form = document.getElementById("form-rsk");
 const button = document.querySelector(".calculate-rsk");
@@ -8,6 +10,7 @@ const gender = document.getElementById("gender");
 const activity = document.getElementById("activity");
 const weight = document.querySelector(".input-weight");
 const growth = document.querySelector(".input-growth");
+let growthValue;
 
 const resultRSK = document.querySelector(".result-rsk");
 const protein = document.querySelector(".proteins");
@@ -38,6 +41,7 @@ const getNormRSK = function () {
       }`
     );
   }
+  growthValue = growth.value;
   return resultRSK.innerHTML;
 };
 
@@ -80,6 +84,15 @@ button.addEventListener("click", function () {
   resultGoal();
   countNutrients();
   countWeight();
+
+  // Инна
+  // RSK-transition
+if (document.getElementById("profile-RSK__checkbox").checked == true) {
+document.querySelector(".profile-user__target-weight").textContent = optimalWeight.textContent;
+document.querySelector(".profile-user__states-value_growth").textContent = `${growthValue} кг`;
+}
+// RSK-transition
+  // Инна
 });
 
 form.addEventListener("submit", (event) => {
@@ -139,12 +152,11 @@ dateNode.textContent = moment().format("DD/MM/YYYY")
 if (localStorage.getItem('loged') === "true") {
 document.getElementById("profile-welcome__wripper").style.display = "none"; 
 document.getElementById("profile-paternity").style.display = "none"; 
-document.getElementById("profile-user").style.display = "flex"; }
+document.getElementById("profile-user").style.display = "flex";
+document.querySelector(".profile-RSK__checkbox").style.display = "flex" }
 // page load
 
-
 // currentUser
-let user = JSON.parse(localStorage.getItem('currentUser'));
 document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
 document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`; 
 // currentUser
@@ -161,14 +173,12 @@ localStorage.setItem('targetWeight', targetWeight);
 // данные трекера воды
 
 const waterAmount = document.querySelector(".profile-user__water-amount_data");
-const topWaterAmount = document.getElementById('topWaterAmount');
+// const topWaterAmount = document.getElementById('topWaterAmount');
 
-if (localStorage.getItem('waterTracker') == null) {
+if (user[2] == null) {
   waterAmount.textContent = '0 мл'
 } else {
-  waterAmount.textContent = `${localStorage.getItem('waterTracker')} мл`;
+  waterAmount.textContent = `${user[2]} мл`;
 }
-
-topWaterAmount.textContent = `/ ${localStorage.getItem('waterAmountByWeightRWaterTracker')} мл`;
 
 // данные трекера воды
