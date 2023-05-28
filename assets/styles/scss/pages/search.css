@@ -29,6 +29,7 @@
   padding-right: 10px;
   justify-content: space-between;
   background-color: white;
+  position: -webkit-sticky;
   position: sticky;
 }
 
