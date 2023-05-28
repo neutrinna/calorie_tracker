@@ -1,4 +1,4 @@
-let user = JSON.parse(localStorage.getItem('currentUser'));
+let user = JSON.parse(localStorage.getItem("currentUser"));
 
 // Nastya Klm
 const form = document.getElementById("form-rsk");
@@ -80,20 +80,40 @@ function countWeight() {
   )} кг`;
 }
 
-button.addEventListener("click", function () {
-  resultGoal();
-  countNutrients();
-  countWeight();
+function validationInputs() {
+  if (age.value == "") {
+    age.style.borderColor = "#FF7C02";
+  }
+  if (weight.value == "") {
+    weight.style.borderColor = "#FF7C02";
+  }
+  if (growth.value == "") {
+    growth.style.borderColor = "#FF7C02";
+  }
+}
 
-  // Инна
-  // RSK-transition
+button.addEventListener("click", function () {
+  if (age.value !== "" && weight.value !== "" && growth.value !== "") {
+    resultGoal();
+    countNutrients();
+    countWeight();
+  } else {
+    alert("Заполните все поля!");
+    validationInputs();
+  }
+});
+
+// Инна
+// RSK-transition
 if (document.getElementById("profile-RSK__checkbox").checked == true) {
-document.querySelector(".profile-user__target-weight").textContent = optimalWeight.textContent;
-document.querySelector(".profile-user__states-value_growth").textContent = `${growthValue} кг`;
+  document.querySelector(".profile-user__target-weight").textContent =
+    optimalWeight.textContent;
+  document.querySelector(
+    ".profile-user__states-value_growth"
+  ).textContent = `${growthValue} кг`;
 }
 // RSK-transition
-  // Инна
-});
+// Инна
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -101,42 +121,46 @@ form.addEventListener("submit", (event) => {
 });
 // Nastya Klm
 
-
-
 // ИННА
 
 // chart
-const doughnut = document.getElementById('doughnut');
+const doughnut = document.getElementById("doughnut");
 const macro = document.querySelectorAll(`.profile-user__macro-amount_span`);
 const macroAmount = [];
 
-for(let macroElement of macro){
-    macroAmount.push(`${macroElement.textContent}`);
+for (let macroElement of macro) {
+  macroAmount.push(`${macroElement.textContent}`);
 }
 
-
 new Chart(doughnut, {
-    type: 'doughnut',
-    data: {
-        // labels: ['Углеводы', 'Белки', 'Жиры'],
-        datasets: [{
-            label: 'грамм',
-            data: macroAmount,
-            borderWidth: 1,
-            backgroundColor: ['#089BAA','#E16527', '#FCDC29'],
-            borderColor: ['rgba(0, 0, 0, 0.7)','rgba(0, 0, 0, 0.7)', 'rgba(0, 0, 0, 0.7)']
-        }]
-    }
+  type: "doughnut",
+  data: {
+    // labels: ['Углеводы', 'Белки', 'Жиры'],
+    datasets: [
+      {
+        label: "грамм",
+        data: macroAmount,
+        borderWidth: 1,
+        backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
+        borderColor: [
+          "rgba(0, 0, 0, 0.7)",
+          "rgba(0, 0, 0, 0.7)",
+          "rgba(0, 0, 0, 0.7)",
+        ],
+      },
+    ],
+  },
 });
 // chart
-
 
 // data
 let kkalTaken = 0;
 const kkalTakenNode = document.querySelector(`.profile-user__kkal-amount`);
 
-for (let i=0; i<macroAmount.length; i++){
-    i===2? kkalTaken += macroAmount[i]*9: kkalTaken += macroAmount[i]*4;
+for (let i = 0; i < macroAmount.length; i++) {
+  i === 2
+    ? (kkalTaken += macroAmount[i] * 9)
+    : (kkalTaken += macroAmount[i] * 4);
 }
 
 kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
@@ -144,28 +168,32 @@ kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
 
 // time
 const dateNode = document.querySelector(`.profile-user__date-value`);
-dateNode.textContent = moment().format("DD/MM/YYYY")
+dateNode.textContent = moment().format("DD/MM/YYYY");
 // time
 
-
 // page load
-if (localStorage.getItem('loged') === "true") {
-document.getElementById("profile-welcome__wripper").style.display = "none"; 
-document.getElementById("profile-paternity").style.display = "none"; 
-document.getElementById("profile-user").style.display = "flex";
-document.querySelector(".profile-RSK__checkbox").style.display = "flex" }
+if (localStorage.getItem("loged") === "true") {
+  document.getElementById("profile-welcome__wripper").style.display = "none";
+  document.getElementById("profile-paternity").style.display = "none";
+  document.getElementById("profile-user").style.display = "flex";
+  document.querySelector(".profile-RSK__checkbox").style.display = "flex";
+}
 // page load
 
 // currentUser
-document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
-document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`; 
+document.getElementById("profile-user__data-name").textContent = `${user[0]}`;
+document.getElementById(
+  "profile-user__data-age"
+).textContent = `Возраст: ${user[1]}`;
 // currentUser
 // ИННА
 
 // Настя Кольцова
 // значение целевого веса
-const targetWeight = document.querySelector('.profile-user__target-weight').textContent;
-localStorage.setItem('targetWeight', targetWeight);
+const targetWeight = document.querySelector(
+  ".profile-user__target-weight"
+).textContent;
+localStorage.setItem("targetWeight", targetWeight);
 // Настя Кольцова
 
 // АЛЕКСАНДРА
@@ -176,7 +204,7 @@ const waterAmount = document.querySelector(".profile-user__water-amount_data");
 // const topWaterAmount = document.getElementById('topWaterAmount');
 
 if (user[2] == null) {
-  waterAmount.textContent = '0 мл'
+  waterAmount.textContent = "0 мл";
 } else {
   waterAmount.textContent = `${user[2]} мл`;
 }
