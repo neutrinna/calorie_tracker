@@ -7,6 +7,7 @@ popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 const loader = document.getElementById('diary-loader');
 
+
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
@@ -198,28 +199,6 @@ openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
 closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
-function openNewProduct(event) {
-  event.preventDefault();
-  popUpNotFound.style.display = "none";
-  popUpAddNewProduct.style.display = "block";
-  loader.style.display = 'none';
-}
-
-function closeNotFound(event) {
-  event.preventDefault();
-  popUpNotFound.style.display = "none";
-  input.innerHTML = ""; 
-  loader.style.display = 'none'; 
-}
-
-function closeNewProduct(event) {
-  event.preventDefault();
-  popUpAddNewProduct.style.display = "none";
-  loader.style.display = 'none';
-}
-
-
-
 const addNewProduct = document.getElementById("newproduct__popup-add");
 
 addNewProduct.addEventListener("click", function(event) {
@@ -233,8 +212,9 @@ addNewProduct.addEventListener("click", function(event) {
   const fatPopUp = document.querySelector('input[name="fat"]').value;
   const carbsPopUp = document.querySelector('input[name="carbs"]').value;
   const proteinPopUp = document.querySelector('input[name="protein"]').value;
-  const accordeonDivsPopUp = document.querySelector(`.accordeon1.accordeon_hidden`);
-
+  
+  const accordeonDivsPopUp = document.querySelector(`.accordeon_hidden`);
+  
 
   
                   const diaryTableStringDivPopUp = document.createElement('div');
@@ -259,5 +239,39 @@ addNewProduct.addEventListener("click", function(event) {
                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
 
+                 
                   popUpAddNewProduct.style.display = "none";
+                  document.querySelector('input[name="product-brand"]').value = "";
+                  document.querySelector('input[name="product-name"]').value= "";
+  document.querySelector('input[name="serving-size"]').value= "";
+  document.querySelector('input[name="calories"]').value= "";
+  document.querySelector('input[name="fat"]').value= "";
+  document.querySelector('input[name="carbs"]').value= "";
+  document.querySelector('input[name="protein"]').value= "";
+                 
+
                 });
+
+function openNewProduct(event) {
+  event.preventDefault();
+  popUpNotFound.style.display = "none";
+  popUpAddNewProduct.style.display = "block";
+  loader.style.display = 'none';
+  
+}
+
+function closeNotFound(event) {
+  event.preventDefault();
+  popUpNotFound.style.display = "none";
+  input.innerHTML = ""; 
+  loader.style.display = 'none'; 
+}
+
+function closeNewProduct(event) {
+  event.preventDefault();
+  popUpAddNewProduct.style.display = "none";
+  loader.style.display = 'none';
+}
+
+
+
