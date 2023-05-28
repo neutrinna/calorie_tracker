@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 /*# sourceMappingURL=charts.css.map */
-=======
 
 
 /*# sourceMappingURL=charts.css.map */
@@ -407,6 +405,27 @@
     height: 220px;
 }
 
+.charts-reset__button {
+    margin-top: 5%;
+
+    align-self: center;
+    cursor: pointer;
+    width: 35%;
+    height: 11%;
+    min-height: 38px;
+    max-height: 105px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #F7C78E;
+    color: rgba(0, 0, 0, 0.7);
+    transition-duration: 1s;
+}
+
+.charts-reset__button:hover {
+    transition-duration: 1s;
+    background-color: #f7a337;
+}
+
 .charts-form {
     grid-column: 2 / 3;
     grid-row: 4 / 6;
@@ -474,4 +493,3 @@
 }
 
 
->>>>>>> 56fc065d5e39790f2ef22295345955ad5e4f3f0c

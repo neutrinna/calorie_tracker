@@ -142,3 +142,10 @@ document.getElementById("profile-paternity").style.display = "none";
 document.getElementById("profile-user").style.display = "flex"; }
 // page load
 // ИННА
+
+
+// Настя Кольцова
+// значение целевого веса
+const targetWeight = document.querySelector('.profile-user__target-weight').textContent;
+localStorage.setItem('targetWeight', targetWeight);
+// Настя Кольцова
