@@ -150,7 +150,6 @@ document.getElementById('profile-user__data-age').textContent = `Возраст:
 // currentUser
 // ИННА
 
-
 // Настя Кольцова
 // значение целевого веса
 const targetWeight = document.querySelector('.profile-user__target-weight').textContent;
