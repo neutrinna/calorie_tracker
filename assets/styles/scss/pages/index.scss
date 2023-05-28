@@ -175,6 +175,10 @@ button {
     background-color: #f7a337;
 }
 
+input:hover {
+    cursor: auto;
+}
+
 .profile-welcome {
     display: flex;
     flex-direction: column;
