@@ -9,6 +9,48 @@ let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
 
+let mealEaten = {};
+
+function storeMealEaten(meal) {
+  const storedMealEatenJSON = localStorage.getItem("mealEaten");
+  let storedMealEaten = [];
+  if (storedMealEatenJSON) {
+    storedMealEaten = JSON.parse(storedMealEatenJSON);
+  }
+  storedMealEaten.push(meal);
+
+  const updatedMealEatenJSON = JSON.stringify(storedMealEaten);
+  localStorage.setItem("mealEaten", updatedMealEatenJSON);
+}
+
+function retrieveMealEaten() {
+  const storedMealEatenJSON = localStorage.getItem("mealEaten");
+  if (storedMealEatenJSON) {
+    return JSON.parse(storedMealEatenJSON);
+  }
+  return [];
+}
+// local storage total values//
+function storeTotalValues() {
+  const totalValues = {
+    totalWeight: totalWeight,
+    totalCalories: totalCalories,
+    totalCarbs: totalCarbs,
+    totalProteins: totalProteins,
+    totalFats: totalFats
+  };
+  const totalValuesJSON = JSON.stringify(totalValues);
+  localStorage.setItem("totalValues", totalValuesJSON);
+}
+
+function retrieveTotalValues() {
+  const storedTotalValuesJSON = localStorage.getItem("totalValues");
+  if (storedTotalValuesJSON) {
+    return JSON.parse(storedTotalValuesJSON);
+  }
+  return null;
+}
+// total daily nutrition
 function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
@@ -97,7 +139,10 @@ document.addEventListener("DOMContentLoaded", function() {
                   totalProteins += (proteins * grammInput.value) / 100;
                   totalFats += (fats * grammInput.value) / 100;
 
-                  updateTotalValues();
+                 
+                  updateTotalValues()
+                  storeTotalValues();
+                  storeMealEaten(mealEaten);
                 }
               })
               .catch(error => {
