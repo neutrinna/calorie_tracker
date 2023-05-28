@@ -49,8 +49,6 @@
     text-decoration: none;
     color: white;
 
-    transition-duration: 0.6s;
-
     :hover {
         transition-duration: 0.6s;
         margin-left: 20%;
@@ -59,6 +57,8 @@
     img {
         width: 67%;
         margin-bottom: 13px;
+
+        transition-duration: 0.6s;
     }
 }
 

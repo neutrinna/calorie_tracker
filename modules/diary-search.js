@@ -1,7 +1,11 @@
+const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
+const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
+const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
 const popUpNotFound = document.querySelector(".diary__productnotfound__popup");
 const popUpAddNewProduct = document.querySelector(".diary__newproduct__popup");
 popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
+const loader = document.getElementById('diary-loader');
 
 let totalWeight = 0;
 let totalCalories = 0;
@@ -9,6 +13,48 @@ let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
 
+let mealEaten = {};
+
+function storeMealEaten(meal) {
+  const storedMealEatenJSON = localStorage.getItem("mealEaten");
+  let storedMealEaten = [];
+  if (storedMealEatenJSON) {
+    storedMealEaten = JSON.parse(storedMealEatenJSON);
+  }
+  storedMealEaten.push(meal);
+
+  const updatedMealEatenJSON = JSON.stringify(storedMealEaten);
+  localStorage.setItem("mealEaten", updatedMealEatenJSON);
+}
+
+function retrieveMealEaten() {
+  const storedMealEatenJSON = localStorage.getItem("mealEaten");
+  if (storedMealEatenJSON) {
+    return JSON.parse(storedMealEatenJSON);
+  }
+  return [];
+}
+// local storage total values//
+function storeTotalValues() {
+  const totalValues = {
+    totalWeight: totalWeight,
+    totalCalories: totalCalories,
+    totalCarbs: totalCarbs,
+    totalProteins: totalProteins,
+    totalFats: totalFats
+  };
+  const totalValuesJSON = JSON.stringify(totalValues);
+  localStorage.setItem("totalValues", totalValuesJSON);
+}
+
+function retrieveTotalValues() {
+  const storedTotalValuesJSON = localStorage.getItem("totalValues");
+  if (storedTotalValuesJSON) {
+    return JSON.parse(storedTotalValuesJSON);
+  }
+  return null;
+}
+// total daily nutrition
 function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
@@ -51,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function() {
         checkbox.style.verticalAlign = 'middle';
         checkbox.style.transform = 'scale(1.5)';
 
+        loader.style.display = 'block';
+
         // checkbox checked //
         checkbox.addEventListener('change', function() {
           if (checkbox.checked) {
@@ -89,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
+                  loader.style.display = 'none';
                  
                   // total weight //
                   totalWeight += Number(grammInput.value);
@@ -97,7 +146,10 @@ document.addEventListener("DOMContentLoaded", function() {
                   totalProteins += (proteins * grammInput.value) / 100;
                   totalFats += (fats * grammInput.value) / 100;
 
-                  updateTotalValues();
+                 
+                  updateTotalValues()
+                  storeTotalValues();
+                  storeMealEaten(mealEaten);
                 }
               })
               .catch(error => {
@@ -115,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
               const productName = product.product_name;
               commentElem.innerHTML = `
                 <p>${productName}</p>`;
+                loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
               commentElem.appendChild(checkbox);
@@ -123,6 +176,9 @@ document.addEventListener("DOMContentLoaded", function() {
               searchResultDiv.appendChild(commentElem);
             } else {
               openPopupProductNotFound();
+              searchResultDiv.innerHTML = '';
+              input.value = '';
+              loader.style.display = 'none';
             }
           })
           .catch(error => {
@@ -137,9 +193,6 @@ function openPopupProductNotFound(message) {
   popUpNotFound.style.display = "block";
 }
 
-const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
-const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
-const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
 
 openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
@@ -149,15 +202,62 @@ function openNewProduct(event) {
   event.preventDefault();
   popUpNotFound.style.display = "none";
   popUpAddNewProduct.style.display = "block";
+  loader.style.display = 'none';
 }
 
 function closeNotFound(event) {
   event.preventDefault();
   popUpNotFound.style.display = "none";
-  input.innerHTML = "";  
+  input.innerHTML = ""; 
+  loader.style.display = 'none'; 
 }
 
 function closeNewProduct(event) {
   event.preventDefault();
   popUpAddNewProduct.style.display = "none";
+  loader.style.display = 'none';
 }
+
+
+
+const addNewProduct = document.getElementById("newproduct__popup-add");
+
+addNewProduct.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  
+  const brandPopUp = document.querySelector('input[name="product-brand"]').value;
+  const namePopUp = document.querySelector('input[name="product-name"]').value;
+  const grammPopUp = document.querySelector('input[name="serving-size"]').value;
+  const caloriesPopUp = document.querySelector('input[name="calories"]').value;
+  const fatPopUp = document.querySelector('input[name="fat"]').value;
+  const carbsPopUp = document.querySelector('input[name="carbs"]').value;
+  const proteinPopUp = document.querySelector('input[name="protein"]').value;
+  const accordeonDivsPopUp = document.querySelector(`.accordeon1.accordeon_hidden`);
+
+
+  
+                  const diaryTableStringDivPopUp = document.createElement('div');
+                  diaryTableStringDivPopUp.classList.add('diary-table-string-1');
+                  const mealNameDivPopUp = document.createElement('div');
+                  mealNameDivPopUp.classList.add('diary-table-string-1__meal-name');
+                  mealNameDivPopUp.innerHTML = `
+                    <div>${brandPopUp}${namePopUp}</div>`;
+
+                  const columnNamesDivPopUp = document.createElement('div');
+                  columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
+                  columnNamesDivPopUp.style.display = 'flex';
+                  columnNamesDivPopUp.innerHTML = `
+                    <div>${grammPopUp}</div>
+                    <div>${caloriesPopUp * grammPopUp / 100}</div>
+                    <div>${carbsPopUp * grammPopUp / 100}</div>
+                    <div>${proteinPopUp * grammPopUp / 100}</div>
+                    <div>${fatPopUp * grammPopUp / 100}</div>`;
+
+                
+                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
+                  popUpAddNewProduct.style.display = "none";
+                });
