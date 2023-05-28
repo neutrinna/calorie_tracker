@@ -58,7 +58,7 @@
 
     margin-left: 230px;
     margin-right: 59px;
-    
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
@@ -82,7 +82,7 @@
     border-radius: 25px;
 }
 
-.charts-title > p {
+.charts-title>p {
     text-align: center;
     color: white;
     font-size: 23px;
@@ -159,7 +159,7 @@
     background-color: #E06B6B;
 }
 
-.charts-calorie__diagram-salad{
+.charts-calorie__diagram-salad {
     width: 15%;
     height: 0%;
     background-color: #A1D28A;
@@ -224,7 +224,7 @@
     background-color: #A1D28A;
 }
 
-.charts-calorie__legend-item > p {
+.charts-calorie__legend-item>p {
     display: block;
     margin: 0;
     font-size: 12px;
@@ -318,7 +318,7 @@
     background-color: #FFEE54;
 }
 
-.charts-macro__legend-item > p {
+.charts-macro__legend-item>p {
     display: block;
     margin: 0;
 
@@ -354,7 +354,7 @@
     padding-top: 15px;
 }
 
-.charts-weight__actual > p {
+.charts-weight__actual>p {
     font-size: 22px;
     line-height: 1.36;
     text-align: center;
@@ -368,13 +368,13 @@
     justify-content: space-between;
 }
 
-.charts-weight__dropped > p {
+.charts-weight__dropped>p {
     font-size: 18px;
     line-height: 1.67%;
     font-weight: 600;
 }
 
-.charts-weight__remained > p {
+.charts-weight__remained>p {
     font-size: 18px;
     line-height: 1.67%;
     font-weight: 600;
@@ -444,11 +444,11 @@
     gap: 15%;
 }
 
-.charts-form > div {
+.charts-form>div {
     width: 100%;
 }
 
-.charts-form > label {
+.charts-form>label {
     display: inline-block;
     margin-bottom: 4%;
 }
@@ -491,5 +491,3 @@
 #weightList {
     display: none;
 }
-
-
