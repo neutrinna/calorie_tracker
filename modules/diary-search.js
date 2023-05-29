@@ -65,13 +65,13 @@ function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
   totalDiv.innerHTML = `
-    <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
-      <div>${totalWeight.toFixed(0)}</div>
-      <div>${totalCalories.toFixed(0)}</div>
-      <div>${totalCarbs.toFixed(0)}</div>
-      <div>${totalProteins.toFixed(0)}</div>
-      <div>${totalFats.toFixed(0)}</div>
-    </div>
+    
+      <div>${totalWeight.toFixed(0)} г</div>
+      <div>${totalCalories.toFixed(0)} Ккал</div>
+      <div>${totalCarbs.toFixed(0)} У</div>
+      <div>${totalProteins.toFixed(0)} Б</div>
+      <div>${totalFats.toFixed(0)} Ж</div>
+    
   `;
 }
 
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
-                  columnNamesDiv.style.display = 'flex';
+                  //columnNamesDiv.style.display = 'flex';
 
                   const weightRes = grammInput.value;
                   const calRes = Math.round(calories * grammInput.value / 100);
@@ -140,28 +140,6 @@ document.addEventListener("DOMContentLoaded", function() {
                   const protRes = Math.round(proteins * grammInput.value / 100);
                   const fatsRes = Math.round(fats * grammInput.value / 100);
 
-                  columnNamesDiv.innerHTML = `
-                    <div>${weightRes}</div>
-                    <div>${calRes}</div>
-                    <div>${carbsRes}</div>
-                    <div>${protRes}</div>
-                    <div>${fatsRes}</div>
-                    <button class="delete-column"></button>`;
-
-                    
-                    const deleteProductButton = document.createElement('button');
-                    deleteProductButton.classList.add('delete-column');
-                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-
-                     // event listener for the delete column button
-                    deleteProductButton.addEventListener('click', function() {
-                    diaryTableStringDiv.remove();
-                    });
-
-                    columnNamesDiv.appendChild(deleteProductButton);
-                  
-                  
-                  
 
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
@@ -169,13 +147,16 @@ document.addEventListener("DOMContentLoaded", function() {
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
 
+
+                    //Александра --- разбивка на классы в зависимости от родителя
                   if (columnNamesDiv.closest('.accordeon1')) {
                     columnNamesDiv.innerHTML = `
                       <div class="weightRes">${weightRes}</div>
                       <div class="calRes">${calRes}</div>
                       <div class="carbsRes">${carbsRes}</div>
                       <div class="protRes">${protRes}</div>
-                      <div class="fatsRes">${fatsRes}</div>`}
+                      <div class="fatsRes">${fatsRes}</div>
+                      `}
   
                       else if (columnNamesDiv.closest('.accordeon2')) {
                         columnNamesDiv.innerHTML = `
@@ -183,7 +164,8 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="calRes2">${calRes}</div>
                       <div class="carbsRes2">${carbsRes}</div>
                       <div class="protRes2">${protRes}</div>
-                      <div class="fatsRes2">${fatsRes}</div>`
+                      <div class="fatsRes2">${fatsRes}</div>
+                      `
                       }
 
                       else if (columnNamesDiv.closest('.accordeon3')) {
@@ -192,7 +174,8 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="calRes3">${calRes}</div>
                       <div class="carbsRes3">${carbsRes}</div>
                       <div class="protRes3">${protRes}</div>
-                      <div class="fatsRes3">${fatsRes}</div>`
+                      <div class="fatsRes3">${fatsRes}</div>
+                      `
                       }
 
                       else {
@@ -201,8 +184,29 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="calRes4">${calRes}</div>
                       <div class="carbsRes4">${carbsRes}</div>
                       <div class="protRes4">${protRes}</div>
-                      <div class="fatsRes4">${fatsRes}</div>`
-                      }
+                      <div class="fatsRes4">${fatsRes}</div>
+                      `
+                      }// --- разбивка на классы в зависимости от родителя
+
+
+                      const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove()
+
+                    //ВЫЗОВ ПОДСЧЕТА СТРОК ПОСЛЕ УДАЛЕНИЯ
+                    countStringWeight ()
+                    countStringWeight2 ()
+                    countStringWeight3 ()
+                    countStringWeight4 ()
+                    });
+                    
+                    //columnNamesDiv.appendChild(deleteProductButton);
+                    mealNameDiv.appendChild(deleteProductButton);
+                    
   
                  
 
@@ -239,7 +243,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-                   
                       ///массивы вес 
                   const weightArray = document.querySelectorAll ('.weightRes')
                   const weightArray2 = document.querySelectorAll ('.weightRes2')
@@ -266,14 +269,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     //массивы жиры
                   const fatsArray = document.querySelectorAll ('.fatsRes');
-                  const fatsArray2 = document.querySelectorAll ('.fatsRes');
-                  const fatsArray3 = document.querySelectorAll ('.fatsRes');
-                  const fatsArray4 = document.querySelectorAll ('.fatsRes');
+                  const fatsArray2 = document.querySelectorAll ('.fatsRes2');
+                  const fatsArray3 = document.querySelectorAll ('.fatsRes3');
+                  const fatsArray4 = document.querySelectorAll ('.fatsRes4');
 
                     
-                  
-   
-                  
+                      //построчный подсчет КБЖУ
 
                   const countStringWeight = () => {
                       stringWeightBreakfast.innerText = `Вес, ${countSum (weightArray)} г`;
@@ -311,12 +312,27 @@ document.addEventListener("DOMContentLoaded", function() {
                   function countSum (array, sum) {
                     sum = 0;
                     for (let i = 0 ; i < array.length; i++){
+                      console.log(array.length);
                       sum += Number(array[i].innerHTML);
                     }
-                    console.log(sum);
                     return sum;
                   }
 
+                      //Эксперименты с наблюдателем
+                // let observer = new MutationObserver(mutationRecords => {
+                //   console.log(mutationRecords); // console.log(изменения)
+                //   countStringWeight ()
+                //   // countStringWeight2 ()
+                //   // countStringWeight3 ()
+                //   // countStringWeight4 ()
+                // });
+                
+                // // наблюдать за всем, кроме атрибутов
+                // observer.observe(accordeonDivs, {
+                //   childList: true, // наблюдать за непосредственными детьми
+                //   subtree: true, // и более глубокими потомками
+                //   //characterDataOldValue: true // передавать старое значение в колбэк
+                // });
 
 
                 // вызовы функций подсчета данных строк
@@ -328,9 +344,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 ////////////       end  Aleksandra        //////////////////
 
-                
-
-                
 
 
                   // total weight //
@@ -423,13 +436,67 @@ addNewProduct.addEventListener("click", function(event) {
                   const columnNamesDivPopUp = document.createElement('div');
                   columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
                   columnNamesDivPopUp.style.display = 'flex';
-                  columnNamesDivPopUp.innerHTML = `
-                    <div>${grammPopUp}</div>
-                    <div>${caloriesPopUp * grammPopUp / 100}</div>
-                    <div>${carbsPopUp * grammPopUp / 100}</div>
-                    <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>
-                    <button class="delete-column"></button>`;
+
+
+                  // columnNamesDivPopUp.innerHTML = `
+                  //   <div>${grammPopUp}</div>
+                  //   <div>${caloriesPopUp * grammPopUp / 100}</div>
+                  //   <div>${carbsPopUp * grammPopUp / 100}</div>
+                  //   <div>${proteinPopUp * grammPopUp / 100}</div>
+                  //   <div>${fatPopUp * grammPopUp / 100}</div>
+                  //   <button class="delete-column"></button>`;
+
+
+                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
+                    //Александра --- классы в зависимости от родителя
+
+                    if (columnNamesDivPopUp.closest('.accordeon1')) {
+                      
+                      columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes">${grammPopUp}</div>
+                        <div class="calRes">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                        <div class="carbsRes">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                        <div class="protRes">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                        <div class="fatsRes">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                        `
+                      }
+                         else if (columnNamesDivPopUp.closest('.accordeon2')) {
+
+                          columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes2">${grammPopUp}</div>
+                        <div class="calRes2">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                        <div class="carbsRes2">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                        <div class="protRes2">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                        <div class="fatsRes2">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                        <button class="delete-column"></button>`
+                        }
+  
+                        else if (columnNamesDivPopUp.closest('.accordeon3')) {
+                          columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes3">${weightRes}</div>
+                        <div class="calRes3">${calRes}</div>
+                        <div class="carbsRes3">${carbsRes}</div>
+                        <div class="protRes3">${protRes}</div>
+                        <div class="fatsRes3">${fatsRes}</div>
+                        <button class="delete-column"></button>`
+                        }
+  
+                        else {
+
+                          columnNamesDivPopUp.innerHTML = `
+                          <div class="weightRes4">${grammPopUp}</div>
+                          <div class="calRes4">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                          <div class="carbsRes4">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                          <div class="protRes4">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                          <div class="fatsRes4">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                          <button class="delete-column"></button>`
+                        }
+
+
+                        //--- классы в зависимости от родителя
 
                     const deleteProductButtonPopUp = document.createElement('button');
                     deleteProductButtonPopUp.classList.add('delete-column');
@@ -440,11 +507,8 @@ addNewProduct.addEventListener("click", function(event) {
                     diaryTableStringDivPopUp.remove();
                     });
                     
-                  columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
-                                      
-                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+                    mealNameDivPopUp.appendChild(deleteProductButtonPopUp);
+                                    
 
                  
                   popUpAddNewProduct.style.display = "none";
