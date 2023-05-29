@@ -7,11 +7,16 @@ popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 const loader = document.getElementById('diary-loader');
 
+
+
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
+
+
+
 
 let mealEaten = {};
 
@@ -34,6 +39,7 @@ function retrieveMealEaten() {
   }
   return [];
 }
+
 // local storage total values//
 function storeTotalValues() {
   const totalValues = {
@@ -114,7 +120,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   const proteins = product.nutriments.proteins;
                   const fats = product.nutriments.fat;
 
-                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`)
+                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
+                  
                   const diaryTableStringDiv = document.createElement('div');
                   diaryTableStringDiv.classList.add('diary-table-string-1');
 
@@ -126,11 +133,35 @@ document.addEventListener("DOMContentLoaded", function() {
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
                   columnNamesDiv.style.display = 'flex';
+
                   const weightRes = grammInput.value;
                   const calRes = Math.round(calories * grammInput.value / 100);
                   const carbsRes = Math.round(carbs * grammInput.value / 100);
                   const protRes = Math.round(proteins * grammInput.value / 100);
                   const fatsRes = Math.round(fats * grammInput.value / 100);
+
+                  columnNamesDiv.innerHTML = `
+                    <div>${weightRes}</div>
+                    <div>${calRes}</div>
+                    <div>${carbsRes}</div>
+                    <div>${protRes}</div>
+                    <div>${fatsRes}</div>
+                    <button class="delete-column"></button>`;
+
+                    
+                    const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove();
+                    });
+
+                    columnNamesDiv.appendChild(deleteProductButton);
+                  
+                  
+                  
 
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
@@ -313,6 +344,9 @@ document.addEventListener("DOMContentLoaded", function() {
                   updateTotalValues()
                   storeTotalValues();
                   storeMealEaten(mealEaten);
+                  retrieveTotalValues();
+
+
                 }
               })
               .catch(error => {
@@ -320,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function() {
               });
           }
         });
-        // product search //
+        // product search by code //
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
@@ -352,6 +386,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
 function openPopupProductNotFound(message) {
   popUpNotFound.style.display = "block";
 }
@@ -361,30 +396,8 @@ openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
 closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
-function openNewProduct(event) {
-  event.preventDefault();
-  popUpNotFound.style.display = "none";
-  popUpAddNewProduct.style.display = "block";
-  loader.style.display = 'none';
-}
-
-function closeNotFound(event) {
-  event.preventDefault();
-  popUpNotFound.style.display = "none";
-  input.innerHTML = ""; 
-  loader.style.display = 'none'; 
-}
-
-function closeNewProduct(event) {
-  event.preventDefault();
-  popUpAddNewProduct.style.display = "none";
-  loader.style.display = 'none';
-}
-
-
-
+// add new product form //
 const addNewProduct = document.getElementById("newproduct__popup-add");
-
 addNewProduct.addEventListener("click", function(event) {
   event.preventDefault();
 
@@ -396,10 +409,10 @@ addNewProduct.addEventListener("click", function(event) {
   const fatPopUp = document.querySelector('input[name="fat"]').value;
   const carbsPopUp = document.querySelector('input[name="carbs"]').value;
   const proteinPopUp = document.querySelector('input[name="protein"]').value;
-  const accordeonDivsPopUp = document.querySelector(`.accordeon1.accordeon_hidden`);
-
-
   
+  let index = 0;
+    const accordeonDivsPopUp = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
+ 
                   const diaryTableStringDivPopUp = document.createElement('div');
                   diaryTableStringDivPopUp.classList.add('diary-table-string-1');
                   const mealNameDivPopUp = document.createElement('div');
@@ -415,12 +428,59 @@ addNewProduct.addEventListener("click", function(event) {
                     <div>${caloriesPopUp * grammPopUp / 100}</div>
                     <div>${carbsPopUp * grammPopUp / 100}</div>
                     <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>`;
+                    <div>${fatPopUp * grammPopUp / 100}</div>
+                    <button class="delete-column"></button>`;
 
-                
+                    const deleteProductButtonPopUp = document.createElement('button');
+                    deleteProductButtonPopUp.classList.add('delete-column');
+                    deleteProductButtonPopUp.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+                    
+                    // event listener for the delete column button
+                    deleteProductButtonPopUp.addEventListener('click', function() {
+                    diaryTableStringDivPopUp.remove();
+                    });
+                    
+                  columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
+                                      
                   accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
 
+                 
                   popUpAddNewProduct.style.display = "none";
+                  document.querySelector('input[name="product-brand"]').value = "";
+                  document.querySelector('input[name="product-name"]').value= "";
+  document.querySelector('input[name="serving-size"]').value= "";
+  document.querySelector('input[name="calories"]').value= "";
+  document.querySelector('input[name="fat"]').value= "";
+  document.querySelector('input[name="carbs"]').value= "";
+  document.querySelector('input[name="protein"]').value= "";
+                 
+
                 });
+
+function openNewProduct(event) {
+  event.preventDefault();
+  popUpNotFound.style.display = "none";
+  popUpAddNewProduct.style.display = "block";
+  loader.style.display = 'none';
+  
+}
+
+function closeNotFound(event) {
+  event.preventDefault();
+  popUpNotFound.style.display = "none";
+  input.innerHTML = ""; 
+  loader.style.display = 'none'; 
+}
+
+function closeNewProduct(event) {
+  event.preventDefault();
+  popUpAddNewProduct.style.display = "none";
+  loader.style.display = 'none';
+}
+
+ retrieveTotalValues();
+
+
+

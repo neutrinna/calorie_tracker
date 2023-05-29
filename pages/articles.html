@@ -12,31 +12,32 @@
   <link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
 </head>
 
-<body class="articles-wrapper">
-  <main>
+<body>
+  <div class="wrapper">
+
     <!-- side-bar -->
     <div class="side-bar">
       <nav>
         <li>
-          <a class="side-bar__link side-bar__link_profile" href="#"><img src="../assets/images/index/profile.svg"
+          <a class="side-bar__link side-bar__link_profile" href="../index.html"><img src="../assets/images/index/profile.svg"
               alt="иконка ссылки на раздел профиль">Профиль</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link  side-bar__link_diary" href="#"><img src="../assets/images/index/diary.svg"
+          <a class="side-bar__link  side-bar__link_diary" href="./diary.html"><img src="../assets/images/index/diary.svg"
               alt="иконка ссылки на раздел дневник">Дневник</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link side-bar__link_charts" href="#"><img src="../assets/images/index/graph.svg"
+          <a class="side-bar__link side-bar__link_charts" href="./charts.html"><img src="../assets/images/index/graph.svg"
               alt="иконка ссылки на раздел динамика">Динамика</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link  side-bar__link_articles" href="#"><img src="../assets/images/index/sampling.svg"
+          <a class="side-bar__link  side-bar__link_articles" href="./articles.html"><img src="../assets/images/index/sampling.svg"
               alt="иконка ссылки на раздел Статьи">Статьи</a>
         </li>
       </nav>
     </div>
     <!-- side-bar -->
-
+    <main>
     <div class="articles-content">
       <section class="articles-section">
         <!--ВСТАВИТЬ URL-->
@@ -329,6 +330,7 @@
   <footer>
     <p class="articles-copy">Calorie tracker &copy; 2023</p>
   </footer>
+  </div>
 
   <script src="../modules/articles.js"></script>
   <script src="../modules/side-bar-other.js"></script>

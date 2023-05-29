@@ -99,19 +99,19 @@
     <div class="side-bar">
       <nav>
         <li>
-          <a class="side-bar__link side-bar__link_profile" href="#"><img src="./assets/images/index/profile.svg"
+          <a class="side-bar__link side-bar__link_profile" href="./index.html"><img src="./assets/images/index/profile.svg"
               alt="иконка ссылки на раздел профиль">Профиль</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link  side-bar__link_diary" href="#"><img src="./assets/images/index/diary.svg"
+          <a class="side-bar__link  side-bar__link_diary" href="./pages/diary.html"><img src="./assets/images/index/diary.svg"
               alt="иконка ссылки на раздел дневник">Дневник</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link side-bar__link_charts" href="#"><img src="./assets/images/index/graph.svg"
+          <a class="side-bar__link side-bar__link_charts" href="./pages/charts.html"><img src="./assets/images/index/graph.svg"
               alt="иконка ссылки на раздел динамика">Динамика</a>
         </li>
         <li class="side-bar__menu">
-          <a class="side-bar__link  side-bar__link_articles" href="#"><img src="./assets/images/index/sampling.svg"
+          <a class="side-bar__link  side-bar__link_articles" href="./pages/articles.html"><img src="./assets/images/index/sampling.svg"
               alt="иконка ссылки на раздел Статьи">Статьи</a>
         </li>
       </nav>
@@ -162,7 +162,7 @@
             <div class="profile-user__states">
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Вес</div>
-                <div class="profile-user__states-value font-black">60 кг</div>
+                <div class="profile-user__states-value profile-user__states-value_weight font-black">-</div>
               </div>
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Рост</div>
@@ -187,11 +187,11 @@
               <div class="profile-user__kkal-wrapper-data">
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Употреблено калорий:</h3>
-                  <div class="profile-user__kkal-amount">1360</div>
+                  <div class="profile-user__kkal-amount profile-user__kkal-amount_eaten">1360</div>
                 </div>
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Осталось калорий:</h3>
-                  <div class="profile-user__kkal-amount">240</div>
+                  <div class="profile-user__kkal-amount profile-user__kkal-amount_left">-</div>
                 </div>
               </div>
               <div class="profile-user__doughnut-chart">
@@ -254,7 +254,7 @@
             </div>
             <div class="profile-RSK__form-element">
               <p class="profile-RSK__form-attribute">Возраст:</p>
-              <input type="number" value="" class="font-black profile-RSK__form-input input-age" />
+              <input type="number" value="" class="font-black profile-RSK__form-input input-age"/>
             </div>
             <div class="profile-RSK__form-element">
               <p class="profile-RSK__form-attribute">Пол:</p>
@@ -274,11 +274,11 @@
             </div>
             <div class="profile-RSK__form-element">
               <p class="profile-RSK__form-attribute">Вес, кг:</p>
-              <input type="number" class="font-black profile-RSK__form-input input-weight" />
+              <input type="number" class="font-black profile-RSK__form-input input-weight"/>
             </div>
             <div class="profile-RSK__form-element">
               <p class="profile-RSK__form-attribute">Рост, см:</p>
-              <input type="number" class="font-black profile-RSK__form-input input-growth" />
+              <input type="number" class="font-black profile-RSK__form-input input-growth"/>
             </div>
           </div>
           <div class="profile-RSK__form-add"> <button type="submit" class="profile-RSK__form-button calculate-rsk">
@@ -286,7 +286,7 @@
             </button>
             <div class="profile-RSK__checkbox">            
               <div>Сохранить данные в профиль</div>
-            <input type="checkbox" id="profile-RSK__checkbox"></div>
+            <input type="checkbox" id="profile-RSK__checkbox" checked="true"></div>
           </div>
 
         </form>
@@ -295,32 +295,32 @@
           <div class="profile-RSK__kkal">
             <p class="font-black">Ваша дневная норма составляет</p>
             <p class="font-orange">
-              <span class="font-figure result-rsk">2000</span> ккал
+              <span class="font-figure result-rsk">-</span> 
             </p>
           </div>
           <div class="profile-RSK__macro">
             <div>
               <div class="profile-RSK__macroelement font-black">Белки</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="proteins">125 г</span>
+                <span class="proteins">-</span>
               </div>
             </div>
             <div>
               <div class="profile-RSK__macroelement font-black">Жиры</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="fats">60 г</span>
+                <span class="fats">-</span>
               </div>
             </div>
             <div>
               <div class="profile-RSK__macroelement font-black">Углеводы</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="carbohydrates">240 г</span>
+                <span class="carbohydrates">-</span>
               </div>
             </div>
           </div>
           <div class="profile-RSK__weight font-black">
             Эффективный вес -
-            <span class="font-figure font-blue optimal-weight">59 кг</span>
+            <span class="font-figure font-blue optimal-weight">-</span>
           </div>
         </div>
       </section>
