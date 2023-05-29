@@ -148,12 +148,35 @@ button {
 .profile-RSK__form-button {
     align-self: center;
     cursor: pointer;
-    @include button(41%, 12%);
+
+    @include button(41%, 100%);
+}
+.profile-RSK__form-add{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 11%;
+}
+.profile-RSK__checkbox {
+    display: none;
+    width: 35%;
+
+    @include font (600, 14px)
+}
+
+#profile-RSK__checkbox{
+    margin-left: 2%;
 }
 
 .profile-RSK__form-button:hover {
     transition-duration: 1s;
     background-color: #f7a337;
+}
+
+input:hover {
+    cursor: auto;
 }
 
 .profile-welcome {
@@ -774,6 +797,9 @@ button {
     }
     .profile-user__water-tracker{
         font-size: calc((100vw + 182px) / 91);
+    }
+    .profile-RSK__checkbox {
+        font-size: calc((100vw + 2560px) / 320);
     }
 }
 

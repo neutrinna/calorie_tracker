@@ -1,6 +1,9 @@
 const userData = JSON.parse(localStorage.getItem('userData'));
 let loged = false;
+// window.localStorage.clear();
 let currentUser = [];
+let usersDataArr = JSON.parse(localStorage.getItem("usersDataArr")) || [];
+
 console.log(userData)
 
 function loginUser() {
@@ -59,9 +62,9 @@ function loginUser() {
       window.localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
       let user = JSON.parse(localStorage.getItem('currentUser'));
       document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
-      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`; 
-
-
+      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`;
+      currentUser = [];
+      document.querySelector(".profile-RSK__checkbox").style.display = "flex";
 
       break; // выходим из цикла, так как дальше перебирать нет смысла
     }
@@ -85,4 +88,9 @@ function exit() {
   document.getElementById("profile-paternity").style.display = "flex";
   document.getElementById("profile-user").style.display = "none";
   window.localStorage.setItem(`loged`, `${loged}`);
+  usersDataArr.push(window.localStorage.getItem(`currentUser`));
+  window.localStorage.setItem(`usersDataArr`, JSON.stringify(usersDataArr));
+  window.localStorage.setItem(`currentUser`, ``);
+  document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
+
 }
