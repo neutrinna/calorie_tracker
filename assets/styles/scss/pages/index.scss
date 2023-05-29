@@ -823,6 +823,10 @@ input:hover {
     margin: auto;
     height: auto;
     background-color: $basic-color;
+
+    &_topic {
+        background-color: white;
+    }
 }
 
 .profile-welcome__wripper,
