@@ -126,19 +126,182 @@ document.addEventListener("DOMContentLoaded", function() {
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
                   columnNamesDiv.style.display = 'flex';
-                  columnNamesDiv.innerHTML = `
-                    <div>${grammInput.value}</div>
-                    <div>${calories * grammInput.value / 100}</div>
-                    <div>${carbs * grammInput.value / 100}</div>
-                    <div>${proteins * grammInput.value / 100}</div>
-                    <div>${fats * grammInput.value / 100}</div>`;
+                  const weightRes = grammInput.value;
+                  const calRes = Math.round(calories * grammInput.value / 100);
+                  const carbsRes = Math.round(carbs * grammInput.value / 100);
+                  const protRes = Math.round(proteins * grammInput.value / 100);
+                  const fatsRes = Math.round(fats * grammInput.value / 100);
 
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
+
+                  if (columnNamesDiv.closest('.accordeon1')) {
+                    columnNamesDiv.innerHTML = `
+                      <div class="weightRes">${weightRes}</div>
+                      <div class="calRes">${calRes}</div>
+                      <div class="carbsRes">${carbsRes}</div>
+                      <div class="protRes">${protRes}</div>
+                      <div class="fatsRes">${fatsRes}</div>`}
+  
+                      else if (columnNamesDiv.closest('.accordeon2')) {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes2">${weightRes}</div>
+                      <div class="calRes2">${calRes}</div>
+                      <div class="carbsRes2">${carbsRes}</div>
+                      <div class="protRes2">${protRes}</div>
+                      <div class="fatsRes2">${fatsRes}</div>`
+                      }
+
+                      else if (columnNamesDiv.closest('.accordeon3')) {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes3">${weightRes}</div>
+                      <div class="calRes3">${calRes}</div>
+                      <div class="carbsRes3">${carbsRes}</div>
+                      <div class="protRes3">${protRes}</div>
+                      <div class="fatsRes3">${fatsRes}</div>`
+                      }
+
+                      else {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes4">${weightRes}</div>
+                      <div class="calRes4">${calRes}</div>
+                      <div class="carbsRes4">${carbsRes}</div>
+                      <div class="protRes4">${protRes}</div>
+                      <div class="fatsRes4">${fatsRes}</div>`
+                      }
+  
                  
+
+  //////    ////      /////string total weight Aleksandra //////////////
+
+                    //////завтрак 
+                  const stringWeightBreakfast = document.getElementById('stringWeightBreakfast');
+                  const stringKkalBreakfast = document.getElementById('stringKkalBreakfast');
+                  const stringCarbBreakfast = document.getElementById('stringCarbBreakfast');
+                  const stringProteinBreakfast = document.getElementById('stringProteinBreakfast');
+                  const stringFatBreakfast = document.getElementById('stringFatBreakfast');
+
+
+                    ////обед
+                  const stringWeightLunch = document.getElementById('stringWeightLunch');
+                  const stringKkalLunch = document.getElementById('stringKkalLunch');
+                  const stringCarbLunch = document.getElementById('stringCarbLunch');
+                  const stringProteinLunch = document.getElementById('stringProteinLunch');
+                  const stringFatLunch = document.getElementById('stringFatLunch');
+
+                  ///ужин
+                  const stringWeightDinner= document.getElementById('stringWeightDinner');
+                  const stringKkalDinner = document.getElementById('stringKkalDinner');
+                  const stringCarbDinner = document.getElementById('stringCarbDinner');
+                  const stringProteinDinner = document.getElementById('stringProteinDinner');
+                  const stringFatDinner = document.getElementById('stringFatDinner');
+
+                  ///перекус
+                  const stringWeightSnack= document.getElementById('stringWeightSnack');
+                  const stringKkalSnack = document.getElementById('stringKkalSnack');
+                  const stringCarbSnack = document.getElementById('stringCarbSnack');
+                  const stringProteinSnack = document.getElementById('stringProteinSnack');
+                  const stringFatSnack = document.getElementById('stringFatSnack');
+
+
+
+                   
+                      ///массивы вес 
+                  const weightArray = document.querySelectorAll ('.weightRes')
+                  const weightArray2 = document.querySelectorAll ('.weightRes2')
+                  const weightArray3 = document.querySelectorAll ('.weightRes3')
+                  const weightArray4 = document.querySelectorAll ('.weightRes4')
+
+                     //массивы калории 
+                  const kkalArray = document.querySelectorAll ('.calRes');
+                  const kkalArray2 = document.querySelectorAll ('.calRes2');
+                  const kkalArray3 = document.querySelectorAll ('.calRes3');
+                  const kkalArray4 = document.querySelectorAll ('.calRes4');
+
+                     //массивы углеводы
+                  const carbsArray = document.querySelectorAll ('.carbsRes');
+                  const carbsArray2 = document.querySelectorAll ('.carbsRes2');
+                  const carbsArray3 = document.querySelectorAll ('.carbsRes3');
+                  const carbsArray4 = document.querySelectorAll ('.carbsRes4');
+
+                    //массивы протеины
+                  const protsArray = document.querySelectorAll ('.protRes');
+                  const protsArray2 = document.querySelectorAll ('.protRes2');
+                  const protsArray3 = document.querySelectorAll ('.protRes3');
+                  const protsArray4 = document.querySelectorAll ('.protRes4');
+
+                    //массивы жиры
+                  const fatsArray = document.querySelectorAll ('.fatsRes');
+                  const fatsArray2 = document.querySelectorAll ('.fatsRes');
+                  const fatsArray3 = document.querySelectorAll ('.fatsRes');
+                  const fatsArray4 = document.querySelectorAll ('.fatsRes');
+
+                    
+                  
+   
+                  
+
+                  const countStringWeight = () => {
+                      stringWeightBreakfast.innerText = `Вес, ${countSum (weightArray)} г`;
+                      stringKkalBreakfast.innerText = `${countSum (kkalArray)} Ккал`
+                      stringCarbBreakfast.innerText = `${countSum (carbsArray)} У`
+                      stringProteinBreakfast.innerText = `${countSum (protsArray)} Б`
+                      stringFatBreakfast.innerText = `${countSum (fatsArray)} Ж`
+                  }
+
+                  const countStringWeight2 = () => {
+                    stringWeightLunch.innerText = `Вес, ${countSum (weightArray2)} г`;
+                    stringKkalLunch.innerText = `${countSum (kkalArray2)} Ккал`
+                    stringCarbLunch.innerText = `${countSum (carbsArray2)} У`
+                    stringProteinLunch.innerText = `${countSum (protsArray2)} Б`
+                    stringFatLunch.innerText = `${countSum (fatsArray2)} Ж`
+                  }
+
+                  const countStringWeight3 = () => {
+                    stringWeightDinner.innerText = `Вес, ${countSum (weightArray3)} г`;
+                    stringKkalDinner.innerText = `${countSum (kkalArray3)} Ккал`
+                    stringCarbDinner.innerText = `${countSum (carbsArray3)} У`
+                    stringProteinDinner.innerText = `${countSum (protsArray3)} Б`
+                    stringFatDinner.innerText = `${countSum (fatsArray3)} Ж`
+                  }
+
+                  const countStringWeight4 = () => {
+                    stringWeightSnack.innerText = `Вес, ${countSum (weightArray4)} г`;
+                    stringKkalSnack.innerText = `${countSum (kkalArray4)} Ккал`
+                    stringCarbSnack.innerText = `${countSum (carbsArray4)} У`
+                    stringProteinSnack.innerText = `${countSum (protsArray4)} Б`
+                    stringFatSnack.innerText = `${countSum (fatsArray4)} Ж`
+                  }
+
+                  // цикл подсчета
+                  function countSum (array, sum) {
+                    sum = 0;
+                    for (let i = 0 ; i < array.length; i++){
+                      sum += Number(array[i].innerHTML);
+                    }
+                    console.log(sum);
+                    return sum;
+                  }
+
+
+
+                // вызовы функций подсчета данных строк
+                countStringWeight ()
+                countStringWeight2 ()
+                countStringWeight3 ()
+                countStringWeight4 ()
+                
+
+                ////////////       end  Aleksandra        //////////////////
+
+                
+
+                
+
+
                   // total weight //
                   totalWeight += Number(grammInput.value);
                   totalCalories += (calories * grammInput.value) / 100;
