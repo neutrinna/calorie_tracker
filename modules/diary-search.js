@@ -7,11 +7,16 @@ popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 const loader = document.getElementById('diary-loader');
 
+
+
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
+
+
+
 
 let mealEaten = {};
 
@@ -133,8 +138,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div>${calories * grammInput.value / 100}</div>
                     <div>${carbs * grammInput.value / 100}</div>
                     <div>${proteins * grammInput.value / 100}</div>
-                    <div>${fats * grammInput.value / 100}</div>`;
+                    <div>${fats * grammInput.value / 100}</div>
+                    <button class="delete-column"></button>`;
+                    const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
 
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove();
+                    });
+
+                    columnNamesDiv.appendChild(deleteProductButton);
+                  
+                  
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
@@ -153,6 +170,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   storeTotalValues();
                   storeMealEaten(mealEaten);
                   retrieveTotalValues();
+
+
                 }
               })
               .catch(error => {
@@ -216,8 +235,8 @@ addNewProduct.addEventListener("click", function(event) {
   const carbsPopUp = document.querySelector('input[name="carbs"]').value;
   const proteinPopUp = document.querySelector('input[name="protein"]').value;
   
-  
-  const accordeonDivsPopUp = document.querySelector(`.accordeon_hidden`);
+  let index = 0;
+    const accordeonDivsPopUp = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
  
                   const diaryTableStringDivPopUp = document.createElement('div');
                   diaryTableStringDivPopUp.classList.add('diary-table-string-1');
@@ -234,12 +253,24 @@ addNewProduct.addEventListener("click", function(event) {
                     <div>${caloriesPopUp * grammPopUp / 100}</div>
                     <div>${carbsPopUp * grammPopUp / 100}</div>
                     <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>`;
+                    <div>${fatPopUp * grammPopUp / 100}</div>
+                    <button class="delete-column"></button>`;
 
-                
+                    const deleteProductButtonPopUp = document.createElement('button');
+                    deleteProductButtonPopUp.classList.add('delete-column');
+                    deleteProductButtonPopUp.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+                    
+                    // event listener for the delete column button
+                    deleteProductButtonPopUp.addEventListener('click', function() {
+                    diaryTableStringDivPopUp.remove();
+                    });
+                    
+                  columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
+                                      
                   accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
 
                  
                   popUpAddNewProduct.style.display = "none";
