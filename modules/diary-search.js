@@ -7,7 +7,6 @@ popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 const loader = document.getElementById('diary-loader');
 
-
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
@@ -35,6 +34,7 @@ function retrieveMealEaten() {
   }
   return [];
 }
+
 // local storage total values//
 function storeTotalValues() {
   const totalValues = {
@@ -115,7 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   const proteins = product.nutriments.proteins;
                   const fats = product.nutriments.fat;
 
-                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`)
+                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
+                  
                   const diaryTableStringDiv = document.createElement('div');
                   diaryTableStringDiv.classList.add('diary-table-string-1');
 
@@ -151,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   updateTotalValues()
                   storeTotalValues();
                   storeMealEaten(mealEaten);
+                  retrieveTotalValues();
                 }
               })
               .catch(error => {
@@ -158,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
               });
           }
         });
-        // product search //
+        // product search by code //
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
@@ -190,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
 function openPopupProductNotFound(message) {
   popUpNotFound.style.display = "block";
 }
@@ -199,8 +202,8 @@ openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
 closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
+// add new product form //
 const addNewProduct = document.getElementById("newproduct__popup-add");
-
 addNewProduct.addEventListener("click", function(event) {
   event.preventDefault();
 
@@ -213,10 +216,9 @@ addNewProduct.addEventListener("click", function(event) {
   const carbsPopUp = document.querySelector('input[name="carbs"]').value;
   const proteinPopUp = document.querySelector('input[name="protein"]').value;
   
+  
   const accordeonDivsPopUp = document.querySelector(`.accordeon_hidden`);
-  
-
-  
+ 
                   const diaryTableStringDivPopUp = document.createElement('div');
                   diaryTableStringDivPopUp.classList.add('diary-table-string-1');
                   const mealNameDivPopUp = document.createElement('div');
@@ -272,6 +274,8 @@ function closeNewProduct(event) {
   popUpAddNewProduct.style.display = "none";
   loader.style.display = 'none';
 }
+
+ retrieveTotalValues();
 
 
 
