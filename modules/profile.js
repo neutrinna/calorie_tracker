@@ -1,4 +1,5 @@
 let user = JSON.parse(localStorage.getItem("currentUser"));
+const profileUserData = new Object();
 
 // Nastya Klm
 const form = document.getElementById("form-rsk");
@@ -10,7 +11,6 @@ const gender = document.getElementById("gender");
 const activity = document.getElementById("activity");
 const weight = document.querySelector(".input-weight");
 const growth = document.querySelector(".input-growth");
-let growthValue;
 
 const resultRSK = document.querySelector(".result-rsk");
 const protein = document.querySelector(".proteins");
@@ -28,7 +28,7 @@ const getNormRSK = function () {
       `${
         (9.99 * +weight.value + 6.25 * +growth.value - 4.92 * +age.value + 5) *
         +activity.value
-      }`
+      } кг`
     );
   } else if (gender.value == "female") {
     resultRSK.innerHTML = Math.round(
@@ -38,10 +38,11 @@ const getNormRSK = function () {
           4.92 * +age.value -
           161) *
         +activity.value
-      }`
+      } кг`
     );
   }
-  growthValue = growth.value;
+  profileUserData.growth = growth.value;
+  profileUserData.weight = weight.value;
   return resultRSK.innerHTML;
 };
 
@@ -55,6 +56,7 @@ function resultGoal() {
   } else if (goal.value == "gain") {
     resultRSK.innerHTML = Math.round(+getNormRSK() + +getNormRSK() * rateGole);
   }
+  profileUserData.kkal = resultRSK.textContent;
   return resultRSK.innerHTML;
 }
 
@@ -70,6 +72,9 @@ function countNutrients() {
     fat.innerHTML = `${Math.round((+resultGoal() * 30) / 100 / 9)} г`;
     carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
   }
+  profileUserData.prot = protein.textContent;
+  profileUserData.fat = fat.textContent;
+  profileUserData.carbs = carbohydrate.textContent;
 }
 
 // рассчёт эффективного веса
@@ -78,6 +83,7 @@ function countWeight() {
   optimalWeight.innerHTML = `${Math.round(
     +growth.value - 100 - (growth.value - 150) / 2
   )} кг`;
+  profileUserData.goal = optimalWeight.textContent;
 }
 
 function validationInputs() {
@@ -91,29 +97,40 @@ function validationInputs() {
     growth.style.borderColor = "#FF7C02";
   }
 }
+// Инна
+function importRSK() {
+  user[5] = profileUserData;
+  localStorage.setItem(`currentUser`, JSON.stringify(user));
+}
+
+function setValues() {
+  if (document.getElementById("profile-RSK__checkbox").checked == true) {
+    const user = JSON.parse(localStorage.getItem(`currentUser`));
+
+    document.querySelector(".profile-user__target-weight").textContent =
+    `${user[5].goal}`;
+    document.querySelector(
+      ".profile-user__states-value_growth"
+    ).textContent = `${user[5].growth} кг`;
+    document.querySelector(".profile-user__states-value_weight").textContent = `${user[5].weight} кг`;
+    document.querySelector(".profile-user__kkal-amount_left").textContent = `${user[5].kkal -
+    document.querySelector(".profile-user__kkal-amount_eaten").textContent}`
+  }
+}
+// Инна
 
 button.addEventListener("click", function () {
   if (age.value !== "" && weight.value !== "" && growth.value !== "") {
     resultGoal();
     countNutrients();
     countWeight();
+    importRSK();
+    setValues();
   } else {
     alert("Заполните все поля!");
     validationInputs();
   }
 });
-
-// Инна
-// RSK-transition
-if (document.getElementById("profile-RSK__checkbox").checked == true) {
-  document.querySelector(".profile-user__target-weight").textContent =
-    optimalWeight.textContent;
-  document.querySelector(
-    ".profile-user__states-value_growth"
-  ).textContent = `${growthValue} кг`;
-}
-// RSK-transition
-// Инна
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -122,7 +139,6 @@ form.addEventListener("submit", (event) => {
 // Nastya Klm
 
 // ИННА
-
 // chart
 const doughnut = document.getElementById("doughnut");
 const macro = document.querySelectorAll(`.profile-user__macro-amount_span`);
@@ -177,6 +193,19 @@ if (localStorage.getItem("loged") === "true") {
   document.getElementById("profile-paternity").style.display = "none";
   document.getElementById("profile-user").style.display = "flex";
   document.querySelector(".profile-RSK__checkbox").style.display = "flex";
+  document.querySelector(".profile-user__target-weight").textContent =
+    `${user[5].goal}`|| `-`;
+    document.querySelector(
+      ".profile-user__states-value_growth"
+    ).textContent = `${user[5].growth} кг`|| `-`;
+    document.querySelector(".profile-user__states-value_weight").textContent = `${user[5].weight} кг`|| `-`;
+    document.querySelector(".profile-user__kkal-amount_left").textContent = `${user[5].kkal -
+    document.querySelector(".profile-user__kkal-amount_eaten").textContent}`|| `-`;
+    resultRSK.textContent = `${user[5].kkal} ккал`|| `-`;
+    protein.textContent = `${user[5].prot}`|| `-`;
+    fat.textContent = `${user[5].fat}`|| `-`;
+    carbohydrate.textContent = `${user[5].carbs}`|| `-`;
+    optimalWeight.textContent = `${user[5].goal}`|| `-`;
 }
 // page load
 
