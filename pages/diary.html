@@ -98,17 +98,17 @@
                   </button>
                 </div>
                 <div class="diary-table-string__column-names">
-                  <div>Вес, г</div>
-                  <div class="diary-kcal__breakfast-amount">400 Ккал</div>
-                  <div>У</div>
-                  <div>Б</div>
-                  <div>Ж</div>
+                  <div class="diary-weight__breakfast">Вес, г</div>
+                  <div class="diary-kcal__breakfast-amount"> Ккал</div>
+                  <div class="diary-carbs__breakfast">У</div>
+                  <div class="diary-protein__breakfast">Б</div>
+                  <div class="diary-fat__breakfast">Ж</div>
 
                 </div>
               </div>
 
               <!-- скрытый див выпадающего списка, строки продуктов сюда ---->
-              <div class="accordeon1 accordeon_hidden">
+              <div class="accordeon1 accordeon_hidden" id="accordeon-breakfast">
                 <!-------------------------->
                 <!-- Алла -->
                 <!-- Форма поиска продукта по штрих-коду -->
@@ -148,7 +148,7 @@
 
               <!-- скрытый див №2 выпадающего списка, строки продуктов сюда ---->
 
-              <div class="accordeon2 accordeon_hidden">
+              <div class="accordeon2 accordeon_hidden" id="accordeon-lunch">
                 <!-- Алла -->
                 <!-- Форма поиска продукта по штрих-коду -->
                 <form class="diary__form__search">
@@ -188,7 +188,7 @@
               </div>
 
               <!-- скрытый див №3 выпадающего списка, строки продуктов сюда ---->
-              <div class="accordeon3 accordeon_hidden">
+              <div class="accordeon3 accordeon_hidden" id="accordeon-dinner">
                 <!-- Алла -->
                 <!-- Форма поиска продукта по штрих-коду -->
                 <form class="diary__form__search">
@@ -226,7 +226,7 @@
 
               <!-- скрытый див №4 выпадающего списка, строки продуктов сюда ---->
 
-              <div class="accordeon4 accordeon_hidden">
+              <div class="accordeon4 accordeon_hidden" id="accordeon-snack">
                 <!-- Алла -->
                 <!-- Форма поиска продукта по штрих-коду -->
                 <form class="diary__form__search">
@@ -581,6 +581,30 @@
             </div>
           </div>
         </div>
+		<div class="wrapper">
+			<div class="diary__productnotfound__popup-extra">
+			  <div class="diary__productnotfound__popup_container-extra">
+				<div class="diary__productnotfound__popup_body-extra">
+				  <img
+					class="diary__productnotfoune__popup_img"
+					src="../assets/images/diary/diary_cart.png"
+					alt="иконка корзины"
+				  />
+				  <p class="diary__productnotfound__popup_h3">
+					Упс! Продукт не найден в нашей базе
+				  </p>
+				  <p class="diary__productnotfound__popup_h4">
+					Поищем другой?
+				  </p>
+				  <div class="diary__productnotfound__popup_btns">
+					<button type="submit" id="productnotfound__popup-cancel-extra">
+					  Искать
+					</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
       </div>
     </div>
 
