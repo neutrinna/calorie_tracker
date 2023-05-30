@@ -336,4 +336,3 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 
 //  retrieveTotalValues();
 
-
