@@ -15,8 +15,14 @@ let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
 
+// // сумма завтрак пробный //
+// let totalWeightBreakfast = 0;
+// let totalCaloriesBreakfast = 0;
+// let totalCarbsBreakfast = 0;
+// let totalProteinsBreakfast = 0;
+// let totalFatsBreakfast = 0;
 
-
+// // сумма завтрак пробный //
 
 let mealEaten = {};
 
@@ -74,6 +80,35 @@ function updateTotalValues() {
     </div>
   `;
 }
+// //// сумма завтрак пробный //
+// function calculateBreakfastTotals() {
+
+// const breakfastEntries = document.querySelectorAll('.accordeon1.accordeon_hidden');
+
+// breakfastEntries.forEach(entry => {
+
+//     const weightBreakfast = parseFloat(entry.querySelector('.diary-table-string__column-names div:first-child').textContent);
+//     const caloriesBreakfast = parseFloat(entry.querySelector('.diary-table-string-1__column-names div:nth-child(2)').textContent);
+//     const carbsBreakfast = parseFloat(entry.querySelector('.diary-table-string__column-names div:nth-child(3)').textContent);
+//     const proteinsBreakfast = parseFloat(entry.querySelector('.diary-table-string__column-names div:nth-child(4)').textContent);
+//     const fatsBreakfast = parseFloat(entry.querySelector('.diary-table-string__column-names div:nth-child(5)').textContent);
+
+//     const weightElemBreakfast = document.querySelector('.diary-weight__breakfast');
+//     const kcalElemBreakfast = document.querySelector('.diary-kcal__breakfast-amount');
+//     const carbsElemBreakfast = document.querySelector('.diary-carbs__breakfast');
+//     const proteinElemBreakfast = document.querySelector('.diary-protein__breakfast');
+//     const fatElemBreakfast = document.querySelector('.diary-fat__breakfast');
+
+//     weightElemBreakfast.textContent = `Вес, г: ${totalWeightBreakfast.toFixed(0)}`;
+//     kcalElemBreakfast.textContent = `Вес, г: ${totalCaloriesBreakfast.toFixed(0)}`;
+//     carbsElemBreakfast.textContent = `Вес, г: ${totalCarbsBreakfast.toFixed(0)}`;
+//     proteinElemBreakfast.textContent = `Вес, г: ${totalProteinsBreakfast.toFixed(0)}`;
+//     fatElemBreakfast.textContent = `Вес, г: ${totalFatsBreakfast.toFixed(0)}`;    
+//   }
+// )};
+
+// //// сумма завтрак пробный //
+
 
 // on click search result//
 document.addEventListener("DOMContentLoaded", function() {
@@ -165,8 +200,14 @@ document.addEventListener("DOMContentLoaded", function() {
                   totalProteins += (proteins * grammInput.value) / 100;
                   totalFats += (fats * grammInput.value) / 100;
 
-                 
-                  updateTotalValues()
+    // totalWeightBreakfast += weightBreakfast;
+    // totalCaloriesBreakfast += caloriesBreakfast;
+    // totalCarbsBreakfast += carbsBreakfast;
+    // totalProteinsBreakfast += proteinsBreakfast;
+    // totalFatsBreakfast += fatsBreakfast;
+    //              calculateBreakfastTotals();
+
+                  updateTotalValues();
                   storeTotalValues();
                   storeMealEaten(mealEaten);
                   retrieveTotalValues();
@@ -197,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function() {
               input.value = '';
               searchResultDiv.appendChild(commentElem);
             } else {
-              openPopupProductNotFound();
+              openPopupProductNotFound(index);
               searchResultDiv.innerHTML = '';
               input.value = '';
               loader.style.display = 'none';
@@ -211,22 +252,22 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-function openPopupProductNotFound(message) {
-  popUpNotFound.style.display = "block";
-}
-
-
 openPopUpNewProduct.addEventListener("click", openNewProduct);
 closePopUpNotFound.addEventListener("click", closeNotFound);
 closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
-// add new product form //
+
+function openPopupProductNotFound() {
+  popUpNotFound.style.display = "block";
+}
+
+// add new product form filling //
 const addNewProduct = document.getElementById("newproduct__popup-add");
 addNewProduct.addEventListener("click", function(event) {
   event.preventDefault();
 
-  
+  let index = 0;
+  const accordeonDivsPopUp = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
   const brandPopUp = document.querySelector('input[name="product-brand"]').value;
   const namePopUp = document.querySelector('input[name="product-name"]').value;
   const grammPopUp = document.querySelector('input[name="serving-size"]').value;
@@ -235,9 +276,6 @@ addNewProduct.addEventListener("click", function(event) {
   const carbsPopUp = document.querySelector('input[name="carbs"]').value;
   const proteinPopUp = document.querySelector('input[name="protein"]').value;
   
-  let index = 0;
-    const accordeonDivsPopUp = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
- 
                   const diaryTableStringDivPopUp = document.createElement('div');
                   diaryTableStringDivPopUp.classList.add('diary-table-string-1');
                   const mealNameDivPopUp = document.createElement('div');
@@ -250,10 +288,10 @@ addNewProduct.addEventListener("click", function(event) {
                   columnNamesDivPopUp.style.display = 'flex';
                   columnNamesDivPopUp.innerHTML = `
                     <div>${grammPopUp}</div>
-                    <div>${caloriesPopUp * grammPopUp / 100}</div>
-                    <div>${carbsPopUp * grammPopUp / 100}</div>
-                    <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>
+                    <div>${(caloriesPopUp * grammPopUp / 100).toFixed(0)}</div>
+                    <div>${(carbsPopUp * grammPopUp / 100).toFixed(0)}</div>
+                    <div>${(proteinPopUp * grammPopUp / 100).toFixed(0)}</div>
+                    <div>${(fatPopUp * grammPopUp / 100).toFixed(0)}</div>
                     <button class="delete-column"></button>`;
 
                     const deleteProductButtonPopUp = document.createElement('button');
@@ -270,9 +308,7 @@ addNewProduct.addEventListener("click", function(event) {
                   accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
-
-
-                 
+              
                   popUpAddNewProduct.style.display = "none";
                   document.querySelector('input[name="product-brand"]').value = "";
                   document.querySelector('input[name="product-name"]').value= "";
@@ -281,9 +317,10 @@ addNewProduct.addEventListener("click", function(event) {
   document.querySelector('input[name="fat"]').value= "";
   document.querySelector('input[name="carbs"]').value= "";
   document.querySelector('input[name="protein"]').value= "";
-                 
-
+              
+              
                 });
+              
 
 function openNewProduct(event) {
   event.preventDefault();
@@ -306,7 +343,7 @@ function closeNewProduct(event) {
   loader.style.display = 'none';
 }
 
- retrieveTotalValues();
+
 
 
 
