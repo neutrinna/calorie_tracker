@@ -224,11 +224,19 @@ function render() {
       localStorage.setItem("targetWeight", targetWeight);
       // Настя Кольцова
 
-      document.querySelector(".profile-user__target-weight").textContent =
-        `${currentUser.goal} ` || `-`;
-      document.querySelector(
-        ".profile-user__states-value_growth"
-      ).textContent = `${currentUser.growth} кг` || `-`;
+      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)){
+        document.querySelector(".profile-user__target-weight").textContent = `-`
+      }
+      else{
+      document.querySelector(".profile-user__target-weight").textContent =`${currentUser.goal} `}
+
+      if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)){
+      document.querySelector(".profile-user__states-value_growth").textContent = `-` 
+      }
+      else{
+        document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`
+      };
+      
       document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг` || `-`;
       document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
     document.querySelector(".profile-user__kkal-amount_eaten").textContent}` || `-`;
