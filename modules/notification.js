@@ -1,21 +1,18 @@
 // Инна
 const menu = document.querySelectorAll(".side-bar__menu");
 const welcomMenu = document.querySelector(".profile-welcome__wripper");
-
-$(document).ready(function () {
-    popUpHide();
-});
+const notification = document.querySelector("#profile-notification");
 
 document.querySelector(".profile-notification").addEventListener("click", (e) => {
     if (!e.target.closest('.profile-notification__content')) popUpHide();
 })
 
 function popUpShow() {
-    $("#profile-notification").show();
+    notification.style.display = "block";
 }
 
 function popUpHide() {
-    $("#profile-notification").hide();
+    notification.style.display = "none";
 }
 
 for (let menuItem of menu) {
