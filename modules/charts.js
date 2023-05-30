@@ -167,9 +167,17 @@ const calculatePercentageAndHeight = (amount, totalCount) => ({
 
 const updateColumn = (column, amount, totalCount, legendItem) => {
     const { height, percentage, kcal } = calculatePercentageAndHeight(amount, totalCount);
+    const formattedPercentage = isNaN(percentage) ? 0 : percentage;
+    const formattedKcal = isNaN(kcal) ? 0 : kcal;
     column.style.height = height;
-    legendItem.innerHTML = `<p>${percentage} (${kcal})</p>`;
-};
+    legendItem.innerHTML = `<p>${formattedPercentage}% (${formattedKcal} ккал)</p>`;
+};  
+
+// const updateColumn = (column, amount, totalCount, legendItem) => {
+//     const { height, percentage, kcal } = calculatePercentageAndHeight(amount, totalCount);
+//     column.style.height = height;
+//     legendItem.innerHTML = `<p>${percentage} (${kcal})</p>`;
+// };
 
 const updateCalorieChart = () => {
     const breakfastAmount = getAmount('breakfastAmount');
@@ -254,14 +262,3 @@ resetButton.addEventListener('click', function() {
     localStorage.removeItem('weightList');
     location.reload();
 });
-
-// Сохранение значения lastWeight в localstorage в переменную currentUser 
-
-// const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
-// if (!currentUser.hasOwnProperty('weights')) {
-//     currentUser.weights = [];
-// }
-// currentUser.weights[4] = lastWeight;
-// localStorage.setItem('currentUser', JSON.stringify(currentUser));
-// const actualWeight = document.querySelector('.charts-weight__actual p');
-// actualWeight.textContent = 'Ваш вес - ' + (currentUser.weights[4] || '') + ' кг';
