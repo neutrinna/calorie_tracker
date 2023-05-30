@@ -84,6 +84,7 @@ function exit() {
   document.getElementById("profile-welcome__wripper").style.display = "flex";
   document.getElementById("profile-paternity").style.display = "flex";
   document.getElementById("profile-user").style.display = "none";
+  document.getElementById("myDropdown").style.display = "none";
   localStorage.setItem(`loged`, `${loged}`);
   localStorage.setItem(`currentUser`, ``);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
