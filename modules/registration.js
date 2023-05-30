@@ -19,25 +19,18 @@ function registrationAdd() {
    
     if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
-    } else {
-      alert("Заполните все поля!");
-      return;
-    }
-  
-    function checkPassword() {
-    
-      if (password === '' || passwordRepeat === '') {
-        alert('Заполните оба поля');
-        return false;
-      }
-    
+       
+          
       if (password !== passwordRepeat) {
         alert('Пароли не совпадают');
         return false;
       }
     
-      // Пароль прошел проверку
-      return true;
+     // Пароль прошел проверку
+     return true;
+    } else {
+      alert("Заполните все поля!");
+      return;
     }
   
     // получаем текущий массив пользователей (если его нет, то создаем пустой массив)
@@ -64,8 +57,8 @@ function registrationAdd() {
     localStorage.setItem("userData", JSON.stringify(userData));
   
     // выводим сообщение об успешной регистрации
-    alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`);
-  
+    alert(`Пользователь ${name[0].toUpperCase() + name.slice(1)} ${surname[0].toUpperCase() + surname.slice(1)} успешно зарегистрирован!`);
+
     // сбрасываем значения полей ввода
     nameInput.value = "";
     surnameInput.value = "";
