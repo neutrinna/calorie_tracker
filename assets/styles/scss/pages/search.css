@@ -65,10 +65,12 @@
     transform: rotate(360deg);
   }
 }
-.delete-column {
+.delete-column,
+.delete-column2 {
   border: 0px;
   cursor: pointer;
   display: flex;
   align-items: center;
   margin-left: 0px;
+  background-color: white;
 }/*# sourceMappingURL=search.css.map */
