@@ -474,53 +474,53 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
                   //   <button class="delete-column"></button>`;
 
 
-                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+                  // accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+                  // diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+                  // diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
 
                     //Александра --- классы в зависимости от родителя
 
-                    if (columnNamesDivPopUp.closest('.accordeon1')) {
+                    // if (columnNamesDivPopUp.closest('.accordeon1')) {
                       
-                      columnNamesDivPopUp.innerHTML = `
-                        <div class="weightRes">${grammPopUp}</div>
-                        <div class="calRes">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-                        <div class="carbsRes">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-                        <div class="protRes">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-                        <div class="fatsRes">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-                        `
-                      }
-                         else if (columnNamesDivPopUp.closest('.accordeon2')) {
+                    //   columnNamesDivPopUp.innerHTML = `
+                    //     <div class="weightRes">${grammPopUp}</div>
+                    //     <div class="calRes">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                    //     <div class="carbsRes">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                    //     <div class="protRes">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                    //     <div class="fatsRes">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                    //     `
+                    //   }
+                    //      else if (columnNamesDivPopUp.closest('.accordeon2')) {
 
-                          columnNamesDivPopUp.innerHTML = `
-                        <div class="weightRes2">${grammPopUp}</div>
-                        <div class="calRes2">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-                        <div class="carbsRes2">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-                        <div class="protRes2">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-                        <div class="fatsRes2">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-                        <button class="delete-column"></button>`
-                        }
+                    //       columnNamesDivPopUp.innerHTML = `
+                    //     <div class="weightRes2">${grammPopUp}</div>
+                    //     <div class="calRes2">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                    //     <div class="carbsRes2">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                    //     <div class="protRes2">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                    //     <div class="fatsRes2">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                    //     <button class="delete-column"></button>`
+                    //     }
   
-                        else if (columnNamesDivPopUp.closest('.accordeon3')) {
-        //                   columnNamesDivPopUp.innerHTML = `
-//                         <div class="weightRes3">${weightRes}</div>
-                        <div class="calRes3">${calRes}</div>
-                        <div class="carbsRes3">${carbsRes}</div>
-                        <div class="protRes3">${protRes}</div>
-                        <div class="fatsRes3">${fatsRes}</div>
-                        <button class="delete-column"></button>`
-                        }
+                    //     else if (columnNamesDivPopUp.closest('.accordeon3')) {
+                    //     columnNamesDivPopUp.innerHTML = `
+                    //     <div class="weightRes3">${weightRes}</div>
+                    //     <div class="calRes3">${calRes}</div>
+                    //     <div class="carbsRes3">${carbsRes}</div>
+                    //     <div class="protRes3">${protRes}</div>
+                    //     <div class="fatsRes3">${fatsRes}</div>
+                    //     <button class="delete-column"></button>`
+                    //     }
   
-                        else {
+                    //     else {
 
-                          columnNamesDivPopUp.innerHTML = `
-                          <div class="weightRes4">${grammPopUp}</div>
-//                           <div class="calRes4">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-//                           <div class="carbsRes4">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-//                           <div class="protRes4">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-//                           <div class="fatsRes4">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-//                           <button class="delete-column"></button>`
-                        }
+                    //       columnNamesDivPopUp.innerHTML = `
+                    //       <div class="weightRes4">${grammPopUp}</div>
+                    //      <div class="calRes4">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                    //        <div class="carbsRes4">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                    //       <div class="protRes4">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                    //       <div class="fatsRes4">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                    //       <button class="delete-column"></button>`
+                    //     }
 
 
                         //--- классы в зависимости от родителя
@@ -534,7 +534,7 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 //                     diaryTableStringDivPopUp.remove();
 //                     });
                     
-                    mealNameDivPopUp.appendChild(deleteProductButtonPopUp);
+                   // mealNameDivPopUp.appendChild(deleteProductButtonPopUp);
                                     
 
                  
