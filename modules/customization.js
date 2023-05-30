@@ -1,12 +1,11 @@
-const userData = JSON.parse(localStorage.getItem('userData'));
-let loged = false;
-// window.localStorage.clear();
-let currentUser = [];
-let usersDataArr = JSON.parse(localStorage.getItem("usersDataArr")) || [];
 
-console.log(userData)
+let loged = false;
+const formLog = document.querySelector(".profile-welcome__form");
+// localStorage.clear();
 
 function loginUser() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  let currentUser = [];
   const emailInputValue = document.getElementById('loginEmail').value;
   const passwordInputValue = document.getElementById('loginPassword').value;
   let userFound = false; // добавляем переменную
@@ -19,12 +18,8 @@ function loginUser() {
       loged = true;
       window.localStorage.setItem(`loged`, `${loged}`);
       userFound = true; // если пользователь найден, меняем значение переменной
-      document.getElementById("profile-welcome__wripper").style.display = "none";
-      document.getElementById("profile-paternity").style.display = "none";
-      document.getElementById("profile-user").style.display = "flex";
 
-      document.getElementById("customization__text_name").value =
-        userData[i].name[0].toUpperCase() + userData[i].name.slice(1);
+      document.getElementById("customization__text_name").value =  userData[i].name[0].toUpperCase() + userData[i].name.slice(1);
       let InputName = document.getElementById("customization__text_name").value;
       document.getElementById("customization__text_surname").value =
         userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1);
@@ -38,10 +33,6 @@ function loginUser() {
       document.getElementById("customization__text_password").value =
         userData[i].password;
       let InputPassword = document.getElementById("customization__text_password").value
-      currentUser.push((userData[i].name[0].toUpperCase() +
-          userData[i].name.slice(1)) +
-        " " +
-        (userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1)));
 
       var now = new Date(); //Текущая дата 
       var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
@@ -55,18 +46,24 @@ function loginUser() {
       if (today < dobnow) {
         age = age - 1;
       }
-      currentUser.push(age);
-      console.log(`Возраст: ${age}`);
-      console.log(currentUser);
+
+      let userName = `${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)} ${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
+      currentUser[0]=userName;
+      currentUser[1] = age;
 
       window.localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
       let user = JSON.parse(localStorage.getItem('currentUser'));
-      document.getElementById("profile-user__data-name").textContent = `${ user[0]}`
-      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`;
-      currentUser = [];
-      document.querySelector(".profile-RSK__checkbox").style.display = "flex";
 
-      break; // выходим из цикла, так как дальше перебирать нет смысла
+      document.getElementById("profile-user__data-name").textContent = `${user[0]}`||``;
+      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`||``;;
+
+      document.getElementById("profile-welcome__wripper").style.display = "none";
+      document.getElementById("profile-paternity").style.display = "none";
+      document.getElementById("profile-user").style.display = "flex";
+      document.querySelector(".profile-RSK__checkbox").style.display = "flex";
+      currentUser = [];
+
+      return; // выходим из цикла, так как дальше перебирать нет смысла
     }
   }
 
@@ -87,10 +84,14 @@ function exit() {
   document.getElementById("profile-welcome__wripper").style.display = "flex";
   document.getElementById("profile-paternity").style.display = "flex";
   document.getElementById("profile-user").style.display = "none";
-  window.localStorage.setItem(`loged`, `${loged}`);
-  usersDataArr.push(window.localStorage.getItem(`currentUser`));
-  window.localStorage.setItem(`usersDataArr`, JSON.stringify(usersDataArr));
-  window.localStorage.setItem(`currentUser`, ``);
+  localStorage.setItem(`loged`, `${loged}`);
+  localStorage.setItem(`currentUser`, ``);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
-
 }
+
+// buttonLog.addEventListener('click', loginUser);
+formLog.addEventListener('submit', function (event) {
+  event.preventDefault()
+})
+
+

@@ -173,12 +173,6 @@ const updateColumn = (column, amount, totalCount, legendItem) => {
     legendItem.innerHTML = `<p>${formattedPercentage}% (${formattedKcal} ккал)</p>`;
 };  
 
-// const updateColumn = (column, amount, totalCount, legendItem) => {
-//     const { height, percentage, kcal } = calculatePercentageAndHeight(amount, totalCount);
-//     column.style.height = height;
-//     legendItem.innerHTML = `<p>${percentage} (${kcal})</p>`;
-// };
-
 const updateCalorieChart = () => {
     const breakfastAmount = getAmount('breakfastAmount');
     const lunchAmount = getAmount('lunchAmount');
