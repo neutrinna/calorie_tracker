@@ -162,7 +162,7 @@
             <div class="profile-user__states">
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Вес</div>
-                <div class="profile-user__states-value font-black">60 кг</div>
+                <div class="profile-user__states-value profile-user__states-value_weight font-black">-</div>
               </div>
               <div class="profile-user__states-block">
                 <div class="profile-user__states-name">Рост</div>
@@ -187,11 +187,11 @@
               <div class="profile-user__kkal-wrapper-data">
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Употреблено калорий:</h3>
-                  <div class="profile-user__kkal-amount">1360</div>
+                  <div class="profile-user__kkal-amount profile-user__kkal-amount_eaten">1360</div>
                 </div>
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Осталось калорий:</h3>
-                  <div class="profile-user__kkal-amount">240</div>
+                  <div class="profile-user__kkal-amount profile-user__kkal-amount_left">-</div>
                 </div>
               </div>
               <div class="profile-user__doughnut-chart">
@@ -286,7 +286,7 @@
             </button>
             <div class="profile-RSK__checkbox">            
               <div>Сохранить данные в профиль</div>
-            <input type="checkbox" id="profile-RSK__checkbox"></div>
+            <input type="checkbox" id="profile-RSK__checkbox" checked="true"></div>
           </div>
 
         </form>
@@ -295,32 +295,32 @@
           <div class="profile-RSK__kkal">
             <p class="font-black">Ваша дневная норма составляет</p>
             <p class="font-orange">
-              <span class="font-figure result-rsk">2000</span> ккал
+              <span class="font-figure result-rsk">-</span> ккал
             </p>
           </div>
           <div class="profile-RSK__macro">
             <div>
               <div class="profile-RSK__macroelement font-black">Белки</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="proteins">125 г</span>
+                <span class="proteins">-</span>
               </div>
             </div>
             <div>
               <div class="profile-RSK__macroelement font-black">Жиры</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="fats">60 г</span>
+                <span class="fats">-</span>
               </div>
             </div>
             <div>
               <div class="profile-RSK__macroelement font-black">Углеводы</div>
               <div class="profile-RSK__macroelement-amount font-figure font-blue">
-                <span class="carbohydrates">240 г</span>
+                <span class="carbohydrates">-</span>
               </div>
             </div>
           </div>
           <div class="profile-RSK__weight font-black">
             Эффективный вес -
-            <span class="font-figure font-blue optimal-weight">59 кг</span>
+            <span class="font-figure font-blue optimal-weight">-</span>
           </div>
         </div>
       </section>
@@ -350,9 +350,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
   <script src="./modules/notification.js"></script>
-  <script src="./modules/profile.js"></script>
   <script src="./modules/registration.js"></script>
   <script src="./modules/customization.js"></script>
+  <script src="./modules/profile.js"></script>
   <script src="./modules/side-bar.js"></script>
 
 </body>
