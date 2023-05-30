@@ -1,5 +1,9 @@
+// Инна
 let user = JSON.parse(localStorage.getItem("currentUser"));
 const profileUserData = new Object();
+
+render()
+// Инна
 
 // Nastya Klm
 const form = document.getElementById("form-rsk");
@@ -184,7 +188,12 @@ const dateNode = document.querySelector(`.profile-user__date-value`);
 dateNode.textContent = moment().format("DD/MM/YYYY");
 // time
 
-// page load
+function render () {
+  document.getElementById("profile-user__data-name").textContent = `${user[0]}`;
+  document.getElementById(
+    "profile-user__data-age"
+  ).textContent = `Возраст: ${user[1]}`;
+  // page load
 if (localStorage.getItem("loged") === "true") {
 
   document.getElementById("profile-welcome__wripper").style.display = "none";
@@ -195,12 +204,11 @@ if (localStorage.getItem("loged") === "true") {
   // данные трекера воды
 
   const waterAmount = document.querySelector(".profile-user__water-amount_data");
-  console.log(user[2]);
-  if (typeof user[2] === ("undefined"||`null`)) {
+  console.log(typeof user[2]);
+  if ((typeof user[2] === "undefined")||(user[2] ===`null`)) {
     waterAmount.textContent = "0 мл";
   } else {
     waterAmount.textContent = `${user[2]} мл`;
-
     // Настя Кольцова
     // значение целевого веса
     const targetWeight = document.querySelector(
@@ -208,11 +216,7 @@ if (localStorage.getItem("loged") === "true") {
     ).textContent;
     localStorage.setItem("targetWeight", targetWeight);
     // Настя Кольцова
-    // данные трекера воды
-    document.getElementById("profile-user__data-name").textContent = `${user[0]}`;
-    document.getElementById(
-      "profile-user__data-age"
-    ).textContent = `Возраст: ${user[1]}`;
+
     document.querySelector(".profile-user__target-weight").textContent =
       `${user[5].goal} ` || `-`;
     document.querySelector(
@@ -227,4 +231,6 @@ if (localStorage.getItem("loged") === "true") {
     carbohydrate.textContent = `${user[5].carbs}` || `-`;
     optimalWeight.textContent = `${user[5].goal}` || `-`;
   }}
-  // page load
+}
+// Инна
+
