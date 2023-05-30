@@ -5,7 +5,7 @@ const formLog = document.querySelector(".profile-welcome__form");
 
 function loginUser() {
   const userData = JSON.parse(localStorage.getItem('userData'));
-  let currentUser = [];
+  const currentUser = {};
   const emailInputValue = document.getElementById('loginEmail').value;
   const passwordInputValue = document.getElementById('loginPassword').value;
   let userFound = false; // добавляем переменную
@@ -47,21 +47,19 @@ function loginUser() {
         age = age - 1;
       }
 
-      let userName = `${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)} ${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
-      currentUser[0]=userName;
-      currentUser[1] = age;
+      currentUser.name=`${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)}`;
+      currentUser.surname = `${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
+      currentUser.age = age;
 
-      window.localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-      let user = JSON.parse(localStorage.getItem('currentUser'));
-
-      document.getElementById("profile-user__data-name").textContent = `${user[0]}`||``;
-      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`||``;;
+      document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
+      document.getElementById('profile-user__data-age').textContent = `Возраст: ${currentUser.age}`;
 
       document.getElementById("profile-welcome__wripper").style.display = "none";
       document.getElementById("profile-paternity").style.display = "none";
       document.getElementById("profile-user").style.display = "flex";
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
-      currentUser = [];
+      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+      // currentUser = [];
 
       return; // выходим из цикла, так как дальше перебирать нет смысла
     }

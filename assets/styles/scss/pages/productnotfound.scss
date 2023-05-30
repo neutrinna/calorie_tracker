@@ -4,7 +4,8 @@
     font-size: 14px;
   }
 
-  .diary__productnotfound__popup {
+  .diary__productnotfound__popup,
+  .diary__productnotfound__popup-extra {
   display: none;
   width: 100%;
   height: 100%;
@@ -15,13 +16,15 @@
   z-index: 11;
 }
   
-  .diary__productnotfound__popup_container {
+  .diary__productnotfound__popup_container,
+  .diary__productnotfound__popup_container-extra {
     display: flex;
     width: 100%;
     height: 100%;
   }
   
-  .diary__productnotfound__popup_body {
+  .diary__productnotfound__popup_body,
+  .diary__productnotfound__popup_body-extra {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +40,8 @@
 
 
   #productnotfound__popup-add,
-  #productnotfound__popup-cancel {
+  #productnotfound__popup-cancel,
+  #productnotfound__popup-cancel-extra {
     align-self: center;
     width: 35%;
     height: 50px;
