@@ -65,13 +65,13 @@ function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
   totalDiv.innerHTML = `
-    <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
-      <div>${totalWeight.toFixed(0)}</div>
-      <div>${totalCalories.toFixed(0)}</div>
-      <div>${totalCarbs.toFixed(0)}</div>
-      <div>${totalProteins.toFixed(0)}</div>
-      <div>${totalFats.toFixed(0)}</div>
-    </div>
+    
+      <div>${totalWeight.toFixed(0)} г</div>
+      <div>${totalCalories.toFixed(0)} Ккал</div>
+      <div>${totalCarbs.toFixed(0)} У</div>
+      <div>${totalProteins.toFixed(0)} Б</div>
+      <div>${totalFats.toFixed(0)} Ж</div>
+    
   `;
 }
 
@@ -132,32 +132,220 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
-                  columnNamesDiv.style.display = 'flex';
-                  columnNamesDiv.innerHTML = `
-                    <div>${grammInput.value}</div>
-                    <div>${calories * grammInput.value / 100}</div>
-                    <div>${carbs * grammInput.value / 100}</div>
-                    <div>${proteins * grammInput.value / 100}</div>
-                    <div>${fats * grammInput.value / 100}</div>
-                    <button class="delete-column"></button>`;
-                    const deleteProductButton = document.createElement('button');
-                    deleteProductButton.classList.add('delete-column');
-                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+                  //columnNamesDiv.style.display = 'flex';
 
-                     // event listener for the delete column button
-                    deleteProductButton.addEventListener('click', function() {
-                    diaryTableStringDiv.remove();
-                    });
+                  const weightRes = grammInput.value;
+                  const calRes = Math.round(calories * grammInput.value / 100);
+                  const carbsRes = Math.round(carbs * grammInput.value / 100);
+                  const protRes = Math.round(proteins * grammInput.value / 100);
+                  const fatsRes = Math.round(fats * grammInput.value / 100);
 
-                    columnNamesDiv.appendChild(deleteProductButton);
-                  
-                  
+
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
+
+
+                    //Александра --- разбивка на классы в зависимости от родителя
+                  if (columnNamesDiv.closest('.accordeon1')) {
+                    columnNamesDiv.innerHTML = `
+                      <div class="weightRes">${weightRes}</div>
+                      <div class="calRes">${calRes}</div>
+                      <div class="carbsRes">${carbsRes}</div>
+                      <div class="protRes">${protRes}</div>
+                      <div class="fatsRes">${fatsRes}</div>
+                      `}
+  
+                      else if (columnNamesDiv.closest('.accordeon2')) {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes2">${weightRes}</div>
+                      <div class="calRes2">${calRes}</div>
+                      <div class="carbsRes2">${carbsRes}</div>
+                      <div class="protRes2">${protRes}</div>
+                      <div class="fatsRes2">${fatsRes}</div>
+                      `
+                      }
+
+                      else if (columnNamesDiv.closest('.accordeon3')) {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes3">${weightRes}</div>
+                      <div class="calRes3">${calRes}</div>
+                      <div class="carbsRes3">${carbsRes}</div>
+                      <div class="protRes3">${protRes}</div>
+                      <div class="fatsRes3">${fatsRes}</div>
+                      `
+                      }
+
+                      else {
+                        columnNamesDiv.innerHTML = `
+                      <div class="weightRes4">${weightRes}</div>
+                      <div class="calRes4">${calRes}</div>
+                      <div class="carbsRes4">${carbsRes}</div>
+                      <div class="protRes4">${protRes}</div>
+                      <div class="fatsRes4">${fatsRes}</div>
+                      `
+                      }// --- разбивка на классы в зависимости от родителя
+
+
+                      const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove()
+
+                    //ВЫЗОВ ПОДСЧЕТА СТРОК ПОСЛЕ УДАЛЕНИЯ
+                    countStringWeight ()
+                    countStringWeight2 ()
+                    countStringWeight3 ()
+                    countStringWeight4 ()
+                    });
+                    
+                    //columnNamesDiv.appendChild(deleteProductButton);
+                    mealNameDiv.appendChild(deleteProductButton);
+                    
+  
                  
+
+  //////    ////      /////string total weight Aleksandra //////////////
+
+                    //////завтрак 
+                  const stringWeightBreakfast = document.getElementById('stringWeightBreakfast');
+                  const stringKkalBreakfast = document.getElementById('stringKkalBreakfast');
+                  const stringCarbBreakfast = document.getElementById('stringCarbBreakfast');
+                  const stringProteinBreakfast = document.getElementById('stringProteinBreakfast');
+                  const stringFatBreakfast = document.getElementById('stringFatBreakfast');
+
+
+                    ////обед
+                  const stringWeightLunch = document.getElementById('stringWeightLunch');
+                  const stringKkalLunch = document.getElementById('stringKkalLunch');
+                  const stringCarbLunch = document.getElementById('stringCarbLunch');
+                  const stringProteinLunch = document.getElementById('stringProteinLunch');
+                  const stringFatLunch = document.getElementById('stringFatLunch');
+
+                  ///ужин
+                  const stringWeightDinner= document.getElementById('stringWeightDinner');
+                  const stringKkalDinner = document.getElementById('stringKkalDinner');
+                  const stringCarbDinner = document.getElementById('stringCarbDinner');
+                  const stringProteinDinner = document.getElementById('stringProteinDinner');
+                  const stringFatDinner = document.getElementById('stringFatDinner');
+
+                  ///перекус
+                  const stringWeightSnack= document.getElementById('stringWeightSnack');
+                  const stringKkalSnack = document.getElementById('stringKkalSnack');
+                  const stringCarbSnack = document.getElementById('stringCarbSnack');
+                  const stringProteinSnack = document.getElementById('stringProteinSnack');
+                  const stringFatSnack = document.getElementById('stringFatSnack');
+
+
+
+                      ///массивы вес 
+                  const weightArray = document.querySelectorAll ('.weightRes')
+                  const weightArray2 = document.querySelectorAll ('.weightRes2')
+                  const weightArray3 = document.querySelectorAll ('.weightRes3')
+                  const weightArray4 = document.querySelectorAll ('.weightRes4')
+
+                     //массивы калории 
+                  const kkalArray = document.querySelectorAll ('.calRes');
+                  const kkalArray2 = document.querySelectorAll ('.calRes2');
+                  const kkalArray3 = document.querySelectorAll ('.calRes3');
+                  const kkalArray4 = document.querySelectorAll ('.calRes4');
+
+                     //массивы углеводы
+                  const carbsArray = document.querySelectorAll ('.carbsRes');
+                  const carbsArray2 = document.querySelectorAll ('.carbsRes2');
+                  const carbsArray3 = document.querySelectorAll ('.carbsRes3');
+                  const carbsArray4 = document.querySelectorAll ('.carbsRes4');
+
+                    //массивы протеины
+                  const protsArray = document.querySelectorAll ('.protRes');
+                  const protsArray2 = document.querySelectorAll ('.protRes2');
+                  const protsArray3 = document.querySelectorAll ('.protRes3');
+                  const protsArray4 = document.querySelectorAll ('.protRes4');
+
+                    //массивы жиры
+                  const fatsArray = document.querySelectorAll ('.fatsRes');
+                  const fatsArray2 = document.querySelectorAll ('.fatsRes2');
+                  const fatsArray3 = document.querySelectorAll ('.fatsRes3');
+                  const fatsArray4 = document.querySelectorAll ('.fatsRes4');
+
+                    
+                      //построчный подсчет КБЖУ
+
+                  const countStringWeight = () => {
+                      stringWeightBreakfast.innerText = `Вес, ${countSum (weightArray)} г`;
+                      stringKkalBreakfast.innerText = `${countSum (kkalArray)} Ккал`
+                      stringCarbBreakfast.innerText = `${countSum (carbsArray)} У`
+                      stringProteinBreakfast.innerText = `${countSum (protsArray)} Б`
+                      stringFatBreakfast.innerText = `${countSum (fatsArray)} Ж`
+                  }
+
+                  const countStringWeight2 = () => {
+                    stringWeightLunch.innerText = `Вес, ${countSum (weightArray2)} г`;
+                    stringKkalLunch.innerText = `${countSum (kkalArray2)} Ккал`
+                    stringCarbLunch.innerText = `${countSum (carbsArray2)} У`
+                    stringProteinLunch.innerText = `${countSum (protsArray2)} Б`
+                    stringFatLunch.innerText = `${countSum (fatsArray2)} Ж`
+                  }
+
+                  const countStringWeight3 = () => {
+                    stringWeightDinner.innerText = `Вес, ${countSum (weightArray3)} г`;
+                    stringKkalDinner.innerText = `${countSum (kkalArray3)} Ккал`
+                    stringCarbDinner.innerText = `${countSum (carbsArray3)} У`
+                    stringProteinDinner.innerText = `${countSum (protsArray3)} Б`
+                    stringFatDinner.innerText = `${countSum (fatsArray3)} Ж`
+                  }
+
+                  const countStringWeight4 = () => {
+                    stringWeightSnack.innerText = `Вес, ${countSum (weightArray4)} г`;
+                    stringKkalSnack.innerText = `${countSum (kkalArray4)} Ккал`
+                    stringCarbSnack.innerText = `${countSum (carbsArray4)} У`
+                    stringProteinSnack.innerText = `${countSum (protsArray4)} Б`
+                    stringFatSnack.innerText = `${countSum (fatsArray4)} Ж`
+                  }
+
+                  // цикл подсчета
+                  function countSum (array, sum) {
+                    sum = 0;
+                    for (let i = 0 ; i < array.length; i++){
+                      console.log(array.length);
+                      sum += Number(array[i].innerHTML);
+                    }
+                    return sum;
+                  }
+
+                      //Эксперименты с наблюдателем
+                // let observer = new MutationObserver(mutationRecords => {
+                //   console.log(mutationRecords); // console.log(изменения)
+                //   countStringWeight ()
+                //   // countStringWeight2 ()
+                //   // countStringWeight3 ()
+                //   // countStringWeight4 ()
+                // });
+                
+                // // наблюдать за всем, кроме атрибутов
+                // observer.observe(accordeonDivs, {
+                //   childList: true, // наблюдать за непосредственными детьми
+                //   subtree: true, // и более глубокими потомками
+                //   //characterDataOldValue: true // передавать старое значение в колбэк
+                // });
+
+
+                // вызовы функций подсчета данных строк
+                countStringWeight ()
+                countStringWeight2 ()
+                countStringWeight3 ()
+                countStringWeight4 ()
+                
+
+                ////////////       end  Aleksandra        //////////////////
+
+
+
                   // total weight //
                   totalWeight += Number(grammInput.value);
                   totalCalories += (calories * grammInput.value) / 100;
@@ -248,13 +436,67 @@ addNewProduct.addEventListener("click", function(event) {
                   const columnNamesDivPopUp = document.createElement('div');
                   columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
                   columnNamesDivPopUp.style.display = 'flex';
-                  columnNamesDivPopUp.innerHTML = `
-                    <div>${grammPopUp}</div>
-                    <div>${caloriesPopUp * grammPopUp / 100}</div>
-                    <div>${carbsPopUp * grammPopUp / 100}</div>
-                    <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>
-                    <button class="delete-column"></button>`;
+
+
+                  // columnNamesDivPopUp.innerHTML = `
+                  //   <div>${grammPopUp}</div>
+                  //   <div>${caloriesPopUp * grammPopUp / 100}</div>
+                  //   <div>${carbsPopUp * grammPopUp / 100}</div>
+                  //   <div>${proteinPopUp * grammPopUp / 100}</div>
+                  //   <div>${fatPopUp * grammPopUp / 100}</div>
+                  //   <button class="delete-column"></button>`;
+
+
+                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
+                    //Александра --- классы в зависимости от родителя
+
+                    if (columnNamesDivPopUp.closest('.accordeon1')) {
+                      
+                      columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes">${grammPopUp}</div>
+                        <div class="calRes">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                        <div class="carbsRes">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                        <div class="protRes">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                        <div class="fatsRes">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                        `
+                      }
+                         else if (columnNamesDivPopUp.closest('.accordeon2')) {
+
+                          columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes2">${grammPopUp}</div>
+                        <div class="calRes2">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                        <div class="carbsRes2">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                        <div class="protRes2">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                        <div class="fatsRes2">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                        <button class="delete-column"></button>`
+                        }
+  
+                        else if (columnNamesDivPopUp.closest('.accordeon3')) {
+                          columnNamesDivPopUp.innerHTML = `
+                        <div class="weightRes3">${weightRes}</div>
+                        <div class="calRes3">${calRes}</div>
+                        <div class="carbsRes3">${carbsRes}</div>
+                        <div class="protRes3">${protRes}</div>
+                        <div class="fatsRes3">${fatsRes}</div>
+                        <button class="delete-column"></button>`
+                        }
+  
+                        else {
+
+                          columnNamesDivPopUp.innerHTML = `
+                          <div class="weightRes4">${grammPopUp}</div>
+                          <div class="calRes4">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
+                          <div class="carbsRes4">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
+                          <div class="protRes4">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
+                          <div class="fatsRes4">${Math.round(fatPopUp * grammPopUp / 100)}</div>
+                          <button class="delete-column"></button>`
+                        }
+
+
+                        //--- классы в зависимости от родителя
 
                     const deleteProductButtonPopUp = document.createElement('button');
                     deleteProductButtonPopUp.classList.add('delete-column');
@@ -265,12 +507,8 @@ addNewProduct.addEventListener("click", function(event) {
                     diaryTableStringDivPopUp.remove();
                     });
                     
-                  columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
-                                      
-                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
-
+                    mealNameDivPopUp.appendChild(deleteProductButtonPopUp);
+                                    
 
                  
                   popUpAddNewProduct.style.display = "none";
