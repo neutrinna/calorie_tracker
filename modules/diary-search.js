@@ -1,17 +1,23 @@
-const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
-const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
-const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
-const popUpNotFound = document.querySelector(".diary__productnotfound__popup");
+// const openPopUpNewProduct = document.getElementById("productnotfound__popup-add");
+// const closePopUpNotFound = document.getElementById("productnotfound__popup-cancel");
+// const closePopUpNewProduct = document.getElementById("newproduct__popup-cancel");
+// const popUpNotFound = document.querySelector(".diary__productnotfound__popup");
 const popUpAddNewProduct = document.querySelector(".diary__newproduct__popup");
 popUpAddNewProduct.style.display = "none";
 const commentElem = document.createElement('div');
 const loader = document.getElementById('diary-loader');
+
+const productNotFoundPopupExtra = document.querySelector(".diary__productnotfound__popup-extra");
+productNotFoundPopupExtra.style.display = "none";
+const closePopUpNotFoundExtra = document.getElementById("productnotfound__popup-cancel-extra");
+
 
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
 let totalProteins = 0;
 let totalFats = 0;
+
 
 let mealEaten = {};
 
@@ -34,6 +40,7 @@ function retrieveMealEaten() {
   }
   return [];
 }
+
 // local storage total values//
 function storeTotalValues() {
   const totalValues = {
@@ -114,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   const proteins = product.nutriments.proteins;
                   const fats = product.nutriments.fat;
 
-                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`)
+                  const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
+                  
                   const diaryTableStringDiv = document.createElement('div');
                   diaryTableStringDiv.classList.add('diary-table-string-1');
 
@@ -131,8 +139,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div>${calories * grammInput.value / 100}</div>
                     <div>${carbs * grammInput.value / 100}</div>
                     <div>${proteins * grammInput.value / 100}</div>
-                    <div>${fats * grammInput.value / 100}</div>`;
+                    <div>${fats * grammInput.value / 100}</div>
+                    <button class="delete-column"></button>`;
+                    const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
 
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove();
+                    });
+
+                    columnNamesDiv.appendChild(deleteProductButton);
+                  
+                  
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
@@ -150,6 +170,9 @@ document.addEventListener("DOMContentLoaded", function() {
                   updateTotalValues()
                   storeTotalValues();
                   storeMealEaten(mealEaten);
+                  retrieveTotalValues();
+
+
                 }
               })
               .catch(error => {
@@ -157,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
               });
           }
         });
-        // product search //
+        // product search by code //
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
@@ -175,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
               input.value = '';
               searchResultDiv.appendChild(commentElem);
             } else {
-              openPopupProductNotFound();
+              openPopupProductNotFoundExtra();
               searchResultDiv.innerHTML = '';
               input.value = '';
               loader.style.display = 'none';
@@ -189,75 +212,127 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-function openPopupProductNotFound(message) {
-  popUpNotFound.style.display = "block";
+// let mealTypes = {};
+
+// // Save meal types by accordeon id//
+// function saveMealTypes() {
+//   mealTypes.breakfast = "accordeon-breakfast";
+//   mealTypes.lunch = "accordeon-lunch";
+//   mealTypes.dinner = "accordeon-dinner";
+//   mealTypes.snack = "accordeon-snack";
+// }
+
+// function openPopupProductNotFound(message) {
+  // popUpNotFound.style.display = "block";
+  // saveMealTypes();
+// }
+
+function openPopupProductNotFoundExtra(message) {
+  productNotFoundPopupExtra.style.display = "block";
 }
 
-
-openPopUpNewProduct.addEventListener("click", openNewProduct);
-closePopUpNotFound.addEventListener("click", closeNotFound);
-closePopUpNewProduct.addEventListener("click", closeNewProduct);
-
-function openNewProduct(event) {
+function closeNotFoundExtra(event) {
   event.preventDefault();
-  popUpNotFound.style.display = "none";
-  popUpAddNewProduct.style.display = "block";
-  loader.style.display = 'none';
-}
-
-function closeNotFound(event) {
-  event.preventDefault();
-  popUpNotFound.style.display = "none";
+  productNotFoundPopupExtra.style.display = "none";
   input.innerHTML = ""; 
   loader.style.display = 'none'; 
 }
 
-function closeNewProduct(event) {
-  event.preventDefault();
-  popUpAddNewProduct.style.display = "none";
-  loader.style.display = 'none';
-}
+closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
+
+// openPopUpNewProduct.addEventListener("click", openNewProduct);
+// closePopUpNotFound.addEventListener("click", closeNotFound);
+// closePopUpNewProduct.addEventListener("click", closeNewProduct);
 
 
-
-const addNewProduct = document.getElementById("newproduct__popup-add");
-
-addNewProduct.addEventListener("click", function(event) {
-  event.preventDefault();
-
-  
-  const brandPopUp = document.querySelector('input[name="product-brand"]').value;
-  const namePopUp = document.querySelector('input[name="product-name"]').value;
-  const grammPopUp = document.querySelector('input[name="serving-size"]').value;
-  const caloriesPopUp = document.querySelector('input[name="calories"]').value;
-  const fatPopUp = document.querySelector('input[name="fat"]').value;
-  const carbsPopUp = document.querySelector('input[name="carbs"]').value;
-  const proteinPopUp = document.querySelector('input[name="protein"]').value;
-  const accordeonDivsPopUp = document.querySelector(`.accordeon1.accordeon_hidden`);
-
+// add new product form //
+// const addNewProduct = document.getElementById("newproduct__popup-add");
+// addNewProduct.addEventListener("click", function(event) {
+//   event.preventDefault();
 
   
-                  const diaryTableStringDivPopUp = document.createElement('div');
-                  diaryTableStringDivPopUp.classList.add('diary-table-string-1');
-                  const mealNameDivPopUp = document.createElement('div');
-                  mealNameDivPopUp.classList.add('diary-table-string-1__meal-name');
-                  mealNameDivPopUp.innerHTML = `
-                    <div>${brandPopUp}${namePopUp}</div>`;
+  // const brandPopUp = document.querySelector('input[name="product-brand"]').value;
+  // const namePopUp = document.querySelector('input[name="product-name"]').value;
+  // const grammPopUp = document.querySelector('input[name="serving-size"]').value;
+  // const caloriesPopUp = document.querySelector('input[name="calories"]').value;
+  // const fatPopUp = document.querySelector('input[name="fat"]').value;
+  // const carbsPopUp = document.querySelector('input[name="carbs"]').value;
+  // const proteinPopUp = document.querySelector('input[name="protein"]').value;
 
-                  const columnNamesDivPopUp = document.createElement('div');
-                  columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
-                  columnNamesDivPopUp.style.display = 'flex';
-                  columnNamesDivPopUp.innerHTML = `
-                    <div>${grammPopUp}</div>
-                    <div>${caloriesPopUp * grammPopUp / 100}</div>
-                    <div>${carbsPopUp * grammPopUp / 100}</div>
-                    <div>${proteinPopUp * grammPopUp / 100}</div>
-                    <div>${fatPopUp * grammPopUp / 100}</div>`;
+  // const mealType = mealTypes[event.target.dataset.mealType];
+  // const accordeonDivsPopUp = document.getElementById(mealType);
+  
+//   let index = 0;
+//     const accordeonDivsPopUp = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
+ 
+//                   const diaryTableStringDivPopUp = document.createElement('div');
+//                   diaryTableStringDivPopUp.classList.add('diary-table-string-1');
+//                   const mealNameDivPopUp = document.createElement('div');
+//                   mealNameDivPopUp.classList.add('diary-table-string-1__meal-name');
+//                   mealNameDivPopUp.innerHTML = `
+//                     <div>${brandPopUp}${namePopUp}</div>`;
 
-                
-                  accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
-                  diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+//                   const columnNamesDivPopUp = document.createElement('div');
+//                   columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
+//                   columnNamesDivPopUp.style.display = 'flex';
+//                   columnNamesDivPopUp.innerHTML = `
+//                     <div>${grammPopUp}</div>
+//                     <div>${caloriesPopUp * grammPopUp / 100}</div>
+//                     <div>${carbsPopUp * grammPopUp / 100}</div>
+//                     <div>${proteinPopUp * grammPopUp / 100}</div>
+//                     <div>${fatPopUp * grammPopUp / 100}</div>
+//                     <button class="delete-column"></button>`;
 
-                  popUpAddNewProduct.style.display = "none";
-                });
+//                     const deleteProductButtonPopUp = document.createElement('button');
+//                     deleteProductButtonPopUp.classList.add('delete-column');
+//                     deleteProductButtonPopUp.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
+                    
+//                     // event listener for the delete column button
+//                     deleteProductButtonPopUp.addEventListener('click', function() {
+//                     diaryTableStringDivPopUp.remove();
+//                     });
+                    
+//                   columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
+                                      
+//                   accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+//                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+//                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
+
+                 
+//                   popUpAddNewProduct.style.display = "none";
+//                   document.querySelector('input[name="product-brand"]').value = "";
+//                   document.querySelector('input[name="product-name"]').value= "";
+//   document.querySelector('input[name="serving-size"]').value= "";
+//   document.querySelector('input[name="calories"]').value= "";
+//   document.querySelector('input[name="fat"]').value= "";
+//   document.querySelector('input[name="carbs"]').value= "";
+//   document.querySelector('input[name="protein"]').value= "";
+                 
+
+//                 });
+
+// function openNewProduct(event) {
+//   event.preventDefault();
+//   popUpNotFound.style.display = "none";
+//   popUpAddNewProduct.style.display = "block";
+//   loader.style.display = 'none';
+  
+// }
+
+// function closeNotFound(event) {
+//   event.preventDefault();
+//   popUpNotFound.style.display = "none";
+//   input.innerHTML = ""; 
+//   loader.style.display = 'none'; 
+// }
+
+// function closeNewProduct(event) {
+//   event.preventDefault();
+//   popUpAddNewProduct.style.display = "none";
+//   loader.style.display = 'none';
+// }
+
+
+//  retrieveTotalValues();
+

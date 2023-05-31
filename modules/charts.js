@@ -2,6 +2,8 @@
 
 // charts js section
 
+const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+
 // настройки графика веса
 
 const weightGraph = document.getElementById('charts-weight__current-lb');
@@ -89,6 +91,12 @@ const displayWeights = () => {
         const lastWeight = weights[weights.length - 1];
         const actualWeight = document.querySelector('.charts-weight__actual p');
         actualWeight.textContent = `Ваш вес - ${lastWeight} кг`;
+        
+        if (currentUser && Array.isArray(currentUser)) {
+            const lastWeight = weights[weights.length - 1];
+            currentUser[4] = lastWeight;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }
     dates.forEach((date) => {
         const weightListItem = document.createElement('li');
@@ -146,8 +154,6 @@ function validateInputs() {
 
 weightInput.addEventListener('input', validateInputs);
 dateInput.addEventListener('change', validateInputs);
-
-// localStorage.removeItem('weightList');
 
 // Вывод данных калорий и макроэлементов в диаграмму
 
@@ -248,3 +254,14 @@ resetButton.addEventListener('click', function() {
     localStorage.removeItem('weightList');
     location.reload();
 });
+
+// Сохранение значения lastWeight в localstorage в переменную currentUser 
+
+// const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+// if (!currentUser.hasOwnProperty('weights')) {
+//     currentUser.weights = [];
+// }
+// currentUser.weights[4] = lastWeight;
+// localStorage.setItem('currentUser', JSON.stringify(currentUser));
+// const actualWeight = document.querySelector('.charts-weight__actual p');
+// actualWeight.textContent = 'Ваш вес - ' + (currentUser.weights[4] || '') + ' кг';

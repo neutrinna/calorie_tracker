@@ -66,4 +66,13 @@ text-align: center;
     100% { transform: rotate(360deg); }
   }
 
+  .delete-column {
+    border: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+
+  }
+
 
