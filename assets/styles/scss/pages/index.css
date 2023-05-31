@@ -835,6 +835,9 @@ input:hover {
   height: auto;
   background-color: #E4EEEE;
 }
+.wrapper_topic {
+  background-color: white;
+}
 
 .profile-welcome__wripper,
 .profile-paternity {
