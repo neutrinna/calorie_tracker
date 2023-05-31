@@ -31,6 +31,10 @@ const chart = new Chart(weightGraph, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        width: 500,
+        height: 500,
         scales: {
             y: {
                 beginAtZero: true
@@ -234,7 +238,8 @@ const updateWeightInfo = () => {
     const weights = getWeightsByDate(today);
 
     const lastWeight = weights[weights.length - 1] || undefined;
-    const targetWeight = parseInt(localStorage.getItem('targetWeight'), 10) || undefined;
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const targetWeight = currentUser[5].goal.split(' ')[0] || undefined;
     const earliestWeight = getEarliestWeight(weights);
 
     const dropped = (lastWeight && targetWeight && earliestWeight) ? (lastWeight - earliestWeight - targetWeight) : 0;
