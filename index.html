@@ -70,7 +70,7 @@
           <input id="customization__text_surname"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
             class="customization__text" type="text" placeholder="Фамилия">
-          <input id="customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+          <input type="date" id="customization__text_bday" class="customization__text"  name="bday" placeholder="Дата рождения">
           <input id="customization__text_email" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
             class="customization__text" type="text" placeholder="E-mail">
           <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
