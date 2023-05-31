@@ -81,23 +81,31 @@
               <!-- <div class="diary-diet-tracker__btn-arrow"></div> -->
             </button>
 
-					<!-- основная таблица дневника -->
-					<div class="diary-diet-tracker__content">
-						<div class="diary-table-string">
-							<div class="diary-table-string__meal-name">
-								Завтрак
-								<button class="diary-table-string__add-btn" id="button-breakfast">
-									<img class="diary-table-string__add-btn-img"
-										src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
-							</div>
-							<div class="diary-table-string__column-names">
-								<div>Вес, <span id="stringWeightBreakfast">0</span> г</div>
-								<div><span class="diary-kcal__breakfast-amount" id="stringKkalBreakfast">0</span> Ккал</div>
-								<div><span id="stringCarbBreakfast">0</span> У</div>
-								<div><span id="stringProteinBreakfast">0</span> Б</div>
-								<div><span id="stringFatBreakfast">0</span> Ж</div>
-							</div>
-						</div>
+            <!-- основная таблица дневника -->
+            <div class="diary-diet-tracker__content">
+              <div class="diary-table-string">
+                <div class="diary-table-string__meal-name">
+                  Завтрак
+                  <button
+                    class="diary-table-string__add-btn"
+                    id="button-breakfast"
+                  >
+                    <img
+                      class="diary-table-string__add-btn-img"
+                      src="./../assets/images/diary/diary-add-button.svg"
+                      alt="плюс"
+                    />
+                  </button>
+                </div>
+                <div class="diary-table-string__column-names">
+                  <div class="diary-weight__breakfast">Вес, г</div>
+                  <div class="diary-kcal__breakfast-amount"> Ккал</div>
+                  <div class="diary-carbs__breakfast">У</div>
+                  <div class="diary-protein__breakfast">Б</div>
+                  <div class="diary-fat__breakfast">Ж</div>
+
+                </div>
+              </div>
 
               <!-- скрытый див выпадающего списка, строки продуктов сюда ---->
               <div class="accordeon1 accordeon_hidden" id="accordeon-breakfast">
@@ -226,11 +234,11 @@
                 <div
                   class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue diary-table-string-2"
                 >
-                  <div>Вес, 0 г</div>
-                  <div>0 Ккал</div>
-                  <div class="diary-macro__carbo-amount">0 У</div>
-                  <div class="diary-macro__protein-amount">0 Б</div>
-                  <div class="diary-macro__fats-amount">0 Ж</div>
+                  <div>Вес, г</div>
+                  <div>Ккал</div>
+                  <div class="diary-macro__carbo-amount">У</div>
+                  <div class="diary-macro__protein-amount">Б</div>
+                  <div class="diary-macro__fats-amount">Ж</div>
                 </div>
               </div>
             </div>
