@@ -262,6 +262,51 @@ document.addEventListener("DOMContentLoaded", function() {
                     //вызов вычитания строк после удаления
                       getNumbers2 ()
                     })
+
+
+                    // event listener №3 for the delete column button
+                    deleteProductButton3.addEventListener ('click', () => {
+
+                      countObj3.weight = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
+
+                      countObj3.kkal = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
+
+                      countObj3.carb = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
+
+                      countObj3.protein = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
+
+                      countObj3.fat = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+
+                      console.log(countObj3.weight);
+                      console.log(countObj3.kkal);
+
+                      diaryTableStringDiv.remove()
+
+                    //вызов вычитания строк после удаления
+                      getNumbers3 ()
+                    })
+
+                    // event listener №3 for the delete column button
+                    deleteProductButton4.addEventListener ('click', () => {
+
+                      countObj4.weight = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
+
+                      countObj4.kkal = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
+
+                      countObj4.carb = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
+
+                      countObj4.protein = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
+
+                      countObj4.fat = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+
+                      console.log(countObj4.weight);
+                      console.log(countObj4.kkal);
+
+                      diaryTableStringDiv.remove()
+
+                    //вызов вычитания строк после удаления
+                      getNumbers4 ()
+                    })
                     
                     
   
@@ -411,18 +456,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbBreakfast.innerText = `${minusSum3 (+stringCarbBreakfast.innerText, countObj.carb)}`
                     stringProteinBreakfast.innerText = `${minusSum4 (+stringProteinBreakfast.innerText, countObj.protein)}`
                     stringFatBreakfast.innerText = `${minusSum5 (+stringFatBreakfast.innerText, countObj.fat)}`
-  
-                    // stringWeightDinner.innerText = `${countSum (+)}`;
-                    // stringKkalDinner.innerText = `${countSum (+)}`
-                    // stringCarbDinner.innerText = `${countSum (+)}`
-                    // stringProteinDinner.innerText = `${countSum (+)} Б`
-                    // stringFatDinner.innerText = `${countSum (+)}`
-  
-                    // stringWeightSnack.innerText = `${countSum (+)}`;
-                    // stringKkalSnack.innerText = `${countSum (+)}`
-                    // stringCarbSnack.innerText = `${countSum (+)}`
-                    // stringProteinSnack.innerText = `${countSum (+)}`
-                    // stringFatSnack.innerText = `${countSum (+)}`
+                    
                 }
 
                 function getNumbers2 () {
@@ -433,6 +467,26 @@ document.addEventListener("DOMContentLoaded", function() {
                   stringProteinLunch.innerText = `${minusSum4 (+stringProteinLunch.innerText, countObj2.protein)}`
                   stringFatLunch.innerText = `${minusSum5 (+stringFatLunch.innerText, countObj2.fat)}`
 
+                }
+
+                function getNumbers3 () {
+
+                  stringWeightDinner.innerText = `${minusSum (+stringWeightDinner.innerText, countObj3.weight)}`;
+                  stringKkalDinner.innerText = `${minusSum2 (+stringKkalDinner.innerText, countObj3.kkal)}`
+                  stringCarbDinner.innerText = `${minusSum3 (+stringCarbDinner.innerText, countObj3.carb)}`
+                  stringProteinDinner.innerText = `${minusSum4 (+stringProteinDinner.innerText, countObj3.protein)}`
+                  stringFatDinner.innerText = `${minusSum5 (+stringFatDinner.innerText, countObj3.fat)}`
+
+                }
+
+                function getNumbers4 () {
+
+                  stringWeightSnack.innerText = `${minusSum (+stringWeightSnack.innerText, countObj4.weight)}`;
+                  stringKkalSnack.innerText = `${minusSum2 (+stringKkalSnack.innerText, countObj4.kkal)}`
+                  stringCarbSnack.innerText = `${minusSum3 (+stringCarbSnack.innerText, countObj4.carb)}`
+                  stringProteinSnack.innerText = `${minusSum4 (+stringProteinSnack.innerText, countObj4.protein)}`
+                  stringFatSnack.innerText = `${minusSum5 (+stringFatSnack.innerText, countObj4.fat)}`
+                    
                 }
 
 
