@@ -7,12 +7,10 @@
   font-family: "Montserrat";
   src: url(../../../fonts/Montserrat.ttf);
 }
-
 @font-face {
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -34,31 +32,21 @@
     display: none;
   }
 }
-
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
   .wrapper {
     max-width: 1440px;
   }
 }
-
 @media screen and (min-width: 1921px) {
   .wrapper {
     width: 75vw;
   }
 }
-
-@media screen and (min-width: 1921px) {
-  .wrapper {
-    width: 75vw;
-  }
-}
-
 .charts-main {
   font-size: 18px;
   font-weight: 400;
   font-family: "Montserrat";
-  /* margin-left: 230px; */
-  margin-left: 17vw;
+  margin-left: 230px;
   margin-right: 59px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -78,7 +66,7 @@
   border-radius: 25px;
 }
 
-.charts-title>p {
+.charts-title > p {
   text-align: center;
   color: white;
   font-size: 23px;
@@ -183,32 +171,31 @@
   gap: 10%;
 }
 
-.charts-calorie__legend-item__yellow,
-.charts-calorie__legend-item__green,
-.charts-calorie__legend-item__red,
-.charts-calorie__legend-item__salad {
+.charts-calorie__legend-item__yellow {
   width: 15px;
   height: 15px;
-}
-
-
-.charts-calorie__legend-item__yellow {
   background-color: #FFEE54;
 }
 
 .charts-calorie__legend-item__green {
+  width: 15px;
+  height: 15px;
   background-color: #089BAB;
 }
 
 .charts-calorie__legend-item__red {
+  width: 15px;
+  height: 15px;
   background-color: #E06B6B;
 }
 
 .charts-calorie__legend-item__salad {
+  width: 15px;
+  height: 15px;
   background-color: #A1D28A;
 }
 
-.charts-calorie__legend-item>p {
+.charts-calorie__legend-item > p {
   display: block;
   margin: 0;
   font-size: 12px;
@@ -242,22 +229,21 @@
   align-items: flex-end;
 }
 
-.charts-macro__diagram-green,
-.charts-macro__diagram-red,
-.charts-macro__diagram-yellow {
+.charts-macro__diagram-green {
   width: 15%;
   height: 0%;
-}
-
-.charts-macro__diagram-green {
   background-color: #089BAB;
 }
 
 .charts-macro__diagram-red {
+  width: 15%;
+  height: 0%;
   background-color: #E06B6B;
 }
 
 .charts-macro__diagram-yellow {
+  width: 15%;
+  height: 0%;
   background-color: #FFEE54;
 }
 
@@ -293,7 +279,7 @@
   background-color: #FFEE54;
 }
 
-.charts-macro__legend-item>p {
+.charts-macro__legend-item > p {
   display: block;
   margin: 0;
   font-size: 12px;
@@ -321,7 +307,7 @@
   padding-top: 15px;
 }
 
-.charts-weight__actual>p {
+.charts-weight__actual > p {
   font-size: 22px;
   line-height: 1.36;
   text-align: center;
@@ -334,13 +320,13 @@
   justify-content: space-between;
 }
 
-.charts-weight__dropped>p {
+.charts-weight__dropped > p {
   font-size: 18px;
   line-height: 1.67%;
   font-weight: 600;
 }
 
-.charts-weight__remained>p {
+.charts-weight__remained > p {
   font-size: 18px;
   line-height: 1.67%;
   font-weight: 600;
@@ -402,11 +388,11 @@
   gap: 15%;
 }
 
-.charts-form>div {
+.charts-form > div {
   width: 100%;
 }
 
-.charts-form>label {
+.charts-form > label {
   display: inline-block;
   margin-bottom: 4%;
 }
@@ -457,12 +443,10 @@
   font-family: "Montserrat";
   src: url(../../../fonts/Montserrat.ttf);
 }
-
 @font-face {
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -484,31 +468,21 @@
     display: none;
   }
 }
-
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
   .wrapper {
     max-width: 1440px;
   }
 }
-
 @media screen and (min-width: 1921px) {
   .wrapper {
     width: 75vw;
   }
 }
-
-@media screen and (min-width: 1921px) {
-  .wrapper {
-    width: 75vw;
-  }
-}
-
 .charts-main {
   font-size: 18px;
   font-weight: 400;
   font-family: "Montserrat";
-  /* margin-left: 230px; */
-  margin-left: 17vw;
+  margin-left: 230px;
   margin-right: 59px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -528,7 +502,7 @@
   border-radius: 25px;
 }
 
-.charts-title>p {
+.charts-title > p {
   text-align: center;
   color: white;
   font-size: 23px;
@@ -633,32 +607,31 @@
   gap: 10%;
 }
 
-.charts-calorie__legend-item__yellow,
-.charts-calorie__legend-item__green,
-.charts-calorie__legend-item__red,
-.charts-calorie__legend-item__salad {
+.charts-calorie__legend-item__yellow {
   width: 15px;
   height: 15px;
-}
-
-
-.charts-calorie__legend-item__yellow {
   background-color: #FFEE54;
 }
 
 .charts-calorie__legend-item__green {
+  width: 15px;
+  height: 15px;
   background-color: #089BAB;
 }
 
 .charts-calorie__legend-item__red {
+  width: 15px;
+  height: 15px;
   background-color: #E06B6B;
 }
 
 .charts-calorie__legend-item__salad {
+  width: 15px;
+  height: 15px;
   background-color: #A1D28A;
 }
 
-.charts-calorie__legend-item>p {
+.charts-calorie__legend-item > p {
   display: block;
   margin: 0;
   font-size: 12px;
@@ -692,22 +665,21 @@
   align-items: flex-end;
 }
 
-.charts-macro__diagram-green,
-.charts-macro__diagram-red,
-.charts-macro__diagram-yellow {
+.charts-macro__diagram-green {
   width: 15%;
   height: 0%;
-}
-
-.charts-macro__diagram-green {
   background-color: #089BAB;
 }
 
 .charts-macro__diagram-red {
+  width: 15%;
+  height: 0%;
   background-color: #E06B6B;
 }
 
 .charts-macro__diagram-yellow {
+  width: 15%;
+  height: 0%;
   background-color: #FFEE54;
 }
 
@@ -743,7 +715,7 @@
   background-color: #FFEE54;
 }
 
-.charts-macro__legend-item>p {
+.charts-macro__legend-item > p {
   display: block;
   margin: 0;
   font-size: 12px;
@@ -771,7 +743,7 @@
   padding-top: 15px;
 }
 
-.charts-weight__actual>p {
+.charts-weight__actual > p {
   font-size: 22px;
   line-height: 1.36;
   text-align: center;
@@ -784,13 +756,13 @@
   justify-content: space-between;
 }
 
-.charts-weight__dropped>p {
+.charts-weight__dropped > p {
   font-size: 18px;
   line-height: 1.67%;
   font-weight: 600;
 }
 
-.charts-weight__remained>p {
+.charts-weight__remained > p {
   font-size: 18px;
   line-height: 1.67%;
   font-weight: 600;
@@ -852,11 +824,11 @@
   gap: 15%;
 }
 
-.charts-form>div {
+.charts-form > div {
   width: 100%;
 }
 
-.charts-form>label {
+.charts-form > label {
   display: inline-block;
   margin-bottom: 4%;
 }
@@ -897,6 +869,4 @@
 
 #weightList {
   display: none;
-}
-
-/*# sourceMappingURL=charts.css.map */
+}/*# sourceMappingURL=charts.css.map */
