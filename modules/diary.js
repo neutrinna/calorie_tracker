@@ -34,10 +34,6 @@ const accordeon3 = document.querySelector(".accordeon3");
 const buttonSnack = document.getElementById("button-snack")
 const accordeon4 = document.querySelector(".accordeon4");
 
-document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon, buttonBreakfast));
-document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon2, buttonLunch));
-document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon3, buttonDinner));
-document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon4, buttonSnack));
 
 buttonBreakfast.addEventListener('click', () => showAndHideDiv (accordeon, buttonBreakfast));
 
@@ -57,6 +53,7 @@ function showAndHideDiv (a, b) {
         a.style.height = "0px"
         a.style.opacity = "0";
         a.style.transition = "0.5s";
+
         b.classList.remove('diary-table-string__add-btn_focus');
 
     } else {

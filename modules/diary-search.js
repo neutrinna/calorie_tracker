@@ -65,13 +65,13 @@ function updateTotalValues() {
   const totalDiv = document.querySelector('.diary-table-string-2');
 
   totalDiv.innerHTML = `
-    
-      <div>${totalWeight.toFixed(0)} г</div>
-      <div>${totalCalories.toFixed(0)} Ккал</div>
-      <div>${totalCarbs.toFixed(0)} У</div>
-      <div>${totalProteins.toFixed(0)} Б</div>
-      <div>${totalFats.toFixed(0)} Ж</div>
-    
+    <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
+      <div>${totalWeight.toFixed(0)}</div>
+      <div>${totalCalories.toFixed(0)}</div>
+      <div>${totalCarbs.toFixed(0)}</div>
+      <div>${totalProteins.toFixed(0)}</div>
+      <div>${totalFats.toFixed(0)}</div>
+    </div>
   `;
 }
 
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
               .then(response => response.json())
               .then(res => {
-                //console.log(res);
+                console.log(res);
                 if (res.status === 1) {
                   const product = res.product;
                   const productName = product.product_name;
@@ -132,15 +132,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
-                  //columnNamesDiv.style.display = 'flex';
+                  columnNamesDiv.style.display = 'flex';
+                  columnNamesDiv.innerHTML = `
+                    <div>${grammInput.value}</div>
+                    <div>${calories * grammInput.value / 100}</div>
+                    <div>${carbs * grammInput.value / 100}</div>
+                    <div>${proteins * grammInput.value / 100}</div>
+                    <div>${fats * grammInput.value / 100}</div>
+                    <button class="delete-column"></button>`;
+                    const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
 
-                  const weightRes = grammInput.value;
-                  const calRes = Math.round(calories * grammInput.value / 100);
-                  const carbsRes = Math.round(carbs * grammInput.value / 100);
-                  const protRes = Math.round(proteins * grammInput.value / 100);
-                  const fatsRes = Math.round(fats * grammInput.value / 100);
+                     // event listener for the delete column button
+                    deleteProductButton.addEventListener('click', function() {
+                    diaryTableStringDiv.remove();
+                    });
 
-
+                    columnNamesDiv.appendChild(deleteProductButton);
+                  
+                  
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
@@ -563,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
-            //console.log(res);
+            console.log(res);
             if (res.status === 1) {
               const product = res.product;
               const productName = product.product_name;
@@ -671,8 +682,12 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 //                     diaryTableStringDivPopUp.remove();
 //                     });
                     
-                   // mealNameDivPopUp.appendChild(deleteProductButtonPopUp);
-                                    
+//                   columnNamesDivPopUp.appendChild(deleteProductButtonPopUp);
+                                      
+//                   accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
+//                   diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
+//                   diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
+
 
                  
 //                   popUpAddNewProduct.style.display = "none";
@@ -710,5 +725,4 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 
 
 //  retrieveTotalValues();
-
 
