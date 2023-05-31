@@ -93,6 +93,7 @@ function exit() {
   const currentUser = {};
   localStorage.setItem(`currentUser`, `${currentUser}`);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
+  closeDropdown()
 }
 
 function saveChanges() {
