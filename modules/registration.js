@@ -65,10 +65,10 @@ function registrationAdd() {
     // выводим сообщение об успешной регистрации
     alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`);
     
-    // const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
-    // userSessions[`${email}`] = {};
-    // console.log(userSessions);
-    // JSON.stringify(localStorage.setItem("userSessions", `${userSessions}`));
+    const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
+    userSessions[`${email}`] = {};
+    console.log(userSessions);
+    localStorage.setItem("userSessions", JSON.stringify(userSessions));
 
     // сбрасываем значения полей ввода
     nameInput.value = "";

@@ -342,7 +342,15 @@ document.addEventListener("DOMContentLoaded", function() {
                       stringProteinBreakfast.innerText = `${countSum (protsArray)}`
                       stringFatBreakfast.innerText = `${countSum (fatsArray)}`
 
-                      
+                      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                      currentUser.breakfast = {
+                        weight: stringWeightBreakfast.textContent,
+                        kkal: stringKkalBreakfast.textContent,
+                        carbs: stringCarbBreakfast.textContent,
+                        proteins: stringProteinBreakfast.textContent,
+                        fats: stringFatBreakfast.textContent,
+                      };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                       // sumTotal()
 
                         // kkal: stringKkalBreakfast.innerText,
@@ -357,6 +365,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbLunch.innerText = `${countSum (carbsArray2)}`
                     stringProteinLunch.innerText = `${countSum (protsArray2)}`
                     stringFatLunch.innerText = `${countSum (fatsArray2)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.lunch = {
+                      weight: stringWeightLunch.textContent,
+                      kkal: stringKkalLunch.textContent,
+                      carbs: stringCarbLunch.textContent,
+                      proteins: stringProteinLunch.textContent,
+                      fats: stringFatLunch.textContent,
+                    };
+                    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 
                   }
 
