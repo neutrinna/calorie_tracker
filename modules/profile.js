@@ -1,9 +1,8 @@
 // Инна
-let user = JSON.parse(localStorage.getItem("currentUser"));
-const profileUserData = new Object();
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+// const profileUserData = new Object();
 // localStorage.clear()
 
-render()
 // Инна
 
 // Nastya Klm
@@ -45,10 +44,10 @@ const getNormRSK = function () {
     );
   }
   if (localStorage.getItem("loged") === "true") {
-    profileUserData.growth = growth.value;
-    profileUserData.weight = weight.value;
-    console.log(resultRSK.innerHTML);
+    currentUser.growth = growth.value;
+    currentUser.weight = weight.value;
   }
+  console.log(resultRSK.innerHTML);
   return resultRSK.innerHTML;
 };
 
@@ -63,7 +62,7 @@ function resultGoal() {
     resultRSK.innerHTML = Math.round(+getNormRSK() + +getNormRSK() * rateGole);
   }
   if (localStorage.getItem("loged") === "true") {
-    profileUserData.kkal = resultRSK.textContent;
+    currentUser.kkal = resultRSK.textContent;
   }
   return resultRSK.innerHTML;
 }
@@ -81,9 +80,9 @@ function countNutrients() {
     carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
   }
   if (localStorage.getItem("loged") === "true") {
-    profileUserData.prot = protein.textContent;
-    profileUserData.fat = fat.textContent;
-    profileUserData.carbs = carbohydrate.textContent;
+    currentUser.prot = protein.textContent;
+    currentUser.fat = fat.textContent;
+    currentUser.carbs = carbohydrate.textContent;
   }
 }
 
@@ -94,7 +93,7 @@ function countWeight() {
     +growth.value - 100 - (growth.value - 150) / 2
   )} кг`;
   if (localStorage.getItem("loged") === "true") {
-    profileUserData.goal = optimalWeight.textContent
+    currentUser.goal = optimalWeight.textContent
   }
 }
 
@@ -111,24 +110,22 @@ function validationInputs() {
 }
 // Инна
 function importRSK() {
-  user[5] = profileUserData;
-  localStorage.setItem(`currentUser`, JSON.stringify(user));
+  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 }
 
 function setValues() {
-  {const user = JSON.parse(localStorage.getItem(`currentUser`));
-
     document.querySelector(".profile-user__target-weight").textContent =
-      `${user[5].goal}`;
+      `${currentUser.goal}`;
     document.querySelector(
       ".profile-user__states-value_growth"
-    ).textContent = `${user[5].growth} кг`;
-    document.querySelector(".profile-user__states-value_weight").textContent = `${user[5].weight} кг`;
-    document.querySelector(".profile-user__kkal-amount_left").textContent = `${user[5].kkal -
+    ).textContent = `${currentUser.growth} кг`;
+    document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
+    document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
       document.querySelector(".profile-user__kkal-amount_eaten").textContent}`
-  }
+
 }
 // Инна
+render()
 
 button.addEventListener("click", function () {
   if (age.value !== "" && weight.value !== "" && growth.value !== "") {
@@ -181,7 +178,7 @@ new Chart(doughnut, {
 });
 // chart
 
-// date
+// data
 let kkalTaken = 0;
 const kkalTakenNode = document.querySelector(`.profile-user__kkal-amount`);
 
@@ -192,7 +189,7 @@ for (let i = 0; i < macroAmount.length; i++) {
 }
 
 kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
-// date
+// data
 
 // time
 const dateNode = document.querySelector(`.profile-user__date-value`);
@@ -200,10 +197,10 @@ dateNode.textContent = moment().format("DD/MM/YYYY");
 // time
 
 function render() {
-  document.getElementById("profile-user__data-name").textContent = `${user[0]}`;
+  document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
   document.getElementById(
     "profile-user__data-age"
-  ).textContent = `Возраст: ${user[1]}`;
+  ).textContent = `Возраст: ${currentUser.age}`;
   // page load
   if (localStorage.getItem("loged") === "true") {
 
@@ -215,11 +212,10 @@ function render() {
     // данные трекера воды
 
     const waterAmount = document.querySelector(".profile-user__water-amount_data");
-    console.log(typeof user[2]);
-    if ((typeof user[2] === "undefined") || (user[2] === `null`)) {
+    if ((typeof currentUser.water === "undefined") || (currentUser.water === `null`)) {
       waterAmount.textContent = "0 мл";
     } else {
-      waterAmount.textContent = `${user[2]} мл`;
+      waterAmount.textContent = `${currentUser.water} мл`;
       // Настя Кольцова
       // значение целевого веса
       const targetWeight = document.querySelector(
@@ -228,19 +224,27 @@ function render() {
       localStorage.setItem("targetWeight", targetWeight);
       // Настя Кольцова
 
-      document.querySelector(".profile-user__target-weight").textContent =
-        `${user[5].goal} ` || `-`;
-      document.querySelector(
-        ".profile-user__states-value_growth"
-      ).textContent = `${user[5].growth} кг` || `-`;
-      document.querySelector(".profile-user__states-value_weight").textContent = `${user[5].weight} кг` || `-`;
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `${user[5].kkal -
+      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)){
+        document.querySelector(".profile-user__target-weight").textContent = `-`
+      }
+      else{
+      document.querySelector(".profile-user__target-weight").textContent =`${currentUser.goal} `}
+
+      if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)){
+      document.querySelector(".profile-user__states-value_growth").textContent = `-` 
+      }
+      else{
+        document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`
+      };
+      
+      document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг` || `-`;
+      document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
     document.querySelector(".profile-user__kkal-amount_eaten").textContent}` || `-`;
-      resultRSK.textContent = `${user[5].kkal}` || `-`;
-      protein.textContent = `${user[5].prot}` || `-`;
-      fat.textContent = `${user[5].fat}` || `-`;
-      carbohydrate.textContent = `${user[5].carbs}` || `-`;
-      optimalWeight.textContent = `${user[5].goal}` || `-`;
+      resultRSK.textContent = `${currentUser.kkal}` || `-`;
+      protein.textContent = `${currentUser.prot}` || `-`;
+      fat.textContent = `${currentUser.fat}` || `-`;
+      carbohydrate.textContent = `${currentUser.carbs}` || `-`;
+      optimalWeight.textContent = `${currentUser.goal}` || `-`;
     }
   }
 }

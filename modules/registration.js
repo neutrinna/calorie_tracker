@@ -15,7 +15,6 @@ function registrationAdd() {
     const email = emailInput.value;
     const password = passwordInput.value;
     const passwordRepeat = passwordRepeatInput.value;
-  
    
     if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
@@ -42,7 +41,7 @@ function registrationAdd() {
   
     // получаем текущий массив пользователей (если его нет, то создаем пустой массив)
     let userData = JSON.parse(localStorage.getItem("userData")) || [];
-  
+
     // проверка, что такой пользователь уже не зарегистрирован (по email)
     const existingUser = userData.find((user) => user.email === email);
     if (existingUser) {
@@ -65,7 +64,12 @@ function registrationAdd() {
   
     // выводим сообщение об успешной регистрации
     alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`);
-  
+    
+    // const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
+    // userSessions[`${email}`] = {};
+    // console.log(userSessions);
+    // JSON.stringify(localStorage.setItem("userSessions", `${userSessions}`));
+
     // сбрасываем значения полей ввода
     nameInput.value = "";
     surnameInput.value = "";

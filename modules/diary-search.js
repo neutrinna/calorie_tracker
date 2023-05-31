@@ -11,7 +11,6 @@ const productNotFoundPopupExtra = document.querySelector(".diary__productnotfoun
 productNotFoundPopupExtra.style.display = "none";
 const closePopUpNotFoundExtra = document.getElementById("productnotfound__popup-cancel-extra");
 
-
 let totalWeight = 0;
 let totalCalories = 0;
 let totalCarbs = 0;
@@ -333,12 +332,23 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                             //вызовы построчного суммирования КБЖУ
 
+                  
+                  
+
                   const countStringWeight = () => {
                       stringWeightBreakfast.innerText = `${countSum (weightArray)}`
                       stringKkalBreakfast.innerText = `${countSum (kkalArray)}`
                       stringCarbBreakfast.innerText = `${countSum (carbsArray)}`
                       stringProteinBreakfast.innerText = `${countSum (protsArray)}`
                       stringFatBreakfast.innerText = `${countSum (fatsArray)}`
+
+                      
+                      // sumTotal()
+
+                        // kkal: stringKkalBreakfast.innerText,
+                        // carbs: stringCarbBreakfast.innerText,
+                        // proteins: stringProteinBreakfast.innerText,
+                        // fats: stringFatBreakfast.innerText
                   }
 
                   const countStringWeight2 = () => {
@@ -347,6 +357,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbLunch.innerText = `${countSum (carbsArray2)}`
                     stringProteinLunch.innerText = `${countSum (protsArray2)}`
                     stringFatLunch.innerText = `${countSum (fatsArray2)}`
+
                   }
 
                   const countStringWeight3 = () => {
@@ -355,6 +366,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbDinner.innerText = `${countSum (carbsArray3)}`
                     stringProteinDinner.innerText = `${countSum (protsArray3)}`
                     stringFatDinner.innerText = `${countSum (fatsArray3)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.dinner = {
+                      weight: stringWeightDinner.textContent,
+                      kkal: stringKkalDinner.textContent,
+                      carbs: stringCarbDinner.textContent,
+                      proteins: stringProteinDinner.textContent,
+                      fats: stringFatDinner.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+                      sumTotal()
                   }
 
                   const countStringWeight4 = () => {
@@ -363,6 +385,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbSnack.innerText = `${countSum (carbsArray4)}`
                     stringProteinSnack.innerText = `${countSum (protsArray4)}`
                     stringFatSnack.innerText = `${countSum (fatsArray4)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.snack = {
+                      weight: stringWeightSnack.textContent,
+                      kkal: stringKkalSnack.textContent,
+                      carbs: stringCarbSnack.textContent,
+                      proteins: stringProteinSnack.textContent,
+                      fats: stringFatSnack.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+                      sumTotal()
                   }
 
                   // цикл подсчета сложения 
@@ -411,6 +444,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbBreakfast.innerText = `${minusSum3 (+stringCarbBreakfast.innerText, countObj.carb)}`
                     stringProteinBreakfast.innerText = `${minusSum4 (+stringProteinBreakfast.innerText, countObj.protein)}`
                     stringFatBreakfast.innerText = `${minusSum5 (+stringFatBreakfast.innerText, countObj.fat)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                      currentUser.breakfast = {
+                        weight: stringWeightBreakfast.textContent,
+                        kkal: stringKkalBreakfast.textContent,
+                        carbs: stringCarbBreakfast.textContent,
+                        proteins: stringProteinBreakfast.textContent,
+                        fats: stringFatBreakfast.textContent,
+                      };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   
                     // stringWeightDinner.innerText = `${countSum (+)}`;
                     // stringKkalDinner.innerText = `${countSum (+)}`
@@ -433,8 +476,36 @@ document.addEventListener("DOMContentLoaded", function() {
                   stringProteinLunch.innerText = `${minusSum4 (+stringProteinLunch.innerText, countObj2.protein)}`
                   stringFatLunch.innerText = `${minusSum5 (+stringFatLunch.innerText, countObj2.fat)}`
 
+                  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                      currentUser.lunch = {
+                        weight: stringWeightLunch.textContent,
+                        kkal: stringKkalLunch.textContent,
+                        carbs: stringCarbLunch.textContent,
+                        proteins: stringProteinLunch.textContent,
+                        fats: stringFatLunch.textContent,
+                      };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                 }
 
+                // function sumTotal() {
+                //   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                //   if (currentUser.hasOwnProperty)
+                //   currentUser.total = {
+                //     weight: +currentUser.breakfast.weight + +currentUser.lunch.weight + +currentUser.dinner.weight + +currentUser.snack.weight,
+                //     kkal: +currentUser.breakfast.kkal + +currentUser.lunch.kkal + +currentUser.dinner.kkal + +currentUser.snack.weight,
+                //     carbs: +currentUser.breakfast.carbs + +currentUser.lunch.curbs + +currentUser.dinner.curbs + +currentUser.snack.curbs,
+                //     proteins: +currentUser.breakfast.proteins + +currentUser.lunch.proteins + +currentUser.dinner.proteins + +currentUser.snack.proteins,
+                //     fats: +currentUser.breakfast.fats + +currentUser.lunch.fats + +currentUser.dinner.fats + +currentUser.snack.fats,
+                //   };
+
+                //   document.querySelector(".diary-table-string__total-weight") = currentUser.total.weight;
+                //   document.querySelector(".diary-table-string__total-kkal") = currentUser.total.kkal;
+                //   document.querySelector(".diary-macro__carbo-amount")= currentUser.total.carbs;
+                //   document.querySelector(".diary-macro__protein-amount") = currentUser.total.proteins;
+                //   document.querySelector(".diary-macro__fats-amount")= currentUser.total.fats;
+
+                //   localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+                // }
 
 
                 // вызовы функций сложения данных строк
@@ -443,23 +514,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 countStringWeight3 ()
                 countStringWeight4 ()
                 
-
+                
+              
                 ////////////       end  Aleksandra        //////////////////
 
 
 
                   // total weight //
-                  totalWeight += Number(grammInput.value);
-                  totalCalories += (calories * grammInput.value) / 100;
-                  totalCarbs += (carbs * grammInput.value) / 100;
-                  totalProteins += (proteins * grammInput.value) / 100;
-                  totalFats += (fats * grammInput.value) / 100;
+                  // totalWeight += Number(grammInput.value);
+                  // totalCalories += (calories * grammInput.value) / 100;
+                  // totalCarbs += (carbs * grammInput.value) / 100;
+                  // totalProteins += (proteins * grammInput.value) / 100;
+                  // totalFats += (fats * grammInput.value) / 100;
 
                  
-                  updateTotalValues()
-                  storeTotalValues();
-                  storeMealEaten(mealEaten);
-                  retrieveTotalValues();
+                  // updateTotalValues()
+                  // storeTotalValues();
+                  // storeMealEaten(mealEaten);
+                  // retrieveTotalValues();
 
 
                 }
@@ -561,11 +633,9 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 //                   mealNameDivPopUp.innerHTML = `
 //                     <div>${brandPopUp}${namePopUp}</div>`;
 
-//                   const columnNamesDivPopUp = document.createElement('div');
-//                   columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
-//                   columnNamesDivPopUp.style.display = 'flex';
-
-
+                  // const columnNamesDivPopUp = document.createElement('div');
+                  // columnNamesDivPopUp.classList.add('diary-table-string-1__column-names');
+                  // columnNamesDivPopUp.style.display = 'flex';
                   // columnNamesDivPopUp.innerHTML = `
                   //   <div>${grammPopUp}</div>
                   //   <div>${caloriesPopUp * grammPopUp / 100}</div>
@@ -573,58 +643,6 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
                   //   <div>${proteinPopUp * grammPopUp / 100}</div>
                   //   <div>${fatPopUp * grammPopUp / 100}</div>
                   //   <button class="delete-column"></button>`;
-
-
-                  // accordeonDivsPopUp.appendChild(diaryTableStringDivPopUp);
-                  // diaryTableStringDivPopUp.appendChild(mealNameDivPopUp);
-                  // diaryTableStringDivPopUp.appendChild(columnNamesDivPopUp);
-
-                    //Александра --- классы в зависимости от родителя
-
-                    // if (columnNamesDivPopUp.closest('.accordeon1')) {
-                      
-                    //   columnNamesDivPopUp.innerHTML = `
-                    //     <div class="weightRes">${grammPopUp}</div>
-                    //     <div class="calRes">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-                    //     <div class="carbsRes">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-                    //     <div class="protRes">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-                    //     <div class="fatsRes">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-                    //     `
-                    //   }
-                    //      else if (columnNamesDivPopUp.closest('.accordeon2')) {
-
-                    //       columnNamesDivPopUp.innerHTML = `
-                    //     <div class="weightRes2">${grammPopUp}</div>
-                    //     <div class="calRes2">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-                    //     <div class="carbsRes2">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-                    //     <div class="protRes2">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-                    //     <div class="fatsRes2">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-                    //     <button class="delete-column"></button>`
-                    //     }
-  
-                    //     else if (columnNamesDivPopUp.closest('.accordeon3')) {
-                    //     columnNamesDivPopUp.innerHTML = `
-                    //     <div class="weightRes3">${weightRes}</div>
-                    //     <div class="calRes3">${calRes}</div>
-                    //     <div class="carbsRes3">${carbsRes}</div>
-                    //     <div class="protRes3">${protRes}</div>
-                    //     <div class="fatsRes3">${fatsRes}</div>
-                    //     <button class="delete-column"></button>`
-                    //     }
-  
-                    //     else {
-
-                    //       columnNamesDivPopUp.innerHTML = `
-                    //       <div class="weightRes4">${grammPopUp}</div>
-                    //      <div class="calRes4">${Math.round(caloriesPopUp * grammPopUp / 100)}</div>
-                    //        <div class="carbsRes4">${Math.round(carbsPopUp * grammPopUp / 100)}</div>
-                    //       <div class="protRes4">${Math.round(proteinPopUp * grammPopUp / 100)}</div>
-                    //       <div class="fatsRes4">${Math.round(fatPopUp * grammPopUp / 100)}</div>
-                    //       <button class="delete-column"></button>`
-                    //     }
-
-
-                        //--- классы в зависимости от родителя
 
 //                     const deleteProductButtonPopUp = document.createElement('button');
 //                     deleteProductButtonPopUp.classList.add('delete-column');
