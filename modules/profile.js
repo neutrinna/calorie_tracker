@@ -1,5 +1,5 @@
 // Инна
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // const profileUserData = new Object();
 // localStorage.clear()
 
@@ -114,13 +114,13 @@ function importRSK() {
 }
 
 function setValues() {
-    document.querySelector(".profile-user__target-weight").textContent =
-      `${currentUser.goal}`;
-    document.querySelector(
-      ".profile-user__states-value_growth"
-    ).textContent = `${currentUser.growth} кг`;
-    document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-    document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
+  document.querySelector(".profile-user__target-weight").textContent =
+    `${currentUser.goal}`;
+  document.querySelector(
+    ".profile-user__states-value_growth"
+  ).textContent = `${currentUser.growth} кг`;
+  document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
+  document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
       document.querySelector(".profile-user__kkal-amount_eaten").textContent}`
 
 }
@@ -133,11 +133,10 @@ button.addEventListener("click", function () {
     countNutrients();
     countWeight();
   }
-    if (document.getElementById("profile-RSK__checkbox").checked === true) {
-      importRSK();
-      setValues();
-    }
- else {
+  if (document.getElementById("profile-RSK__checkbox").checked === true) {
+    setValues();
+    importRSK();
+  } else {
     alert("Заполните все поля!");
     validationInputs();
   }
@@ -197,10 +196,7 @@ dateNode.textContent = moment().format("DD/MM/YYYY");
 // time
 
 function render() {
-  document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
-  document.getElementById(
-    "profile-user__data-age"
-  ).textContent = `Возраст: ${currentUser.age}`;
+
   // page load
   if (localStorage.getItem("loged") === "true") {
 
@@ -208,14 +204,14 @@ function render() {
     document.getElementById("profile-paternity").style.display = "none";
     document.getElementById("profile-user").style.display = "flex";
     document.querySelector(".profile-RSK__checkbox").style.display = "flex";
-    // АЛЕКСАНДРА
-    // данные трекера воды
 
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const waterAmount = document.querySelector(".profile-user__water-amount_data");
     if ((typeof currentUser.water === "undefined") || (currentUser.water === `null`)) {
       waterAmount.textContent = "0 мл";
     } else {
       waterAmount.textContent = `${currentUser.water} мл`;
+
       // Настя Кольцова
       // значение целевого веса
       const targetWeight = document.querySelector(
@@ -224,22 +220,25 @@ function render() {
       localStorage.setItem("targetWeight", targetWeight);
       // Настя Кольцова
 
-      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)){
+      document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
+      document.getElementById(
+        "profile-user__data-age"
+      ).textContent = `Возраст: ${currentUser.age}`;
+      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
         document.querySelector(".profile-user__target-weight").textContent = `-`
+      } else {
+        document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal} `
       }
-      else{
-      document.querySelector(".profile-user__target-weight").textContent =`${currentUser.goal} `}
 
-      if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)){
-      document.querySelector(".profile-user__states-value_growth").textContent = `-` 
-      }
-      else{
-        document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`
+      if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)) {
+        document.querySelector(".profile-user__states-value_growth").textContent = `-`
+      } else {
+        document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} см`
       };
-      
+
       document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг` || `-`;
       document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-    document.querySelector(".profile-user__kkal-amount_eaten").textContent}` || `-`;
+      document.querySelector(".profile-user__kkal-amount_eaten").textContent}` || `-`;
       resultRSK.textContent = `${currentUser.kkal}` || `-`;
       protein.textContent = `${currentUser.prot}` || `-`;
       fat.textContent = `${currentUser.fat}` || `-`;
