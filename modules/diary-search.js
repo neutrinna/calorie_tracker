@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const searchResult = input.value;
         commentElem.classList.add('elem');
         commentElem.innerHTML = `
-          <div class="search-result">${searchResult}</div>`;
+          <p>${searchResult}</p>`;
 
         const grammInput = document.createElement('input');
         grammInput.classList.add('inputStyle')
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const checkbox = document.createElement('input');
         checkbox.setAttribute('type', 'checkbox');
-        checkbox.style.marginRight = '25%';
+        checkbox.style.marginRight = '200px';
         checkbox.style.verticalAlign = 'middle';
         checkbox.style.transform = 'scale(1.5)';
 
