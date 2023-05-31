@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
               .then(response => response.json())
               .then(res => {
-                //console.log(res);
+                console.log(res);
                 if (res.status === 1) {
                   const product = res.product;
                   const productName = product.product_name;
@@ -148,14 +148,8 @@ document.addEventListener("DOMContentLoaded", function() {
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
 
-                   //Александра --- разбивка на классы в зависимости от родителя
 
-                  const deleteProductButton = document.createElement('button');
-                  const deleteProductButton2 = document.createElement('button');
-                  const deleteProductButton3 = document.createElement('button');
-                  const deleteProductButton4 = document.createElement('button');
-
-                   
+                    //Александра --- разбивка на классы в зависимости от родителя
                   if (columnNamesDiv.closest('.accordeon1')) {
                     columnNamesDiv.innerHTML = `
                       <div class="weightRes">${weightRes}</div>
@@ -163,12 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="carbsRes">${carbsRes}</div>
                       <div class="protRes">${protRes}</div>
                       <div class="fatsRes">${fatsRes}</div>
-                      `
-                      
-                      deleteProductButton.classList.add('delete-column');
-                      deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-                      mealNameDiv.appendChild(deleteProductButton);
-                    }
+                      `}
   
                       else if (columnNamesDiv.closest('.accordeon2')) {
                         columnNamesDiv.innerHTML = `
@@ -178,10 +167,6 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="protRes2">${protRes}</div>
                       <div class="fatsRes2">${fatsRes}</div>
                       `
-                      
-                    deleteProductButton2.classList.add('delete-column2');
-                    deleteProductButton2.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-                    mealNameDiv.appendChild(deleteProductButton2);
                       }
 
                       else if (columnNamesDiv.closest('.accordeon3')) {
@@ -192,9 +177,6 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="protRes3">${protRes}</div>
                       <div class="fatsRes3">${fatsRes}</div>
                       `
-                      deleteProductButton3.classList.add('delete-column3');
-                    deleteProductButton3.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-                    mealNameDiv.appendChild(deleteProductButton3);
                       }
 
                       else {
@@ -205,64 +187,26 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="protRes4">${protRes}</div>
                       <div class="fatsRes4">${fatsRes}</div>
                       `
-                      deleteProductButton4.classList.add('delete-column4');
-                    deleteProductButton4.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-                    mealNameDiv.appendChild(deleteProductButton4);
-                      }
-                      // --- разбивка на классы в зависимости от родителя
+                      }// --- разбивка на классы в зависимости от родителя
 
 
-
-                    var countObj = new Object();
-                    var countObj2 = new Object();
-                    var countObj3 = new Object();
-                    var countObj4 = new Object();
-
+                      const deleteProductButton = document.createElement('button');
+                    deleteProductButton.classList.add('delete-column');
+                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
 
                      // event listener for the delete column button
                     deleteProductButton.addEventListener('click', function() {
-
-                    countObj.weight = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-
-                    countObj.kkal = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-
-                    countObj.carb = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-
-                    countObj.protein = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-
-                    countObj.fat = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
-
-                    console.log(countObj.weight);
-                    console.log(countObj.kkal);
-
                     diaryTableStringDiv.remove()
 
-                    //вызов вычитания строк после удаления
-                      getNumbers ()
+                    //ВЫЗОВ ПОДСЧЕТА СТРОК ПОСЛЕ УДАЛЕНИЯ
+                    countStringWeight ()
+                    countStringWeight2 ()
+                    countStringWeight3 ()
+                    countStringWeight4 ()
                     });
-
-                  // event listener №2 for the delete column button
-                    deleteProductButton2.addEventListener ('click', () => {
-
-                      countObj2.weight = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-
-                      countObj2.kkal = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-
-                      countObj2.carb = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-
-                      countObj2.protein = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-
-                      countObj2.fat = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
-
-                      console.log(countObj2.weight);
-                      console.log(countObj2.kkal);
-
-                      diaryTableStringDiv.remove()
-
-                    //вызов вычитания строк после удаления
-                      getNumbers2 ()
-                    })
                     
+                    //columnNamesDiv.appendChild(deleteProductButton);
+                    mealNameDiv.appendChild(deleteProductButton);
                     
   
                  
@@ -331,113 +275,68 @@ document.addEventListener("DOMContentLoaded", function() {
                   const fatsArray4 = document.querySelectorAll ('.fatsRes4');
 
                     
-                            //вызовы построчного суммирования КБЖУ
+                      //построчный подсчет КБЖУ
 
                   const countStringWeight = () => {
-                      stringWeightBreakfast.innerText = `${countSum (weightArray)}`
-                      stringKkalBreakfast.innerText = `${countSum (kkalArray)}`
-                      stringCarbBreakfast.innerText = `${countSum (carbsArray)}`
-                      stringProteinBreakfast.innerText = `${countSum (protsArray)}`
-                      stringFatBreakfast.innerText = `${countSum (fatsArray)}`
+                      stringWeightBreakfast.innerText = `Вес, ${countSum (weightArray)} г`;
+                      stringKkalBreakfast.innerText = `${countSum (kkalArray)} Ккал`
+                      stringCarbBreakfast.innerText = `${countSum (carbsArray)} У`
+                      stringProteinBreakfast.innerText = `${countSum (protsArray)} Б`
+                      stringFatBreakfast.innerText = `${countSum (fatsArray)} Ж`
                   }
 
                   const countStringWeight2 = () => {
-                    stringWeightLunch.innerText = `${countSum (weightArray2)}`
-                    stringKkalLunch.innerText = `${countSum (kkalArray2)}`
-                    stringCarbLunch.innerText = `${countSum (carbsArray2)}`
-                    stringProteinLunch.innerText = `${countSum (protsArray2)}`
-                    stringFatLunch.innerText = `${countSum (fatsArray2)}`
+                    stringWeightLunch.innerText = `Вес, ${countSum (weightArray2)} г`;
+                    stringKkalLunch.innerText = `${countSum (kkalArray2)} Ккал`
+                    stringCarbLunch.innerText = `${countSum (carbsArray2)} У`
+                    stringProteinLunch.innerText = `${countSum (protsArray2)} Б`
+                    stringFatLunch.innerText = `${countSum (fatsArray2)} Ж`
                   }
 
                   const countStringWeight3 = () => {
-                    stringWeightDinner.innerText = `${countSum (weightArray3)}`
-                    stringKkalDinner.innerText = `${countSum (kkalArray3)}`
-                    stringCarbDinner.innerText = `${countSum (carbsArray3)}`
-                    stringProteinDinner.innerText = `${countSum (protsArray3)}`
-                    stringFatDinner.innerText = `${countSum (fatsArray3)}`
+                    stringWeightDinner.innerText = `Вес, ${countSum (weightArray3)} г`;
+                    stringKkalDinner.innerText = `${countSum (kkalArray3)} Ккал`
+                    stringCarbDinner.innerText = `${countSum (carbsArray3)} У`
+                    stringProteinDinner.innerText = `${countSum (protsArray3)} Б`
+                    stringFatDinner.innerText = `${countSum (fatsArray3)} Ж`
                   }
 
                   const countStringWeight4 = () => {
-                    stringWeightSnack.innerText = `${countSum (weightArray4)}`
-                    stringKkalSnack.innerText = `${countSum (kkalArray4)}`
-                    stringCarbSnack.innerText = `${countSum (carbsArray4)}`
-                    stringProteinSnack.innerText = `${countSum (protsArray4)}`
-                    stringFatSnack.innerText = `${countSum (fatsArray4)}`
+                    stringWeightSnack.innerText = `Вес, ${countSum (weightArray4)} г`;
+                    stringKkalSnack.innerText = `${countSum (kkalArray4)} Ккал`
+                    stringCarbSnack.innerText = `${countSum (carbsArray4)} У`
+                    stringProteinSnack.innerText = `${countSum (protsArray4)} Б`
+                    stringFatSnack.innerText = `${countSum (fatsArray4)} Ж`
                   }
 
-                  // цикл подсчета сложения 
+                  // цикл подсчета
                   function countSum (array, sum) {
                     sum = 0;
                     for (let i = 0 ; i < array.length; i++){
+                      console.log(array.length);
                       sum += Number(array[i].innerHTML);
                     }
                     return sum;
                   }
 
-
-                    // функции вычитания по каждому столбцу строки
-                  function minusSum (a, b) {
-                    a -= Number(b);
-                    return a;
-                  }
-
-                  function minusSum2 (a, b) {
-                    a -= Number(b);
-                    return a;
-                  }
-
-                  function minusSum3 (a, b) {
-                    a -= Number(b);
-                    return a;
-                  }
-
-                  function minusSum4 (a, b) {
-                    a -= Number(b);
-                    return a;
-                  }
-
-                  function minusSum5 (a, b) {
-                    a -= Number(b);
-                    return a;
-                  }
+                      //Эксперименты с наблюдателем
+                // let observer = new MutationObserver(mutationRecords => {
+                //   console.log(mutationRecords); // console.log(изменения)
+                //   countStringWeight ()
+                //   // countStringWeight2 ()
+                //   // countStringWeight3 ()
+                //   // countStringWeight4 ()
+                // });
+                
+                // // наблюдать за всем, кроме атрибутов
+                // observer.observe(accordeonDivs, {
+                //   childList: true, // наблюдать за непосредственными детьми
+                //   subtree: true, // и более глубокими потомками
+                //   //characterDataOldValue: true // передавать старое значение в колбэк
+                // });
 
 
-                   // функции вычитания и переноса данных в заголовки
-
-                function getNumbers () {
-
-                    stringWeightBreakfast.innerText = `${minusSum (+stringWeightBreakfast.innerText, countObj.weight)}`
-                    stringKkalBreakfast.innerText = `${minusSum2 (+stringKkalBreakfast.innerText, countObj.kkal)}`
-                    stringCarbBreakfast.innerText = `${minusSum3 (+stringCarbBreakfast.innerText, countObj.carb)}`
-                    stringProteinBreakfast.innerText = `${minusSum4 (+stringProteinBreakfast.innerText, countObj.protein)}`
-                    stringFatBreakfast.innerText = `${minusSum5 (+stringFatBreakfast.innerText, countObj.fat)}`
-  
-                    // stringWeightDinner.innerText = `${countSum (+)}`;
-                    // stringKkalDinner.innerText = `${countSum (+)}`
-                    // stringCarbDinner.innerText = `${countSum (+)}`
-                    // stringProteinDinner.innerText = `${countSum (+)} Б`
-                    // stringFatDinner.innerText = `${countSum (+)}`
-  
-                    // stringWeightSnack.innerText = `${countSum (+)}`;
-                    // stringKkalSnack.innerText = `${countSum (+)}`
-                    // stringCarbSnack.innerText = `${countSum (+)}`
-                    // stringProteinSnack.innerText = `${countSum (+)}`
-                    // stringFatSnack.innerText = `${countSum (+)}`
-                }
-
-                function getNumbers2 () {
-
-                  stringWeightLunch.innerText = `${minusSum (+stringWeightLunch.innerText, countObj2.weight)}`
-                  stringKkalLunch.innerText = `${minusSum2 (+stringKkalLunch.innerText, countObj2.kkal)}`
-                  stringCarbLunch.innerText = `${minusSum3 (+stringCarbLunch.innerText, countObj2.carb)}`
-                  stringProteinLunch.innerText = `${minusSum4 (+stringProteinLunch.innerText, countObj2.protein)}`
-                  stringFatLunch.innerText = `${minusSum5 (+stringFatLunch.innerText, countObj2.fat)}`
-
-                }
-
-
-
-                // вызовы функций сложения данных строк
+                // вызовы функций подсчета данных строк
                 countStringWeight ()
                 countStringWeight2 ()
                 countStringWeight3 ()
@@ -473,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
-            //console.log(res);
+            console.log(res);
             if (res.status === 1) {
               const product = res.product;
               const productName = product.product_name;
@@ -674,5 +573,4 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 
 
 //  retrieveTotalValues();
-
 
