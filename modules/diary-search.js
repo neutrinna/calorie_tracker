@@ -62,19 +62,19 @@ function retrieveTotalValues() {
   return null;
 }
 // total daily nutrition
-function updateTotalValues() {
-  const totalDiv = document.querySelector('.diary-table-string-2');
+// function updateTotalValues() {
+//   const totalDiv = document.querySelector('.diary-table-string-2');
 
-  totalDiv.innerHTML = `
-    <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
-      <div>${totalWeight.toFixed(0)}</div>
-      <div>${totalCalories.toFixed(0)}</div>
-      <div>${totalCarbs.toFixed(0)}</div>
-      <div>${totalProteins.toFixed(0)}</div>
-      <div>${totalFats.toFixed(0)}</div>
-    </div>
-  `;
-}
+//   totalDiv.innerHTML = `
+//     <div class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue">
+//       <div>${totalWeight.toFixed(0)}</div>
+//       <div>${totalCalories.toFixed(0)}</div>
+//       <div>${totalCarbs.toFixed(0)}</div>
+//       <div>${totalProteins.toFixed(0)}</div>
+//       <div>${totalFats.toFixed(0)}</div>
+//     </div>
+//   `;
+// }
 
 // on click search result//
 document.addEventListener("DOMContentLoaded", function() {
@@ -133,26 +133,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
-                  columnNamesDiv.style.display = 'flex';
-                  columnNamesDiv.innerHTML = `
-                    <div>${grammInput.value}</div>
-                    <div>${calories * grammInput.value / 100}</div>
-                    <div>${carbs * grammInput.value / 100}</div>
-                    <div>${proteins * grammInput.value / 100}</div>
-                    <div>${fats * grammInput.value / 100}</div>
-                    <button class="delete-column"></button>`;
-                    const deleteProductButton = document.createElement('button');
-                    deleteProductButton.classList.add('delete-column');
-                    deleteProductButton.innerHTML = '<img src=./../assets/images/diary/dairy-delete.png alt="иконка для удаления строки">';
-
-                     // event listener for the delete column button
-                    deleteProductButton.addEventListener('click', function() {
-                    diaryTableStringDiv.remove();
-                    });
-
-                    columnNamesDiv.appendChild(deleteProductButton);
+                  //columnNamesDiv.style.display = 'flex';
                   
+                  const weightRes = grammInput.value;
+                  const calRes = Math.round(calories * grammInput.value / 100);
+                  const carbsRes = Math.round(carbs * grammInput.value / 100);
+                  const protRes = Math.round(proteins * grammInput.value / 100);
+                  const fatsRes = Math.round(fats * grammInput.value / 100);
                   
+
                   searchResultDiv.innerHTML = '';
                   accordeonDivs.appendChild(diaryTableStringDiv);
                   diaryTableStringDiv.appendChild(mealNameDiv);
@@ -243,8 +232,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     countObj.fat = `${deleteProductButton.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
 
-                    console.log(countObj.weight);
-                    console.log(countObj.kkal);
+                    // console.log(countObj.weight);
+                    // console.log(countObj.kkal);
 
                     diaryTableStringDiv.remove()
 
@@ -265,8 +254,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                       countObj2.fat = `${deleteProductButton2.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
 
-                      console.log(countObj2.weight);
-                      console.log(countObj2.kkal);
+                      // console.log(countObj2.weight);
+                      // console.log(countObj2.kkal);
 
                       diaryTableStringDiv.remove()
 
@@ -288,8 +277,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                       countObj3.fat = `${deleteProductButton3.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
 
-                      console.log(countObj3.weight);
-                      console.log(countObj3.kkal);
+                      // console.log(countObj3.weight);
+                      // console.log(countObj3.kkal);
 
                       diaryTableStringDiv.remove()
 
@@ -310,8 +299,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                       countObj4.fat = `${deleteProductButton4.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
 
-                      console.log(countObj4.weight);
-                      console.log(countObj4.kkal);
+                      // console.log(countObj4.weight);
+                      // console.log(countObj4.kkal);
 
                       diaryTableStringDiv.remove()
 
@@ -387,7 +376,62 @@ document.addEventListener("DOMContentLoaded", function() {
                   const fatsArray4 = document.querySelectorAll ('.fatsRes4');
 
                     
-                            //вызовы построчного суммирования КБЖУ
+                            //ПОДСЧЕТ ИТОГОВ
+
+                  const observedParents = document.querySelectorAll('.diary-table-string__column-names')
+
+                  //Объект со всеми итогами
+                  const summaryStrings = new Object;
+
+                   //Эксперименты с наблюдателем
+                   const observer = new MutationObserver(countAndSetSummary)
+                   
+                  function countAndSetSummary () { 
+
+                      // получение результатов со всех строк
+                    summaryStrings.Weight = `${+stringWeightBreakfast.innerText + +stringWeightLunch.innerText + +stringWeightDinner.innerText + +stringWeightSnack.innerText}`
+
+                    summaryStrings.Kkal = `${+stringKkalBreakfast.innerText + +stringKkalLunch.innerText + +stringKkalDinner.innerText + +stringKkalSnack.innerText}`
+
+                    summaryStrings.Carb = `${+stringCarbBreakfast.innerText + +stringCarbLunch.innerText + +stringCarbDinner.innerText + +stringCarbSnack.innerText}`
+
+                    summaryStrings.Protein= `${+stringProteinBreakfast.innerText + +stringProteinLunch.innerText + +stringProteinDinner.innerText + +stringProteinSnack.innerText}`
+
+                    summaryStrings.Fat= `${+stringFatBreakfast.innerText + +stringFatLunch.innerText + +stringFatDinner.innerText + +stringFatSnack.innerText}`
+
+                      // запись итогов в таблицу
+                    document.querySelector('.diary-macro__weight-amount').innerHTML = `${summaryStrings.Weight}`
+                    document.querySelector('.diary-macro__kkal-amount').innerHTML = `${summaryStrings.Kkal}`
+                    document.querySelector('.diary-macro__carbo-amount').innerHTML = `${summaryStrings.Carb}`
+                    document.querySelector('.diary-macro__protein-amount').innerHTML = `${summaryStrings.Protein}`
+                    document.querySelector('.diary-macro__fats-amount').innerHTML = `${summaryStrings.Fat}`
+
+                        //Инна, это для тебя :) ↓
+                    localStorage.setItem('тестовая запись веса', summaryStrings.Weight)
+                  }
+                  
+                  observer.observe(observedParents[0], {
+                    childList: true, 
+                    subtree: true,
+                  });
+
+                  observer.observe(observedParents[1], {
+                    childList: true, 
+                    subtree: true,
+                  });
+
+                  observer.observe(observedParents[2], {
+                    childList: true, 
+                    subtree: true,
+                  });
+
+                  observer.observe(observedParents[3], {
+                    childList: true, 
+                    subtree: true,
+                  });
+ 
+                  
+                    //вызовы построчного суммирования КБЖУ 
 
                   const countStringWeight = () => {
                       stringWeightBreakfast.innerText = `${countSum (weightArray)}`
@@ -521,7 +565,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   totalFats += (fats * grammInput.value) / 100;
 
                  
-                  updateTotalValues()
+                  //updateTotalValues()
                   storeTotalValues();
                   storeMealEaten(mealEaten);
                   retrieveTotalValues();
@@ -538,7 +582,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
           .then(response => response.json())
           .then(res => {
-            console.log(res);
+            //console.log(res);
             if (res.status === 1) {
               const product = res.product;
               const productName = product.product_name;
@@ -689,4 +733,3 @@ closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
 
 
 //  retrieveTotalValues();
-
