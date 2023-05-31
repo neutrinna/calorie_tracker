@@ -1,8 +1,7 @@
 // Инна
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-// const profileUserData = new Object();
 // localStorage.clear()
-render()
+
 // Инна
 
 // Nastya Klm
@@ -23,7 +22,7 @@ const carbohydrate = document.querySelector(".carbohydrates");
 const optimalWeight = document.querySelector(".optimal-weight");
 
 const rateGole = 0.2;
-
+render()
 // норма РСК без учёта цели
 
 const getNormRSK = function () {
@@ -266,8 +265,8 @@ function render() {
       } else {
         carbohydrate.textContent = `${currentUser.carbs}`;
       }
-      
-      if ((typeof currentUser.optimalWeight === "undefined") || (currentUser.optimalWeight === `null`)) {
+
+      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
         optimalWeight.textContent = `-`;
       } else {
         optimalWeight.textContent = `${currentUser.goal}`
