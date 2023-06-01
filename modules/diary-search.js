@@ -407,7 +407,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector('.diary-macro__fats-amount').innerHTML = `${summaryStrings.Fat}`
 
                         //Инна, это для тебя :) ↓
-                    localStorage.setItem('тестовая запись веса', summaryStrings.Weight)
+                    // localStorage.setItem('тестовая запись веса', summaryStrings.Weight)
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.total = {
+                      weight: `${summaryStrings.Weight}`,
+                      kkal: `${summaryStrings.Kkal}`,
+                      carbs:`${summaryStrings.Carb}`,
+                      proteins: `${summaryStrings.Protein}`,
+                      fats: `${summaryStrings.Fat}`,
+                    };
+                    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
                   
                   observer.observe(observedParents[0], {
