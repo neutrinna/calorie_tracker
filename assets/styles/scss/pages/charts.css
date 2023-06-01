@@ -42,18 +42,11 @@
     width: 75vw;
   }
 }
-
-@media screen and (min-width: 1921px) {
-  .wrapper {
-    width: 75vw;
-  }
-}
 .charts-main {
   font-size: 18px;
   font-weight: 400;
   font-family: "Montserrat";
-  /* margin-left: 230px; */
-  margin-left: 17vw;
+  margin-left: 230px;
   margin-right: 59px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -178,28 +171,27 @@
   gap: 10%;
 }
 
-.charts-calorie__legend-item__yellow,
-.charts-calorie__legend-item__green,
-.charts-calorie__legend-item__red,
-.charts-calorie__legend-item__salad {
+.charts-calorie__legend-item__yellow {
   width: 15px;
   height: 15px;
-}
-
-
-.charts-calorie__legend-item__yellow {
   background-color: #FFEE54;
 }
 
 .charts-calorie__legend-item__green {
+  width: 15px;
+  height: 15px;
   background-color: #089BAB;
 }
 
 .charts-calorie__legend-item__red {
+  width: 15px;
+  height: 15px;
   background-color: #E06B6B;
 }
 
 .charts-calorie__legend-item__salad {
+  width: 15px;
+  height: 15px;
   background-color: #A1D28A;
 }
 
@@ -237,22 +229,21 @@
   align-items: flex-end;
 }
 
-.charts-macro__diagram-green,
-.charts-macro__diagram-red,
-.charts-macro__diagram-yellow {
+.charts-macro__diagram-green {
   width: 15%;
   height: 0%;
-}
-
-.charts-macro__diagram-green {
   background-color: #089BAB;
 }
 
 .charts-macro__diagram-red {
+  width: 15%;
+  height: 0%;
   background-color: #E06B6B;
 }
 
 .charts-macro__diagram-yellow {
+  width: 15%;
+  height: 0%;
   background-color: #FFEE54;
 }
 
@@ -442,5 +433,4 @@
 
 #weightList {
   display: none;
-}
-/*# sourceMappingURL=charts.css.map */
+}/*# sourceMappingURL=charts.css.map */

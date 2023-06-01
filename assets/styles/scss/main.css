@@ -872,7 +872,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-left: 3%;
-  width: 15%;
+  width: 25%;
 }
 .diary-table-string-2__meal-name_color_orange,
 .diary-table-string-1__meal-name_color_orange,
@@ -1347,6 +1347,7 @@ input:hover {
 }
 
 .profile-notification {
+  display: none;
   position: fixed;
   width: 100%;
   min-height: 100%;
@@ -1441,6 +1442,7 @@ input:hover {
   flex-grow: 1;
   justify-content: space-between;
   width: 100%;
+  height: 60%;
 }
 
 .profile-user__kkal-block {
