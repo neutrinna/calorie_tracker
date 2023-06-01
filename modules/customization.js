@@ -63,8 +63,8 @@ function loginUser() {
       document.getElementById("profile-paternity").style.display = "none";
       document.getElementById("profile-user").style.display = "flex";
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
-    
       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+      
       render()
 
       return ; // выходим из цикла, так как дальше перебирать нет смысла
