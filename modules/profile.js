@@ -225,14 +225,6 @@ function render() {
     } else {
       waterAmount.textContent = `${currentUser.water} мл`;
 
-      // Настя Кольцова
-      // значение целевого веса
-      const targetWeight = document.querySelector(
-        ".profile-user__target-weight"
-      ).textContent;
-      localStorage.setItem("targetWeight", targetWeight);
-      // Настя Кольцова
-
       if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
         document.querySelector(".profile-user__target-weight").textContent = `-`
       } else {
