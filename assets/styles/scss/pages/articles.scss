@@ -97,17 +97,23 @@
 
 // TOPICS 
 
-
-.topic-wrapper {
+.topic-wrapper-body {
     background-color: white;
-    margin-top: -5vh;
+}
+
+.topic-message {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .topic {
-    margin: 5vh 15vw 5vh 25vw;
+    margin: 0 15vw 5vh 25vw;
     
     &__title {
-        padding-top: 6vh;
+        padding-top: 8vh;
+        margin-top: 0;
         letter-spacing: 0.7px;
         text-align: center;
     }
@@ -128,6 +134,16 @@
         &_bold {
             font-weight: 700;
         }
+
+        &_message {
+            text-align: center;
+            padding: 8vh 3vw;
+        }
+    }
+
+    &__border {
+        background-color: $basic-color;
+        border-radius: 15px;
     }
 
     &__img-left {
@@ -164,6 +180,10 @@
 
     &__top {
         margin: 3vh 0;
+    }
+
+    &__massege {
+        width: 40vw;
 
     }
 }
@@ -241,6 +261,18 @@
 
     .topic__back {
         @include font (600, calc(( 100vw + 714.5px ) / 119.75))
+    }
+
+    .articles-section,
+    .articles-topics {
+        width: calc(( 100vw + 8751.3px ) / 10.1);
+        margin-right: calc(( 100vw - 2466.6px ) / -7)
+    }
+
+    .topic {
+        width: calc(( 100vw - 54.7px ) / 1.6);
+        margin-left: calc(( 100vw - 3830.6px ) / -6.6);
+        margin-right: calc(( 100vw - 1920px ) / -2.2);
     }
 }
 

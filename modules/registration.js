@@ -9,13 +9,12 @@
   
 
 function registrationAdd() {
-    const name = nameInput.value;
-    const surname = surnameInput.value;
+    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1);
+    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1);
     const bday = bdayInput.value;
     const email = emailInput.value;
     const password = passwordInput.value;
     const passwordRepeat = passwordRepeatInput.value;
-  
    
     if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
@@ -35,7 +34,7 @@ function registrationAdd() {
   
     // получаем текущий массив пользователей (если его нет, то создаем пустой массив)
     let userData = JSON.parse(localStorage.getItem("userData")) || [];
-  
+
     // проверка, что такой пользователь уже не зарегистрирован (по email)
     const existingUser = userData.find((user) => user.email === email);
     if (existingUser) {
@@ -57,7 +56,12 @@ function registrationAdd() {
     localStorage.setItem("userData", JSON.stringify(userData));
   
     // выводим сообщение об успешной регистрации
-    alert(`Пользователь ${name[0].toUpperCase() + name.slice(1)} ${surname[0].toUpperCase() + surname.slice(1)} успешно зарегистрирован!`);
+    alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`);
+    
+    const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
+    userSessions[`${email}`] = {};
+    console.log(userSessions);
+    localStorage.setItem("userSessions", JSON.stringify(userSessions));
 
     // сбрасываем значения полей ввода
     nameInput.value = "";
