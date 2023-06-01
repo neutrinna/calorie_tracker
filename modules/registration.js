@@ -8,75 +8,66 @@
   const submitBtn = document.getElementById("registration__submit");
   
 
-function registrationAdd() {
-    const name = nameInput.value;
-    const surname = surnameInput.value;
-    const bday = bdayInput.value;
-    const email = emailInput.value;
-    const password = passwordInput.value;
-    const passwordRepeat = passwordRepeatInput.value;
-   
-    if (name && surname && bday && email && password && passwordRepeat ) {
-      // код, который будет выполнен, если все переменные имеют значение
-    } else {
-      alert("Заполните все поля!");
-      return;
-    }
+  function registrationAdd() { 
+    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1); 
+    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1); 
+    const bday = bdayInput.value; 
+    const email = emailInput.value; 
+    const password = passwordInput.value; 
+    const passwordRepeat = passwordRepeatInput.value; 
   
-    function checkPassword() {
-    
-      if (password === '' || passwordRepeat === '') {
-        alert('Заполните оба поля');
-        return false;
-      }
-    
-      if (password !== passwordRepeat) {
-        alert('Пароли не совпадают');
-        return false;
-      }
-    
-      // Пароль прошел проверку
-      return true;
-    }
+    function checkPassword() { 
+       
+      if (password !== passwordRepeat) { 
+        return false; 
+      } 
   
-    // получаем текущий массив пользователей (если его нет, то создаем пустой массив)
-    let userData = JSON.parse(localStorage.getItem("userData")) || [];
-
-    // проверка, что такой пользователь уже не зарегистрирован (по email)
-    const existingUser = userData.find((user) => user.email === email);
-    if (existingUser) {
-      alert("Пользователь с таким email уже зарегистрирован!");
-      return;
-    }
+      // Пароль прошел проверку 
+      return true; 
+    } 
   
-    // создаем объект с данными нового пользователя
-    const newUser = {
-      name,
-      surname,
-      bday,
-      email,
-      password,
-    };
+    if (name && surname && bday && email && password && passwordRepeat && checkPassword()) { 
+      // получаем текущий массив пользователей (если его нет, то создаем пустой массив) 
+      let userData = JSON.parse(localStorage.getItem("userData")) || []; 
   
-    // добавляем нового пользователя в массив и сохраняем его в localStorage
-    userData.push(newUser);
-    localStorage.setItem("userData", JSON.stringify(userData));
+      // проверка, что такой пользователь уже не зарегистрирован (по email) 
+      const existingUser = userData.find((user) => user.email === email); 
+      if (existingUser) { 
+        alert("Пользователь с таким email уже зарегистрирован!"); 
+        return; 
+      } 
   
-    // выводим сообщение об успешной регистрации
-    alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`);
-    
-    const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
-    userSessions[`${email}`] = {};
-    console.log(userSessions);
-    localStorage.setItem("userSessions", JSON.stringify(userSessions));
-
-    // сбрасываем значения полей ввода
-    nameInput.value = "";
-    surnameInput.value = "";
-    bdayInput.value = "";
-    emailInput.value = "";
-    passwordInput.value = "";
-    passwordRepeatInput.value = "";
+     // создаем объект с данными нового пользователя 
+      const newUser = { 
+        name, 
+        surname, 
+        bday, 
+        email, 
+        password, 
+      }; 
+  
+      // добавляем нового пользователя в массив и сохраняем его в localStorage 
+      userData.push(newUser); 
+      localStorage.setItem("userData", JSON.stringify(userData)); 
+  
+      // выводим сообщение об успешной регистрации 
+      alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`); 
+  
+      const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {}; 
+      userSessions[`${email}`] = {}; 
+      console.log(userSessions); 
+      localStorage.setItem("userSessions", JSON.stringify(userSessions)); 
+  
+      // сбрасываем значения полей ввода 
+      nameInput.value = ""; 
+      surnameInput.value = ""; 
+      bdayInput.value = ""; 
+      emailInput.value = ""; 
+      passwordInput.value = ""; 
+      passwordRepeatInput.value = ""; 
+    } else { 
+      alert("Ошибка!Убедитесь что заполнены все поля и пароли совпадают!"); 
+    } 
   }
   
 
