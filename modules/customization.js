@@ -5,15 +5,19 @@ const formLog = document.querySelector(".profile-welcome__form");
 
 function loginUser() {
   const userData = JSON.parse(localStorage.getItem('userData'));
-  let currentUser = [];
+  const userSessions = JSON.parse(localStorage.getItem('userSessions'))||{};
+
   const emailInputValue = document.getElementById('loginEmail').value;
   const passwordInputValue = document.getElementById('loginPassword').value;
   let userFound = false; // добавляем переменную
+  // const currentUser = {};
 
   for (let i = 0; i < userData.length; i++) {
     // console.log(`emailInputValue: ${emailInputValue} userData[i].email:${userData[i].email}`);
     // console.log(`passwordInputValue: ${passwordInputValue} userData[i].password:${userData[i].password}`);
     if (emailInputValue === userData[i].email && passwordInputValue === userData[i].password) {
+
+      const currentUser = userSessions[`${emailInputValue}`]||{};
       console.log("Данные совпадают");
       loged = true;
       window.localStorage.setItem(`loged`, `${loged}`);
@@ -47,23 +51,23 @@ function loginUser() {
         age = age - 1;
       }
 
-      let userName = `${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)} ${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
-      currentUser[0]=userName;
-      currentUser[1] = age;
+      currentUser.name=`${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)}`;
+      currentUser.surname = `${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
+      currentUser.age = age;
+      currentUser.email = emailInputValue;
 
-      window.localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-      let user = JSON.parse(localStorage.getItem('currentUser'));
-
-      document.getElementById("profile-user__data-name").textContent = `${user[0]}`||``;
-      document.getElementById('profile-user__data-age').textContent = `Возраст: ${user[1]}`||``;;
+      document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
+      document.getElementById('profile-user__data-age').textContent = `Возраст: ${currentUser.age}`;
 
       document.getElementById("profile-welcome__wripper").style.display = "none";
       document.getElementById("profile-paternity").style.display = "none";
       document.getElementById("profile-user").style.display = "flex";
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
-      currentUser = [];
+    
+      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+      
 
-      return; // выходим из цикла, так как дальше перебирать нет смысла
+      return ; // выходим из цикла, так как дальше перебирать нет смысла
     }
   }
 
@@ -85,13 +89,23 @@ function exit() {
   document.getElementById("profile-paternity").style.display = "flex";
   document.getElementById("profile-user").style.display = "none";
   localStorage.setItem(`loged`, `${loged}`);
-  localStorage.setItem(`currentUser`, ``);
+  saveChanges()
+  const currentUser = {};
+  localStorage.setItem(`currentUser`, `${currentUser}`);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
+  closeDropdown()
+}
+
+function saveChanges() {
+  const userSessions = JSON.parse(localStorage.getItem("userSessions"));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  userSessions[`${currentUser.email}`] = currentUser; 
+  console.log(userSessions);
+  localStorage.setItem("userSessions", JSON.stringify(userSessions));
 }
 
 // buttonLog.addEventListener('click', loginUser);
 formLog.addEventListener('submit', function (event) {
   event.preventDefault()
 })
-
 
