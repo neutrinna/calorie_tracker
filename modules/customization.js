@@ -24,8 +24,7 @@ function loginUser() {
       userFound = true; // если пользователь найден, меняем значение переменной
 
       document.getElementById("customization__text_name").value =  userData[i].name;
-      document.getElementById("customization__text_surname").value =
-        userData[i].surname;
+      document.getElementById("customization__text_surname").value = userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1);
       document.getElementById("customization__text_bday").value =
         userData[i].bday;
       document.getElementById("customization__text_email").value =
@@ -76,8 +75,8 @@ function loginUser() {
 function customizationSave() {
   
   const userData = JSON.parse(localStorage.getItem('userData'));
-  let InputName = document.getElementById("customization__text_name").value;
-  let InputSurname = document.getElementById("customization__text_surname").value;
+  let InputName = document.getElementById("customization__text_name").value[0].toUpperCase() + document.getElementById("customization__text_name").value.slice(1);
+  let InputSurname = document.getElementById("customization__text_surname").value[0].toUpperCase() + document.getElementById("customization__text_surname").value.slice(1);
   let InputBday = document.getElementById("customization__text_bday").value;
   let InputPassword = document.getElementById("customization__text_password").value;
   let InputEmail = document.getElementById("customization__text_email").value
