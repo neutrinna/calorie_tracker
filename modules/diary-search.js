@@ -407,7 +407,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector('.diary-macro__fats-amount').innerHTML = `${summaryStrings.Fat}`
 
                         //Инна, это для тебя :) ↓
-                    localStorage.setItem('тестовая запись веса', summaryStrings.Weight)
+                    // localStorage.setItem('тестовая запись веса', summaryStrings.Weight)
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.total = {
+                      weight: `${summaryStrings.Weight}`,
+                      kkal: `${summaryStrings.Kkal}`,
+                      carbs:`${summaryStrings.Carb}`,
+                      proteins: `${summaryStrings.Protein}`,
+                      fats: `${summaryStrings.Fat}`,
+                    };
+                    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
                   
                   observer.observe(observedParents[0], {
@@ -439,6 +449,16 @@ document.addEventListener("DOMContentLoaded", function() {
                       stringCarbBreakfast.innerText = `${countSum (carbsArray)}`
                       stringProteinBreakfast.innerText = `${countSum (protsArray)}`
                       stringFatBreakfast.innerText = `${countSum (fatsArray)}`
+
+                      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                      currentUser.breakfast = {
+                        weight: stringWeightBreakfast.textContent,
+                        kkal: stringKkalBreakfast.textContent,
+                        carbs: stringCarbBreakfast.textContent,
+                        proteins: stringProteinBreakfast.textContent,
+                        fats: stringFatBreakfast.textContent,
+                      };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
 
                   const countStringWeight2 = () => {
@@ -447,6 +467,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbLunch.innerText = `${countSum (carbsArray2)}`
                     stringProteinLunch.innerText = `${countSum (protsArray2)}`
                     stringFatLunch.innerText = `${countSum (fatsArray2)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.lunch = {
+                      weight: stringWeightLunch.textContent,
+                      kkal: stringKkalLunch.textContent,
+                      carbs: stringCarbLunch.textContent,
+                      proteins: stringProteinLunch.textContent,
+                      fats: stringFatLunch.textContent,
+                    };
+                    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
 
                   const countStringWeight3 = () => {
@@ -455,6 +485,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbDinner.innerText = `${countSum (carbsArray3)}`
                     stringProteinDinner.innerText = `${countSum (protsArray3)}`
                     stringFatDinner.innerText = `${countSum (fatsArray3)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.dinner = {
+                      weight: stringWeightDinner.textContent,
+                      kkal: stringKkalDinner.textContent,
+                      carbs: stringCarbDinner.textContent,
+                      proteins: stringProteinDinner.textContent,
+                      fats: stringFatDinner.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
 
                   const countStringWeight4 = () => {
@@ -463,6 +503,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbSnack.innerText = `${countSum (carbsArray4)}`
                     stringProteinSnack.innerText = `${countSum (protsArray4)}`
                     stringFatSnack.innerText = `${countSum (fatsArray4)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.snack = {
+                      weight: stringWeightSnack.textContent,
+                      kkal: stringKkalSnack.textContent,
+                      carbs: stringCarbSnack.textContent,
+                      proteins: stringProteinSnack.textContent,
+                      fats: stringFatSnack.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
 
                   // цикл подсчета сложения 
@@ -511,6 +561,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     stringCarbBreakfast.innerText = `${minusSum3 (+stringCarbBreakfast.innerText, countObj.carb)}`
                     stringProteinBreakfast.innerText = `${minusSum4 (+stringProteinBreakfast.innerText, countObj.protein)}`
                     stringFatBreakfast.innerText = `${minusSum5 (+stringFatBreakfast.innerText, countObj.fat)}`
+
+                    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.breakfast = {
+                      weight: stringWeightBreakfast.textContent,
+                      kkal: stringKkalBreakfast.textContent,
+                      carbs: stringCarbBreakfast.textContent,
+                      proteins: stringProteinBreakfast.textContent,
+                      fats: stringFatBreakfast.textContent,
+                    };
+                    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                     
                 }
 
@@ -522,6 +582,16 @@ document.addEventListener("DOMContentLoaded", function() {
                   stringProteinLunch.innerText = `${minusSum4 (+stringProteinLunch.innerText, countObj2.protein)}`
                   stringFatLunch.innerText = `${minusSum5 (+stringFatLunch.innerText, countObj2.fat)}`
 
+                  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                      currentUser.lunch = {
+                        weight: stringWeightLunch.textContent,
+                        kkal: stringKkalLunch.textContent,
+                        carbs: stringCarbLunch.textContent,
+                        proteins: stringProteinLunch.textContent,
+                        fats: stringFatLunch.textContent,
+                      };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+
                 }
 
                 function getNumbers3 () {
@@ -532,6 +602,16 @@ document.addEventListener("DOMContentLoaded", function() {
                   stringProteinDinner.innerText = `${minusSum4 (+stringProteinDinner.innerText, countObj3.protein)}`
                   stringFatDinner.innerText = `${minusSum5 (+stringFatDinner.innerText, countObj3.fat)}`
 
+                  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.dinner = {
+                      weight: stringWeightDinner.textContent,
+                      kkal: stringKkalDinner.textContent,
+                      carbs: stringCarbDinner.textContent,
+                      proteins: stringProteinDinner.textContent,
+                      fats: stringFatDinner.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+
                 }
 
                 function getNumbers4 () {
@@ -541,6 +621,16 @@ document.addEventListener("DOMContentLoaded", function() {
                   stringCarbSnack.innerText = `${minusSum3 (+stringCarbSnack.innerText, countObj4.carb)}`
                   stringProteinSnack.innerText = `${minusSum4 (+stringProteinSnack.innerText, countObj4.protein)}`
                   stringFatSnack.innerText = `${minusSum5 (+stringFatSnack.innerText, countObj4.fat)}`
+
+                  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    currentUser.snack = {
+                      weight: stringWeightSnack.textContent,
+                      kkal: stringKkalSnack.textContent,
+                      carbs: stringCarbSnack.textContent,
+                      proteins: stringProteinSnack.textContent,
+                      fats: stringFatSnack.textContent,
+                    };
+                      localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                     
                 }
 
