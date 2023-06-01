@@ -69,31 +69,19 @@ function resultGoal() {
 // рассчёт БЖУ
 
 function countNutrients() {
-  let protNorm;
-  let fatNorm;
-  let carbNorm;
-
   if (goal.value == "lose-weight") {
-    protNorm = `${Math.round((+resultGoal() * 25) / 100 / 4)}`;
-    fatNorm = `${Math.round((+resultGoal() * 35) / 100 / 9)}`;
-    carbNorm = `${Math.round((+resultGoal() * 40) / 100 / 4)}`;
-
-    protein.innerHTML = `${protNorm} г`;
-    fat.innerHTML = `${fatNorm} г`;
-    carbohydrate.innerHTML = `${carbNorm} г`;
+    protein.innerHTML = `${Math.round((+resultGoal() * 25) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 35) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 40) / 100 / 4)} г`;
   } else if (goal.value == "maintenance" || goal.value == "gain") {
-    protNorm = `${Math.round((+resultGoal() * 20) / 100 / 4)}`;
-    fatNorm = `${Math.round((+resultGoal() * 30) / 100 / 9)}`;
-    carbNorm = `${Math.round((+resultGoal() * 50) / 100 / 4)}`;
-
-    protein.innerHTML = `${carbNorm} г`;
-    fat.innerHTML = `${fatNorm} г`;
-    carbohydrate.innerHTML = `${carbNorm} г`;
+    protein.innerHTML = `${Math.round((+resultGoal() * 20) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 30) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
   }
   if (localStorage.getItem("loged") === "true") {
-    currentUser.prot = protNorm;
-    currentUser.fat = fatNorm;
-    currentUser.carbs = carbNorm;
+    currentUser.prot = protein.textContent;
+    currentUser.fat = fat.textContent;
+    currentUser.carbs = carbohydrate.textContent;
   }
 }
 
@@ -326,7 +314,6 @@ function render() {
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
       }
     }
-
 
   }
 }
