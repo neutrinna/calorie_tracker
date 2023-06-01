@@ -9,8 +9,8 @@
   
 
 function registrationAdd() {
-    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1);
-    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1);
+    const name = nameInput.value;
+    const surname = surnameInput.value;
     const bday = bdayInput.value;
     const email = emailInput.value;
     const password = passwordInput.value;
@@ -18,18 +18,25 @@ function registrationAdd() {
    
     if (name && surname && bday && email && password && passwordRepeat ) {
       // код, который будет выполнен, если все переменные имеют значение
-       
-          
+    } else {
+      alert("Заполните все поля!");
+      return;
+    }
+  
+    function checkPassword() {
+    
+      if (password === '' || passwordRepeat === '') {
+        alert('Заполните оба поля');
+        return false;
+      }
+    
       if (password !== passwordRepeat) {
         alert('Пароли не совпадают');
         return false;
       }
     
-     // Пароль прошел проверку
-     return true;
-    } else {
-      alert("Заполните все поля!");
-      return;
+      // Пароль прошел проверку
+      return true;
     }
   
     // получаем текущий массив пользователей (если его нет, то создаем пустой массив)
