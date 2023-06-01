@@ -69,31 +69,19 @@ function resultGoal() {
 // рассчёт БЖУ
 
 function countNutrients() {
-  let protNorm;
-  let fatNorm;
-  let carbNorm;
-
   if (goal.value == "lose-weight") {
-    protNorm = `${Math.round((+resultGoal() * 25) / 100 / 4)}`;
-    fatNorm = `${Math.round((+resultGoal() * 35) / 100 / 9)}`;
-    carbNorm = `${Math.round((+resultGoal() * 40) / 100 / 4)}`;
-
-    protein.innerHTML = `${protNorm} г`;
-    fat.innerHTML = `${fatNorm} г`;
-    carbohydrate.innerHTML = `${carbNorm} г`;
+    protein.innerHTML = `${Math.round((+resultGoal() * 25) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 35) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 40) / 100 / 4)} г`;
   } else if (goal.value == "maintenance" || goal.value == "gain") {
-    protNorm = `${Math.round((+resultGoal() * 20) / 100 / 4)}`;
-    fatNorm = `${Math.round((+resultGoal() * 30) / 100 / 9)}`;
-    carbNorm = `${Math.round((+resultGoal() * 50) / 100 / 4)}`;
-
-    protein.innerHTML = `${carbNorm} г`;
-    fat.innerHTML = `${fatNorm} г`;
-    carbohydrate.innerHTML = `${carbNorm} г`;
+    protein.innerHTML = `${Math.round((+resultGoal() * 20) / 100 / 4)} г`;
+    fat.innerHTML = `${Math.round((+resultGoal() * 30) / 100 / 9)} г`;
+    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
   }
   if (localStorage.getItem("loged") === "true") {
-    currentUser.prot = protNorm;
-    currentUser.fat = fatNorm;
-    currentUser.carbs = carbNorm;
+    currentUser.prot = protein.textContent;
+    currentUser.fat = fat.textContent;
+    currentUser.carbs = carbohydrate.textContent;
   }
 }
 
@@ -250,18 +238,13 @@ function render() {
       } else {
         document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
       }
-      if ((typeof currentUser.total.kkal === "undefined") || (currentUser.total.kkal === `null`)) {
-        document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`
-      } else {
-        document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`
-      }
 
       if ((typeof currentUser.kkal === "undefined") || (currentUser.kkal === `null`)) {
         document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
         resultRSK.textContent = `-`;
       } else {
         document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-        currentUser.total.kkal}`;
+        document.querySelector(".profile-user__kkal-amount_eaten").textContent}`;
         resultRSK.textContent = `${currentUser.kkal}`
       }
 
@@ -288,48 +271,6 @@ function render() {
       } else {
         optimalWeight.textContent = `${currentUser.goal}`
       }
-
-      // scales
-      if ((typeof currentUser.total.carbs === "undefined") || (currentUser.total.carbs === `null`)) {
-        document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
-        document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
-      } else {
-        document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs}`;
-        if(currentUser.total.carbs/currentUser.carbs*100>100){
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.backgroundColor = `red`
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `${currentUser.total.carbs/currentUser.carbs*100}%`;
-        }
-      }
-
-      if ((typeof currentUser.total.proteins === "undefined") || (currentUser.total.proteins === `null`)) {
-        document.querySelector(".profile-user__macro-amount_prot").textContent = ``;
-      } else {
-        document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins}`;
-        if(currentUser.total.proteins/currentUser.prot*100>100){
-          document.querySelector(".profile-user__macro-scale-line_protein").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_protein").style.backgroundColor = `red`;
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_protein").style.width = `${currentUser.total.proteins/currentUser.prot*100}%`;
-        }
-      }
-      if ((typeof currentUser.total.fats === "undefined") || (currentUser.total.fats === `null`)) {
-        document.querySelector(".profile-user__macro-amount_fat").textContent = ``;
-      } else {
-        document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats}`;
-        if(currentUser.total.fats/currentUser.fat*100>100){
-          document.querySelector(".profile-user__macro-scale-line_fat").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_fat").style.backgroundColor = `red`
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
-        }
-      }
-
-
     }
   }
 }
