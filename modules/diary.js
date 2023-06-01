@@ -4,6 +4,26 @@ const trackerInput = document.querySelector(".diary-water-tracker__form");
 const glassCountRes = document.querySelector(".diary-water-tracker__crrnt-res");
 const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res");
 
+// сохранение данных трекера после выхода
+document.addEventListener('DOMContentLoaded', () => writeWaterData())
+document.addEventListener('DOMContentLoaded', () => setGlassValueOnLoad())
+
+function writeWaterData () {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    glassCountRes.textContent = `${currentUser.water}`
+}
+
+function setGlassValueOnLoad () {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let Radio = currentUser.waterGlassAmount;
+
+    if (Radio) {
+    let inp = document.querySelector('input[name="glass"][value="' + Radio + '"]');
+    if (inp) {
+    inp.checked = true; 
+    }}
+}
+///
 
 const handleFormChange = (e) => {
     const glassCount = e.target.value;
@@ -13,6 +33,7 @@ const handleFormChange = (e) => {
     
     const currentUser = JSON.parse(localStorage.getItem(`currentUser`)); 
     currentUser.water = waterTrackerResult;
+    currentUser.waterGlassAmount = glassCount;
     localStorage.setItem(`currentUser`, JSON.stringify(currentUser)); // ЗАПИСЬ РЕЗУЛЬТАТА В localStorage
 }
 
@@ -66,11 +87,37 @@ function showAndHideDiv (a, b) {
         a.style.height = `${a.children.length*64}px`;
         a.style.transition = "0.5s";
         a.style.opacity = "1";
-        b.classList.add('diary-table-string__add-btn_focus');
-        
+        b.classList.add('diary-table-string__add-btn_focus'); 
     }
   
 };
+
+// const observedParents = document.querySelectorAll('.diary-table-string__column-names')
+// const observer = new MutationObserver(getHeight)
+
+// function getHeight () {
+//             alert('aaa')
+// }
+
+// observer.observe(observedParents[0], {
+//     childList: true, 
+//     subtree: true,
+// });
+
+// observer.observe(observedParents[1], {
+//     childList: true, 
+//     subtree: true,
+// });
+
+// observer.observe(observedParents[2], {
+//     childList: true, 
+//     subtree: true, 
+// });
+
+// observer.observe(observedParents[3], {
+//     childList: true, 
+//     subtree: true,
+// });
 
 
 
