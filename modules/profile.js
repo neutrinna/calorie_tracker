@@ -200,12 +200,12 @@ for (let i = 0; i < macroAmount.length; i++) {
 kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
 // data
 
-// time
-const dateNode = document.querySelector(`.profile-user__date-value`);
-dateNode.textContent = moment().format("DD/MM/YYYY");
-// time
 
 function render() {
+  // time
+  const dateNode = document.querySelector(`.profile-user__date-value`);
+  dateNode.textContent = moment().format("DD/MM/YYYY");
+  // time
 
   // page load
   if (localStorage.getItem("loged") === "true") {
@@ -223,114 +223,111 @@ function render() {
     if ((typeof currentUser.water === "undefined") || (currentUser.water === `null`)) {
       waterAmount.textContent = "0 мл";
     } else {
-      waterAmount.textContent = `${currentUser.water} мл`;
-
-      // Настя Кольцова
-      // значение целевого веса
-      const targetWeight = document.querySelector(
-        ".profile-user__target-weight"
-      ).textContent;
-      localStorage.setItem("targetWeight", targetWeight);
-      // Настя Кольцова
-
-      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
-        document.querySelector(".profile-user__target-weight").textContent = `-`
-      } else {
-        document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal} `
-      }
-
-      if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)) {
-        document.querySelector(".profile-user__states-value_growth").textContent = `-`
-      } else {
-        document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} см`
-      };
-
-      if ((typeof currentUser.weight === "undefined") || (currentUser.weight === `null`)) {
-        document.querySelector(".profile-user__states-value_weight").textContent = `-`;
-      } else {
-        document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-      }
-      if ((typeof currentUser.total.kkal === "undefined") || (currentUser.total.kkal === `null`)) {
-        document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`
-      } else {
-        document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`
-      }
-
-      if ((typeof currentUser.kkal === "undefined") || (currentUser.kkal === `null`)) {
-        document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
-        resultRSK.textContent = `-`;
-      } else {
-        document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-        currentUser.total.kkal}`;
-        resultRSK.textContent = `${currentUser.kkal}`
-      }
-
-      if ((typeof currentUser.prot === "undefined") || (currentUser.prot === `null`)) {
-        protein.textContent = `-`;
-      } else {
-        protein.textContent = `${currentUser.prot}`;
-      }
-
-      if ((typeof currentUser.fat === "undefined") || (currentUser.fat === `null`)) {
-        fat.textContent = `-`;
-      } else {
-        fat.textContent = `${currentUser.fat}`;
-      }
-
-      if ((typeof currentUser.carbs === "undefined") || (currentUser.carbs === `null`)) {
-        carbohydrate.textContent = `-`;
-      } else {
-        carbohydrate.textContent = `${currentUser.carbs}`;
-      }
-
-      if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
-        optimalWeight.textContent = `-`;
-      } else {
-        optimalWeight.textContent = `${currentUser.goal}`
-      }
-
-      // scales
-      if ((typeof currentUser.total.carbs === "undefined") || (currentUser.total.carbs === `null`)) {
-        document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
-        document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
-      } else {
-        document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs}`;
-        if(currentUser.total.carbs/currentUser.carbs*100>100){
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.backgroundColor = `red`
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `${currentUser.total.carbs/currentUser.carbs*100}%`;
-        }
-      }
-
-      if ((typeof currentUser.total.proteins === "undefined") || (currentUser.total.proteins === `null`)) {
-        document.querySelector(".profile-user__macro-amount_prot").textContent = ``;
-      } else {
-        document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins}`;
-        if(currentUser.total.proteins/currentUser.prot*100>100){
-          document.querySelector(".profile-user__macro-scale-line_protein").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_protein").style.backgroundColor = `red`;
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_protein").style.width = `${currentUser.total.proteins/currentUser.prot*100}%`;
-        }
-      }
-      if ((typeof currentUser.total.fats === "undefined") || (currentUser.total.fats === `null`)) {
-        document.querySelector(".profile-user__macro-amount_fat").textContent = ``;
-      } else {
-        document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats}`;
-        if(currentUser.total.fats/currentUser.fat*100>100){
-          document.querySelector(".profile-user__macro-scale-line_fat").style.width = `100%`;
-          document.querySelector(".profile-user__macro-scale-line_fat").style.backgroundColor = `red`
-        }
-        else{
-          document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
-        }
-      }
-
-
+      waterAmount.textContent = `${currentUser.water} мл`
     }
+
+    // Настя Кольцова
+    // значение целевого веса
+    const targetWeight = document.querySelector(
+      ".profile-user__target-weight"
+    ).textContent;
+    localStorage.setItem("targetWeight", targetWeight);
+    // Настя Кольцова
+
+    if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
+      document.querySelector(".profile-user__target-weight").textContent = `-`
+    } else {
+      document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal} `
+    }
+
+    if ((typeof currentUser.growth === "undefined") || (currentUser.growth === `null`)) {
+      document.querySelector(".profile-user__states-value_growth").textContent = `-`
+    } else {
+      document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} см`
+    };
+
+    if ((typeof currentUser.weight === "undefined") || (currentUser.weight === `null`)) {
+      document.querySelector(".profile-user__states-value_weight").textContent = `-`;
+    } else {
+      document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
+    }
+    if ((typeof currentUser.total.kkal === "undefined") || (currentUser.total.kkal === `null`)) {
+      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`
+    } else {
+      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`
+    }
+
+    if ((typeof currentUser.kkal === "undefined") || (currentUser.kkal === `null`)) {
+      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
+      resultRSK.textContent = `-`;
+    } else {
+      document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
+        currentUser.total.kkal}`;
+      resultRSK.textContent = `${currentUser.kkal}`
+    }
+
+    if ((typeof currentUser.prot === "undefined") || (currentUser.prot === `null`)) {
+      protein.textContent = `-`;
+    } else {
+      protein.textContent = `${currentUser.prot}`;
+    }
+
+    if ((typeof currentUser.fat === "undefined") || (currentUser.fat === `null`)) {
+      fat.textContent = `-`;
+    } else {
+      fat.textContent = `${currentUser.fat}`;
+    }
+
+    if ((typeof currentUser.carbs === "undefined") || (currentUser.carbs === `null`)) {
+      carbohydrate.textContent = `-`;
+    } else {
+      carbohydrate.textContent = `${currentUser.carbs}`;
+    }
+
+    if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
+      optimalWeight.textContent = `-`;
+    } else {
+      optimalWeight.textContent = `${currentUser.goal}`
+    }
+
+    // scales
+    if ((typeof currentUser.total.carbs === "undefined") || (currentUser.total.carbs === `null`)) {
+      document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
+      document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
+    } else {
+      document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs}`;
+      if (currentUser.total.carbs / currentUser.carbs * 100 > 100) {
+        document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `100%`;
+        document.querySelector(".profile-user__macro-scale-line_carbs").style.backgroundColor = `red`
+      } else {
+        document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `${currentUser.total.carbs/currentUser.carbs*100}%`;
+      }
+    }
+
+    if ((typeof currentUser.total.proteins === "undefined") || (currentUser.total.proteins === `null`)) {
+      document.querySelector(".profile-user__macro-amount_prot").textContent = ``;
+    } else {
+      document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins}`;
+      if (currentUser.total.proteins / currentUser.prot * 100 > 100) {
+        document.querySelector(".profile-user__macro-scale-line_protein").style.width = `100%`;
+        document.querySelector(".profile-user__macro-scale-line_protein").style.backgroundColor = `red`;
+      } else {
+        document.querySelector(".profile-user__macro-scale-line_protein").style.width = `${currentUser.total.proteins/currentUser.prot*100}%`;
+      }
+    }
+    if ((typeof currentUser.total.fats === "undefined") || (currentUser.total.fats === `null`)) {
+      document.querySelector(".profile-user__macro-amount_fat").textContent = ``;
+    } else {
+      document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats}`;
+      if (currentUser.total.fats / currentUser.fat * 100 > 100) {
+        document.querySelector(".profile-user__macro-scale-line_fat").style.width = `100%`;
+        document.querySelector(".profile-user__macro-scale-line_fat").style.backgroundColor = `red`
+      } else {
+        document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
+      }
+    }
+
+
   }
 }
 // Инна
