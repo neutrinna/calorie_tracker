@@ -29,7 +29,6 @@
   padding-right: 10px;
   justify-content: space-between;
   background-color: white;
-  position: -webkit-sticky;
   position: sticky;
 }
 
@@ -53,19 +52,9 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
   margin-left: 35vw;
   margin-top: 10px;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes spin {
@@ -76,10 +65,14 @@
     transform: rotate(360deg);
   }
 }
-.delete-column {
+.delete-column,
+.delete-column2,
+.delete-column3,
+.delete-column4 {
   border: 0px;
   cursor: pointer;
   display: flex;
   align-items: center;
   margin-left: 0px;
+  background-color: white;
 }/*# sourceMappingURL=search.css.map */
