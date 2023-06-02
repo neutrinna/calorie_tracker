@@ -90,7 +90,7 @@ body {
 }
 
 // строки дневника
-//.diary-table-string-2,
+.diary-table-string-2,
 .diary-table-string-1,
 .diary-table-string {
     display: flex;
@@ -154,17 +154,6 @@ body {
         background-color: $basic-color;
     }
 
-}
-
-.diary-table-string-1 {
-    &__column-names {
-        width: 62%;
-    }
-}
-
-.diary-table-string-2 {
-    width: 70%;
-    font-size: 16px;
 }
 
 /////////////закрытие-открытие кнопок "+"////////////////////
