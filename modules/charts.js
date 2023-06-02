@@ -241,19 +241,34 @@ const updateWeightInfo = () => {
     const today = new Date().toISOString().slice(0, 10);
     const weights = getWeightsByDate(today);
 
-    const lastWeight = weights[weights.length - 1] || undefined;
-    const targetWeight = currentUser.goal.split(' ')[0] || undefined;
-    const earliestWeight = getEarliestWeight(weights);
+    const lastWeight = weights[weights.length - 1];
+    const targetWeight = parseFloat(currentUser.goal.split(" ")[0]);
+    const earliestWeight = getEarliestWeight(weights) || lastWeight;
+    const droppedEl = document.querySelector('.charts-grid-weight-dropped-text');
+    const remainedEl = document.querySelector('.charts-grid-weight-remained-text');
+    const changesEl = document.querySelector('.charts-weight__changes');
 
-    const dropped = (lastWeight && targetWeight && earliestWeight) ? (lastWeight - earliestWeight - targetWeight) : 0;
-    const remained = (lastWeight && targetWeight) ? (targetWeight - lastWeight) : 0;
+    if (lastWeight === undefined || targetWeight === undefined || isNaN(lastWeight) || isNaN(targetWeight)) {
+        droppedEl.innerHTML = `<p class="charts-kg-green">-</p>`;
+        remainedEl.innerHTML = `<p class="charts-kg-green">-</p>`;
+        return;
+    }
+    
+    if (lastWeight === targetWeight) {
+        changesEl.innerHTML = `<p class="charts-kg-green" style="margin-left: 20%">Ваш вес идеален. Вы молодец!</p>`;
+        return;
+    }
 
-    const droppedText = document.querySelector('.charts-grid-weight-dropped-text');
-    const remainedText = document.querySelector('.charts-grid-weight-remained-text');
+    const isGain = lastWeight < targetWeight;
+    const isEarliestGreater = earliestWeight > lastWeight;
+    const droppedWeight = isEarliestGreater ? earliestWeight - lastWeight : lastWeight - earliestWeight;
+    const remainedWeight = isGain ? targetWeight - lastWeight : lastWeight - targetWeight;
+    const droppedText = isGain ? `${droppedWeight} кг набрано` : `${droppedWeight} кг сброшено`;
+    const remainedText = `${remainedWeight} кг осталось`;
 
-    droppedText.innerHTML = `Сброшено/набрано <span class="charts-kg-green">${dropped} кг</span>`;
-    remainedText.innerHTML = `Осталось <span class="charts-kg-red">${remained} кг</span>`;
-};
+    droppedEl.innerHTML = `<p class="charts-kg-${isGain ? 'green' : 'red'}">${droppedText}</p>`;
+    remainedEl.innerHTML = `<p class="charts-kg-${isGain && isEarliestGreater ? 'red' : 'green'}">${remainedText}</p>`;
+};  
 
 updateWeightInfo();
 
