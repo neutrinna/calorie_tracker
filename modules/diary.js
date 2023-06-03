@@ -1,12 +1,3 @@
-    // загрузка добавленных ранее продуктов
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log("DOM fully loaded and parsed");
-        storage = JSON.parse(localStorage.getItem(`storedStrings`));
-        console.log(storage);
-        document.querySelector('.accordeon1').innerHTML = storage;
-    
-      });
-
 
 // трекер воды
 const glassCountForm = document.querySelector(".diary-water-tracker__form");
@@ -20,7 +11,11 @@ document.addEventListener('DOMContentLoaded', () => setGlassValueOnLoad())
 
 function writeWaterData () {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser.water === undefined) {
+        glassCountRes.textContent = '0'
+    } else {
     glassCountRes.textContent = `${currentUser.water}`
+    }
 }
 
 function setGlassValueOnLoad () {
@@ -107,112 +102,70 @@ function countHeightAfterDelete (a) {
     a.style.height = `${a.children.length*64-64}px`;
 }
 
-    //посчитать высоту после поиска элемента
-const search1 = document.getElementById(`diary-search-1`);
-search1.addEventListener("keypress", function (e) {
-    if (e.key === 'Enter') {countAccordeonHeight (accordeon);}
+
+//посчитать высоту после поиска элемента
+const search1Diary = document.getElementById(`diary-search-1`);
+search1Diary.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeightDiary (accordeon);}
   })
 
-const search2 = document.getElementById(`diary-search-2`);
-search2.addEventListener("keypress", function (e) {
-    if (e.key === 'Enter') {countAccordeonHeight (accordeon2);}
+const search2Diary = document.getElementById(`diary-search-2`);
+search2Diary.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeightDiary (accordeon2);}
   })
 
-const search3 = document.getElementById(`diary-search-3`);
-search3.addEventListener("keypress", function (e) {
-    if (e.key === 'Enter') {countAccordeonHeight (accordeon3);}
+const search3Diary = document.getElementById(`diary-search-3`);
+search3Diary.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeightDiary (accordeon3);}
   })
 
-const search4 = document.getElementById(`diary-search-4`);
-search4.addEventListener("keypress", function (e) {
-    if (e.key === 'Enter') {countAccordeonHeight (accordeon4);}
+const search4Diary = document.getElementById(`diary-search-4`);
+search4Diary.addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {countAccordeonHeightDiary (accordeon4);}
   })
 
-
-function countAccordeonHeight (a) {
+function countAccordeonHeightDiary (a) {
     a.style.height = `${a.children.length*64+64}px`;
 }
 
 
-
-
-
-// ЗАПИСЬ ДАННЫХ СТРОК
-
-const observedParents = document.querySelectorAll('.diary-table-string__column-names');
-//const test = document.querySelector('.diary-table-string-1')
-
-const observer = new MutationObserver(test);
-
-
-function test () {
-    //console.log('DATA:', accordeon.innerHTML);
-    //data = accordeon.innerHTML.slice(450);
-    data = accordeon.innerHTML;
-    localStorage.setItem(`storedStrings`, JSON.stringify(data));
-}
-
-
-observer.observe(observedParents[0], {
-    childList: true,
-    characterData: true, 
-    subtree: true,
-});
-
-observer.observe(observedParents[1], {
-    childList: true, 
-    characterData: true, 
-    subtree: true,
-});
-
-observer.observe(observedParents[2], {
-    childList: true, 
-    subtree: true, 
-});
-
-observer.observe(observedParents[3], {
-    childList: true, 
-    subtree: true,
-});
-
-
-
+// пока закомментила, чтобы не выдавал ошибку в логе
 // Настя Кольцова - начало - для charts.js
 
-const setKcalOrMacroAttribute = (element) => {
-    const kcalOrMacroValue = element.innerText.split(' ')[0];
-    element.setAttribute('data', kcalOrMacroValue);
-};
+// const setKcalOrMacroAttribute = (element) => {
+//     const kcalOrMacroValue = element.innerText.split(' ')[0];
+//     element.setAttribute('data', kcalOrMacroValue);
+// };
 
-const breakfastAmountElement = document.querySelector('.diary-kcal__breakfast-amount');
-setKcalOrMacroAttribute(breakfastAmountElement);
-const lunchAmountElement = document.querySelector('.diary-kcal__lunch-amount');
-setKcalOrMacroAttribute(lunchAmountElement);
-const dinnerAmountElement = document.querySelector('.diary-kcal__dinner-amount');
-setKcalOrMacroAttribute(dinnerAmountElement);
-const snackAmountElement = document.querySelector('.diary-kcal__snack-amount');
-setKcalOrMacroAttribute(snackAmountElement);
+// const breakfastAmountElement = document.querySelector('.diary-kcal__breakfast-amount');
+// setKcalOrMacroAttribute(breakfastAmountElement);
+// const lunchAmountElement = document.querySelector('.diary-kcal__lunch-amount');
+// setKcalOrMacroAttribute(lunchAmountElement);
+// const dinnerAmountElement = document.querySelector('.diary-kcal__dinner-amount');
+// setKcalOrMacroAttribute(dinnerAmountElement);
+// const snackAmountElement = document.querySelector('.diary-kcal__snack-amount');
+// setKcalOrMacroAttribute(snackAmountElement);
 
-const carboAmountElement = document.querySelector('.diary-macro__carbo-amount');
-setKcalOrMacroAttribute(carboAmountElement);
-const proteinAmountElement = document.querySelector('.diary-macro__protein-amount');
-setKcalOrMacroAttribute(proteinAmountElement);
-const fatsAmountElement = document.querySelector('.diary-macro__fats-amount');
-setKcalOrMacroAttribute(fatsAmountElement);
+// const carboAmountElement = document.querySelector('.diary-macro__carbo-amount');
+// setKcalOrMacroAttribute(carboAmountElement);
+// const proteinAmountElement = document.querySelector('.diary-macro__protein-amount');
+// setKcalOrMacroAttribute(proteinAmountElement);
+// const fatsAmountElement = document.querySelector('.diary-macro__fats-amount');
+// setKcalOrMacroAttribute(fatsAmountElement);
 
 
-const setLocalStorageItem = (key, selector, attribute) => {
-    const value = document.querySelector(selector).getAttribute(attribute);
-    localStorage.setItem(key, value);
-};
+// const setLocalStorageItem = (key, selector, attribute) => {
+//     const value = document.querySelector(selector).getAttribute(attribute);
+//     localStorage.setItem(key, value);
+// };
 
-setLocalStorageItem('breakfastAmount', '.diary-kcal__breakfast-amount', 'data');
-setLocalStorageItem('lunchAmount', '.diary-kcal__lunch-amount', 'data');
-setLocalStorageItem('dinnerAmount', '.diary-kcal__dinner-amount', 'data');
-setLocalStorageItem('snackAmount', '.diary-kcal__snack-amount', 'data');
+// setLocalStorageItem('breakfastAmount', '.diary-kcal__breakfast-amount', 'data');
+// setLocalStorageItem('lunchAmount', '.diary-kcal__lunch-amount', 'data');
+// setLocalStorageItem('dinnerAmount', '.diary-kcal__dinner-amount', 'data');
+// setLocalStorageItem('snackAmount', '.diary-kcal__snack-amount', 'data');
 
-setLocalStorageItem('carboAmount', '.diary-macro__carbo-amount', 'data');
-setLocalStorageItem('proteinAmount', '.diary-macro__protein-amount', 'data');
-setLocalStorageItem('fatsAmount', '.diary-macro__fats-amount', 'data');
+// setLocalStorageItem('carboAmount', '.diary-macro__carbo-amount', 'data');
+// setLocalStorageItem('proteinAmount', '.diary-macro__protein-amount', 'data');
+// setLocalStorageItem('fatsAmount', '.diary-macro__fats-amount', 'data');
 
 // Настя Кольцова - конец - для charts.js
