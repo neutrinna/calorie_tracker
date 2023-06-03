@@ -48,7 +48,7 @@ const getNormRSK = function () {
     currentUser.growth = growth.value;
     currentUser.weight = weight.value;
   }
-  console.log(resultRSK.innerHTML);
+
   return resultRSK.innerHTML;
 };
 
@@ -130,10 +130,9 @@ function setValues() {
   document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
   document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`;
   document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-  try{
+  try {
     document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`
-  }
-  catch{
+  } catch {
     document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
   }
 }
@@ -162,52 +161,39 @@ form.addEventListener("submit", (event) => {
 
 // ИННА
 // chart
-const doughnut = document.getElementById("doughnut");
-const macro = document.querySelectorAll(`.profile-user__macro-amount_span`);
-const macroAmount = [];
-
-for (let macroElement of macro) {
-  macroAmount.push(`${macroElement.textContent}`);
-}
-
-new Chart(doughnut, {
-  type: "doughnut",
-  data: {
-    // labels: ['Углеводы', 'Белки', 'Жиры'],
-    datasets: [{
-      label: "грамм",
-      data: macroAmount,
-      borderWidth: 1,
-      backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
-      borderColor: [
-        "rgba(0, 0, 0, 0.7)",
-        "rgba(0, 0, 0, 0.7)",
-        "rgba(0, 0, 0, 0.7)",
-      ],
-    }, ],
-  },
-});
-// chart
-
-// data
-let kkalTaken = 0;
-const kkalTakenNode = document.querySelector(`.profile-user__kkal-amount`);
-
-for (let i = 0; i < macroAmount.length; i++) {
-  i === 2 ?
-    (kkalTaken += macroAmount[i] * 9) :
-    (kkalTaken += macroAmount[i] * 4);
-}
-
-kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
-// data
-
 
 function render() {
   // time
   const dateNode = document.querySelector(`.profile-user__date-value`);
   dateNode.textContent = moment().format("DD/MM/YYYY");
   // time
+
+  const doughnut = document.getElementById("doughnut");
+  let macroAmount = [];
+  try {
+    macroAmount = [currentUser.total.carbs, currentUser.total.proteins, currentUser.total.fats];
+  } catch {
+    macroAmount = [0, 0, 0]
+  }
+
+  new Chart(doughnut, {
+    type: "doughnut",
+    data: {
+      // labels: ['Углеводы', 'Белки', 'Жиры'],
+      datasets: [{
+        label: "грамм",
+        data: macroAmount,
+        borderWidth: 1,
+        backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
+        borderColor: [
+          "rgba(0, 0, 0, 0.7)",
+          "rgba(0, 0, 0, 0.7)",
+          "rgba(0, 0, 0, 0.7)",
+        ],
+      }, ],
+    },
+  });
+  // chart
 
   // page load
   if (localStorage.getItem("loged") === "true") {
@@ -253,20 +239,6 @@ function render() {
     } else {
       document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
     }
-    // if ((typeof currentUser.total.kkal === "undefined") || (!currentUser.hasOwnProperty("total.kkal"))) {
-
-    // } else {
-
-    // }
-
-    if ((typeof currentUser.kkal === "undefined") || (currentUser.kkal === `null`)) {
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
-      resultRSK.textContent = `-`;
-    } else {
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-        currentUser.total.kkal}`;
-      resultRSK.textContent = `${currentUser.kkal}`
-    }
 
     if ((typeof currentUser.prot === "undefined") || (currentUser.prot === `null`)) {
       protein.textContent = `-`;
@@ -294,9 +266,16 @@ function render() {
 
     // scales
     try {
-      console.log(`${currentUser.total.kkal}`);
+      if(typeof currentUser.kkal === "undefined"){
+        document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
+        resultRSK.textContent = `-`
+      }
+      else{
+        document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`;
+        resultRSK.textContent = `${currentUser.kkal}`;
+      }
+
       document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`;
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`;
 
       document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs} г`;
       if (currentUser.total.carbs / currentUser.carbs * 100 > 100) {
@@ -323,9 +302,10 @@ function render() {
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
       }
     } catch {
-      console.log(`${currentUser.total.kkal}`);
+
       document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`;
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
+      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
+      resultRSK.textContent = `-`;
 
       document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
       document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
