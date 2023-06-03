@@ -2,10 +2,12 @@
   font-family: "Montserrat";
   src: url(../../../fonts/Montserrat.ttf);
 }
+
 @font-face {
   font-family: "Inter";
   src: url(../../../fonts/Inter.ttf);
 }
+
 body {
   background-color: #E4EEEE;
 }
@@ -32,6 +34,7 @@ button {
   width: 100%;
   height: 100%;
 }
+
 .profile .profile-RSK {
   display: flex;
   flex-direction: column;
@@ -82,6 +85,7 @@ button {
   width: 65.55%;
   line-height: 150%;
 }
+
 .profile-RSK__macro div {
   display: flex;
   flex-direction: column;
@@ -92,6 +96,7 @@ button {
 .profile-RSK__weight {
   margin: 2% 0 0 5%;
 }
+
 .profile-RSK__weight span {
   font-weight: 700;
 }
@@ -307,10 +312,12 @@ input:hover {
   border-radius: 35px;
   box-shadow: 0px 0px 10px #000;
 }
+
 .profile-notification__content img {
   width: 8.8%;
   margin-bottom: 1.19%;
 }
+
 .profile-notification__content div {
   text-align: center;
 }
@@ -318,6 +325,7 @@ input:hover {
 .profile-notification__text {
   line-height: 180%;
 }
+
 .profile-notification__text a {
   color: #089BAB;
   text-decoration: none;
@@ -352,6 +360,7 @@ input:hover {
   background-color: white;
   border-radius: 35px;
 }
+
 .profile-user__data img {
   position: absolute;
   top: -7.81vh;
@@ -421,6 +430,7 @@ input:hover {
   justify-content: space-between;
   width: 30%;
 }
+
 .profile-user__macro-block h3 {
   color: rgba(0, 0, 0, 0.7);
   font-weight: 400;
@@ -448,17 +458,17 @@ input:hover {
 }
 
 .profile-user__macro-scale-line_carbs {
-  width: 55%;
+  width: 0%;
   background-color: rgba(0, 195, 255, 0.6);
 }
 
 .profile-user__macro-scale-line_protein {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 0, 21, 0.6);
 }
 
 .profile-user__macro-scale-line_fat {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 217, 0, 0.6);
 }
 
@@ -505,6 +515,7 @@ input:hover {
   height: 7vh;
   padding: 0 3% 0 3%;
 }
+
 .profile-user__date h2 {
   font-weight: 700;
   font-size: 25px;
@@ -575,38 +586,45 @@ input:hover {
   .profile-RSK {
     width: 43.54vw;
   }
+
   .profile-RSK__title {
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__kkal {
     font-weight: 500;
     font-size: calc((100vw - 773px) / 27);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__macro {
     font-weight: 700;
     font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__weight {
     font-weight: 400;
     font-size: calc((100vw - 373px) / 53);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-attribute,
   .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-input,
   .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 1440px) / 160);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-button,
   .profile-welcome__form-button,
   .profile-welcome__button-reg {
@@ -614,93 +632,115 @@ input:hover {
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-welcome {
     width: 34.72vw;
     margin-right: 5.35vw;
   }
+
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw + 2720px) / 160);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-welcome__form-inputs {
     margin-top: 3.23vh;
   }
+
   .profile-notification__text {
     font-weight: 500;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-user__data-name {
     font-weight: 600;
     font-size: calc((100vw + 640px) / 80);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-user__data-age {
     font-size: calc((100vw + 160px) / 80);
   }
+
   .profile-user__date h2,
   .profile-user__kkal-amount {
     font-size: calc((100vw - 106px) / 53);
   }
+
   .profile-user__date-value {
     font-size: calc((100vw - 266px) / 53);
   }
+
   .profile-user__states-block {
     font-size: 20px;
   }
+
   .profile-user__kkal-name {
     font-size: calc((100vw - 160px) / 80);
   }
+
   .profile-user__macro-block h3 {
     font-size: calc((100vw - 373px) / 53);
   }
+
   .profile-user__macro-amount {
     font-size: calc((100vw + 1440px) / 160);
   }
+
   .profile-user__water-tracker {
     font-size: calc((100vw + 400px) / 80);
   }
+
   .profile-user__water-amount {
     font-size: calc((100vw - 106px) / 53);
   }
 }
+
 @media screen and (min-width: 1441px) and (max-width: 1920px) {
   .profile-RSK {
     width: 627px;
   }
+
   .profile-RSK__title {
     font-weight: 400;
     font-size: 23px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__kkal {
     font-weight: 500;
     font-size: 25px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__macro {
     font-weight: 700;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__weight {
     font-weight: 400;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-attribute,
   .profile-paternity {
     font-weight: 300;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-input,
   .profile-welcome__form-input {
     font-weight: 300;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-button,
   .profile-welcome__form-button,
   .profile-welcome__button-reg {
@@ -708,57 +748,68 @@ input:hover {
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-welcome {
     width: 500px;
     margin-right: 77px;
   }
+
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: 26px;
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-notification__text {
     font-weight: 500;
     font-size: 25px;
     font-family: "Montserrat", sans-serif;
   }
 }
+
 @media screen and (min-width: 1921px) {
   .profile-RSK {
     width: 32.66vw;
   }
+
   .profile-RSK__title {
     font-weight: 400;
     font-size: calc((100vw + 45px) / 85);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__kkal {
     font-weight: 500;
     font-size: calc((100vw + 216px) / 85);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__macro {
     font-weight: 700;
     font-size: calc((100vw - 210px) / 85);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__weight {
     font-weight: 400;
     font-size: calc((100vw - 416px) / 75);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-attribute,
   .profile-paternity {
     font-weight: 300;
     font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-input,
   .profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-RSK__form-button,
   .profile-welcome__form-button,
   .profile-welcome__button-reg {
@@ -766,54 +817,67 @@ input:hover {
     font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-welcome {
     width: 26vw;
     margin-right: 4vw;
   }
+
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw - 290px) / 62);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-notification__content {
     max-width: 55vh;
     max-height: 9vw;
   }
+
   .profile-notification__text {
     font-weight: 500;
     font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
+
   .profile-user__data-name,
   .profile-user__states-name,
   .profile-user__kkal-amount,
   .profile-user__water-amount {
     font-size: calc((100vw + 365px) / 91);
   }
+
   .profile-user__data-age {
     font-size: calc((100vw - 457px) / 91);
   }
+
   .profile-user__states-value,
   .profile-user__date h2 {
     font-size: calc((100vw + 365px) / 91);
   }
+
   .profile-user__date-value {
     font-size: calc((100vw + 91px) / 91);
   }
+
   .profile-user__kkal-name,
   .profile-user__macro-block h3 {
     font-size: calc((100vw - 91px) / 91);
   }
+
   .profile-user__macro-amount_span {
     font-size: calc((100vw - 274px) / 91);
   }
+
   .profile-user__water-tracker {
     font-size: calc((100vw + 182px) / 91);
   }
+
   .profile-RSK__checkbox {
     font-size: calc((100vw + 2560px) / 320);
   }
 }
+
 .font-black {
   color: rgba(0, 0, 0, 0.7);
 }
@@ -835,6 +899,7 @@ input:hover {
   height: auto;
   background-color: #E4EEEE;
 }
+
 .wrapper_topic {
   background-color: white;
 }
@@ -853,13 +918,17 @@ input:hover {
     display: none;
   }
 }
+
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
   .wrapper {
     max-width: 1440px;
   }
 }
+
 @media screen and (min-width: 1921px) {
   .wrapper {
     width: 75vw;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
