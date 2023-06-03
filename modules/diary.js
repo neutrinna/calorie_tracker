@@ -7,10 +7,14 @@ const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res"
 // сохранение данных трекера после выхода
 document.addEventListener('DOMContentLoaded', () => writeWaterData())
 document.addEventListener('DOMContentLoaded', () => setGlassValueOnLoad())
-
+render()
 function writeWaterData () {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    glassCountRes.textContent = `${currentUser.water}`
+    if(typeof currentUser.water === "undefined"){
+        glassCountRes.textContent = "0 мл"
+    } else {
+        glassCountRes.textContent = `${currentUser.water}`
+    }
 }
 
 function setGlassValueOnLoad () {
@@ -146,43 +150,83 @@ function countAccordeonHeight (a) {
     a.style.height = `${a.children.length*64+64}px`;
 }
 
+const observedParents = document.querySelectorAll('.diary-table-string__column-names');
+//const test = document.querySelector('.diary-table-string-1')
+
+const observer = new MutationObserver(test);
+
+
+
+function test () {
+    //console.log('DATA:', accordeon.innerHTML);
+    //data = accordeon.innerHTML.slice(450);
+    data = accordeon.innerHTML;
+    localStorage.setItem(`storedStrings`, JSON.stringify(data));
+}
+
+
+observer.observe(observedParents[0], {
+    childList: true,
+    characterData: true, 
+    subtree: true,
+});
+
+observer.observe(observedParents[1], {
+    childList: true, 
+    characterData: true, 
+    subtree: true,
+});
+
+observer.observe(observedParents[2], {
+    childList: true, 
+    subtree: true, 
+});
+
+observer.observe(observedParents[3], {
+    childList: true, 
+    subtree: true,
+});
+function render (){
+    let storedStrings =  JSON.parse(localStorage.getItem(`storedStrings`))
+    document.querySelector(".accordeon1").innerHTML = `${storedStrings}`
+}
 
 // Настя Кольцова - начало - для charts.js
 
-const setKcalOrMacroAttribute = (element) => {
-    const kcalOrMacroValue = element.innerText.split(' ')[0];
-    element.setAttribute('data', kcalOrMacroValue);
-};
+// const setKcalOrMacroAttribute = (element) => {
+//     const kcalOrMacroValue = element.innerText.split(' ')[0];
+//     element.setAttribute('data', kcalOrMacroValue);
+// };
 
-const breakfastAmountElement = document.querySelector('.diary-kcal__breakfast-amount');
-setKcalOrMacroAttribute(breakfastAmountElement);
-const lunchAmountElement = document.querySelector('.diary-kcal__lunch-amount');
-setKcalOrMacroAttribute(lunchAmountElement);
-const dinnerAmountElement = document.querySelector('.diary-kcal__dinner-amount');
-setKcalOrMacroAttribute(dinnerAmountElement);
-const snackAmountElement = document.querySelector('.diary-kcal__snack-amount');
-setKcalOrMacroAttribute(snackAmountElement);
+// const breakfastAmountElement = document.querySelector('.diary-kcal__breakfast-amount');
+// setKcalOrMacroAttribute(breakfastAmountElement);
+// const lunchAmountElement = document.querySelector('.diary-kcal__lunch-amount');
+// setKcalOrMacroAttribute(lunchAmountElement);
+// const dinnerAmountElement = document.querySelector('.diary-kcal__dinner-amount');
+// setKcalOrMacroAttribute(dinnerAmountElement);
+// const snackAmountElement = document.querySelector('.diary-kcal__snack-amount');
+// setKcalOrMacroAttribute(snackAmountElement);
 
-const carboAmountElement = document.querySelector('.diary-macro__carbo-amount');
-setKcalOrMacroAttribute(carboAmountElement);
-const proteinAmountElement = document.querySelector('.diary-macro__protein-amount');
-setKcalOrMacroAttribute(proteinAmountElement);
-const fatsAmountElement = document.querySelector('.diary-macro__fats-amount');
-setKcalOrMacroAttribute(fatsAmountElement);
+// const carboAmountElement = document.querySelector('.diary-macro__carbo-amount');
+// setKcalOrMacroAttribute(carboAmountElement);
+// const proteinAmountElement = document.querySelector('.diary-macro__protein-amount');
+// setKcalOrMacroAttribute(proteinAmountElement);
+// const fatsAmountElement = document.querySelector('.diary-macro__fats-amount');
+// setKcalOrMacroAttribute(fatsAmountElement);
 
 
-const setLocalStorageItem = (key, selector, attribute) => {
-    const value = document.querySelector(selector).getAttribute(attribute);
-    localStorage.setItem(key, value);
-};
+// const setLocalStorageItem = (key, selector, attribute) => {
+//     const value = document.querySelector(selector).getAttribute(attribute);
+//     localStorage.setItem(key, value);
+// };
 
-setLocalStorageItem('breakfastAmount', '.diary-kcal__breakfast-amount', 'data');
-setLocalStorageItem('lunchAmount', '.diary-kcal__lunch-amount', 'data');
-setLocalStorageItem('dinnerAmount', '.diary-kcal__dinner-amount', 'data');
-setLocalStorageItem('snackAmount', '.diary-kcal__snack-amount', 'data');
+// setLocalStorageItem('breakfastAmount', '.diary-kcal__breakfast-amount', 'data');
+// setLocalStorageItem('lunchAmount', '.diary-kcal__lunch-amount', 'data');
+// setLocalStorageItem('dinnerAmount', '.diary-kcal__dinner-amount', 'data');
+// setLocalStorageItem('snackAmount', '.diary-kcal__snack-amount', 'data');
 
-setLocalStorageItem('carboAmount', '.diary-macro__carbo-amount', 'data');
-setLocalStorageItem('proteinAmount', '.diary-macro__protein-amount', 'data');
-setLocalStorageItem('fatsAmount', '.diary-macro__fats-amount', 'data');
+// setLocalStorageItem('carboAmount', '.diary-macro__carbo-amount', 'data');
+// setLocalStorageItem('proteinAmount', '.diary-macro__protein-amount', 'data');
+// setLocalStorageItem('fatsAmount', '.diary-macro__fats-amount', 'data');
 
-// Настя Кольцова - конец - для charts.js
+// // Настя Кольцова - конец - для charts.js

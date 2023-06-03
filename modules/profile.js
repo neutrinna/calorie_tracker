@@ -126,16 +126,16 @@ function importRSK() {
   localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 }
 
-function setValues() {
-  document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
-  document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`;
-  document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-  try {
-    document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`
-  } catch {
-    document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
-  }
-}
+// function setValues() {
+//   document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
+//   document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`;
+//   document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
+//   try {
+//     document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`
+//   } catch {
+//     document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
+//   }
+// }
 // Инна
 
 button.addEventListener("click", function () {
@@ -145,7 +145,7 @@ button.addEventListener("click", function () {
     countWeight();
   }
   if (document.getElementById("profile-RSK__checkbox").checked === true) {
-    setValues();
+    // setValues();
     importRSK();
     render();
   } else {
@@ -244,19 +244,19 @@ function render() {
     if ((typeof currentUser.prot === "undefined") || (currentUser.prot === `null`)) {
       protein.textContent = `-`;
     } else {
-      protein.textContent = `${currentUser.prot}`;
+      protein.textContent = `${currentUser.prot} г`;
     }
 
     if ((typeof currentUser.fat === "undefined") || (currentUser.fat === `null`)) {
       fat.textContent = `-`;
     } else {
-      fat.textContent = `${currentUser.fat}`;
+      fat.textContent = `${currentUser.fat} г`;
     }
 
     if ((typeof currentUser.carbs === "undefined") || (currentUser.carbs === `null`)) {
       carbohydrate.textContent = `-`;
     } else {
-      carbohydrate.textContent = `${currentUser.carbs}`;
+      carbohydrate.textContent = `${currentUser.carbs} г`;
     }
 
     if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
