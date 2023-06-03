@@ -147,6 +147,7 @@ button.addEventListener("click", function () {
   if (document.getElementById("profile-RSK__checkbox").checked === true) {
     setValues();
     importRSK();
+    render();
   } else {
     alert("Заполните все поля!");
     validationInputs();
