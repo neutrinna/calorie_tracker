@@ -63,8 +63,8 @@ function loginUser() {
       document.getElementById("profile-paternity").style.display = "none";
       document.getElementById("profile-user").style.display = "flex";
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
+    
       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-      
       render()
 
       return ; // выходим из цикла, так как дальше перебирать нет смысла
@@ -79,6 +79,54 @@ function loginUser() {
 }
 
 function customizationSave() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  let InputName = document.getElementById("customization__text_name").value[0].toUpperCase() + document.getElementById("customization__text_name").value.slice(1);
+  let InputSurname = document.getElementById("customization__text_surname").value[0].toUpperCase() + document.getElementById("customization__text_surname").value.slice(1);
+  let InputBday = document.getElementById("customization__text_bday").value;
+  let InputPassword = document.getElementById("customization__text_password").value;
+  let InputEmail = document.getElementById("customization__text_email").value
+
+  let foundUser = null;
+  // перебираем каждый объект в массиве userData
+  for (let i = 0; i < userData.length; i++) { 
+    console.log  (InputEmail)
+    if (userData[i].email === InputEmail) { 
+      // найден email, проверяем остальные данные 
+      if (userData[i].name !== document.getElementById("registration__text_name").value) { 
+        userData[i].name = InputName; // присваиваем новое значение
+        document.getElementById("profile-user__data-name").textContent = `${userData[i].name} ${userData[i].surname}`;
+      }
+      if (userData[i].surname !== document.getElementById("registration__text_surname").value) { 
+        userData[i].surname = InputSurname; // присваиваем новое значение
+        document.getElementById("profile-user__data-name").textContent = `${userData[i].name} ${userData[i].surname}`;
+      }
+      if (userData[i].bday !== document.getElementById("registration__text_bday").value) { 
+        userData[i].bday = InputBday; // присваиваем новое значение
+        var now = new Date(); //Текущая дата 
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
+        var dob = new Date(InputBday); //Дата рождения 
+        var dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
+        var age; //Возраст 
+  
+        //Возраст = текущий год - год рождения 
+        age = today.getFullYear() - dob.getFullYear();
+        //Если ДР в этом году ещё предстоит, то вычитаем из age один год 
+        if (today < dobnow) {
+          age = age - 1;
+        }
+        document.getElementById("profile-user__data-age").textContent = "Возраст:" + " " + age;
+      }
+      if (userData[i].password !== document.getElementById("registration__text_password").value) { 
+        userData[i].password = InputPassword; // присваиваем новое значение
+      }
+     
+      foundUser = userData[i]; // сохраняем найденного пользователя
+      break; // выходим из цикла, если найденный пользователь уже обработан
+    } 
+  }
+  
+  // сохраняем измененные данные в localStorage
+  localStorage.setItem('userData', JSON.stringify(userData));
   document.getElementById("customization__pop-up").style.display = "none";
 }
 
