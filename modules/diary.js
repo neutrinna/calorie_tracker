@@ -1,3 +1,13 @@
+    // загрузка добавленных ранее продуктов
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM fully loaded and parsed");
+        storage = JSON.parse(localStorage.getItem(`storedStrings`));
+        console.log(storage);
+        document.querySelector('.accordeon1').innerHTML = storage;
+    
+      });
+
+
 // трекер воды
 const glassCountForm = document.querySelector(".diary-water-tracker__form");
 const trackerInput = document.querySelector(".diary-water-tracker__form");
@@ -55,6 +65,8 @@ const accordeon3 = document.querySelector(".accordeon3");
 const buttonSnack = document.getElementById("button-snack")
 const accordeon4 = document.querySelector(".accordeon4");
 
+
+
 document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon, buttonBreakfast));
 document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon2, buttonLunch));
 document.addEventListener('DOMContentLoaded', () => showAndHideDiv (accordeon3, buttonDinner));
@@ -70,7 +82,6 @@ buttonDinner.addEventListener('click', () => showAndHideDiv (accordeon3, buttonD
 buttonSnack.addEventListener('click', () => showAndHideDiv (accordeon4, buttonSnack));
 
 
-
 function showAndHideDiv (a, b) {
 
     if (a.style.visibility !== 'hidden') {
@@ -78,49 +89,25 @@ function showAndHideDiv (a, b) {
         a.style.visibility="hidden";
         a.style.height = "0px"
         a.style.opacity = "0";
-        a.style.transition = "0.5s";
+        a.style.transition = "0.7s";
 
         b.classList.remove('diary-table-string__add-btn_focus');
 
     } else {
         a.style.visibility="visible";
         a.style.height = `${a.children.length*64}px`;
-        a.style.transition = "0.5s";
+        a.style.transition = "0.7s";
         a.style.opacity = "1";
         b.classList.add('diary-table-string__add-btn_focus'); 
     }
   
 };
+    //посчитать высоту после удаления строки
+function countHeightAfterDelete (a) {
+    a.style.height = `${a.children.length*64-64}px`;
+}
 
-// const observedParents = document.querySelectorAll('.diary-table-string__column-names')
-// const observer = new MutationObserver(getHeight)
-
-// function getHeight () {
-//             alert('aaa')
-// }
-
-// observer.observe(observedParents[0], {
-//     childList: true, 
-//     subtree: true,
-// });
-
-// observer.observe(observedParents[1], {
-//     childList: true, 
-//     subtree: true,
-// });
-
-// observer.observe(observedParents[2], {
-//     childList: true, 
-//     subtree: true, 
-// });
-
-// observer.observe(observedParents[3], {
-//     childList: true, 
-//     subtree: true,
-// });
-
-
-
+    //посчитать высоту после поиска элемента
 const search1 = document.getElementById(`diary-search-1`);
 search1.addEventListener("keypress", function (e) {
     if (e.key === 'Enter') {countAccordeonHeight (accordeon);}
@@ -145,6 +132,49 @@ search4.addEventListener("keypress", function (e) {
 function countAccordeonHeight (a) {
     a.style.height = `${a.children.length*64+64}px`;
 }
+
+
+
+
+
+// ЗАПИСЬ ДАННЫХ СТРОК
+
+const observedParents = document.querySelectorAll('.diary-table-string__column-names');
+//const test = document.querySelector('.diary-table-string-1')
+
+const observer = new MutationObserver(test);
+
+
+function test () {
+    //console.log('DATA:', accordeon.innerHTML);
+    //data = accordeon.innerHTML.slice(450);
+    data = accordeon.innerHTML;
+    localStorage.setItem(`storedStrings`, JSON.stringify(data));
+}
+
+
+observer.observe(observedParents[0], {
+    childList: true,
+    characterData: true, 
+    subtree: true,
+});
+
+observer.observe(observedParents[1], {
+    childList: true, 
+    characterData: true, 
+    subtree: true,
+});
+
+observer.observe(observedParents[2], {
+    childList: true, 
+    subtree: true, 
+});
+
+observer.observe(observedParents[3], {
+    childList: true, 
+    subtree: true,
+});
+
 
 
 // Настя Кольцова - начало - для charts.js
