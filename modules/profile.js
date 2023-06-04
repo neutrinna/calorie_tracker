@@ -1,7 +1,5 @@
 // Инна
 // localStorage.clear()
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
 
 // Инна
 
@@ -28,14 +26,15 @@ render()
 // норма РСК без учёта цели
 
 const getNormRSK = function () {
+  let preResultRSK;
   if (gender.value == "male") {
-    resultRSK.innerHTML = Math.round(
+    preResultRSK = Math.round(
       `${(9.99 * +weight.value + 6.25 * +growth.value - 4.92 * +age.value + 5) *
       +activity.value
       }`
     );
   } else if (gender.value == "female") {
-    resultRSK.innerHTML = Math.round(
+    preResultRSK = Math.round(
       `${(9.99 * +weight.value +
         6.25 * +growth.value -
         4.92 * +age.value -
@@ -45,11 +44,14 @@ const getNormRSK = function () {
     );
   }
   if (localStorage.getItem("loged") === "true") {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(growth.value, weight.value);
     currentUser.growth = growth.value;
     currentUser.weight = weight.value;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
 
-  return resultRSK.innerHTML;
+  return preResultRSK;
 };
 
 // РСК c учётом цели
@@ -63,7 +65,9 @@ function resultGoal() {
     resultRSK.innerHTML = Math.round(+getNormRSK() + +getNormRSK() * rateGole);
   }
   if (localStorage.getItem("loged") === "true") {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     currentUser.kkal = resultRSK.textContent;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
   return resultRSK.innerHTML;
 }
@@ -93,9 +97,11 @@ function countNutrients() {
     carbohydrate.innerHTML = `${carbAmount} г`;
   }
   if (localStorage.getItem("loged") === "true") {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     currentUser.prot = protAmount;
     currentUser.fat = fatAmount;
     currentUser.carbs = carbAmount;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
 }
 
@@ -106,7 +112,9 @@ function countWeight() {
     +growth.value - 100 - (growth.value - 150) / 2
   )} кг`;
   if (localStorage.getItem("loged") === "true") {
-    currentUser.goal = optimalWeight.textContent
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.goal = optimalWeight.textContent;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
 }
 
@@ -122,9 +130,6 @@ function validationInputs() {
   }
 }
 // Инна
-function importRSK() {
-  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-}
 
 // function setValues() {
 //   document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
@@ -145,8 +150,6 @@ button.addEventListener("click", function () {
     countWeight();
   }
   if (document.getElementById("profile-RSK__checkbox").checked === true) {
-    // setValues();
-    importRSK();
     render();
   } else {
     alert("Заполните все поля!");
@@ -164,41 +167,7 @@ form.addEventListener("submit", (event) => {
 // chart
 
 function render() {
-  // time
-  const dateNode = document.querySelector(`.profile-user__date-value`);
-  dateNode.textContent = moment().format("DD/MM/YYYY");
-  // time
 
-  const doughnut = document.getElementById("doughnut");
-  let macroAmount = [];
-  try {
-    macroAmount = [currentUser.total.carbs, currentUser.total.proteins, currentUser.total.fats];
-    
-  new Chart(doughnut, {
-    type: "doughnut",
-    data: {
-      // labels: ['Углеводы', 'Белки', 'Жиры'],
-      datasets: [{
-        label: "грамм",
-        data: macroAmount,
-        borderWidth: 1,
-        backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
-        borderColor: [
-          "rgba(0, 0, 0, 0.7)",
-          "rgba(0, 0, 0, 0.7)",
-          "rgba(0, 0, 0, 0.7)",
-        ],
-      }, ],
-    },
-  });
-  } catch {
-
-  }
-    
-
-  // chart
-
-  // page load
   if (localStorage.getItem("loged") === "true") {
 
     document.getElementById("profile-welcome__wripper").style.display = "none";
@@ -210,20 +179,43 @@ function render() {
     document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
     document.getElementById("profile-user__data-age").textContent = `Возраст: ${currentUser.age}`;
 
+      // time
+  const dateNode = document.querySelector(`.profile-user__date-value`);
+  dateNode.textContent = moment().format("DD/MM/YYYY");
+  // time
+
+  // chart
+    const doughnut = document.getElementById("doughnut");
+    let macroAmount = [];
+    try {
+      macroAmount = [currentUser.total.carbs, currentUser.total.proteins, currentUser.total.fats];
+      new Chart(doughnut, {
+        type: "doughnut",
+        data: {
+          // labels: ['Углеводы', 'Белки', 'Жиры'],
+          datasets: [{
+            label: "грамм",
+            data: macroAmount,
+            borderWidth: 1,
+            backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
+            borderColor: [
+              "rgba(0, 0, 0, 0.7)",
+              "rgba(0, 0, 0, 0.7)",
+              "rgba(0, 0, 0, 0.7)",
+            ],
+          }, ],
+        },
+      });
+    } catch {
+  
+    }
+  
     const waterAmount = document.querySelector(".profile-user__water-amount_data");
     if ((typeof currentUser.water === "undefined") || (currentUser.water === `null`)) {
       waterAmount.textContent = "0 мл";
     } else {
       waterAmount.textContent = `${currentUser.water} мл`
     }
-
-    // Настя Кольцова
-    // значение целевого веса
-    const targetWeight = document.querySelector(
-      ".profile-user__target-weight"
-    ).textContent;
-    localStorage.setItem("targetWeight", targetWeight);
-    // Настя Кольцова
 
     if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
       document.querySelector(".profile-user__target-weight").textContent = `-`
@@ -267,15 +259,18 @@ function render() {
       optimalWeight.textContent = `${currentUser.goal}`
     }
 
+    if(typeof currentUser.kkal === "undefined"){
+      resultRSK.textContent = `-`
+    }else {
+      resultRSK.textContent = `${currentUser.kkal}`;
+    }
     // scales
     try {
       if(typeof currentUser.kkal === "undefined"){
         document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
-        resultRSK.textContent = `-`
       }
       else{
         document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`;
-        resultRSK.textContent = `${currentUser.kkal}`;
       }
 
       document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`;
@@ -305,7 +300,7 @@ function render() {
 
       document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`;
       document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
-      resultRSK.textContent = `-`;
+      // resultRSK.textContent = `-`;
 
       document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
       document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
