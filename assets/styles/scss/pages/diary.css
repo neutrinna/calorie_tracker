@@ -113,24 +113,19 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
+.diary-table-string-1__column-names div,
+.diary-table-string__column-names div {
+  text-align: center;
+  width: 5vw;
+}
 .diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
-  text-align: left;
 }
 .diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
-}
-
-.diary-table-string-1__column-names {
-  width: 62%;
-}
-
-.diary-table-string-2 {
-  width: 70%;
-  font-size: 16px;
 }
 
 .diary-table-string__add-btn {
@@ -241,10 +236,12 @@ body {
   .diary-water-tracker__text,
   .diary-water-tracker__top-bar-name,
   .diary-table-string__meal-name,
-  .diary-diet-tracker__calendar-btn {
+  .diary-diet-tracker__calendar-btn,
+  .diary-table-string-1__meal-name {
     font-size: 1.5vw;
   }
-  .diary-table-string__column-names {
+  .diary-table-string__column-names,
+  .diary-table-string-1__column-names {
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
@@ -264,6 +261,11 @@ body {
   }
 }
 @media screen and (min-width: 1921px) {
+  .diary-inner {
+    max-width: 90%;
+    height: -moz-max-content;
+    height: max-content;
+  }
   .diary-wrapper {
     width: 75vw;
     margin: auto;
@@ -271,15 +273,28 @@ body {
   .diary-water-tracker__text,
   .diary-water-tracker__top-bar-name,
   .diary-table-string__meal-name,
+  .diary-table-string-1__meal-name,
   .diary-diet-tracker__calendar-btn {
-    font-size: 1.2vw;
+    font-size: calc((100vw + 182px) / 100);
   }
-  .diary-table-string__column-names {
-    font-size: 1vw;
+  .diary-table-string__column-names,
+  .diary-table-string-1__column-names {
+    font-size: calc((100vw + 182px) / 130);
   }
   .diary-water-tracker__crrnt-res,
   .diary-water-tracker__top-res,
   .diary-water-tracker__crrnt-res-ml {
-    font-size: 1.6vw;
+    font-size: calc((100vw + 182px) / 91);
+  }
+  .diary-water-tracker {
+    height: 15vw;
+  }
+  .diary-diet-tracker-header {
+    height: 3vw;
+  }
+  .diary-water-tracker__text {
+    height: -moz-max-content;
+    height: max-content;
+    line-height: 1;
   }
 }/*# sourceMappingURL=diary.css.map */

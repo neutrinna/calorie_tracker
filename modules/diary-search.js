@@ -135,15 +135,15 @@ function form() {
 
                   const accordeonDivs = document.querySelector(`.accordeon${index + 1}.accordeon_hidden`);
                   const diaryTableStringDiv = document.createElement('div');
-                  diaryTableStringDiv.classList.add('diary-table-string-1');
+                  diaryTableStringDiv.classList.add('diary-table-string');//вместо diary-table-string
 
                   const mealNameDiv = document.createElement('div');
-                  mealNameDiv.classList.add('diary-table-string-1__meal-name');
+                  mealNameDiv.classList.add('diary-table-string__meal-name');//вместо diary-table-string-1__meal-name
                   mealNameDiv.innerHTML = `
                     <p>${productName}</p>`;
 
                   const columnNamesDiv = document.createElement('div');
-                  columnNamesDiv.classList.add('diary-table-string-1__column-names');
+                  columnNamesDiv.classList.add('diary-table-string__column-names');//вместо diary-table-string-1__column-names
                   
                   const weightRes = grammInput.value;
                   const calRes = Math.round(calories * grammInput.value / 100);
@@ -645,13 +645,13 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 function getStringDataInObject() {
   const btn = document.querySelector('.delete-column')
-  countObj.weight = `${btn.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-  countObj.kkal = `${btn.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-  countObj.carb = `${btn.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-  countObj.protein = `${btn.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-  countObj.fat = `${btn.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+  countObj.weight = `${btn.closest('.diary-table-string').getElementsByTagName('div')[2].innerText}`;
+  countObj.kkal = `${btn.closest('.diary-table-string').getElementsByTagName('div')[3].innerText}`;
+  countObj.carb = `${btn.closest('.diary-table-string').getElementsByTagName('div')[4].innerText}`;
+  countObj.protein = `${btn.closest('.diary-table-string').getElementsByTagName('div')[5].innerText}`;
+  countObj.fat = `${btn.closest('.diary-table-string').getElementsByTagName('div')[6].innerText}`;
 
-  btn.closest('.diary-table-string-1').remove()
+  btn.closest('.diary-table-string').remove()
 
   //вызов вычитания строк после удаления
     getNumbers ()
@@ -659,13 +659,13 @@ function getStringDataInObject() {
 
 function getStringDataInObject2() {
   const btn2 = document.querySelector('.delete-column2')
-  countObj2.weight = `${btn2.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-  countObj2.kkal = `${btn2.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-  countObj2.carb = `${btn2.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-  countObj2.protein = `${btn2.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-  countObj2.fat = `${btn2.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+  countObj2.weight = `${btn2.closest('.diary-table-string').getElementsByTagName('div')[2].innerText}`;
+  countObj2.kkal = `${btn2.closest('.diary-table-string').getElementsByTagName('div')[3].innerText}`;
+  countObj2.carb = `${btn2.closest('.diary-table-string').getElementsByTagName('div')[4].innerText}`;
+  countObj2.protein = `${btn2.closest('.diary-table-string').getElementsByTagName('div')[5].innerText}`;
+  countObj2.fat = `${btn2.closest('.diary-table-string').getElementsByTagName('div')[6].innerText}`;
 
-  btn2.closest('.diary-table-string-1').remove()
+  btn2.closest('.diary-table-string').remove()
 
 //вызов вычитания строк после удаления
   getNumbers2 ()
@@ -673,13 +673,13 @@ function getStringDataInObject2() {
 
 function getStringDataInObject3() {
   const btn3 = document.querySelector('.delete-column3')
-  countObj3.weight = `${btn3.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-  countObj3.kkal = `${btn3.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-  countObj3.carb = `${btn3.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-  countObj3.protein = `${btn3.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-  countObj3.fat = `${btn3.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+  countObj3.weight = `${btn3.closest('.diary-table-string').getElementsByTagName('div')[2].innerText}`;
+  countObj3.kkal = `${btn3.closest('.diary-table-string').getElementsByTagName('div')[3].innerText}`;
+  countObj3.carb = `${btn3.closest('.diary-table-string').getElementsByTagName('div')[4].innerText}`;
+  countObj3.protein = `${btn3.closest('.diary-table-string').getElementsByTagName('div')[5].innerText}`;
+  countObj3.fat = `${btn3.closest('.diary-table-string').getElementsByTagName('div')[6].innerText}`;
 
-  btn3.closest('.diary-table-string-1').remove()
+  btn3.closest('.diary-table-string').remove()
 
 //вызов вычитания строк после удаления
   getNumbers3 ()
@@ -687,13 +687,13 @@ function getStringDataInObject3() {
 
 function getStringDataInObject4() {
   const btn4 = document.querySelector('.delete-column4')
-  countObj4.weight = `${btn4.closest('.diary-table-string-1').getElementsByTagName('div')[2].innerText}`;
-  countObj4.kkal = `${btn4.closest('.diary-table-string-1').getElementsByTagName('div')[3].innerText}`;
-  countObj4.carb = `${btn4.closest('.diary-table-string-1').getElementsByTagName('div')[4].innerText}`;
-  countObj4.protein = `${btn4.closest('.diary-table-string-1').getElementsByTagName('div')[5].innerText}`;
-  countObj4.fat = `${btn4.closest('.diary-table-string-1').getElementsByTagName('div')[6].innerText}`;
+  countObj4.weight = `${btn4.closest('.diary-table-string').getElementsByTagName('div')[2].innerText}`;
+  countObj4.kkal = `${btn4.closest('.diary-table-string').getElementsByTagName('div')[3].innerText}`;
+  countObj4.carb = `${btn4.closest('.diary-table-string').getElementsByTagName('div')[4].innerText}`;
+  countObj4.protein = `${btn4.closest('.diary-table-string').getElementsByTagName('div')[5].innerText}`;
+  countObj4.fat = `${btn4.closest('.diary-table-string').getElementsByTagName('div')[6].innerText}`;
 
-  btn4.closest('.diary-table-string-1').remove()
+  btn4.closest('.diary-table-string').remove()
 
 //вызов вычитания строк после удаления
   getNumbers4 ()

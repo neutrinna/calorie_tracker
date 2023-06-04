@@ -142,12 +142,17 @@ body {
         width: 70%;
 
         @include font (400, 16px);
+
+        div {
+            text-align: center;
+            width: 5vw;
+        }
     }
 
     &__column-names_color_dark-blue {
         color: $main-color;
         font-weight: 700;
-        text-align: left;
+        //text-align: left;
     }
 
     &_color_blue {
@@ -156,21 +161,26 @@ body {
 
 }
 
-.diary-table-string-1 {
-    &__column-names {
-        width: 62%;
-    }
-}
+// .diary-table-string-1 {
+//     &__column-names {
 
-.diary-table-string-2 {
-    width: 70%;
-    font-size: 16px;
-}
+//         // max-width: 62%;
+//         div {
+//             width: 80px;
+//         }
+//     }
+// }
+
+// .diary-table-string-2 {
+//     width: 70%;
+//     font-size: 16px;
+// }
 
 /////////////закрытие-открытие кнопок "+"////////////////////
-.diary-table-string__add-btn{
+.diary-table-string__add-btn {
     padding-right: 5%;
 }
+
 .diary-table-string__add-btn_focus {
     transition-duration: 0.7s;
     transform: rotate(45deg);
@@ -182,12 +192,6 @@ body {
     height: 0px;
     transition: 0.7s opacity, 0.55s visibility;
 }
-
-
-// .d-test_hidden {
-//     display: none;
-//     transition: 1s;
-// }
 
 
 
@@ -308,11 +312,13 @@ body {
     .diary-water-tracker__text,
     .diary-water-tracker__top-bar-name,
     .diary-table-string__meal-name,
-    .diary-diet-tracker__calendar-btn {
+    .diary-diet-tracker__calendar-btn,
+    .diary-table-string-1__meal-name {
         font-size: 1.5vw;
     }
 
-    .diary-table-string__column-names {
+    .diary-table-string__column-names,
+    .diary-table-string-1__column-names {
         font-size: 1vw;
     }
 
@@ -337,6 +343,11 @@ body {
 }
 
 @media screen and (min-width: ($large-desktop + 1px)) {
+    .diary-inner {
+        max-width: 90%;
+        height: max-content
+    }
+
     .diary-wrapper {
         width: 75vw;
         margin: auto;
@@ -345,21 +356,37 @@ body {
     .diary-water-tracker__text,
     .diary-water-tracker__top-bar-name,
     .diary-table-string__meal-name,
+    .diary-table-string-1__meal-name,
     .diary-diet-tracker__calendar-btn {
-        font-size: 1.2vw;
+        font-size: calc((100vw + 182px) / 100);
     }
 
-    .diary-table-string__column-names {
-        font-size: 1vw;
+    .diary-table-string__column-names,
+    .diary-table-string-1__column-names {
+        font-size: calc((100vw + 182px) / 130);
     }
 
     .diary-water-tracker__crrnt-res,
     .diary-water-tracker__top-res,
     .diary-water-tracker__crrnt-res-ml {
-        font-size: 1.6vw;
+        font-size: calc((100vw + 182px) / 91);
+    }
+
+    .diary-water-tracker {
+        height: 15vw;
+    }
+
+    .diary-diet-tracker-header {
+        height: 3vw;
+    }
+
+    .diary-water-tracker__text {
+        height: max-content;
+        line-height: 1;
     }
 
 }
+
 
 
 // -----------------------END ALEKSANDRA----------------------------

@@ -32,10 +32,6 @@
   position: sticky;
 }
 
-.search-result {
-  width: 60%;
-}
-
 .inputStyle {
   background-color: white;
   border: 1px solid rgb(10, 155, 171);
@@ -177,5 +173,6 @@
   display: flex;
   align-items: center;
   margin-left: 0px;
-  background-color: white;
+  background-color: transparent;
+  padding-right: 5.5%;
 }/*# sourceMappingURL=search.css.map */
