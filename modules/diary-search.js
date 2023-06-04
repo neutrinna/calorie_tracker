@@ -721,7 +721,9 @@ search4.addEventListener("keypress", function (e) {
   })
 
 function countAccordeonHeight (a) {
-    a.style.height = `${a.children.length*64+64}px`;
+    //a.style.height = `${a.children.length*64+64}px`;
+    a.style.height = `${a.clientHeight+(a.clientHeight/a.children.length+8)}px`; //------------тут добавлен респонсив
+    console.log(a.clientHeight);
 }
 
 for (let deleteBtn of delete1) {

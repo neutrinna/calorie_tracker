@@ -71,13 +71,11 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
-.diary-table-string-1,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
-  height: 64px;
+  height: 5vw;
 }
-.diary-table-string-1__meal-name,
 .diary-table-string__meal-name {
   display: flex;
   justify-content: space-between;
@@ -85,12 +83,10 @@ body {
   margin-left: 3%;
   width: 25%;
 }
-.diary-table-string-1__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
-.diary-table-string-1__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
   border: none;
@@ -98,11 +94,9 @@ body {
   margin-top: 5%;
   transition-duration: 0.9s;
 }
-.diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
-.diary-table-string-1__column-names,
 .diary-table-string__column-names {
   display: flex;
   justify-content: space-between;
@@ -113,17 +107,14 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
-.diary-table-string-1__column-names div,
 .diary-table-string__column-names div {
   text-align: center;
   width: 7vw;
 }
-.diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
 }
-.diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
 }

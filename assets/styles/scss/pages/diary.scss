@@ -91,11 +91,12 @@ body {
 
 // строки дневника
 //.diary-table-string-2,
-.diary-table-string-1,
+//.diary-table-string-1,
 .diary-table-string {
     display: flex;
     justify-content: space-between;
-    height: 64px;
+    //height: 64px;
+    height: 5vw; //------------тут добавлен респонсив
 
 
     &__meal-name {

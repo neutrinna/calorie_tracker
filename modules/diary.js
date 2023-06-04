@@ -86,14 +86,16 @@ function showAndHideDiv (a, b) {
         a.style.visibility="hidden";
         a.style.height = "0px"
         a.style.opacity = "0";
-        a.style.transition = "0.7s";
+        a.style.transition = "1s";
 
         b.classList.remove('diary-table-string__add-btn_focus');
 
     } else {
         a.style.visibility="visible";
-        a.style.height = `${a.children.length*64}px`;
-        a.style.transition = "0.7s";
+        //a.style.height = `${a.children.length*64}px`;
+        a.style.height = `${a.scrollHeight}px`;//------тут добавлен респонсив
+        //a.style.transition = "0.7s";
+        a.style.transition = "1s";
         a.style.opacity = "1";
         b.classList.add('diary-table-string__add-btn_focus'); 
     }
@@ -101,7 +103,8 @@ function showAndHideDiv (a, b) {
 };
     //посчитать высоту после удаления строки
 function countHeightAfterDelete (a) {
-    a.style.height = `${a.children.length*64-64}px`;
+    //a.style.height = `${a.children.length*64-64}px`;
+    a.style.height = `${a.clientHeight-(a.clientHeight/a.children.length)}px`;//------тут добавлен респонсив
 }
 
 
@@ -127,7 +130,9 @@ search4Diary.addEventListener("keypress", function (e) {
   })
 
 function countAccordeonHeightDiary (a) {
-    a.style.height = `${a.children.length*64+64}px`;
+    //a.style.height = `${a.children.length*64+64}px`;
+    a.style.height = `${a.clientHeight+(a.clientHeight/a.children.length+8)}px`;//------тут добавлен респонсив
+    
 }
 
 
