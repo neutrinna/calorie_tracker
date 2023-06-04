@@ -7,7 +7,8 @@ const neededWaterAmount = document.querySelector(".diary-water-tracker__top-res"
 // сохранение данных трекера после выхода
 document.addEventListener('DOMContentLoaded', () => writeWaterData())
 document.addEventListener('DOMContentLoaded', () => setGlassValueOnLoad())
-render()
+
+
 function writeWaterData () {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if(typeof currentUser.water === "undefined"){
@@ -27,6 +28,7 @@ function setGlassValueOnLoad () {
     inp.checked = true; 
     }}
 }
+
 ///
 
 const handleFormChange = (e) => {
@@ -148,47 +150,6 @@ search4.addEventListener("keypress", function (e) {
 
 function countAccordeonHeight (a) {
     a.style.height = `${a.children.length*64+64}px`;
-}
-
-const observedParents = document.querySelectorAll('.diary-table-string__column-names');
-//const test = document.querySelector('.diary-table-string-1')
-
-const observer = new MutationObserver(test);
-
-
-
-function test () {
-    //console.log('DATA:', accordeon.innerHTML);
-    //data = accordeon.innerHTML.slice(450);
-    data = accordeon.innerHTML;
-    localStorage.setItem(`storedStrings`, JSON.stringify(data));
-}
-
-
-observer.observe(observedParents[0], {
-    childList: true,
-    characterData: true, 
-    subtree: true,
-});
-
-observer.observe(observedParents[1], {
-    childList: true, 
-    characterData: true, 
-    subtree: true,
-});
-
-observer.observe(observedParents[2], {
-    childList: true, 
-    subtree: true, 
-});
-
-observer.observe(observedParents[3], {
-    childList: true, 
-    subtree: true,
-});
-function render (){
-    let storedStrings =  JSON.parse(localStorage.getItem(`storedStrings`))
-    document.querySelector(".accordeon1").innerHTML = `${storedStrings}`
 }
 
 // Настя Кольцова - начало - для charts.js

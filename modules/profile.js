@@ -173,10 +173,7 @@ function render() {
   let macroAmount = [];
   try {
     macroAmount = [currentUser.total.carbs, currentUser.total.proteins, currentUser.total.fats];
-  } catch {
-    macroAmount = [0, 0, 0]
-  }
-
+    
   new Chart(doughnut, {
     type: "doughnut",
     data: {
@@ -194,6 +191,11 @@ function render() {
       }, ],
     },
   });
+  } catch {
+
+  }
+    
+
   // chart
 
   // page load
@@ -281,7 +283,6 @@ function render() {
       document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs} г`;
       if (currentUser.total.carbs / currentUser.carbs * 100 > 100) {
         document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_carbs").style.backgroundColor = `red`
       } else {
         document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `${currentUser.total.carbs/currentUser.carbs*100}%`;
       }
@@ -289,7 +290,6 @@ function render() {
       document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins} г`;
       if ((currentUser.total.proteins / currentUser.prot * 100) > 100) {
         document.querySelector(".profile-user__macro-scale-line_protein").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_protein").style.backgroundColor = `red`;
       } else {
         document.querySelector(".profile-user__macro-scale-line_protein").style.width = `${currentUser.total.proteins/currentUser.prot*100}%`;
       }
@@ -297,7 +297,6 @@ function render() {
       document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats} г`;
       if (currentUser.total.fats / currentUser.fat * 100 > 100) {
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_fat").style.backgroundColor = `red`
       } else {
 
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
@@ -320,5 +319,7 @@ function render() {
   }
 
 }
+
+
 
 // Инна

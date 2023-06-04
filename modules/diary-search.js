@@ -21,46 +21,46 @@ let totalFats = 0;
 
 let mealEaten = {};
 
-function storeMealEaten(meal) {
-  const storedMealEatenJSON = localStorage.getItem("mealEaten");
-  let storedMealEaten = [];
-  if (storedMealEatenJSON) {
-    storedMealEaten = JSON.parse(storedMealEatenJSON);
-  }
-  storedMealEaten.push(meal);
+// function storeMealEaten(meal) {
+//   const storedMealEatenJSON = localStorage.getItem("mealEaten");
+//   let storedMealEaten = [];
+//   if (storedMealEatenJSON) {
+//     storedMealEaten = JSON.parse(storedMealEatenJSON);
+//   }
+//   storedMealEaten.push(meal);
 
-  const updatedMealEatenJSON = JSON.stringify(storedMealEaten);
-  localStorage.setItem("mealEaten", updatedMealEatenJSON);
-}
+//   const updatedMealEatenJSON = JSON.stringify(storedMealEaten);
+//   localStorage.setItem("mealEaten", updatedMealEatenJSON);
+// }
 
-function retrieveMealEaten() {
-  const storedMealEatenJSON = localStorage.getItem("mealEaten");
-  if (storedMealEatenJSON) {
-    return JSON.parse(storedMealEatenJSON);
-  }
-  return [];
-}
+// function retrieveMealEaten() {
+//   const storedMealEatenJSON = localStorage.getItem("mealEaten");
+//   if (storedMealEatenJSON) {
+//     return JSON.parse(storedMealEatenJSON);
+//   }
+//   return [];
+// }
 
 // local storage total values//
-function storeTotalValues() {
-  const totalValues = {
-    totalWeight: totalWeight,
-    totalCalories: totalCalories,
-    totalCarbs: totalCarbs,
-    totalProteins: totalProteins,
-    totalFats: totalFats
-  };
-  const totalValuesJSON = JSON.stringify(totalValues);
-  localStorage.setItem("totalValues", totalValuesJSON);
-}
+// function storeTotalValues() {
+//   const totalValues = {
+//     totalWeight: totalWeight,
+//     totalCalories: totalCalories,
+//     totalCarbs: totalCarbs,
+//     totalProteins: totalProteins,
+//     totalFats: totalFats
+//   };
+//   const totalValuesJSON = JSON.stringify(totalValues);
+//   localStorage.setItem("totalValues", totalValuesJSON);
+// }
 
-function retrieveTotalValues() {
-  const storedTotalValuesJSON = localStorage.getItem("totalValues");
-  if (storedTotalValuesJSON) {
-    return JSON.parse(storedTotalValuesJSON);
-  }
-  return null;
-}
+// function retrieveTotalValues() {
+//   const storedTotalValuesJSON = localStorage.getItem("totalValues");
+//   if (storedTotalValuesJSON) {
+//     return JSON.parse(storedTotalValuesJSON);
+//   }
+//   return null;
+// }
 // total daily nutrition
 // function updateTotalValues() {
 //   const totalDiv = document.querySelector('.diary-table-string-2');
@@ -456,6 +456,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         proteins: stringProteinBreakfast.textContent,
                         fats: stringFatBreakfast.textContent,
                       };
+                      // Саша, это для тебя. аналогичное в других функциях пересчета сум
+                      currentUser.breakfast.products = accordeon.innerHTML;
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
 
@@ -473,6 +475,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbLunch.textContent,
                       proteins: stringProteinLunch.textContent,
                       fats: stringFatLunch.textContent,
+                      products: accordeon2.innerHTML,
                     };
                     localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
@@ -491,6 +494,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbDinner.textContent,
                       proteins: stringProteinDinner.textContent,
                       fats: stringFatDinner.textContent,
+                      products: accordeon3.innerHTML,
                     };
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
@@ -509,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbSnack.textContent,
                       proteins: stringProteinSnack.textContent,
                       fats: stringFatSnack.textContent,
+                      products: accordeon4.innerHTML,
                     };
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                   }
@@ -567,7 +572,9 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbBreakfast.textContent,
                       proteins: stringProteinBreakfast.textContent,
                       fats: stringFatBreakfast.textContent,
+                      products: accordeon.innerHTML,
                     };
+                    render()
                     localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                     
                 }
@@ -587,6 +594,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         carbs: stringCarbLunch.textContent,
                         proteins: stringProteinLunch.textContent,
                         fats: stringFatLunch.textContent,
+                        products: accordeon2.innerHTML,
                       };
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 
@@ -607,6 +615,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbDinner.textContent,
                       proteins: stringProteinDinner.textContent,
                       fats: stringFatDinner.textContent,
+                      products: accordeon3.innerHTML,
                     };
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 
@@ -627,6 +636,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       carbs: stringCarbSnack.textContent,
                       proteins: stringProteinSnack.textContent,
                       fats: stringFatSnack.textContent,
+                      products: accordeon4.innerHTML,
                     };
                       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
                     
@@ -646,17 +656,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
                   // total weight //
-                  totalWeight += Number(grammInput.value);
-                  totalCalories += (calories * grammInput.value) / 100;
-                  totalCarbs += (carbs * grammInput.value) / 100;
-                  totalProteins += (proteins * grammInput.value) / 100;
-                  totalFats += (fats * grammInput.value) / 100;
+                  // totalWeight += Number(grammInput.value);
+                  // totalCalories += (calories * grammInput.value) / 100;
+                  // totalCarbs += (carbs * grammInput.value) / 100;
+                  // totalProteins += (proteins * grammInput.value) / 100;
+                  // totalFats += (fats * grammInput.value) / 100;
 
                  
-                  //updateTotalValues()
-                  storeTotalValues();
-                  storeMealEaten(mealEaten);
-                  retrieveTotalValues();
+                  // //updateTotalValues()
+                  // storeTotalValues();
+                  // storeMealEaten(mealEaten);
+                  // retrieveTotalValues();
 
 
                 }
@@ -696,6 +706,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+  // Саша, обрати внимание
+  // render()
 });
 
 // let mealTypes = {};
@@ -723,8 +735,18 @@ function closeNotFoundExtra(event) {
   input.innerHTML = ""; 
   loader.style.display = 'none'; 
 }
+// Саша, обрати внимание
+function render(){
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  accordeon.innerHTML = currentUser.breakfast.products;
+  accordeon2.innerHTML = currentUser.lunch.products;
+  accordeon3.innerHTML = currentUser.dinner.products;
+  accordeon4.innerHTML = currentUser.snack.products;
+}
 
 closePopUpNotFoundExtra.addEventListener("click", closeNotFoundExtra);
+// document.querySelector("body").addEventListener("onload", render);
+// document.addEventListener('DOMContentLoaded', () => render())
 
 // openPopUpNewProduct.addEventListener("click", openNewProduct);
 // closePopUpNotFound.addEventListener("click", closeNotFound);
