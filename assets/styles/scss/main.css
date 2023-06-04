@@ -934,7 +934,7 @@ body {
   border: none;
   cursor: pointer;
   margin-top: 5%;
-  transition-duration: 0.7s;
+  transition-duration: 0.9s;
 }
 .diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
@@ -969,6 +969,10 @@ body {
 .diary-table-string-2 {
   width: 70%;
   font-size: 16px;
+}
+
+.diary-table-string__add-btn {
+  padding-right: 5%;
 }
 
 .diary-table-string__add-btn_focus {
@@ -1567,17 +1571,17 @@ input:hover {
 }
 
 .profile-user__macro-scale-line_carbs {
-  width: 55%;
+  width: 0%;
   background-color: rgba(0, 195, 255, 0.6);
 }
 
 .profile-user__macro-scale-line_protein {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 0, 21, 0.6);
 }
 
 .profile-user__macro-scale-line_fat {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 217, 0, 0.6);
 }
 
