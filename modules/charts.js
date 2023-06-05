@@ -2,7 +2,8 @@
 
 // charts js section
 
-const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+const weightList = currentUser.weightList || {}; 
 
 // Вывод данных калорий и макроэлементов в диаграмму
 
@@ -21,52 +22,60 @@ const setLegendItemValue = (itemClass, percent, kkal) => {
 };
 
 const fillMacrosChart = () => {
-    const total = currentUser.total;
-    const carbs = parseFloat(total.carbs);
-    const proteins = parseFloat(total.proteins);
-    const fats = parseFloat(total.fats);
+    try {
+        const total = currentUser.total;
+        const carbs = parseFloat(total.carbs);
+        const proteins = parseFloat(total.proteins);
+        const fats = parseFloat(total.fats);
 
-    const totalMacro = carbs + proteins + fats;
+        const totalMacro = carbs + proteins + fats;
 
-    const greenDiagram = document.querySelector('.charts-macro__diagram-green');
-    const redDiagram = document.querySelector('.charts-macro__diagram-red');
-    const yellowDiagram = document.querySelector('.charts-macro__diagram-yellow');
+        const greenDiagram = document.querySelector('.charts-macro__diagram-green');
+        const redDiagram = document.querySelector('.charts-macro__diagram-red');
+        const yellowDiagram = document.querySelector('.charts-macro__diagram-yellow');
 
-    const greenHeight = carbs ? (carbs / totalMacro) * 100 : 0;
-    const redHeight = proteins ? (proteins / totalMacro) * 100 : 0;
-    const yellowHeight = fats ? (fats / totalMacro) * 100 : 0;
+        const greenHeight = carbs ? (carbs / totalMacro) * 100 : 0;
+        const redHeight = proteins ? (proteins / totalMacro) * 100 : 0;
+        const yellowHeight = fats ? (fats / totalMacro) * 100 : 0;
 
-    const greenPercent = greenHeight ? `${greenHeight.toFixed(0)}% (${carbs} ккал)` : '0%';
-    const redPercent = redHeight ? `${redHeight.toFixed(0)}% (${proteins} ккал)` : '0%';
-    const yellowPercent = yellowHeight ? `${yellowHeight.toFixed(0)}% (${fats} ккал)` : '0%';
+        const greenPercent = greenHeight ? `${greenHeight.toFixed(0)}% (${carbs} ккал)` : '0%';
+        const redPercent = redHeight ? `${redHeight.toFixed(0)}% (${proteins} ккал)` : '0%';
+        const yellowPercent = yellowHeight ? `${yellowHeight.toFixed(0)}% (${fats} ккал)` : '0%';
 
-    const greenLegend = document.querySelector('.charts-macro__legend-item__carbo');
-    const redLegend = document.querySelector('.charts-macro__legend-item__protein');
-    const yellowLegend = document.querySelector('.charts-macro__legend-item__fats');
+        const greenLegend = document.querySelector('.charts-macro__legend-item__carbo');
+        const redLegend = document.querySelector('.charts-macro__legend-item__protein');
+        const yellowLegend = document.querySelector('.charts-macro__legend-item__fats');
 
-    greenLegend.textContent = greenPercent;
-    redLegend.textContent = redPercent;
-    yellowLegend.textContent = yellowPercent;
+        greenLegend.textContent = greenPercent;
+        redLegend.textContent = redPercent;
+        yellowLegend.textContent = yellowPercent;
 
-    greenDiagram.style.height = greenHeight ? `${greenHeight}%` : '0%';
-    redDiagram.style.height = redHeight ? `${redHeight}%` : '0%';
-    yellowDiagram.style.height = yellowHeight ? `${yellowHeight}%` : '0%';
+        greenDiagram.style.height = greenHeight ? `${greenHeight}%` : '0%';
+        redDiagram.style.height = redHeight ? `${redHeight}%` : '0%';
+        yellowDiagram.style.height = yellowHeight ? `${yellowHeight}%` : '0%';
+    } catch (error) {
+        console.error("В дневник не введены данные");
+    }
 };
 
 const fillCaloriesChart = () => {
-    const totalKkal = parseInt(currentUser.breakfast.kkal) + parseInt(currentUser.lunch.kkal) + parseInt(currentUser.dinner.kkal) + parseInt(currentUser.snack.kkal);
-    const meals = [
-        {name: 'breakfast', color: 'yellow', kkal: currentUser.breakfast.kkal},
-        {name: 'lunch', color: 'green', kkal: currentUser.lunch.kkal},
-        {name: 'dinner', color: 'red', kkal: currentUser.dinner.kkal},
-        {name: 'snack', color: 'salad', kkal: currentUser.snack.kkal}
-    ];
+    try {
+        const totalKkal = parseInt(currentUser.breakfast.kkal) + parseInt(currentUser.lunch.kkal) + parseInt(currentUser.dinner.kkal) + parseInt(currentUser.snack.kkal);
+        const meals = [
+            {name: 'breakfast', color: 'yellow', kkal: currentUser.breakfast.kkal},
+            {name: 'lunch', color: 'green', kkal: currentUser.lunch.kkal},
+            {name: 'dinner', color: 'red', kkal: currentUser.dinner.kkal},
+            {name: 'snack', color: 'salad', kkal: currentUser.snack.kkal}
+        ];
 
-    meals.forEach(meal => {
-        const percent = calculatePercent(meal.kkal, totalKkal);
-        setColumnHeight(meal.color, percent);
-        setLegendItemValue(meal.name, percent, meal.kkal);
-    });
+        meals.forEach(meal => {
+            const percent = calculatePercent(meal.kkal, totalKkal);
+            setColumnHeight(meal.color, percent);
+            setLegendItemValue(meal.name, percent, meal.kkal);
+        });
+    } catch (error) {
+        console.error("В дневник не введены данные");
+    }
 };
 
 fillCaloriesChart();
@@ -77,7 +86,6 @@ fillMacrosChart();
 const weightGraph = document.getElementById('charts-weight__current-lb');
 
 const updateChart = () => {
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     const dates = Object.keys(weightList).sort();
     chart.data.labels = dates;
     chart.data.datasets[0].data = dates.map((date) => {
@@ -85,6 +93,8 @@ const updateChart = () => {
         return weights.reduce((sum, weight) => sum + weight, 0) / weights.length;
     });
     chart.update();
+    currentUser.weightList = weightList;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 };
 
 const chart = new Chart(weightGraph, {
@@ -134,18 +144,17 @@ const roundWeight = (weight) => {
 const saveWeight = () => {
     const weight = roundWeight(weightInput.value);
     const date = dateInput.value;
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     if (!weightList[date]) {
         weightList[date] = [weight];
     } else {
-    weightList[date].push(weight);
+        weightList[date].push(weight);
     }
-    localStorage.setItem('weightList', JSON.stringify(weightList));
+    currentUser.weightList = weightList;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
     displayWeights();
 };
 
 const getWeightsByDate = (date) => {
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     if (weightList[date]) {
         return weightList[date];
     } else {
@@ -156,37 +165,35 @@ const getWeightsByDate = (date) => {
 const displayWeights = () => {
     const weightList = document.getElementById('weightList');
     weightList.innerHTML = '';
-    const dates = Object.keys(JSON.parse(localStorage.getItem('weightList') || {}));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+    const weightListDates = currentUser.weightList ? Object.keys(currentUser.weightList) : [];
     const today = new Date().toISOString().slice(0, 10);
-    if (dates.includes(today)) {
+
+    let lastWeight;
+    if (weightListDates.includes(today)) {
         const weights = getWeightsByDate(today);
-        const lastWeight = weights[weights.length - 1];
-        const actualWeight = document.querySelector('.charts-weight__actual p');
-        actualWeight.textContent = `Ваш вес - ${lastWeight} кг`;
-        
-        if (currentUser && Array.isArray(currentUser)) {
-            const lastWeight = weights[weights.length - 1];
-            currentUser[4] = lastWeight;
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        }
+        lastWeight = weights[weights.length - 1];
+    } else {
+        lastWeight = currentUser.weight;
     }
-    dates.forEach((date) => {
+
+    const actualWeight = document.querySelector('.charts-weight__actual p');
+    actualWeight.textContent = `Ваш вес - ${lastWeight || ''} кг`;
+
+    weightListDates.forEach((date) => {
         const weightListItem = document.createElement('li');
         const weights = getWeightsByDate(date);
-        const weightListItems = weights.map((weight) => {
-            return '<li>' + weight + '</li>';
-        }).join('');
+        const weightListItems = weights.map((weight) => `<li>${weight}</li>`);
         weightListItem.innerHTML = `
             <h3>${date}</h3>
             <ul>
-            ${weightListItems}
-            </ul>
-        `;
+                ${weightListItems.join('')}
+            </ul>`;
         weightList.appendChild(weightListItem);
     });
+
     updateChart();
 };
-
 
 addButton.addEventListener('click', () => {
     if (validateWeight()) {
@@ -276,6 +283,11 @@ updateWeightInfo();
 
 const resetButton = document.querySelector('.charts-reset__button'); 
 resetButton.addEventListener('click', function() {
-    localStorage.removeItem('weightList');
-    location.reload();
+    if (currentUser && currentUser.weightList) {
+        currentUser.weightList = {};
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        location.reload();
+    }
 });
+
+// localStorage.clear();

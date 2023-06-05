@@ -29,21 +29,6 @@
   background-color: #E4EEEE;
 }
 
-@media screen and (max-width: 1279px) {
-  .wrapper {
-    display: none;
-  }
-}
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-  .wrapper {
-    max-width: 1440px;
-  }
-}
-@media screen and (min-width: 1921px) {
-  .wrapper {
-    width: 75vw;
-  }
-}
 .charts-main {
   font-size: 1em;
   font-weight: 400;
@@ -90,15 +75,13 @@
   justify-content: space-between;
 }
 
+.charts-calorie-title {
+  margin-right: 5vw;
+}
+
 .charts-calorie__btn,
 .charts-macro__btn {
-  width: 32%;
-  height: 12%;
-  background-color: #f7c78e;
-  color: black;
-  text-align: center;
-  border-radius: 15px;
-  border: none;
+  display: none;
 }
 
 .charts-calorie__container,
@@ -491,7 +474,7 @@
   }
 
   .charts-title > p {
-    font-size: 2.5rem;
+    font-size: 1.4em;
   }
   
   .charts-calorie__diagram,
@@ -614,8 +597,7 @@
   .charts-add-weight-btn {
     width: 30%;
     height: 60%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 25px;
   }
 }
-/*# sourceMappingURL=charts.css.map */
