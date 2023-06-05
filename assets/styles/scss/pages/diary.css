@@ -62,7 +62,7 @@ body {
 }
 .diary-diet-tracker__content {
   font-weight: 400;
-  font-size: 23px;
+  font-size: 20px;
   font-family: "Montserrat", sans-serif;
 }
 .diary-diet-tracker__bottom-bar {
@@ -104,9 +104,9 @@ body {
 }
 .diary-table-string-1__column-names,
 .diary-table-string__column-names {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(5, 1fr);
   margin-right: 3%;
   width: 70%;
   font-weight: 400;
@@ -124,8 +124,22 @@ body {
   background-color: #E4EEEE;
 }
 
-.diary-table-string-1__column-names {
-  width: 62%;
+.diary-table-string-1__meal-name,
+.diary-table-string__meal-name {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 25%;
+}
+.diary-table-string-1__meal-name button,
+.diary-table-string__meal-name button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform-origin: 50% 50%;
 }
 
 .diary-table-string-2 {
@@ -147,6 +161,10 @@ body {
   visibility: hidden;
   height: 0px;
   transition: 0.7s opacity, 0.55s visibility;
+}
+
+.diary-table-string__column-names {
+  align-items: center;
 }
 
 .diary-water-tracker {

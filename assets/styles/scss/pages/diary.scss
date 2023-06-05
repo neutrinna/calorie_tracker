@@ -79,7 +79,7 @@ body {
     }
 
     &__content {
-        @include font (400, 23px);
+        @include font (400, 20px);
     }
 
     &__bottom-bar {
@@ -99,6 +99,7 @@ body {
 
 
     &__meal-name {
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -134,9 +135,9 @@ body {
     }
 
     &__column-names {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
         align-items: center;
+        grid-template-columns: repeat(5, 1fr);
 
         margin-right: 3%;
         width: 70%;
@@ -156,10 +157,23 @@ body {
 
 }
 
-.diary-table-string-1 {
-    &__column-names {
-        width: 62%;
-    }
+.diary-table-string-1__meal-name,
+.diary-table-string__meal-name {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 25%;
+
+  button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    transform-origin: 50% 50%;
+  }
 }
 
 .diary-table-string-2 {
@@ -189,7 +203,9 @@ body {
 //     transition: 1s;
 // }
 
-
+.diary-table-string__column-names{
+    align-items: center;
+}
 
 //////////////////////////////////////////////////
 .diary-water-tracker {
