@@ -156,6 +156,8 @@ form.addEventListener("submit", (event) => {
 // chart
 
 function render() {
+  document.querySelector(".profile-user__doughnut-chart").innerHTML = `<canvas id="doughnut"></canvas>`;
+
   if (localStorage.getItem("loged") === "true") {
     document.getElementById("profile-welcome__wripper").style.display = "none";
     document.getElementById("profile-paternity").style.display = "none";
