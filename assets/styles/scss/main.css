@@ -349,6 +349,57 @@
     margin-right: calc((100vw - 1920px) / -2.2);
   }
 }
+@media screen and (min-width: 1921px) {
+  .articles-topics__title {
+    font-weight: 600;
+    font-size: calc((100vw - 138.4px) / 81.2);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-topics__text,
+  .articles-section__article {
+    font-weight: 300;
+    font-size: calc((100vw - 161.5px) / 88);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-copy {
+    font-weight: 300;
+    font-size: calc((100vw - 189px) / 96);
+    font-family: "Montserrat", sans-serif;
+    margin-left: calc((100vw - 1270px) / 4.5);
+  }
+  .topic__text {
+    font-weight: 300;
+    font-size: calc((100vw - 138px) / 81);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__title {
+    font-weight: 600;
+    font-size: calc((100vw - 4px) / 79.8);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__subtitle {
+    font-weight: 600;
+    font-size: calc((100vw - 381.5px) / 96);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__back {
+    font-weight: 600;
+    font-size: calc((100vw - 138.4px) / 81);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-section,
+  .articles-topics {
+    width: calc((100vw - 246px) / 1.58);
+    margin-right: calc((100vw - 5000px) / -39);
+  }
+  .topic {
+    width: calc((100vw - 54.7px) / 1.6);
+    margin-left: calc((100vw + 102.5px) / 7);
+  }
+  .articles-topics__img {
+    width: calc((100vw - 424px) / 4.7);
+  }
+}
 
 
 /* Настя Кольцова - начало */
@@ -849,7 +900,7 @@ body {
 }
 .diary-diet-tracker__content {
   font-weight: 400;
-  font-size: 23px;
+  font-size: 20px;
   font-family: "Montserrat", sans-serif;
 }
 .diary-diet-tracker__bottom-bar {
@@ -891,9 +942,9 @@ body {
 }
 .diary-table-string-1__column-names,
 .diary-table-string__column-names {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(5, 1fr);
   margin-right: 3%;
   width: 70%;
   font-weight: 400;
@@ -909,6 +960,24 @@ body {
 .diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string-1__meal-name,
+.diary-table-string__meal-name {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 25%;
+}
+.diary-table-string-1__meal-name button,
+.diary-table-string__meal-name button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform-origin: 50% 50%;
 }
 
 .diary-table-string-2 {
@@ -1351,51 +1420,6 @@ input:hover {
   background-color: #148794;
 }
 
-.profile-notification {
-  display: none;
-  position: fixed;
-  width: 100%;
-  min-height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  z-index: 11;
-  top: 0px;
-}
-
-.profile-notification__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 500px;
-  max-width: 80vh;
-  width: 51.25vw;
-  max-height: 12vw;
-  height: 26.17vh;
-  padding: 10px;
-  margin: 9.76vh auto 0px auto;
-  border: solid 7px #F7C78E;
-  background-color: white;
-  border-radius: 35px;
-  box-shadow: 0px 0px 10px #000;
-}
-.profile-notification__content img {
-  width: 8.8%;
-  margin-bottom: 1.19%;
-}
-.profile-notification__content div {
-  text-align: center;
-}
-
-.profile-notification__text {
-  line-height: 180%;
-}
-.profile-notification__text a {
-  color: #089BAB;
-  text-decoration: none;
-  font-weight: 600;
-}
-
 .profile-user__settings {
   align-self: flex-end;
   margin-top: 3.51vh;
@@ -1698,11 +1722,6 @@ input:hover {
   .profile-welcome__form-inputs {
     margin-top: 3.23vh;
   }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-  }
   .profile-user__data-name {
     font-weight: 600;
     font-size: calc((100vw + 640px) / 80);
@@ -1789,11 +1808,6 @@ input:hover {
     font-size: 26px;
     font-family: "Montserrat", sans-serif;
   }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-  }
 }
 @media screen and (min-width: 1921px) {
   .profile-RSK {
@@ -1845,15 +1859,6 @@ input:hover {
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw - 290px) / 62);
-    font-family: "Montserrat", sans-serif;
-  }
-  .profile-notification__content {
-    max-width: 55vh;
-    max-height: 9vw;
-  }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
   .profile-user__data-name,

@@ -279,51 +279,6 @@ input:hover {
   background-color: #148794;
 }
 
-.profile-notification {
-  display: none;
-  position: fixed;
-  width: 100%;
-  min-height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  z-index: 11;
-  top: 0px;
-}
-
-.profile-notification__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 500px;
-  max-width: 80vh;
-  width: 51.25vw;
-  max-height: 12vw;
-  height: 26.17vh;
-  padding: 10px;
-  margin: 9.76vh auto 0px auto;
-  border: solid 7px #F7C78E;
-  background-color: white;
-  border-radius: 35px;
-  box-shadow: 0px 0px 10px #000;
-}
-.profile-notification__content img {
-  width: 8.8%;
-  margin-bottom: 1.19%;
-}
-.profile-notification__content div {
-  text-align: center;
-}
-
-.profile-notification__text {
-  line-height: 180%;
-}
-.profile-notification__text a {
-  color: #089BAB;
-  text-decoration: none;
-  font-weight: 600;
-}
-
 .profile-user__settings {
   align-self: flex-end;
   margin-top: 3.51vh;
@@ -626,11 +581,6 @@ input:hover {
   .profile-welcome__form-inputs {
     margin-top: 3.23vh;
   }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-  }
   .profile-user__data-name {
     font-weight: 600;
     font-size: calc((100vw + 640px) / 80);
@@ -717,11 +667,6 @@ input:hover {
     font-size: 26px;
     font-family: "Montserrat", sans-serif;
   }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-  }
 }
 @media screen and (min-width: 1921px) {
   .profile-RSK {
@@ -773,15 +718,6 @@ input:hover {
   .profile-welcome__form-greet {
     font-weight: 600;
     font-size: calc((100vw - 290px) / 62);
-    font-family: "Montserrat", sans-serif;
-  }
-  .profile-notification__content {
-    max-width: 55vh;
-    max-height: 9vw;
-  }
-  .profile-notification__text {
-    font-weight: 500;
-    font-size: calc((100vw + 12580px) / 580);
     font-family: "Montserrat", sans-serif;
   }
   .profile-user__data-name,
