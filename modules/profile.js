@@ -131,19 +131,6 @@ function validationInputs() {
     growth.style.borderColor = "#FF7C02";
   }
 }
-// Инна
-
-// function setValues() {
-//   document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
-//   document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`;
-//   document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-//   try {
-//     document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`
-//   } catch {
-//     document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
-//   }
-// }
-// Инна
 
 button.addEventListener("click", function () {
   if (age.value !== "" && weight.value !== "" && growth.value !== "") {
@@ -191,6 +178,7 @@ function render() {
     // chart
     const doughnut = document.getElementById("doughnut");
     let macroAmount = [];
+
     try {
       macroAmount = [
         currentUser.total.carbs,
@@ -216,8 +204,9 @@ function render() {
           ],
         },
       });
-    } catch {}
-
+    } catch {
+    }
+    
     const waterAmount = document.querySelector(
       ".profile-user__water-amount_data"
     );

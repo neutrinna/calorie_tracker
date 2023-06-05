@@ -65,6 +65,7 @@ function loginUser() {
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
     
       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+      document.querySelector(".profile-user__doughnut-chart").innerHTML = `<canvas id="doughnut"></canvas>`;
       render()
 
       return ; // выходим из цикла, так как дальше перебирать нет смысла
@@ -145,6 +146,8 @@ function exit() {
   localStorage.setItem(`currentUser`, `${currentUser}`);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
   closeDropdown()
+  document.querySelector(".profile-user__doughnut-chart").innerHTML = ``;
+  render()
 }
 
 function saveChanges() {
