@@ -8,7 +8,7 @@
 	<title>Мои результаты</title>
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
-	<!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/notification.css">
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/fonts.css" />
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
 	<link rel="stylesheet" href="./../assets/styles/scss/pages/charts.css" />
@@ -21,19 +21,19 @@
 		<div class="side-bar">
 			<nav>
 				<li>
-					<a class="side-bar__link side-bar__link_profile" href="../index.html"><img
+					<a class="side-bar__link side-bar__link_profile" href="#"><img
 							src="../assets/images/index/profile.svg" alt="иконка ссылки на раздел профиль">Профиль</a>
 				</li>
 				<li class="side-bar__menu">
-					<a class="side-bar__link  side-bar__link_diary" href="./diary.html"><img src="../assets/images/index/diary.svg"
+					<a class="side-bar__link  side-bar__link_diary" href="#"><img src="../assets/images/index/diary.svg"
 							alt="иконка ссылки на раздел дневник">Дневник</a>
 				</li>
 				<li class="side-bar__menu">
-					<a class="side-bar__link side-bar__link_charts" href="./charts.html"><img src="../assets/images/index/graph.svg"
+					<a class="side-bar__link side-bar__link_charts" href="#"><img src="../assets/images/index/graph.svg"
 							alt="иконка ссылки на раздел динамика">Динамика</a>
 				</li>
 				<li class="side-bar__menu">
-					<a class="side-bar__link  side-bar__link_articles" href="./articles.html"><img
+					<a class="side-bar__link  side-bar__link_articles" href="#"><img
 							src="../assets/images/index/sampling.svg" alt="иконка ссылки на раздел Статьи">Статьи</a>
 				</li>
 			</nav>
@@ -55,9 +55,9 @@
 
 				<select id="days" class="charts-calorie__btn">
 					<option value="today">Сегодня</option>
-					<option value="yesterday">Вчера</option>
+					<!-- <option value="yesterday">Вчера</option>
 					<option value="2023-05-16">17 мая</option>
-					<option value="2023-05-15">16 мая</option>
+					<option value="2023-05-15">16 мая</option> -->
 				</select>
 
 				<div class="charts-calorie__container">
@@ -101,9 +101,9 @@
 				</div>
 				<select id="days" class="charts-macro__btn">
 					<option value="today">Сегодня</option>
-					<option value="yesterday">Вчера</option>
+					<!-- <option value="yesterday">Вчера</option>
 					<option value="2023-05-16">17 мая</option>
-					<option value="2023-05-15">16 мая</option>
+					<option value="2023-05-15">16 мая</option> -->
 				</select>
 
 				<div class="charts-macro__container">
@@ -183,6 +183,20 @@
 	</div>
 
 	<!-- charts section -->
+      <!-- notification pop-up -->
+
+	  <div class="profile-notification" id="profile-notification">
+		<div class="profile-notification__content">
+		  <img src="../assets/images/index/info.svg" alt="Иконка с i в кружочке">
+		  <div>
+			<p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
+				href="../index.html">войдите</a> в личный кабинет</p>
+			<p class="profile-notification__text"> или <a class="profile-notification__reg" href="../index.html"
+				onclick="openRegistration()">зарегистрируйтесь </a></p>
+		  </div>
+		</div>
+	  </div>
+	  <!-- notification pop-up -->
 
 	<!-- Настя Кольцова -->
 

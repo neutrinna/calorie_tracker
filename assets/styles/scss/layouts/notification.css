@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(../../../fonts/Montserrat.ttf);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../../../fonts/Inter.ttf);
+}
+.profile-notification {
+  display: none;
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 11;
+  top: 0px;
+}
+
+.profile-notification__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
+  max-width: 90vh;
+  width: 51.25vw;
+  max-height: 13vw;
+  height: 26.17vh;
+  padding: 10px;
+  margin: 9.76vh auto 0px auto;
+  border: solid 7px #F7C78E;
+  background-color: white;
+  border-radius: 35px;
+  box-shadow: 0px 0px 10px #000;
+  font-weight: 500;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+}
+.profile-notification__content img {
+  width: 8.8%;
+  margin-bottom: 1.19%;
+}
+.profile-notification__content div {
+  text-align: center;
+}
+
+.profile-notification__text {
+  line-height: 180%;
+}
+.profile-notification__text a {
+  color: #089BAB;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+  .profile-notification__text {
+    font-size: calc((100vw - 765px) / 28);
+  }
+}
+@media screen and (min-width: 1921px) {
+  .profile-notification__content {
+    max-width: 65vh;
+    max-height: 9vw;
+  }
+  .profile-notification__text {
+    font-size: calc((100vw + 3413px) / 213);
+  }
+}/*# sourceMappingURL=notification.css.map */

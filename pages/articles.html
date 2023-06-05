@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css" />
     <link rel="shortcut icon" href="../assets/icons/calories.png" />
     <link rel="stylesheet" href="../assets/styles/scss/main.css" />
+    <link rel="stylesheet" href="../assets/styles/scss/layouts/notification.css">
     <link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
   </head>
 
@@ -468,6 +469,20 @@
         <p class="articles-copy">Calorie tracker &copy; 2023</p>
       </footer>
     </div>
+      <!-- notification pop-up -->
+
+  <div class="profile-notification" id="profile-notification">
+    <div class="profile-notification__content">
+      <img src="../assets/images/index/info.svg" alt="Иконка с i в кружочке">
+      <div>
+        <p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
+            href="../index.html">войдите</a> в личный кабинет</p>
+        <p class="profile-notification__text"> или <a class="profile-notification__reg" href="../index.html"
+            onclick="openRegistration()">зарегистрируйтесь </a></p>
+      </div>
+    </div>
+  </div>
+  <!-- notification pop-up -->
 
     <script src="../modules/articles.js"></script>
     <script src="../modules/side-bar-other.js"></script>

@@ -125,8 +125,8 @@
 .dropdown {
   position: absolute;
   display: inline-block;
-  left: 318px;
-  top: 20px;
+  right: 30%;
+  top: 3%;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -138,6 +138,9 @@
   min-width: 225px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  font-weight: 400;
+  font-size: 16.5px;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* Links inside the dropdown */
@@ -151,6 +154,7 @@
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
+  border-radius: 15px;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
