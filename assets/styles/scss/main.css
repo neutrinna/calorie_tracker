@@ -858,43 +858,37 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
-.diary-table-string-2,
 .diary-table-string-1,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
   height: 64px;
 }
-.diary-table-string-2__meal-name,
 .diary-table-string-1__meal-name,
 .diary-table-string__meal-name {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 3%;
-  width: 15%;
+  width: 25%;
 }
-.diary-table-string-2__meal-name_color_orange,
 .diary-table-string-1__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
-.diary-table-string-2__add-btn,
 .diary-table-string-1__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   margin-top: 5%;
-  transition-duration: 0.7s;
+  transition-duration: 0.9s;
 }
-.diary-table-string-2__add-btn-img,
 .diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
-.diary-table-string-2__column-names,
 .diary-table-string-1__column-names,
 .diary-table-string__column-names {
   display: flex;
@@ -906,17 +900,24 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
-.diary-table-string-2__column-names_color_dark-blue,
 .diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
   text-align: left;
 }
-.diary-table-string-2_color_blue,
 .diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string-2 {
+  width: 70%;
+  font-size: 16px;
+}
+
+.diary-table-string__add-btn {
+  padding-right: 5%;
 }
 
 .diary-table-string__add-btn_focus {
@@ -929,6 +930,10 @@ body {
   visibility: hidden;
   height: 0px;
   transition: 0.7s opacity, 0.55s visibility;
+}
+
+.diary-table-string__column-names {
+  align-items: center;
 }
 
 .diary-water-tracker {
@@ -1347,6 +1352,7 @@ input:hover {
 }
 
 .profile-notification {
+  display: none;
   position: fixed;
   width: 100%;
   min-height: 100%;
@@ -1441,6 +1447,7 @@ input:hover {
   flex-grow: 1;
   justify-content: space-between;
   width: 100%;
+  height: 60%;
 }
 
 .profile-user__kkal-block {
@@ -1513,17 +1520,17 @@ input:hover {
 }
 
 .profile-user__macro-scale-line_carbs {
-  width: 55%;
+  width: 0%;
   background-color: rgba(0, 195, 255, 0.6);
 }
 
 .profile-user__macro-scale-line_protein {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 0, 21, 0.6);
 }
 
 .profile-user__macro-scale-line_fat {
-  width: 55%;
+  width: 0%;
   background-color: rgba(255, 217, 0, 0.6);
 }
 

@@ -62,7 +62,7 @@ body {
 }
 .diary-diet-tracker__content {
   font-weight: 400;
-  font-size: 23px;
+  font-size: 20px;
   font-family: "Montserrat", sans-serif;
 }
 .diary-diet-tracker__bottom-bar {
@@ -71,14 +71,12 @@ body {
   border-radius: 0 0 35px 35px;
 }
 
-.diary-table-string-2,
 .diary-table-string-1,
 .diary-table-string {
   display: flex;
   justify-content: space-between;
   height: 64px;
 }
-.diary-table-string-2__meal-name,
 .diary-table-string-1__meal-name,
 .diary-table-string__meal-name {
   display: flex;
@@ -87,49 +85,70 @@ body {
   margin-left: 3%;
   width: 25%;
 }
-.diary-table-string-2__meal-name_color_orange,
 .diary-table-string-1__meal-name_color_orange,
 .diary-table-string__meal-name_color_orange {
   color: #FF7C02;
   font-weight: 700;
 }
-.diary-table-string-2__add-btn,
 .diary-table-string-1__add-btn,
 .diary-table-string__add-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   margin-top: 5%;
-  transition-duration: 0.7s;
+  transition-duration: 0.9s;
 }
-.diary-table-string-2__add-btn-img,
 .diary-table-string-1__add-btn-img,
 .diary-table-string__add-btn-img {
   max-width: 35px;
 }
-.diary-table-string-2__column-names,
 .diary-table-string-1__column-names,
 .diary-table-string__column-names {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(5, 1fr);
   margin-right: 3%;
   width: 70%;
   font-weight: 400;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
-.diary-table-string-2__column-names_color_dark-blue,
 .diary-table-string-1__column-names_color_dark-blue,
 .diary-table-string__column-names_color_dark-blue {
   color: #089BAB;
   font-weight: 700;
   text-align: left;
 }
-.diary-table-string-2_color_blue,
 .diary-table-string-1_color_blue,
 .diary-table-string_color_blue {
   background-color: #E4EEEE;
+}
+
+.diary-table-string-1__meal-name,
+.diary-table-string__meal-name {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 25%;
+}
+.diary-table-string-1__meal-name button,
+.diary-table-string__meal-name button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform-origin: 50% 50%;
+}
+
+.diary-table-string-2 {
+  width: 70%;
+  font-size: 16px;
+}
+
+.diary-table-string__add-btn {
+  padding-right: 5%;
 }
 
 .diary-table-string__add-btn_focus {
@@ -142,6 +161,10 @@ body {
   visibility: hidden;
   height: 0px;
   transition: 0.7s opacity, 0.55s visibility;
+}
+
+.diary-table-string__column-names {
+  align-items: center;
 }
 
 .diary-water-tracker {
@@ -234,17 +257,17 @@ body {
     width: 45vw;
   }
   .diary-water-tracker__text,
-.diary-water-tracker__top-bar-name,
-.diary-table-string__meal-name,
-.diary-diet-tracker__calendar-btn {
+  .diary-water-tracker__top-bar-name,
+  .diary-table-string__meal-name,
+  .diary-diet-tracker__calendar-btn {
     font-size: 1.5vw;
   }
   .diary-table-string__column-names {
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-.diary-water-tracker__top-res,
-.diary-water-tracker__crrnt-res-ml {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }
@@ -264,17 +287,17 @@ body {
     margin: auto;
   }
   .diary-water-tracker__text,
-.diary-water-tracker__top-bar-name,
-.diary-table-string__meal-name,
-.diary-diet-tracker__calendar-btn {
+  .diary-water-tracker__top-bar-name,
+  .diary-table-string__meal-name,
+  .diary-diet-tracker__calendar-btn {
     font-size: 1.2vw;
   }
   .diary-table-string__column-names {
     font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
-.diary-water-tracker__top-res,
-.diary-water-tracker__crrnt-res-ml {
+  .diary-water-tracker__top-res,
+  .diary-water-tracker__crrnt-res-ml {
     font-size: 1.6vw;
   }
 }/*# sourceMappingURL=diary.css.map */

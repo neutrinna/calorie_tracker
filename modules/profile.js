@@ -1,5 +1,4 @@
 // Инна
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // localStorage.clear()
 
 // Инна
@@ -22,18 +21,20 @@ const carbohydrate = document.querySelector(".carbohydrates");
 const optimalWeight = document.querySelector(".optimal-weight");
 
 const rateGole = 0.2;
+
 render()
 // норма РСК без учёта цели
 
 const getNormRSK = function () {
+  let preResultRSK;
   if (gender.value == "male") {
-    resultRSK.innerHTML = Math.round(
+    preResultRSK = Math.round(
       `${(9.99 * +weight.value + 6.25 * +growth.value - 4.92 * +age.value + 5) *
       +activity.value
       }`
     );
   } else if (gender.value == "female") {
-    resultRSK.innerHTML = Math.round(
+    preResultRSK = Math.round(
       `${(9.99 * +weight.value +
         6.25 * +growth.value -
         4.92 * +age.value -
@@ -43,11 +44,14 @@ const getNormRSK = function () {
     );
   }
   if (localStorage.getItem("loged") === "true") {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(growth.value, weight.value);
     currentUser.growth = growth.value;
     currentUser.weight = weight.value;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
-  console.log(resultRSK.innerHTML);
-  return resultRSK.innerHTML;
+
+  return preResultRSK;
 };
 
 // РСК c учётом цели
@@ -61,7 +65,9 @@ function resultGoal() {
     resultRSK.innerHTML = Math.round(+getNormRSK() + +getNormRSK() * rateGole);
   }
   if (localStorage.getItem("loged") === "true") {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     currentUser.kkal = resultRSK.textContent;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
   return resultRSK.innerHTML;
 }
@@ -69,19 +75,33 @@ function resultGoal() {
 // рассчёт БЖУ
 
 function countNutrients() {
+  let protAmount;
+  let fatAmount;
+  let carbAmount;
+
   if (goal.value == "lose-weight") {
-    protein.innerHTML = `${Math.round((+resultGoal() * 25) / 100 / 4)} г`;
-    fat.innerHTML = `${Math.round((+resultGoal() * 35) / 100 / 9)} г`;
-    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 40) / 100 / 4)} г`;
+    protAmount = `${Math.round((+resultGoal() * 25) / 100 / 4)}`;
+    fatAmount = `${Math.round((+resultGoal() * 35) / 100 / 9)}`;
+    carbAmount = `${Math.round((+resultGoal() * 40) / 100 / 4)}`;
+
+    protein.innerHTML = `${protAmount} г`;
+    fat.innerHTML = `${fatAmount} г`;
+    carbohydrate.innerHTML = `${carbAmount} г`;
   } else if (goal.value == "maintenance" || goal.value == "gain") {
-    protein.innerHTML = `${Math.round((+resultGoal() * 20) / 100 / 4)} г`;
-    fat.innerHTML = `${Math.round((+resultGoal() * 30) / 100 / 9)} г`;
-    carbohydrate.innerHTML = `${Math.round((+resultGoal() * 50) / 100 / 4)} г`;
+    protAmount = `${Math.round((+resultGoal() * 20) / 100 / 4)}`;
+    fatAmount = `${Math.round((+resultGoal() * 30) / 100 / 9)}`;
+    carbAmount = `${Math.round((+resultGoal() * 50) / 100 / 4)}`;
+
+    protein.innerHTML = `${protAmount} г`;
+    fat.innerHTML = `${fatAmount} г`;
+    carbohydrate.innerHTML = `${carbAmount} г`;
   }
   if (localStorage.getItem("loged") === "true") {
-    currentUser.prot = protein.textContent;
-    currentUser.fat = fat.textContent;
-    currentUser.carbs = carbohydrate.textContent;
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.prot = protAmount;
+    currentUser.fat = fatAmount;
+    currentUser.carbs = carbAmount;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
 }
 
@@ -92,7 +112,9 @@ function countWeight() {
     +growth.value - 100 - (growth.value - 150) / 2
   )} кг`;
   if (localStorage.getItem("loged") === "true") {
-    currentUser.goal = optimalWeight.textContent
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.goal = optimalWeight.textContent;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
 }
 
@@ -108,21 +130,17 @@ function validationInputs() {
   }
 }
 // Инна
-function importRSK() {
-  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-}
 
-function setValues() {
-  document.querySelector(".profile-user__target-weight").textContent =
-    `${currentUser.goal}`;
-  document.querySelector(
-    ".profile-user__states-value_growth"
-  ).textContent = `${currentUser.growth} кг`;
-  document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
-  document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-      document.querySelector(".profile-user__kkal-amount_eaten").textContent}`
-
-}
+// function setValues() {
+//   document.querySelector(".profile-user__target-weight").textContent = `${currentUser.goal}`;
+//   document.querySelector(".profile-user__states-value_growth").textContent = `${currentUser.growth} кг`;
+//   document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
+//   try {
+//     document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`
+//   } catch {
+//     document.querySelector(".profile-user__kkal-amount_left").textContent = `-`
+//   }
+// }
 // Инна
 
 button.addEventListener("click", function () {
@@ -132,8 +150,7 @@ button.addEventListener("click", function () {
     countWeight();
   }
   if (document.getElementById("profile-RSK__checkbox").checked === true) {
-    setValues();
-    importRSK();
+    render();
   } else {
     alert("Заполните все поля!");
     validationInputs();
@@ -148,54 +165,9 @@ form.addEventListener("submit", (event) => {
 
 // ИННА
 // chart
-const doughnut = document.getElementById("doughnut");
-const macro = document.querySelectorAll(`.profile-user__macro-amount_span`);
-const macroAmount = [];
-
-for (let macroElement of macro) {
-  macroAmount.push(`${macroElement.textContent}`);
-}
-
-new Chart(doughnut, {
-  type: "doughnut",
-  data: {
-    // labels: ['Углеводы', 'Белки', 'Жиры'],
-    datasets: [{
-      label: "грамм",
-      data: macroAmount,
-      borderWidth: 1,
-      backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
-      borderColor: [
-        "rgba(0, 0, 0, 0.7)",
-        "rgba(0, 0, 0, 0.7)",
-        "rgba(0, 0, 0, 0.7)",
-      ],
-    }, ],
-  },
-});
-// chart
-
-// data
-let kkalTaken = 0;
-const kkalTakenNode = document.querySelector(`.profile-user__kkal-amount`);
-
-for (let i = 0; i < macroAmount.length; i++) {
-  i === 2 ?
-    (kkalTaken += macroAmount[i] * 9) :
-    (kkalTaken += macroAmount[i] * 4);
-}
-
-kkalTakenNode.textContent = `${Math.round(kkalTaken)}`;
-// data
-
 
 function render() {
-  // time
-  const dateNode = document.querySelector(`.profile-user__date-value`);
-  dateNode.textContent = moment().format("DD/MM/YYYY");
-  // time
 
-  // page load
   if (localStorage.getItem("loged") === "true") {
 
     document.getElementById("profile-welcome__wripper").style.display = "none";
@@ -207,6 +179,37 @@ function render() {
     document.getElementById("profile-user__data-name").textContent = `${currentUser.name} ${currentUser.surname}`;
     document.getElementById("profile-user__data-age").textContent = `Возраст: ${currentUser.age}`;
 
+      // time
+  const dateNode = document.querySelector(`.profile-user__date-value`);
+  dateNode.textContent = moment().format("DD/MM/YYYY");
+  // time
+
+  // chart
+    const doughnut = document.getElementById("doughnut");
+    let macroAmount = [];
+    try {
+      macroAmount = [currentUser.total.carbs, currentUser.total.proteins, currentUser.total.fats];
+      new Chart(doughnut, {
+        type: "doughnut",
+        data: {
+          // labels: ['Углеводы', 'Белки', 'Жиры'],
+          datasets: [{
+            label: "грамм",
+            data: macroAmount,
+            borderWidth: 1,
+            backgroundColor: ["#089BAA", "#E16527", "#FCDC29"],
+            borderColor: [
+              "rgba(0, 0, 0, 0.7)",
+              "rgba(0, 0, 0, 0.7)",
+              "rgba(0, 0, 0, 0.7)",
+            ],
+          }, ],
+        },
+      });
+    } catch {
+  
+    }
+  
     const waterAmount = document.querySelector(".profile-user__water-amount_data");
     if ((typeof currentUser.water === "undefined") || (currentUser.water === `null`)) {
       waterAmount.textContent = "0 мл";
@@ -231,37 +234,23 @@ function render() {
     } else {
       document.querySelector(".profile-user__states-value_weight").textContent = `${currentUser.weight} кг`;
     }
-    if ((typeof currentUser.total.kkal === "undefined") || (currentUser.total.kkal === `null`)) {
-      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`
-    } else {
-      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`
-    }
-
-    if ((typeof currentUser.kkal === "undefined") || (currentUser.kkal === `null`)) {
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
-      resultRSK.textContent = `-`;
-    } else {
-      document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal -
-        currentUser.total.kkal}`;
-      resultRSK.textContent = `${currentUser.kkal}`
-    }
 
     if ((typeof currentUser.prot === "undefined") || (currentUser.prot === `null`)) {
       protein.textContent = `-`;
     } else {
-      protein.textContent = `${currentUser.prot}`;
+      protein.textContent = `${currentUser.prot} г`;
     }
 
     if ((typeof currentUser.fat === "undefined") || (currentUser.fat === `null`)) {
       fat.textContent = `-`;
     } else {
-      fat.textContent = `${currentUser.fat}`;
+      fat.textContent = `${currentUser.fat} г`;
     }
 
     if ((typeof currentUser.carbs === "undefined") || (currentUser.carbs === `null`)) {
       carbohydrate.textContent = `-`;
     } else {
-      carbohydrate.textContent = `${currentUser.carbs}`;
+      carbohydrate.textContent = `${currentUser.carbs} г`;
     }
 
     if ((typeof currentUser.goal === "undefined") || (currentUser.goal === `null`)) {
@@ -270,43 +259,62 @@ function render() {
       optimalWeight.textContent = `${currentUser.goal}`
     }
 
+    if(typeof currentUser.kkal === "undefined"){
+      resultRSK.textContent = `-`
+    }else {
+      resultRSK.textContent = `${currentUser.kkal}`;
+    }
     // scales
-    if ((typeof currentUser.total.carbs === "undefined") || (currentUser.total.carbs === `null`)) {
-      document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
-      document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
-    } else {
-      document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs}`;
+    try {
+      if(typeof currentUser.kkal === "undefined"){
+        document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
+      }
+      else{
+        document.querySelector(".profile-user__kkal-amount_left").textContent = `${currentUser.kkal - currentUser.total.kkal}`;
+      }
+
+      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `${currentUser.total.kkal}`;
+
+      document.querySelector(".profile-user__macro-amount_carbs").textContent = `${currentUser.total.carbs} г`;
       if (currentUser.total.carbs / currentUser.carbs * 100 > 100) {
         document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_carbs").style.backgroundColor = `red`
       } else {
         document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `${currentUser.total.carbs/currentUser.carbs*100}%`;
       }
-    }
 
-    if ((typeof currentUser.total.proteins === "undefined") || (currentUser.total.proteins === `null`)) {
-      document.querySelector(".profile-user__macro-amount_prot").textContent = ``;
-    } else {
-      document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins}`;
-      if (currentUser.total.proteins / currentUser.prot * 100 > 100) {
+      document.querySelector(".profile-user__macro-amount_prot").textContent = `${currentUser.total.proteins} г`;
+      if ((currentUser.total.proteins / currentUser.prot * 100) > 100) {
         document.querySelector(".profile-user__macro-scale-line_protein").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_protein").style.backgroundColor = `red`;
       } else {
         document.querySelector(".profile-user__macro-scale-line_protein").style.width = `${currentUser.total.proteins/currentUser.prot*100}%`;
       }
-    }
-    if ((typeof currentUser.total.fats === "undefined") || (currentUser.total.fats === `null`)) {
-      document.querySelector(".profile-user__macro-amount_fat").textContent = ``;
-    } else {
-      document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats}`;
+
+      document.querySelector(".profile-user__macro-amount_fat").textContent = `${currentUser.total.fats} г`;
       if (currentUser.total.fats / currentUser.fat * 100 > 100) {
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `100%`;
-        document.querySelector(".profile-user__macro-scale-line_fat").style.backgroundColor = `red`
       } else {
+
         document.querySelector(".profile-user__macro-scale-line_fat").style.width = `${currentUser.total.fats/currentUser.fat*100}%`;
       }
-    }
+    } catch {
 
+      document.querySelector(".profile-user__kkal-amount_eaten").textContent = `-`;
+      document.querySelector(".profile-user__kkal-amount_left").textContent = `-`;
+      // resultRSK.textContent = `-`;
+
+      document.querySelector(".profile-user__macro-amount_carbs").textContent = ``;
+      document.querySelector(".profile-user__macro-scale-line_carbs").style.width = `0%`;
+
+      document.querySelector(".profile-user__macro-amount_prot").textContent = ``;
+      document.querySelector(".profile-user__macro-scale-line_protein").style.width = `0%`;
+
+      document.querySelector(".profile-user__macro-amount_fat").textContent = ``;
+      document.querySelector(".profile-user__macro-scale-line_fat").style.width = `0%`;
+    }
   }
+
 }
+
+
+
 // Инна

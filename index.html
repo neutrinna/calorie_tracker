@@ -29,23 +29,23 @@
         <form action="">
           <input id="registration__text_name" class="registration__text registration__text_name" type=" text"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
-            placeholder="Имя" name="username" />
+            placeholder="Имя" name="username" required/>
           <input class="registration__text registration__text_surname" id="registration__text_surname" type="text"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
-            placeholder="Фамилия" name="surname" />
+            placeholder="Фамилия" name="surname" required/>
           <div>
             <input type="date" id="registration__text_bday" name="bday"
-              class="registration__text_bday registration__text" />
+              class="registration__text_bday registration__text" required/>
           </div>
           <input class="registration__text registration__text_email" type="email"
             onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" id="registration__text_email"
-            placeholder="E-mail" name="email" />
+            placeholder="E-mail" name="email" required/>
           <label for="password"></label>
           <input class="registration__text registration__text_password" type="password" id="registration__text_password"
-            placeholder="Пароль" name="password" />
+            placeholder="Пароль" name="password" required/>
           <label for="passwordRepeat"></label>
           <input class="registration__text" id="registration__text_passwordRepeat" type="password"
-            placeholder="Повторите пароль" name="passwordRepeat" />
+            placeholder="Повторите пароль" name="passwordRepeat" required/>
           <button id="registration__submit" onclick="registrationAdd ()">Ввод</button>
           <p class="registration__pop-up_close" onclick="closeRegistration()">
             Отмена
@@ -66,17 +66,15 @@
         <form id="profile">
           <input id="customization__text_name"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
-            class="customization__text" type="text" placeholder="Имя">
+            class="customization__text" type="text" placeholder="Имя" required>
           <input id="customization__text_surname"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
-            class="customization__text" type="text" placeholder="Фамилия">
-          <input id="customization__text_bday" class="customization__text" type="text" placeholder="Дата рождения">
+            class="customization__text" type="text" placeholder="Фамилия" required>
+          <input id="customization__text_bday" class="customization__text" type="date" placeholder="Дата рождения" required>
           <input id="customization__text_email" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
-            class="customization__text" type="text" placeholder="E-mail">
-          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль">
-          <p class="customization__title_description">Задать цель, кг:</p>
-          <input type="number" placeholder="Введите число от 0 до 100" class="customization__text " max="100" min="0"
-            step="1">
+            class="customization__text" type="text" placeholder="e-mail" required>
+          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль" required>
+        
           <button onclick="customizationSave()">Сохранить</button>
 
         </form>
@@ -187,7 +185,7 @@
               <div class="profile-user__kkal-wrapper-data">
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Употреблено калорий:</h3>
-                  <div class="profile-user__kkal-amount profile-user__kkal-amount_eaten">1360</div>
+                  <div class="profile-user__kkal-amount profile-user__kkal-amount_eaten">-</div>
                 </div>
                 <div class="profile-user__kkal-block">
                   <h3 class="profile-user__kkal-name font-black">Осталось калорий:</h3>
@@ -205,7 +203,7 @@
                   <div class="profile-user__macro-scale-line profile-user__macro-scale-line_carbs">
                   </div>
                 </div>
-                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">142.6</span> г
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span profile-user__macro-amount_carbs">-</span> 
                 </div>
               </div>
               <div class="profile-user__macro-block">
@@ -214,7 +212,7 @@
                   <div class="profile-user__macro-scale-line profile-user__macro-scale-line_protein">
                   </div>
                 </div>
-                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">94.4</span> г
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span profile-user__macro-amount_prot">-</span> 
                 </div>
               </div>
               <div class="profile-user__macro-block">
@@ -223,7 +221,7 @@
                   <div class="profile-user__macro-scale-line profile-user__macro-scale-line_fat">
                   </div>
                 </div>
-                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span">47.1</span> г
+                <div class="profile-user__macro-amount"><span class="profile-user__macro-amount_span profile-user__macro-amount_fat">-</span> 
                 </div>
               </div>
             </div>
