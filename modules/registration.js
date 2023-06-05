@@ -69,6 +69,7 @@
       emailInput.value = ""; 
       passwordInput.value = ""; 
       passwordRepeatInput.value = ""; 
+      closeRegistration()
     } else { 
       alert("Ошибка! Убедитесь что заполнены все поля и пароли совпадают!"); 
     } 
