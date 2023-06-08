@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Мои результаты</title>
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
+	<link rel="shortcut icon" href="../assets/icons/calories.png" />
+	<link rel="stylesheet" href="../assets/styles/scss/main.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/notification.css">
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/fonts.css" />
+	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
+	<link rel="stylesheet" href="./../assets/styles/scss/pages/charts.css" />
+</head>
+
+<body class="charts-body">
+	<div class="wrapper">
+
+		<!-- side-bar -->
+		<div class="side-bar">
+			<nav>
+				<li>
+					<a class="side-bar__link side-bar__link_profile" href="#"><img
+							src="../assets/images/index/profile.svg" alt="иконка ссылки на раздел профиль">Профиль</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link  side-bar__link_diary" href="#"><img src="../assets/images/index/diary.svg"
+							alt="иконка ссылки на раздел дневник">Дневник</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link side-bar__link_charts" href="#"><img src="../assets/images/index/graph.svg"
+							alt="иконка ссылки на раздел динамика">Динамика</a>
+				</li>
+				<li class="side-bar__menu">
+					<a class="side-bar__link  side-bar__link_articles" href="#"><img
+							src="../assets/images/index/sampling.svg" alt="иконка ссылки на раздел Статьи">Статьи</a>
+				</li>
+			</nav>
+		</div>
+		<!-- side-bar -->
+
+		<!-- Настя Кольцова -->
+
+		<!-- charts section -->
+
+		<div class="charts-main">
+			<div class="charts-title">
+				<p>Отслеживайте положительную и отрицательную динамику своего питания</p>
+			</div>
+			<div class="charts-calorie">
+				<div>
+					<p class="charts-calorie-title">Калории</p>
+				</div>
+
+				<select id="days" class="charts-calorie__btn">
+					<option value="today">Сегодня</option>
+				</select>
+
+				<div class="charts-calorie__container">
+					<div class="charts-calorie__diagram">
+						<div class="charts-calorie__diagram-yellow"></div>
+						<div class="charts-calorie__diagram-green"></div>
+						<div class="charts-calorie__diagram-red"></div>
+						<div class="charts-calorie__diagram-salad"></div>
+					</div>
+					<div class="charts-calorie__caption">
+						<div class="charts-calorie__label">Завтрак</div>
+						<div class="charts-calorie__label">Обед</div>
+						<div class="charts-calorie__label">Ужин</div>
+						<div class="charts-calorie__label">Перекус</div>
+					</div>
+				</div>
+
+				<div class="charts-calorie__legend">
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__yellow"></div>
+						<p class="charts-calorie__legend-item__breakfast">0% (0 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__green"></div>
+						<p class="charts-calorie__legend-item__lunch">0% (0 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__red"></div>
+						<p class="charts-calorie__legend-item__dinner">0% (0 ккал)</p>
+					</div>
+					<div class="charts-calorie__legend-item">
+						<div class="charts-calorie__legend-item__salad"></div>
+						<p class="charts-calorie__legend-item__snack">0% (0 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-macro">
+				<div>
+					<p>Макроэлементы</p>
+				</div>
+				<select id="days" class="charts-macro__btn">
+					<option value="today">Сегодня</option>
+				</select>
+
+				<div class="charts-macro__container">
+					<div class="charts-macro__diagram">
+						<div class="charts-macro__diagram-green"></div>
+						<div class="charts-macro__diagram-red"></div>
+						<div class="charts-macro__diagram-yellow"></div>
+					</div>
+					<div class="charts-macro__caption">
+						<div class="charts-macro__label">Углеводы</div>
+						<div class="charts-macro__label">Белки</div>
+						<div class="charts-macro__label">Жиры</div>
+					</div>
+				</div>
+
+				<div class="charts-macro__legend">
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__green"></div>
+						<p class="charts-macro__legend-item__carbo">0% (0 ккал)</p>
+					</div>
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__red"></div>
+						<p class="charts-macro__legend-item__protein">0% (0 ккал)</p>
+					</div>
+					<div class="charts-macro__legend-item">
+						<div class="charts-macro__legend-item__yellow"></div>
+						<p class="charts-macro__legend-item__fats">0% (0 ккал)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="charts-weight">
+				<div class="charts-weight__actual">
+					<p class="charts-weight__actual-text">Ваш вес - </p>
+				</div>
+				<div class="charts-weight__changes">
+					<div class="charts-weight__dropped">
+						<p class="charts-grid-weight-dropped-text">Данные о весе отсутствуют<span class="charts-kg-green"></span>
+						</p>
+					</div>
+					<div class="charts-weight__remained">
+						<p class="charts-grid-weight-remained-text"><span class="charts-kg-red"></span>
+						</p>
+					</div>
+				</div>
+				<div class="charts-weight__dynamics">
+					<div class="charts-weight__current">
+						<canvas id="charts-weight__current-lb"></canvas>
+					</div>
+				</div>
+				<div>
+					<button class="charts-reset__button">Сброс</button>
+				</div>
+			</div>
+
+			<div class="charts-form">
+				<div>
+					<label for="charts-weight-input">Введите ваш вес:</label>
+					<input type="number" id="charts-weight-input" name="weight">
+				</div>
+
+				<div>
+					<label for="charts-date-input">Дата:</label>
+					<input type="date" id="charts-date-input" name="date"
+						min="{{new Date().toISOString().split('T')[0]}}">
+
+					<button class="charts-add-weight-btn" disabled>Добавить вес</button>
+				</div>
+			</div>
+
+			<div id="weightList">
+				<ul>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- charts section -->
+      <!-- notification pop-up -->
+
+	  <div class="profile-notification" id="profile-notification">
+		<div class="profile-notification__content">
+		  <img src="../assets/images/index/info.svg" alt="Иконка с i в кружочке">
+		  <div>
+			<p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
+				href="../index.html">войдите</a> в личный кабинет</p>
+			<p class="profile-notification__text"> или <a class="profile-notification__reg" href="../index.html"
+				onclick="openRegistration()">зарегистрируйтесь </a></p>
+		  </div>
+		</div>
+	  </div>
+	  <!-- notification pop-up -->
+
+	<!-- Настя Кольцова -->
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+	<script src="./../modules/charts.js" type="module"></script>
+	<script src="../modules/side-bar-other.js"></script>
+</body>
+
+</html>

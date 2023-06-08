@@ -1,0 +1,40 @@
+$default-font: "Montserrat", sans-serif;
+$figure-font: "Inter", sans-serif;
+
+$basic-color: #E4EEEE;
+$main-color: #089BAB;
+$button-color: #F7C78E;
+$figure-color: #FF7C02;
+$text-color: rgba(0, 0, 0, 0.7);
+
+$desktop: 1280px;
+$default-desktop: 1440px;
+$large-desktop: 1920px;
+
+@mixin font ($font-weight, $font-size) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $default-font;
+}
+
+@mixin figure ($font-weight, $font-size) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $figure-font;
+}
+
+@mixin button ($width, $height) {
+    width: $width;
+    height: $height;
+    min-height: 44px;
+    max-height: 105px;
+
+    border: 0;
+    border-radius: 15px;
+
+    background-color: $button-color;
+    color: rgba(0, 0, 0, 0.7);
+
+    transition-duration: 1s;
+}
+

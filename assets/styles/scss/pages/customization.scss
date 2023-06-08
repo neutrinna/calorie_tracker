@@ -1,0 +1,167 @@
+@import "../layouts/variables.scss";
+@import "../layouts/fonts.scss";
+
+.customization__pop-up {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+}
+
+.customization__pop-up.active {
+  display: block;
+}
+
+.customization__pop-up_container {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+}
+
+.customization__pop-up_body {
+  margin: auto;
+  width: 80%;
+  max-width: 586px;
+  background-color: rgb(247, 245, 245);
+  border-radius: 35px;
+  text-align: center;
+  padding: 3% 15px 3% 15px;
+  position: relative;
+}
+
+.customization__pop-up_body input {
+  display: block;
+  margin: 25px auto 0px auto;
+  width: 80%;
+  max-width: 410px;
+  height: 4.29vh;
+  padding: 7px 17px;
+  background-color: rgba(228, 238, 238, 1);
+  border-radius: 15px;
+  border-color: rgba(8, 155, 171, 1);
+  border-width: 3px;
+}
+
+.customization__pop-up_body input:focus {
+  outline: none;
+}
+
+.customization__pop-up_body button {
+  cursor: pointer;
+  display: block;
+  width: 220px;
+  height: 5.37vh;
+  margin: 5% auto 0px auto;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background-color: rgba(247, 199, 142, 1);
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: calc((100vw + 1760px) / 160);
+  line-height: 30px;
+}
+
+.customization__pop-up_close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.customization__title {
+  color: rgba(255, 124, 2, 1);
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: calc((100vw + 2720px) / 160);
+  line-height: 15px;
+}
+
+.customization__title_description {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: calc((100vw + 2720px) / 160);
+  line-height: 30px;
+  padding-top: 3%;
+}
+
+.customization__text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: calc((100vw + 1440px) / 160);
+  line-height: 30px;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  right: 30%;
+  top: 3%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  border-radius: 15px;
+  position: absolute;
+  background-color: #089bab;
+  min-width: 225px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  @include font (400, 16.5px)
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 15px;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+
+.dropdown__pop-up_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 21px;
+  cursor: pointer;
+  color: white;
+}

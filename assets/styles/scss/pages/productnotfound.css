@@ -1,0 +1,93 @@
+.wrapper {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.diary__productnotfound__popup,
+.diary__productnotfound__popup-extra {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(63, 61, 61, 0.5);
+  z-index: 11;
+}
+
+.diary__productnotfound__popup_container,
+.diary__productnotfound__popup_container-extra {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.diary__productnotfound__popup_body,
+.diary__productnotfound__popup_body-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 300px;
+  height: auto;
+  background-color: rgb(10, 155, 171);
+  border-radius: 25px;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+#productnotfound__popup-add,
+#productnotfound__popup-cancel,
+#productnotfound__popup-cancel-extra {
+  align-self: center;
+  width: 35%;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #F7C78E;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+#productnotfound__popup-cancel {
+  background-color: rgb(228, 238, 238);
+}
+
+#productnotfound__popup-add:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
+}
+
+#productnotfound__popup-cancel:hover {
+  transition-duration: 1s;
+  background-color: #09b4c7;
+}
+
+.diary__productnotfound__popup_h3 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.diary__productnotfound__popup_h4 {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1px;
+}
+
+.diary__productnotfoune__popup_img {
+  width: 20%;
+  height: 20%;
+}
+
+.diary__productnotfound__popup_btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}/*# sourceMappingURL=productnotfound.css.map */

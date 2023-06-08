@@ -1,0 +1,148 @@
+.wrapper {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.diary__newproduct__popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(63, 61, 61, 0.5);
+  z-index: 11;
+}
+
+.diary__newproduct__popup_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.newproduct__popup_body {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 500px;
+  height: auto;
+  background-color: white;
+  border-radius: 25px;
+  text-align: left;
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.newproduct__popup_product {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+}
+
+.newproduct__popup_heading {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px 25px 20px 20px;
+  background-color: rgb(3, 155, 171);
+  text-align: center;
+  color: white;
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+.popup__newproduct-input {
+  width: 90%;
+  height: 5vh;
+  border-radius: 15px;
+  border: 1px solid rgb(10, 155, 171);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: rgb(228, 238, 238);
+  padding-left: 10px;
+}
+
+.newproduct__popup_serving {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20vh;
+  white-space: nowrap;
+}
+
+.popup__newproduct-select,
+.popup__newproduct-serving-input {
+  width: 20vh;
+  height: 5vh;
+  border-radius: 15px;
+  border: 1px solid rgb(10, 155, 171);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: rgb(228, 238, 238);
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.newproduct__popup_energyvalue {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px 25px 20px 20px;
+  background-color: rgb(228, 238, 238);
+  text-align: left;
+  padding: 0px 0px 0px 25px;
+  margin-top: 10px;
+}
+
+.newproduct__popup_table {
+  display: flex;
+  align-items: center;
+  width: 20vh;
+  white-space: nowrap;
+}
+
+#newproduct__popup-energy,
+#newproduct__popup-fat,
+#newproduct__popup-carbs,
+#newproduct__popup-protein {
+  width: 18vh;
+  height: 5vh;
+  border-radius: 15px;
+  border: 1px solid rgb(10, 155, 171);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: white;
+  margin-left: 25px;
+  padding-left: 10px;
+}
+
+#newproduct__popup-add {
+  align-self: center;
+  width: 35%;
+  height: 40px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #F7C78E;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+#newproduct__popup-add:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
+}
+
+#newproduct__popup-cancel {
+  align-self: center;
+  width: 35%;
+  height: 40px;
+  border: 0;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+  background-color: white;
+  cursor: pointer;
+}/*# sourceMappingURL=addnewproduct.css.map */

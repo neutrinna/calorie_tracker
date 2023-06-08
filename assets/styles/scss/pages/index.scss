@@ -1,0 +1,797 @@
+@import "../layouts/variables.scss";
+@import '../layouts/fonts.scss';
+// Inna
+
+body {
+    background-color: $basic-color;
+}
+
+button {
+    cursor: pointer;
+}
+
+.font-black {
+    color: $text-color;
+}
+
+.font-orange {
+    color: $figure-color;
+}
+
+.font-blue {
+    color: $main-color;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+
+    .profile-RSK {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        border-radius: 80px 0px 0px 80px;
+        padding: 4.59vh 3.12vw 4vh 3.12vw;
+        height: 100vh;
+
+        background-color: white;
+    }
+}
+
+.profile-RSK__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    height: 13.48%;
+    margin: 0;
+
+    background-color: $main-color;
+    color: white;
+    border-radius: 35px;
+    line-height: 140%;
+
+    letter-spacing: 0.03em;
+}
+
+.profile-RSK__recommendations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 100%;
+    height: 25.78%;
+
+    background-color: $basic-color;
+    border-radius: 25px;
+}
+
+.profile-RSK__kkal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.profile-RSK__macro {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+
+    width: 65.55%;
+
+    line-height: 150%;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.profile-RSK__weight {
+    margin: 2% 0 0 5%;
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.profile-RSK__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 50%;
+}
+
+.profile-RSK__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 80%;
+}
+
+.profile-RSK__form-element {
+    display: flex;
+    align-items: center;
+}
+
+.profile-RSK__form-attribute {
+    padding-right: 3%;
+}
+
+.profile-RSK__form-input {
+    width: 60%;
+    height: 4.29vh;
+    min-height: 35px;
+    max-height: 90px;
+    padding-left: 8px;
+
+    background-color: $basic-color;
+    border: 1px solid $main-color;
+    border-radius: 15px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.profile-RSK__form-button {
+    align-self: center;
+    cursor: pointer;
+
+    @include button(41%, 100%);
+}
+.profile-RSK__form-add{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 11%;
+}
+.profile-RSK__checkbox {
+    display: none;
+    width: 35%;
+
+    @include font (600, 14px)
+}
+
+#profile-RSK__checkbox{
+    margin-left: 2%;
+}
+
+.profile-RSK__form-button:hover {
+    transition-duration: 1s;
+    background-color: #f7a337;
+}
+
+input:hover {
+    cursor: auto;
+}
+
+.profile-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100vh;
+    padding-bottom: 4vh;
+}
+
+.profile-welcome__wripper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 52vh;
+    width: 100%;
+    margin-top: 21.39vh;
+}
+
+.profile-welcome__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    width: 85%;
+    height: 42.87vh;
+    padding: 9.34% 9%;
+
+    background-color: white;
+    border-radius: 35px;
+}
+
+.profile-welcome__img {
+    position: absolute;
+    top: -7.81vh;
+
+    height: 16.63vh;
+    max-height: 8.3vw;
+
+    border-radius: 50%;
+}
+
+.profile-welcome__form-button {
+    align-self: center;
+    margin-top: 7%;
+
+    @include button(36%, 5.37vh);
+}
+
+.profile-welcome__form-button:hover {
+    transition-duration: 1s;
+    background-color: #f7a337;
+}
+
+.profile-welcome__form-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 10.46vh;
+    min-height: 80px;
+    margin-top: 4.23vh;
+}
+
+.profile-welcome__form-input {
+    height: 4.29vh;
+    min-height: 35px;
+    max-height: 90px;
+    padding-left: 8px;
+
+    background-color: $basic-color;
+    border: 1px solid $main-color;
+    border-radius: 15px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.profile-welcome__form-greet {
+    margin-top: 12%
+}
+
+
+.profile-welcome__button-reg {
+    @include button(44%, 5.37vh);
+
+    background-color: $main-color;
+    color: white;
+}
+
+.profile-welcome__button-reg:hover {
+    transition-duration: 1s;
+    background-color: #148794;
+}
+
+.profile-user__settings {
+    align-self: flex-end;
+
+    margin-top: 3.51vh;
+    height: 5.37vh;
+
+    cursor: pointer;
+}
+
+.profile-user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100vh;
+}
+
+.profile-user__data {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 29vh;
+    padding: 3.9vh;
+
+    background-color: white;
+    border-radius: 35px;
+
+    img {
+        position: absolute;
+        top: -7.81vh;
+        height: 15.62vh;
+    }
+}
+
+.profile-user__kkal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 34vh;
+    padding: 2.44vh 6.35% 2.44vh 7.29%;
+
+    background-color: white;
+    border-radius: 35px;
+}
+
+.profile-user__kkal-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 60%;
+}
+
+.profile-user__kkal-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 50%;
+}
+
+.profile-user__kkal-name {
+    @include font (400, 20px)
+}
+.profile-user__kkal-amount{
+    margin-bottom: 2%;
+    @include figure (400, 25px)
+}
+.profile-user__kkal-wrapper-data{
+    width: 60%;
+}
+.profile-user__doughnut-chart {
+    width: 40%;
+    max-width: 17.28vh;
+
+}
+.profile-user__macro {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 8.83vh;
+    margin-top: 1vh;
+}
+.profile-user__macro-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 30%; 
+
+    h3 {
+        color: $text-color;
+        @include font (400, 20px);
+    }
+}
+.profile-user__macro-amount {
+    color: $text-color;
+    @include figure (400, 18px);
+}
+.profile-user__macro-scale{
+    width: 100%;
+    height: 1.46vh;
+
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 5px;
+}
+.profile-user__macro-scale-line {
+    height: 100%;
+    border-radius: 5px;
+}
+.profile-user__macro-scale-line_carbs {
+    width: 0%;
+
+    background-color: rgba(0, 195, 255, 0.6);
+}
+.profile-user__macro-scale-line_protein {
+    width: 0%;
+
+    background-color: rgba(255, 0, 21, 0.6);
+}
+.profile-user__macro-scale-line_fat {
+    width: 0%;
+
+    background-color: rgba(255, 217, 0, 0.6);
+}
+
+.profile-user__water-img{
+    height: 4.88vh;
+    margin-left: 5%;
+}
+
+.profile-user__water {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 8.7vh;
+    margin-top: 4.3vh;
+
+    background-color: white;
+    border-radius: 35px;
+}
+
+.profile-user__water-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 44.5%;
+    height: 100%;
+
+    @include font (400, 23px);
+}
+.profile-user__water-amount {
+    display: flex;
+    align-items: center;
+
+    margin-right: 10%;
+
+    @include font (400, 25px);
+    // span {
+    //     margin-left: 1%;
+    // }
+}
+
+.profile-user__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 7vh;
+    padding: 0 3% 0 3%;
+
+    h2 {
+        @include font (700, 25px);
+    }
+}
+
+.profile-user__date-value {
+    @include font (400, 22px)
+}
+
+.profile-user__date-devider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    width: 35%;
+}
+
+.profile-user__date-line {
+    border-bottom: 1px solid $text-color;
+    height: 50%;
+    width: 100%;
+}
+
+.profile-user__states {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 2vh;
+    width: 65.8%;
+    height: 5.76vh;
+}
+
+.profile-user__data-name {
+    @include font (600, 26px);
+}
+
+.profile-user__data-age {
+    margin-top: 1vh;
+
+    @include font (400, 16px);
+}
+
+.profile-user__states-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    text-align: center;
+
+    @include font (400, 25px);
+}
+
+.profile-user__states-name {
+    color: $main-color;
+}
+
+.profile-user__states-value {
+    font-family: $figure-font;
+}
+
+@media screen and (min-width: $desktop) and (max-width: $default-desktop) {
+    .profile-RSK {
+        width: 43.54vw;
+    }
+
+    .profile-RSK__title {
+        @include font (400, 23px)
+    }
+
+    .profile-RSK__kkal {
+        @include font (500, calc((100vw - 773px) / 27))
+    }
+
+    .profile-RSK__macro {
+        @include font (700, calc((100vw - 373px) / 53))
+    }
+
+    .profile-RSK__weight {
+        @include font (400, calc((100vw - 373px) / 53));
+    }
+
+    .profile-RSK__form-attribute,
+    .profile-paternity {
+        @include font (300, calc((100vw + 1760px) / 160))
+    }
+
+    .profile-RSK__form-input,
+    .profile-welcome__form-input {
+        @include font (300, calc((100vw + 1440px) / 160));
+    }
+
+    .profile-RSK__form-button,
+    .profile-welcome__form-button,
+    .profile-welcome__button-reg {
+        @include font (600, calc((100vw + 1760px) / 160));
+    }
+
+    .profile-welcome {
+        width: 34.72vw;
+        margin-right: 5.35vw;
+    }
+
+    .profile-welcome__form-greet {
+        @include font (600, calc((100vw + 2720px) / 160));
+    }
+
+    .profile-welcome__form-inputs {
+        margin-top: 3.23vh;
+    }
+
+    .profile-user__data-name {
+        @include font (600, calc((100vw + 640px) / 80));
+    }
+
+    .profile-user__data-age {
+        font-size: calc((100vw + 160px) / 80);
+    }
+
+    .profile-user__date h2,
+    .profile-user__kkal-amount {
+        font-size: calc((100vw - 106px) / 53);
+    }
+
+    .profile-user__date-value {
+        font-size: calc((100vw - 266px) / 53);
+    }
+
+    .profile-user__states-block {
+        font-size: 20px;
+    }
+    .profile-user__kkal-name {
+        font-size: calc((100vw - 160px) / 80);
+    }
+    .profile-user__macro-block h3 {
+        font-size: calc((100vw - 373px) / 53);
+    }
+    .profile-user__macro-amount {
+        font-size: calc((100vw + 1440px) / 160);
+    }
+    .profile-user__water-tracker {
+        font-size: calc((100vw + 400px) / 80);
+    }
+    .profile-user__water-amount {
+        font-size: calc((100vw - 106px) / 53);
+    }
+}
+
+@media screen and (min-width: ($default-desktop + 1px)) and (max-width: $large-desktop) {
+    .profile-RSK {
+        width: 627px;
+    }
+
+    .profile-RSK__title {
+
+        @include font (400, 23px)
+    }
+
+    .profile-RSK__kkal {
+        @include font (500, 25px)
+    }
+
+    .profile-RSK__macro {
+        @include font (700, 20px)
+    }
+
+    .profile-RSK__weight {
+        @include font (400, 20px)
+    }
+
+    .profile-RSK__form-attribute,
+    .profile-paternity {
+        @include font (300, 20px)
+    }
+
+    .profile-RSK__form-input,
+    .profile-welcome__form-input {
+        @include font (300, 18px);
+    }
+
+    .profile-RSK__form-button,
+    .profile-welcome__form-button,
+    .profile-welcome__button-reg {
+        @include font (600, 20px);
+    }
+
+    .profile-welcome {
+        width: 500px;
+        margin-right: 77px;
+    }
+
+    .profile-welcome__form-greet {
+        @include font (600, 26px);
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)) {
+    .profile-RSK {
+        width: 32.66vw;
+    }
+
+    .profile-RSK__title {
+        @include font (400, calc((100vw + 45px)/85))
+    }
+
+    .profile-RSK__kkal {
+        @include font (500, calc((100vw + 216px) / 85))
+    }
+
+    .profile-RSK__macro {
+        @include font (700, calc((100vw - 210px) / 85))
+    }
+
+    .profile-RSK__weight {
+        @include font (400, calc((100vw - 416px) / 75))
+    }
+
+    .profile-RSK__form-attribute,
+    .profile-paternity {
+        @include font (300, calc((100vw - 40px) / 94))
+    }
+
+    .profile-RSK__form-input,
+    .profile-welcome__form-input {
+        @include font (300, calc((100vw + 70px) / 110));
+    }
+
+    .profile-RSK__form-button,
+    .profile-welcome__form-button,
+    .profile-welcome__button-reg {
+        @include font (600, calc((100vw - 211px) / 85));
+    }
+
+    .profile-welcome {
+        width: 26vw;
+        margin-right: 4vw;
+    }
+
+    .profile-welcome__form-greet {
+        @include font (600, calc((100vw - 290px) / 62));
+    }
+
+    .profile-user__data-name,
+    .profile-user__states-name,
+    .profile-user__kkal-amount,
+    .profile-user__water-amount{
+        font-size: calc((100vw + 365px) / 91);
+    }
+    .profile-user__data-age{
+        font-size: calc((100vw - 457px) / 91);
+    }
+    .profile-user__states-value,
+    .profile-user__date h2{
+        font-size: calc((100vw + 365px) / 91);
+    }
+    .profile-user__date-value{
+        font-size: calc((100vw + 91px) / 91);
+    }
+    .profile-user__kkal-name,
+    .profile-user__macro-block h3{
+        font-size: calc((100vw - 91px) / 91);
+    }
+
+    .profile-user__macro-amount_span{
+        font-size: calc((100vw - 274px) / 91);
+    }
+    .profile-user__water-tracker{
+        font-size: calc((100vw + 182px) / 91);
+    }
+    .profile-RSK__checkbox {
+        font-size: calc((100vw + 2560px) / 320);
+    }
+}
+
+.font-black {
+    color: $text-color;
+}
+
+.font-orange {
+    color: $figure-color;
+}
+
+.font-blue {
+    color: $main-color;
+}
+
+.font-figure {
+    font-family: $figure-font;
+}
+
+.wrapper {
+    margin: auto;
+    height: auto;
+    background-color: $basic-color;
+
+    &_topic {
+        background-color: white;
+    }
+}
+
+.profile-welcome__wripper,
+.profile-paternity {
+    display: flex;
+}
+
+.profile-user{
+    display: none;
+}
+
+
+@media screen and (max-width: ($desktop - 1px)) {
+    .wrapper {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $desktop) and (max-width: $large-desktop) {
+    .wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)) {
+    .wrapper {
+        width: 75vw;
+    }
+
+}
+
+// Inna
+// wrapper

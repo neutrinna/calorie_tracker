@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дневник питания</title>
+    <link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css" />
+    <link rel="shortcut icon" href="../assets/icons/calories.png" />
+    <link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
+    <link rel="stylesheet" href="../assets/styles/scss/layouts/notification.css">
+    <link rel="stylesheet" href="../assets/styles/scss/pages/diary.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/scss/pages/addnewproduct.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/scss/pages/productnotfound.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/scss/pages/search.css" />
+
+    <!-- <link rel="stylesheet" href="../assets/styles/scss/main.css" /> -->
+  </head>
+
+  <body>
+    <div class="wrapper diary-wrapper">
+      <!-- side-bar -->
+      <div class="side-bar">
+        <nav>
+          <li>
+            <a
+              class="side-bar__link side-bar__link_profile"
+              href="#"
+              ><img
+                src="../assets/images/index/profile.svg"
+                alt="иконка ссылки на раздел профиль"
+              />Профиль</a
+            >
+          </li>
+          <li class="side-bar__menu">
+            <a class="side-bar__link side-bar__link_diary" href="#"
+              ><img
+                src="../assets/images/index/diary.svg"
+                alt="иконка ссылки на раздел дневник"
+              />Дневник</a
+            >
+          </li>
+          <li class="side-bar__menu">
+            <a class="side-bar__link side-bar__link_charts" href="#"
+              ><img
+                src="../assets/images/index/graph.svg"
+                alt="иконка ссылки на раздел динамика"
+              />Динамика</a
+            >
+          </li>
+          <li class="side-bar__menu">
+            <a
+              class="side-bar__link side-bar__link_articles"
+              href="./articles.html"
+              ><img
+                src="../assets/images/index/sampling.svg"
+                alt="иконка ссылки на раздел Статьи"
+              />Статьи</a
+            >
+          </li>
+        </nav>
+      </div>
+      <!-- side-bar -->
+
+      <div class="diary-content-wrapper">
+        <main class="diary-inner">
+          <div class="diary-diet-tracker-header">
+            <span>Мой рацион питания</span>
+          </div>
+
+          <div class="diary-diet-tracker">
+            <!-- кнопка-заголовок таблицы дневника -->
+            <button class="diary-diet-tracker__calendar-btn">
+              <span class="diary-diet-tracker__btn-text">Сегодня</span>
+              <!-- <input type="date" /> -->
+              <!-- <div class="diary-diet-tracker__btn-arrow"></div> -->
+            </button>
+
+            <!-- основная таблица дневника -->
+            <div class="diary-diet-tracker__content">
+              <div class="diary-table-string">
+                <div class="diary-table-string__meal-name">
+                  Завтрак
+                  <button
+                    class="diary-table-string__add-btn"
+                    id="button-breakfast"
+                  >
+                    <img
+                      class="diary-table-string__add-btn-img"
+                      src="./../assets/images/diary/diary-add-button.svg"
+                      alt="плюс"
+                    />
+                  </button>
+                </div>
+                <div class="diary-table-string__column-names">
+                  <div>Вес, <span id="stringWeightBreakfast">0</span> г</div>
+                  <div><span class="diary-kcal__breakfast-amount" id="stringKkalBreakfast">0</span> Ккал</div>
+                  <div><span id="stringCarbBreakfast">0</span> У</div>
+                  <div><span id="stringProteinBreakfast">0</span> Б</div>
+                  <div><span id="stringFatBreakfast">0</span> Ж</div>
+                </div>
+              </div>
+
+              <!-- скрытый див выпадающего списка, строки продуктов сюда ---->
+              <div class="accordeon1 accordeon_hidden" id="accordeon-breakfast">
+                <!-------------------------->
+                <!-- Алла -->
+                <!-- Форма поиска продукта по штрих-коду -->
+                <form class="diary__form__search">
+                  <label for="search"></label>
+                  <input
+                    type="text"
+                    id="diary-search-1"
+                    name="search"
+                    placeholder="Поиск еды (введите цифры со штрих-кода)"
+                  />
+                  <div id="search__show__result-1"></div>
+                </form>
+              </div>
+              <!-------------------------->
+
+					<div class="diary-table-string diary-table-string_color_blue">
+						<div class="diary-table-string__meal-name">
+							Обед
+							<button class="diary-table-string__add-btn" id="button-lunch">
+							<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
+						</div>
+						<div class="diary-table-string__column-names">
+							<div>Вес, <span id="stringWeightLunch">0</span> г</div>
+								<div><span class="diary-kcal__breakfast-amount" id="stringKkalLunch">0</span> Ккал</div>
+								<div><span id="stringCarbLunch">0</span> У</div>
+								<div><span id="stringProteinLunch">0</span> Б</div>
+								<div><span id="stringFatLunch">0</span> Ж</div>
+						</div>
+					</div>
+
+					
+					<!-- скрытый див №2 выпадающего списка, строки продуктов сюда ---->
+
+              <div class="accordeon2 accordeon_hidden" id="accordeon-lunch">
+                <!-- Алла -->
+                <!-- Форма поиска продукта по штрих-коду -->
+                <form class="diary__form__search">
+                  <label for="search"></label>
+                  <input
+                    type="text"
+                    id="diary-search-2"
+                    name="search"
+                    placeholder="Поиск еды (введите цифры со штрих-кода)"
+                  />
+                  <div id="search__show__result-2"></div>
+                </form>
+              </div>
+              <!-------------------------->
+
+						<div class="diary-table-string">
+							<div class="diary-table-string__meal-name">
+								Ужин
+								<button id="button-dinner" class="diary-table-string__add-btn">
+									<img class="diary-table-string__add-btn-img"
+										src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
+							</div>
+							<div class="diary-table-string__column-names">
+								<div>Вес, <span id="stringWeightDinner">0</span> г</div>
+								<div><span class="diary-kcal__breakfast-amount" id="stringKkalDinner">0</span> Ккал</div>
+								<div><span id="stringCarbDinner">0</span> У</div>
+								<div><span id="stringProteinDinner">0</span> Б</div>
+								<div><span id="stringFatDinner">0</span> Ж</div>
+							</div>
+						</div>
+
+              <!-- скрытый див №3 выпадающего списка, строки продуктов сюда ---->
+              <div class="accordeon3 accordeon_hidden" id="accordeon-dinner">
+                <!-- Алла -->
+                <!-- Форма поиска продукта по штрих-коду -->
+                <form class="diary__form__search">
+                  <label for="search"></label>
+                  <input
+                    type="text"
+                    id="diary-search-3"
+                    name="search"
+                    placeholder="Поиск еды (введите цифры со штрих-кода)"
+                  />
+                  <div id="search__show__result-3"></div>
+                </form>
+              </div>
+              <!-------------------------->
+
+
+						<div class="diary-table-string diary-table-string_color_blue">
+                            <div class="diary-table-string__meal-name">
+                                Перекус
+                                <button class="diary-table-string__add-btn" id="button-snack">
+								<img class="diary-table-string__add-btn-img" src="./../assets/images/diary/diary-add-button.svg" alt="плюс"></button>
+							</div>
+							<div class="diary-table-string__column-names">
+								<div>Вес, <span id="stringWeightSnack">0</span> г</div>
+								<div><span class="diary-kcal__breakfast-amount" id="stringKkalSnack">0</span> Ккал</div>
+								<div><span id="stringCarbSnack">0</span> У</div>
+								<div><span id="stringProteinSnack">0</span> Б</div>
+								<div><span id="stringFatSnack">0</span> Ж</div>
+							</div>
+						</div>
+
+              <!-- скрытый див №4 выпадающего списка, строки продуктов сюда ---->
+
+              <div class="accordeon4 accordeon_hidden" id="accordeon-snack">
+                <!-- Алла -->
+                <!-- Форма поиска продукта по штрих-коду -->
+                <form class="diary__form__search">
+                  <label for="search"></label>
+                  <input
+                    type="text"
+                    id="diary-search-4"
+                    name="search"
+                    placeholder="Поиск еды (введите цифры со штрих-кода)"
+                  />
+                  <div id="search__show__result-4"></div>
+                </form>
+              </div>
+
+              <div class="diary-table-string">
+                <div
+                  class="diary-table-string__meal-name diary-table-string__meal-name_color_orange"
+                >
+                  Итого
+                </div>
+                <div
+                  class="diary-table-string__column-names diary-table-string__column-names_color_dark-blue diary-table-string-2"
+                >
+                  <div>Вес, <span class="diary-macro__weight-amount">0</span> г</div>
+                  <div><span class="diary-macro__kkal-amount">0</span> Ккал</div>
+                  <div><span class="diary-macro__carbo-amount">0</span> У</div>
+                  <div><span class="diary-macro__protein-amount">0</span> Б</div>
+                  <div><span class="diary-macro__fats-amount">0</span> Ж</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- синий подвальчик таблицы дневника -->
+            <div class="diary-diet-tracker__bottom-bar"></div>
+
+            <!-- трекер воды -->
+            <div class="diary-water-tracker">
+              <div class="diary-water-tracker__top-bar">
+                <div class="diary-water-tracker__top-bar-name">
+                  <img
+                    class="diary-water-tracker__img-water-drop"
+                    src="./../assets/images/diary/diary-water-droplet 1.png"
+                    alt="капля воды"
+                  />
+                  <div>Трекер воды</div>
+                </div>
+                <div>
+                  <span
+                    class="diary-water-tracker__crrnt-res diary-water-tracker__top-res_font_inter"
+                    >0</span
+                  >
+                  <span class="diary-water-tracker__crrnt-res-ml"></span
+                  ><span
+                    class="diary-water-tracker__top-res diary-water-tracker__top-res_font_inter"
+                  >
+                    / 2000</span
+                  >
+                  <span class="diary-water-tracker__top-res">мл</span>
+                </div>
+              </div>
+              <div class="diary-water-tracker__text">
+                Отслеживайте свои ежедневные цели по поддержанию водного
+                баланса. Если у вас нормальный вес, то рекомендовано 25-30 мл
+                жидкости на 1 кг массы тела. То есть если вы весите 60 кг, то
+                выпивать нужно 30х60 = 1800 мл или 1,8 л в день.
+              </div>
+
+              <form class="diary-water-tracker__form">
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="10"
+                  id="id0"
+                />
+                <label for="id0" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="9"
+                  id="id1"
+                />
+                <label for="id1" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="8"
+                  id="id2"
+                />
+                <label for="id2" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="7"
+                  id="id3"
+                />
+                <label for="id3" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="6"
+                  id="id4"
+                />
+                <label for="id4" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="5"
+                  id="id5"
+                />
+                <label for="id5" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="4"
+                  id="id6"
+                />
+                <label for="id6" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="3"
+                  id="id7"
+                />
+                <label for="id7" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="2"
+                  id="id8"
+                />
+                <label for="id8" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+
+                <input
+                  class="diary-water-tracker__input"
+                  type="radio"
+                  name="glass"
+                  value="1"
+                  id="id9"
+                />
+                <label for="id9" class="diary-water-tracker__label">
+                  <img
+                    class="diary-water-tracker__img"
+                    src="./../assets/images/diary/diary-glass-of-water.svg"
+                  />
+                </label>
+              </form>
+            </div>
+          </div>
+        </main>
+        <!-- Алла -->
+        <!-- Поп ап добавить новый продукт -->
+        <div class="wrapper">
+          <div class="diary__newproduct__popup">
+            <div class="diary__newproduct__popup_container">
+              <div class="newproduct__popup_body">
+                <div class="newproduct__popup_heading">
+                  Добавить новый продукт
+                </div>
+                <div class="newproduct__popup_product">
+                  <label
+                    for="newproduct__popup-brand"
+                    class="popup__newproduct-label"
+                    >Марка продукта:</label
+                  >
+                  <input
+                    type="text"
+                    class="popup__newproduct-input"
+                    name="product-brand"
+                  />
+                  <label
+                    for="newproduct__popup-name"
+                    class="popup__newproduct-label"
+                    >Название продукта:</label
+                  >
+                  <input
+                    class="popup__newproduct-input"
+                    type="text"
+                    name="product-name"
+                  />
+                  <div class="newproduct__popup_serving">
+                    <label
+                      for="newproduct__popup-serving-size"
+                      class="popup__addnewproduct-label"
+                      >Размер порции</label
+                    >
+                    <input
+                      class="popup__newproduct-serving-input"
+                      type="number"
+                      name="serving-size"
+                    />
+                    <select
+                      class="popup__newproduct-select"
+                      name="serving-unit"
+                    >
+                      <option value="gr">граммы</option>
+                      <option value="ml">миллилитры</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="newproduct__popup_energyvalue">
+                  <div class="newproduct__popup_table">
+                    <label
+                      for="newproduct__popup-calories"
+                      class="popup__new-product-label"
+                      >Энергетическая ценность в ккал:</label
+                    >
+                    <input
+                      type="number"
+                      id="newproduct__popup-energy"
+                      name="calories"
+                      placeholder="ккал"
+                    />
+                  </div>
+                  <div class="newproduct__popup_table">
+                    <label
+                      for="newproduct__popup-fat"
+                      class="popup__new-product-label"
+                      >Жиры:</label
+                    >
+                    <input
+                      type="number"
+                      id="newproduct__popup-fat"
+                      name="fat"
+                      placeholder="на 100г"
+                    />
+                  </div>
+                  <div class="newproduct__popup_table">
+                    <label
+                      for="newproduct__popup-carbs"
+                      class="popup__new-product-label"
+                      >Углеводы:</label
+                    >
+                    <input
+                      type="number"
+                      id="newproduct__popup-carbs"
+                      name="carbs"
+                      placeholder="на 100г"
+                    />
+                  </div>
+                  <div class="newproduct__popup_table">
+                    <label
+                      for="newproduct__popup-protein"
+                      class="popup__new-product-label"
+                      >Белки:</label
+                    >
+                    <input
+                      type="number"
+                      id="newproduct__popup-protein"
+                      name="protein"
+                      placeholder="на 100г"
+                    />
+                  </div>
+                </div>
+                <button type="submit" id="newproduct__popup-add">
+                  Добавить
+                </button>
+                <button type="submit" id="newproduct__popup-cancel">
+                  Отмена
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Алла -->
+        <!-- Поп ап продукт не найден -->
+        <div class="wrapper">
+          <div class="diary__productnotfound__popup">
+            <div class="diary__productnotfound__popup_container">
+              <div class="diary__productnotfound__popup_body">
+                <img
+                  class="diary__productnotfoune__popup_img"
+                  src="../assets/images/diary/diary_cart.png"
+                  alt="иконка корзины"
+                />
+                <p class="diary__productnotfound__popup_h3">
+                  Продукт не найден
+                </p>
+                <p class="diary__productnotfound__popup_h4">
+                  Добавить новый продукт?
+                </p>
+                <div class="diary__productnotfound__popup_btns">
+                  <button type="submit" id="productnotfound__popup-add">
+                    Добавить
+                  </button>
+                  <button type="submit" id="productnotfound__popup-cancel">
+                    Отмена
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+		<div class="wrapper">
+			<div class="diary__productnotfound__popup-extra">
+			  <div class="diary__productnotfound__popup_container-extra">
+				<div class="diary__productnotfound__popup_body-extra">
+				  <img
+					class="diary__productnotfoune__popup_img"
+					src="../assets/images/diary/diary_cart.png"
+					alt="иконка корзины"
+				  />
+				  <p class="diary__productnotfound__popup_h3">
+					Упс! Продукт не найден в нашей базе
+				  </p>
+				  <p class="diary__productnotfound__popup_h4">
+					Поищем другой?
+				  </p>
+				  <div class="diary__productnotfound__popup_btns">
+					<button type="submit" id="productnotfound__popup-cancel-extra">
+					  Искать
+					</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+      </div>
+    </div>
+
+    <div id="diary-loader" style="display:none;"></div>
+      <!-- notification pop-up -->
+
+      <div class="profile-notification" id="profile-notification">
+        <div class="profile-notification__content">
+          <img src="../assets/images/index/info.svg" alt="Иконка с i в кружочке">
+          <div>
+            <p class="profile-notification__text">Чтобы продолжить, <a class="profile-notification__enter"
+                href="../index.html">войдите</a> в личный кабинет</p>
+            <p class="profile-notification__text"> или <a class="profile-notification__reg" href="../index.html"
+                onclick="openRegistration()">зарегистрируйтесь </a></p>
+          </div>
+        </div>
+      </div>
+      <!-- notification pop-up -->
+
+    
+    <script src="../modules/diary.js"></script>
+    <script src="../modules/diary-search.js"></script>
+    <script src="../modules/side-bar-other.js"></script>
+  </body>
+</html>

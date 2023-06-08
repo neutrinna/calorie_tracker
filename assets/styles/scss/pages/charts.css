@@ -1,0 +1,579 @@
+@charset "UTF-8";
+/* Настя Кольцова - начало */
+/* COMMON */
+@font-face {
+  font-family: "Montserrat";
+  src: url(../../../fonts/Montserrat.ttf);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../../../fonts/Inter.ttf);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.charts-body {
+  background-color: #E4EEEE;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  margin: auto;
+  height: auto;
+  background-color: #E4EEEE;
+}
+
+.charts-main {
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "Montserrat";
+  margin-left: 17vw;
+  margin-right: 5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* TITLE */
+.charts-title {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  width: 60%;
+  height: 45%;
+  margin-top: 5%;
+  margin-bottom: 7%;
+  margin-left: 20%;
+  padding: 2% 2% 1%;
+  background-color: #089BAB;
+  border-radius: 25px;
+}
+
+.charts-title > p {
+  text-align: center;
+  color: white;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+/* CALORIE */
+.charts-calorie {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  margin-bottom: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  background-color: white;
+  border-radius: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.charts-calorie-title {
+  margin-right: 5vw;
+}
+
+.charts-calorie__btn,
+.charts-macro__btn {
+  display: none;
+}
+
+.charts-calorie__container,
+.charts-macro__container {
+  width: 70%;
+}
+
+.charts-calorie__diagram {
+  width: 90%;
+  height: 220px;
+  margin-top: 10%;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.charts-calorie__diagram-yellow {
+  width: 15%;
+  height: 0%;
+  background-color: #FFEE54;
+}
+
+.charts-calorie__diagram-green {
+  width: 15%;
+  height: 0%;
+  background-color: #089BAB;
+}
+
+.charts-calorie__diagram-red {
+  width: 15%;
+  height: 0%;
+  background-color: #E06B6B;
+}
+
+.charts-calorie__diagram-salad {
+  width: 15%;
+  height: 0%;
+  background-color: #A1D28A;
+}
+
+.charts-calorie__caption,
+.charts-macro__caption {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.charts-calorie__label,
+.charts-macro__label {
+  text-align: center;
+  margin-bottom: 8px;
+  width: 15%;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.charts-calorie__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: flex-end;
+  margin-bottom: 7%;
+  width: 30%;
+}
+
+.charts-calorie__legend-item {
+  display: flex;
+  gap: 10%;
+}
+
+.charts-calorie__legend-item__yellow {
+  width: 15px;
+  height: 15px;
+  background-color: #FFEE54;
+}
+
+.charts-calorie__legend-item__green {
+  width: 15px;
+  height: 15px;
+  background-color: #089BAB;
+}
+
+.charts-calorie__legend-item__red {
+  width: 15px;
+  height: 15px;
+  background-color: #E06B6B;
+}
+
+.charts-calorie__legend-item__salad {
+  width: 15px;
+  height: 15px;
+  background-color: #A1D28A;
+}
+
+.charts-calorie__legend-item > p {
+  display: block;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* MACRO */
+.charts-macro {
+  grid-column: 1/2;
+  grid-row: 3/6;
+  margin-bottom: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  background-color: white;
+  border-radius: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.charts-macro__diagram {
+  width: 90%;
+  height: 231px;
+  margin-top: 10%;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.charts-macro__diagram-green {
+  width: 15%;
+  height: 0%;
+  background-color: #089BAB;
+}
+
+.charts-macro__diagram-red {
+  width: 15%;
+  height: 0%;
+  background-color: #E06B6B;
+}
+
+.charts-macro__diagram-yellow {
+  width: 15%;
+  height: 0%;
+  background-color: #FFEE54;
+}
+
+.charts-macro__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: flex-end;
+  margin-bottom: 7%;
+  width: 30%;
+}
+
+.charts-macro__legend-item {
+  display: flex;
+  gap: 10%;
+}
+
+.charts-macro__legend-item__green {
+  width: 15px;
+  height: 15px;
+  background-color: #089BAB;
+}
+
+.charts-macro__legend-item__red {
+  width: 15px;
+  height: 15px;
+  background-color: #E06B6B;
+}
+
+.charts-macro__legend-item__yellow {
+  width: 15px;
+  height: 15px;
+  background-color: #FFEE54;
+}
+
+.charts-macro__legend-item > p {
+  display: block;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* WEIGHT */
+.charts-weight {
+  grid-column: 2/3;
+  grid-row: 2/4;
+  width: 100%;
+  height: 93%;
+  margin-bottom: 10%;
+  padding: 7%;
+  background-color: white;
+  border-radius: 35px;
+}
+
+.charts-weight__actual {
+  background-color: #089BAB;
+  border-radius: 25px;
+  width: 60%;
+  height: 13%;
+  margin-left: 20%;
+  padding-top: 15px;
+}
+
+.charts-weight__actual > p {
+  font-size: 22px;
+  line-height: 1.36;
+  text-align: center;
+  color: white;
+}
+
+.charts-weight__changes {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.charts-weight__dropped > p {
+  font-size: 18px;
+  line-height: 1.67%;
+  font-weight: 600;
+}
+
+.charts-weight__remained > p {
+  font-size: 18px;
+  line-height: 1.67%;
+  font-weight: 600;
+}
+
+.charts-kg-red {
+  color: #E06B6B;
+}
+
+.charts-kg-green {
+  color: #A1D28A;
+}
+
+.charts-weight__dynamics {
+  width: 100%;
+  margin-top: 10%;
+  border-left: 3px solid #089BAB;
+  border-bottom: 3px solid #089BAB;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.charts-weight__current {
+  width: 100%;
+  height: 220px;
+}
+
+.charts-reset__button {
+  margin-top: 5%;
+  align-self: center;
+  cursor: pointer;
+  width: 35%;
+  height: 11%;
+  min-height: 38px;
+  max-height: 105px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #F7C78E;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+}
+
+.charts-reset__button:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
+}
+
+.charts-form {
+  grid-column: 2/3;
+  grid-row: 4/6;
+  width: 100%;
+  height: 130px;
+  padding: 5%;
+  background-color: white;
+  border-radius: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15%;
+}
+
+.charts-form > div {
+  width: 100%;
+}
+
+.charts-form > label {
+  display: inline-block;
+  margin-bottom: 4%;
+}
+
+#charts-weight-input,
+#charts-date-input {
+  width: 30%;
+  height: 11%;
+  min-height: 35px;
+  max-height: 90px;
+  padding-left: 8px;
+  background-color: #E4EEEE;
+  border: 1px solid #089BAB;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 2%;
+}
+
+.charts-add-weight-btn {
+  align-self: center;
+  cursor: pointer;
+  width: 35%;
+  height: 11%;
+  min-height: 38px;
+  max-height: 105px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #F7C78E;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+}
+
+.charts-add-weight-btn:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
+}
+
+#weightList {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 2500px) {
+  * {
+    font-size: 1.2em;
+  }
+  .charts-body {
+    max-width: 2500px;
+  }
+  .wrapper {
+    max-width: 2500px;
+  }
+  .charts-main {
+    width: 65vw;
+    height: 100vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+  .charts-title {
+    width: 50%;
+    height: 40%;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    font-size: 28px;
+    padding: 2% 2% 1%;
+    border-radius: 30px;
+  }
+  .charts-title > p {
+    font-size: 1.18em;
+  }
+  .charts-calorie__diagram,
+  .charts-macro__diagram {
+    height: 400px;
+  }
+  .charts-calorie__label,
+  .charts-macro__label {
+    width: 50%;
+    font-size: 25px;
+    margin-top: 5%;
+  }
+  .charts-calorie__btn,
+  .charts-macro__btn {
+    width: 30%;
+    height: 15%;
+    font-size: 2rem;
+    border-radius: 25px;
+  }
+  .charts-calorie__container,
+  .charts-macro__container {
+    width: 60%;
+  }
+  .charts-calorie__legend,
+  .charts-macro__legend {
+    bottom: 30px;
+    width: 30%;
+    margin-bottom: 5%;
+  }
+  .charts-macro__legend {
+    margin-bottom: 10%;
+  }
+  .charts-calorie__legend-item__yellow,
+  .charts-calorie__legend-item__green,
+  .charts-calorie__legend-item__red,
+  .charts-calorie__legend-item__salad,
+  .charts-macro__legend-item__yellow,
+  .charts-macro__legend-item__green,
+  .charts-macro__legend-item__red {
+    width: 30px;
+    height: 30px;
+  }
+  .charts-calorie__legend-item > p {
+    font-size: 30px;
+  }
+  .charts-macro__legend-item > p {
+    font-size: 30px;
+  }
+  .charts-weight {
+    width: 100%;
+    height: 90%;
+    margin-right: 5%;
+    padding: 5%;
+  }
+  .charts-weight__actual {
+    width: 60%;
+    height: 10%;
+    margin-left: 20%;
+    margin-top: 4%;
+  }
+  .charts-weight__actual > p {
+    font-size: 2.5rem;
+  }
+  .charts-weight__changes {
+    margin-top: 15%;
+  }
+  .charts-weight__dropped > p,
+  .charts-weight__remained > p {
+    font-size: 2rem;
+  }
+  .charts-weight__dynamics {
+    height: 350px;
+    margin-top: 10%;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .charts-weight__current {
+    width: 100%;
+  }
+  .charts-reset__button {
+    margin-top: 5%;
+    width: 20%;
+    height: 100%;
+    font-size: 2rem;
+  }
+  .charts-form {
+    width: 100%;
+    padding: 5%;
+    gap: 5%;
+    height: 60%;
+  }
+  .charts-form > div {
+    width: 100%;
+  }
+  .charts-form > label {
+    margin-bottom: 2%;
+    font-size: 20px;
+  }
+  #charts-weight-input,
+  #charts-date-input {
+    height: 50%;
+    font-size: 2rem;
+    margin-right: 5%;
+  }
+  .charts-add-weight-btn {
+    width: 30%;
+    height: 60%;
+    font-size: 1.5rem;
+    border-radius: 25px;
+  }
+}/*# sourceMappingURL=charts.css.map */
