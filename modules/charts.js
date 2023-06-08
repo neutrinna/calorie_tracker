@@ -181,7 +181,11 @@ const displayWeights = () => {
     }
 
     const actualWeight = document.querySelector('.charts-weight__actual p');
-    actualWeight.textContent = `Ваш вес - ${lastWeight || ''} кг`;
+    if (lastWeight) {
+        actualWeight.textContent = `Ваш вес - ${lastWeight} кг`;
+    } else {
+        actualWeight.textContent = `Вес не введен`;
+    }
 
     weightListDates.forEach((date) => {
         const weightListItem = document.createElement('li');
