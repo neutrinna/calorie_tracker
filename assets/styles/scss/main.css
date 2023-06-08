@@ -400,8 +400,6 @@
     width: calc((100vw - 424px) / 4.7);
   }
 }
-
-
 /* Настя Кольцова - начало */
 /* COMMON */
 @font-face {
@@ -420,6 +418,9 @@
 
 .charts-body {
   background-color: #E4EEEE;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .wrapper {
@@ -428,27 +429,12 @@
   background-color: #E4EEEE;
 }
 
-@media screen and (max-width: 1279px) {
-  .wrapper {
-    display: none;
-  }
-}
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-  .wrapper {
-    max-width: 1440px;
-  }
-}
-@media screen and (min-width: 1921px) {
-  .wrapper {
-    width: 75vw;
-  }
-}
 .charts-main {
-  font-size: 18px;
+  font-size: 1em;
   font-weight: 400;
   font-family: "Montserrat";
-  margin-left: 230px;
-  margin-right: 59px;
+  margin-left: 17vw;
+  margin-right: 5vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
@@ -489,15 +475,13 @@
   justify-content: space-between;
 }
 
+.charts-calorie-title {
+  margin-right: 5vw;
+}
+
 .charts-calorie__btn,
 .charts-macro__btn {
-  width: 32%;
-  height: 12%;
-  background-color: #f7c78e;
-  color: black;
-  text-align: center;
-  border-radius: 15px;
-  border: none;
+  display: none;
 }
 
 .charts-calorie__container,
@@ -563,7 +547,7 @@
   flex-direction: column;
   gap: 20px;
   align-self: flex-end;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   width: 30%;
 }
 
@@ -653,7 +637,7 @@
   flex-direction: column;
   gap: 20px;
   align-self: flex-end;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
   width: 30%;
 }
 
@@ -836,6 +820,164 @@
   display: none;
 }
 
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+  .wrapper {
+    max-width: 1440px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .wrapper {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 2500px) {
+  * {
+    font-size: 1.2em;
+  }
+  .charts-body {
+    max-width: 2500px;
+  }
+  .wrapper {
+    max-width: 2500px;
+  }
+  .charts-main {
+    width: 65vw;
+    height: 100vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+  .charts-title {
+    width: 50%;
+    height: 40%;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    font-size: calc((100vw + 3410px) / 213);
+    padding: 2% 2% 1%;
+    border-radius: 30px;
+  }
+  .charts-title > p {
+    font-size: 1.4em;
+  }
+  .charts-calorie__diagram,
+  .charts-macro__diagram {
+    height: 400px;
+  }
+  .charts-calorie__label,
+  .charts-macro__label {
+    width: 50%;
+    font-size: 25px;
+    margin-top: 5%;
+  }
+  .charts-calorie__btn,
+  .charts-macro__btn {
+    width: 30%;
+    height: 15%;
+    font-size: 2rem;
+    border-radius: 25px;
+  }
+  .charts-calorie__container,
+  .charts-macro__container {
+    width: 60%;
+  }
+  .charts-calorie__legend,
+  .charts-macro__legend {
+    bottom: 30px;
+    width: 30%;
+    margin-bottom: 5%;
+  }
+  .charts-macro__legend {
+    margin-bottom: 10%;
+  }
+  .charts-calorie__legend-item__yellow,
+  .charts-calorie__legend-item__green,
+  .charts-calorie__legend-item__red,
+  .charts-calorie__legend-item__salad,
+  .charts-macro__legend-item__yellow,
+  .charts-macro__legend-item__green,
+  .charts-macro__legend-item__red {
+    width: 30px;
+    height: 30px;
+  }
+  .charts-calorie__legend-item > p {
+    font-size: 30px;
+  }
+  .charts-macro__legend-item > p {
+    font-size: 30px;
+  }
+  .charts-weight {
+    width: 100%;
+    height: 90%;
+    margin-right: 5%;
+    padding: 5%;
+  }
+  .charts-weight__actual {
+    width: 60%;
+    height: 10%;
+    margin-left: 20%;
+    margin-top: 4%;
+  }
+  .charts-weight__actual > p {
+    font-size: 2.5rem;
+  }
+  .charts-weight__changes {
+    margin-top: 15%;
+  }
+  .charts-weight__dropped > p,
+  .charts-weight__remained > p {
+    font-size: 2rem;
+  }
+  .charts-weight__dynamics {
+    height: 350px;
+    margin-top: 10%;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .charts-weight__current {
+    width: 100%;
+  }
+  .charts-reset__button {
+    margin-top: 5%;
+    width: 20%;
+    height: 100%;
+    font-size: 2rem;
+  }
+  .charts-form {
+    width: 100%;
+    padding: 5%;
+    gap: 5%;
+    height: 60%;
+  }
+  .charts-form > div {
+    width: 100%;
+  }
+  .charts-form > label {
+    margin-bottom: 2%;
+    font-size: 20px;
+  }
+  #charts-weight-input,
+  #charts-date-input {
+    height: 50%;
+    font-size: 2rem;
+    margin-right: 5%;
+  }
+  .charts-add-weight-btn {
+    width: 30%;
+    height: 60%;
+    font-size: 1.5rem;
+    border-radius: 25px;
+  }
+}
 body {
   background-color: #E4EEEE;
 }

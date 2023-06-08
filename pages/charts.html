@@ -8,6 +8,7 @@
 	<title>Мои результаты</title>
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/normalize.css">
 	<link rel="shortcut icon" href="../assets/icons/calories.png" />
+	<link rel="stylesheet" href="../assets/styles/scss/main.css" />
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/notification.css">
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/fonts.css" />
 	<link rel="stylesheet" href="../assets/styles/scss/layouts/side-bar.css" />
@@ -50,14 +51,11 @@
 			</div>
 			<div class="charts-calorie">
 				<div>
-					<p>Калории</p>
+					<p class="charts-calorie-title">Калории</p>
 				</div>
 
 				<select id="days" class="charts-calorie__btn">
 					<option value="today">Сегодня</option>
-					<!-- <option value="yesterday">Вчера</option>
-					<option value="2023-05-16">17 мая</option>
-					<option value="2023-05-15">16 мая</option> -->
 				</select>
 
 				<div class="charts-calorie__container">
@@ -101,9 +99,6 @@
 				</div>
 				<select id="days" class="charts-macro__btn">
 					<option value="today">Сегодня</option>
-					<!-- <option value="yesterday">Вчера</option>
-					<option value="2023-05-16">17 мая</option>
-					<option value="2023-05-15">16 мая</option> -->
 				</select>
 
 				<div class="charts-macro__container">
@@ -137,15 +132,15 @@
 
 			<div class="charts-weight">
 				<div class="charts-weight__actual">
-					<p>Ваш вес - </p>
+					<p class="charts-weight__actual-text">Ваш вес - </p>
 				</div>
 				<div class="charts-weight__changes">
 					<div class="charts-weight__dropped">
-						<p class="charts-grid-weight-dropped-text">Сброшено <span class="charts-kg-red"></span>
+						<p class="charts-grid-weight-dropped-text">Данные о весе отсутствуют<span class="charts-kg-green"></span>
 						</p>
 					</div>
 					<div class="charts-weight__remained">
-						<p class="charts-grid-weight-remained-text">Осталось <span class="charts-kg-green"></span>
+						<p class="charts-grid-weight-remained-text"><span class="charts-kg-red"></span>
 						</p>
 					</div>
 				</div>
@@ -201,6 +196,7 @@
 	<!-- Настя Кольцова -->
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 	<script src="./../modules/charts.js" type="module"></script>
 	<script src="../modules/side-bar-other.js"></script>
 </body>

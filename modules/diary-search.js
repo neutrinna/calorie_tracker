@@ -251,7 +251,7 @@ function form() {
                 countStringWeight3 ()
                 countStringWeight4 ()
                 ////////////       end  Aleksandra        //////////////////
-
+                recount()
                 }
               })
               .catch(error => {
@@ -289,8 +289,6 @@ function form() {
       }
     });
   });
-  // Саша, обрати внимание
-   //render() //перенесла рендер наверх, иначе не отрабатывает добавление новых продуктов
 }
 
 //поп-ап
@@ -327,11 +325,9 @@ function callBtnFunc4 () {
   getStringDataInObject4()
 }
 
-
-
-// Саша, обрати внимание
 function render(){
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   accordeon.innerHTML = currentUser.breakfast.products;
   accordeon2.innerHTML = currentUser.lunch.products;
   accordeon3.innerHTML = currentUser.dinner.products;
@@ -367,14 +363,16 @@ function render(){
   fatsArray3 = document.querySelectorAll ('.fatsRes3');
   fatsArray4 = document.querySelectorAll ('.fatsRes4');
 
+  recount()
+}
 
+ function recount(){
   countStringWeight ()
   countStringWeight2 ()
   countStringWeight3 ()
   countStringWeight4 ()
   countAndSetSummary ()
-}
-
+ }
 // document.querySelector("body").addEventListener("onload", render);
 // document.addEventListener('DOMContentLoaded', () => render())
 
@@ -492,7 +490,6 @@ function countStringWeight () {
     proteins: stringProteinBreakfast.textContent,
     fats: stringFatBreakfast.textContent,
   };
-  // Саша, это для тебя. аналогичное в других функциях пересчета сум
   currentUser.breakfast.products = accordeon.innerHTML;
   localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
 }

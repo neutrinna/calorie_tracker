@@ -63,7 +63,7 @@ function loginUser() {
       document.getElementById("profile-paternity").style.display = "none";
       document.getElementById("profile-user").style.display = "flex";
       document.querySelector(".profile-RSK__checkbox").style.display = "flex";
-    
+
       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
       render()
 
@@ -85,7 +85,8 @@ function customizationSave() {
   let InputSurname = document.getElementById("customization__text_surname").value[0].toUpperCase() + document.getElementById("customization__text_surname").value.slice(1);
   let InputBday = document.getElementById("customization__text_bday").value;
   let InputPassword = document.getElementById("customization__text_password").value;
-  let InputEmail = document.getElementById("customization__text_email").value
+  let InputEmail = document.getElementById("customization__text_email").value;
+  InputEmail = currentUser.email;
 
   let foundUser = null;
   // перебираем каждый объект в массиве userData
@@ -145,6 +146,8 @@ function exit() {
   localStorage.setItem(`currentUser`, `${currentUser}`);
   document.querySelector(".profile-RSK__checkbox").style.display = "none" ;
   closeDropdown()
+  document.querySelector(".profile-user__doughnut-chart").innerHTML = ``;
+  render()
 }
 
 function saveChanges() {
