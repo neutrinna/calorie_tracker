@@ -25,15 +25,15 @@
 
 <h2>Technologies:</h2>
 <p align="left">
-<a href="https://www.w3.org/html/" target="blank"> <img src="./assets/icons/html5.svg" alt="html5 icon" width="40" height="40"/> </a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="blank" > <img src="./assets/icons/javascript.svg" alt="javascript icon" width="40" height="40"/> </a> 
-<a href="https://git-scm.com/" target="blank"> <img src="./assets/icons/git.svg" alt="git icon" width="40" height="40"/> </a>
-<a href="https://sass-lang.com" target="blank" > <img src="./assets/icons/sass.svg" alt="sass icon" width="40" height="40"/> </a>
-<a href="https://www.chartjs.org" target="blank"> <img src="./assets/icons/chart.svg" alt="chartjs icon" width="40" height="40"/> </a>
-<a href="https://momentjs.com/" target="blank"> <img src="./assets/icons/momentjs.svg" alt="momentjs icon" width="40" height="40"/> </a>
+<a href="https://www.w3.org/html/" target="_blank"> <img src="./assets/icons/html5.svg" alt="html5 icon" width="40" height="40"/> </a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" > <img src="./assets/icons/javascript.svg" alt="javascript icon" width="40" height="40"/> </a> 
+<a href="https://git-scm.com/" target="_blank"> <img src="./assets/icons/git.svg" alt="git icon" width="40" height="40"/> </a>
+<a href="https://sass-lang.com" target="_blank" > <img src="./assets/icons/sass.svg" alt="sass icon" width="40" height="40"/> </a>
+<a href="https://www.chartjs.org" target="_blank"> <img src="./assets/icons/chart.svg" alt="chartjs icon" width="40" height="40"/> </a>
+<a href="https://momentjs.com/" target="_blank"> <img src="./assets/icons/momentjs.svg" alt="momentjs icon" width="40" height="40"/> </a>
 </p>
 
 <h2>Result:</h2>
-<a href="">Click here ✨</a>
+<a href="https://neutrinna.github.io/calorie_tracker/" target="_blank">Click here ✨</a>
 
 
