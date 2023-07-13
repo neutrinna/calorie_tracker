@@ -1,10 +1,10 @@
 <h1>calorie_tracker</h1>
 <p>API-based calorie and macronutrient consumption tracker </p>
 
-<p align="left"><img src="./assets/images/screenshots/mainPage.png" width="400px" alt="main page screenshot"></p>
-<p align="left"><img src="./assets/images/screenshots/diary.png" width="400px" alt="diary page screenshot"></p>
-<p align="left"><img src="./assets/images/screenshots/dynamics.png" width="400px" alt="dunamics page screenshot"></p>
-<p align="left"><img src="./assets/images/screenshots/articles.png" width="400px" alt="articles page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/mainPage.png" width="600px" alt="main page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/diary.png" width="600px" alt="diary page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/dynamics.png" width="600px" alt="dunamics page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/articles.png" width="600px" alt="articles page screenshot"></p>
 
 <h2>Inspiration</h2>
 <p>Being users from Russia, we faced the problem that some calorie trackers stopped supporting our accounts.</p>
