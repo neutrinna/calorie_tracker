@@ -1,7 +1,14 @@
 <h1>calorie_tracker</h1>
-<p>API-based calorie and macronutrient consumption tracker (JS)</p>
+<p>API-based calorie and macronutrient consumption tracker </p>
+
+<p align="left"><img src="./assets/images/screenshots/mainPage.png" width="400px" alt="main page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/diary.png" width="400px" alt="diary page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/dynamics.png" width="400px" alt="dunamics page screenshot"></p>
+<p align="left"><img src="./assets/images/screenshots/articles.png" width="400px" alt="articles page screenshot"></p>
 
 <h2>Inspiration</h2>
+<p>Being users from Russia, we faced the problem that some calorie trackers stopped supporting our accounts.</p>
+<p>The available trackers weren't as pleasant to use or look like. This was a great reason to create our application.</p>
 
 <h2>How to make it work?</h2>
 
