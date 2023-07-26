@@ -278,59 +278,6 @@ input:hover {
     background-color: #148794;
 }
 
-.profile-notification {
-    display: none;
-    position: fixed;
-
-    width: 100%;
-    min-height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-
-    z-index: 11;
-    top: 0px;
-}
-
-.profile-notification__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    min-width: 500px;
-    max-width: 80vh;
-    width: 51.25vw;
-    max-height: 12vw;
-    height: 26.17vh;
-    padding: 10px;
-    margin: 9.76vh auto 0px auto;
-    border: solid 7px $button-color;
-
-    background-color: white;
-    border-radius: 35px;
-    box-shadow: 0px 0px 10px #000;
-
-    img {
-        width: 8.8%;
-        margin-bottom: 1.19%;
-    }
-
-    div {
-        text-align: center;
-    }
-}
-
-.profile-notification__text {
-    line-height: 180%;
-
-    a {
-        color: $main-color;
-        text-decoration: none;
-        font-weight: 600;
-    }
-}
-
 .profile-user__settings {
     align-self: flex-end;
 
@@ -453,17 +400,17 @@ input:hover {
     border-radius: 5px;
 }
 .profile-user__macro-scale-line_carbs {
-    width: 55%;
+    width: 0%;
 
     background-color: rgba(0, 195, 255, 0.6);
 }
 .profile-user__macro-scale-line_protein {
-    width: 55%;
+    width: 0%;
 
     background-color: rgba(255, 0, 21, 0.6);
 }
 .profile-user__macro-scale-line_fat {
-    width: 55%;
+    width: 0%;
 
     background-color: rgba(255, 217, 0, 0.6);
 }
@@ -628,10 +575,6 @@ input:hover {
         margin-top: 3.23vh;
     }
 
-    .profile-notification__text {
-        @include font (500, 18px);
-    }
-
     .profile-user__data-name {
         @include font (600, calc((100vw + 640px) / 80));
     }
@@ -715,10 +658,6 @@ input:hover {
     .profile-welcome__form-greet {
         @include font (600, 26px);
     }
-
-    .profile-notification__text {
-        @include font (500, 25px);
-    }
 }
 
 @media screen and (min-width: ($large-desktop + 1px)) {
@@ -766,13 +705,7 @@ input:hover {
     .profile-welcome__form-greet {
         @include font (600, calc((100vw - 290px) / 62));
     }
-    .profile-notification__content{
-        max-width: 55vh;
-        max-height: 9vw
-    }
-    .profile-notification__text {
-        @include font (500, calc((100vw + 12580px) / 580));
-    }
+
     .profile-user__data-name,
     .profile-user__states-name,
     .profile-user__kkal-amount,
@@ -825,6 +758,10 @@ input:hover {
     margin: auto;
     height: auto;
     background-color: $basic-color;
+
+    &_topic {
+        background-color: white;
+    }
 }
 
 .profile-welcome__wripper,

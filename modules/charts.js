@@ -2,14 +2,90 @@
 
 // charts js section
 
-const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+const weightList = currentUser.weightList || {}; 
+
+// Вывод данных калорий и макроэлементов в диаграмму
+
+const calculatePercent = (kkal, total) => {
+    return isNaN(parseInt(kkal)) || total === 0 ? 0 : parseInt(kkal) / total * 100;
+};
+
+const setColumnHeight = (columnClass, percent) => {
+    const column = document.querySelector(`.charts-calorie__diagram-${columnClass}`);
+    column.style.height = `${percent}%`;
+};
+
+const setLegendItemValue = (itemClass, percent, kkal) => {
+    const item = document.querySelector(`.charts-calorie__legend-item__${itemClass}`);
+    item.innerHTML = `${percent.toFixed(0)}% (${kkal} ккал)`;
+};
+
+const fillMacrosChart = () => {
+    try {
+        const total = currentUser.total;
+        const carbs = parseFloat(total.carbs);
+        const proteins = parseFloat(total.proteins);
+        const fats = parseFloat(total.fats);
+
+        const totalMacro = carbs + proteins + fats;
+
+        const greenDiagram = document.querySelector('.charts-macro__diagram-green');
+        const redDiagram = document.querySelector('.charts-macro__diagram-red');
+        const yellowDiagram = document.querySelector('.charts-macro__diagram-yellow');
+
+        const greenHeight = carbs ? (carbs / totalMacro) * 100 : 0;
+        const redHeight = proteins ? (proteins / totalMacro) * 100 : 0;
+        const yellowHeight = fats ? (fats / totalMacro) * 100 : 0;
+
+        const greenPercent = greenHeight ? `${greenHeight.toFixed(0)}% (${carbs} ккал)` : '0%';
+        const redPercent = redHeight ? `${redHeight.toFixed(0)}% (${proteins} ккал)` : '0%';
+        const yellowPercent = yellowHeight ? `${yellowHeight.toFixed(0)}% (${fats} ккал)` : '0%';
+
+        const greenLegend = document.querySelector('.charts-macro__legend-item__carbo');
+        const redLegend = document.querySelector('.charts-macro__legend-item__protein');
+        const yellowLegend = document.querySelector('.charts-macro__legend-item__fats');
+
+        greenLegend.textContent = greenPercent;
+        redLegend.textContent = redPercent;
+        yellowLegend.textContent = yellowPercent;
+
+        greenDiagram.style.height = greenHeight ? `${greenHeight}%` : '0%';
+        redDiagram.style.height = redHeight ? `${redHeight}%` : '0%';
+        yellowDiagram.style.height = yellowHeight ? `${yellowHeight}%` : '0%';
+    } catch (error) {
+        console.error("В дневник не введены данные");
+    }
+};
+
+const fillCaloriesChart = () => {
+    try {
+        const totalKkal = parseInt(currentUser.breakfast.kkal) + parseInt(currentUser.lunch.kkal) + parseInt(currentUser.dinner.kkal) + parseInt(currentUser.snack.kkal);
+        const meals = [
+            {name: 'breakfast', color: 'yellow', kkal: currentUser.breakfast.kkal},
+            {name: 'lunch', color: 'green', kkal: currentUser.lunch.kkal},
+            {name: 'dinner', color: 'red', kkal: currentUser.dinner.kkal},
+            {name: 'snack', color: 'salad', kkal: currentUser.snack.kkal}
+        ];
+
+        meals.forEach(meal => {
+            const percent = calculatePercent(meal.kkal, totalKkal);
+            setColumnHeight(meal.color, percent);
+            setLegendItemValue(meal.name, percent, meal.kkal);
+        });
+    } catch (error) {
+        console.error("В дневник не введены данные");
+    }
+};
+
+fillCaloriesChart();
+fillMacrosChart();
 
 // настройки графика веса
 
 const weightGraph = document.getElementById('charts-weight__current-lb');
 
 const updateChart = () => {
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     const dates = Object.keys(weightList).sort();
     chart.data.labels = dates;
     chart.data.datasets[0].data = dates.map((date) => {
@@ -17,6 +93,8 @@ const updateChart = () => {
         return weights.reduce((sum, weight) => sum + weight, 0) / weights.length;
     });
     chart.update();
+    currentUser.weightList = weightList;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 };
 
 const chart = new Chart(weightGraph, {
@@ -31,6 +109,10 @@ const chart = new Chart(weightGraph, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        width: 500,
+        height: 500,
         scales: {
             y: {
                 beginAtZero: true
@@ -62,18 +144,20 @@ const roundWeight = (weight) => {
 const saveWeight = () => {
     const weight = roundWeight(weightInput.value);
     const date = dateInput.value;
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     if (!weightList[date]) {
         weightList[date] = [weight];
     } else {
-    weightList[date].push(weight);
+        weightList[date].push(weight);
     }
-    localStorage.setItem('weightList', JSON.stringify(weightList));
+    if(moment(date).format("DD/MM/YYYY") === moment().format("DD/MM/YYYY")){
+        currentUser.weight = weight;
+    }
+    currentUser.weightList = weightList;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
     displayWeights();
 };
 
 const getWeightsByDate = (date) => {
-    const weightList = JSON.parse(localStorage.getItem('weightList')) || {};
     if (weightList[date]) {
         return weightList[date];
     } else {
@@ -84,37 +168,35 @@ const getWeightsByDate = (date) => {
 const displayWeights = () => {
     const weightList = document.getElementById('weightList');
     weightList.innerHTML = '';
-    const dates = Object.keys(JSON.parse(localStorage.getItem('weightList') || {}));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+    const weightListDates = currentUser.weightList ? Object.keys(currentUser.weightList) : [];
     const today = new Date().toISOString().slice(0, 10);
-    if (dates.includes(today)) {
+
+    let lastWeight;
+    if (weightListDates.includes(today)) {
         const weights = getWeightsByDate(today);
-        const lastWeight = weights[weights.length - 1];
-        const actualWeight = document.querySelector('.charts-weight__actual p');
-        actualWeight.textContent = `Ваш вес - ${lastWeight} кг`;
-        
-        if (currentUser && Array.isArray(currentUser)) {
-            const lastWeight = weights[weights.length - 1];
-            currentUser[4] = lastWeight;
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        }
+        lastWeight = weights[weights.length - 1];
+    } else {
+        lastWeight = currentUser.weight;
     }
-    dates.forEach((date) => {
+
+    const actualWeight = document.querySelector('.charts-weight__actual p');
+    actualWeight.textContent = `Ваш вес - ${lastWeight || ''} кг`;
+
+    weightListDates.forEach((date) => {
         const weightListItem = document.createElement('li');
         const weights = getWeightsByDate(date);
-        const weightListItems = weights.map((weight) => {
-            return '<li>' + weight + '</li>';
-        }).join('');
+        const weightListItems = weights.map((weight) => `<li>${weight}</li>`);
         weightListItem.innerHTML = `
             <h3>${date}</h3>
             <ul>
-            ${weightListItems}
-            </ul>
-        `;
+                ${weightListItems.join('')}
+            </ul>`;
         weightList.appendChild(weightListItem);
     });
+
     updateChart();
 };
-
 
 addButton.addEventListener('click', () => {
     if (validateWeight()) {
@@ -155,68 +237,6 @@ function validateInputs() {
 weightInput.addEventListener('input', validateInputs);
 dateInput.addEventListener('change', validateInputs);
 
-// Вывод данных калорий и макроэлементов в диаграмму
-
-const getAmount = (key) => parseInt(localStorage.getItem(key), 10);
-
-const calculatePercentageAndHeight = (amount, totalCount) => ({
-    height: `${(amount / totalCount) * 100}%`,
-    percentage: `${Math.round((amount / totalCount) * 100)}%`,
-    kcal: `${amount} ккал`,
-});
-
-const updateColumn = (column, amount, totalCount, legendItem) => {
-    const { height, percentage, kcal } = calculatePercentageAndHeight(amount, totalCount);
-    column.style.height = height;
-    legendItem.innerHTML = `<p>${percentage} (${kcal})</p>`;
-};
-
-const updateCalorieChart = () => {
-    const breakfastAmount = getAmount('breakfastAmount');
-    const lunchAmount = getAmount('lunchAmount');
-    const dinnerAmount = getAmount('dinnerAmount');
-    const snackAmount = getAmount('snackAmount');
-    const totalCountCalorie = breakfastAmount + lunchAmount + dinnerAmount + snackAmount;
-
-    const yellowColumnCalorie = document.querySelector('.charts-calorie__diagram-yellow');
-    const greenColumnCalorie = document.querySelector('.charts-calorie__diagram-green');
-    const redColumnCalorie = document.querySelector('.charts-calorie__diagram-red');
-    const saladColumnCalorie = document.querySelector('.charts-calorie__diagram-salad');
-
-    const yellowLegendCalorie = document.querySelector('.charts-calorie__legend-item__breakfast');
-    const greenLegendCalorie = document.querySelector('.charts-calorie__legend-item__lunch');
-    const redLegendCalorie = document.querySelector('.charts-calorie__legend-item__dinner');
-    const saladLegendCalorie = document.querySelector('.charts-calorie__legend-item__snack');
-
-    updateColumn(yellowColumnCalorie, breakfastAmount, totalCountCalorie, yellowLegendCalorie);
-    updateColumn(greenColumnCalorie, lunchAmount, totalCountCalorie, greenLegendCalorie);
-    updateColumn(redColumnCalorie, dinnerAmount, totalCountCalorie, redLegendCalorie);
-    updateColumn(saladColumnCalorie, snackAmount, totalCountCalorie, saladLegendCalorie);
-};
-
-const updateMacroChart = () => {
-    const carboAmount = getAmount('carboAmount');
-    const proteinAmount = getAmount('proteinAmount');
-    const fatsAmount = getAmount('fatsAmount');
-    const totalCountMacro = carboAmount + proteinAmount + fatsAmount;
-
-    const greenColumnMacro = document.querySelector('.charts-macro__diagram-green');
-    const redColumnMacro = document.querySelector('.charts-macro__diagram-red');
-    const yellowColumnMacro = document.querySelector('.charts-macro__diagram-yellow');
-
-    const greenLegendMacro = document.querySelector('.charts-macro__legend-item__carbo');
-    const redLegendMacro = document.querySelector('.charts-macro__legend-item__protein');
-    const yellowLegendMacro = document.querySelector('.charts-macro__legend-item__fats');
-
-    updateColumn(greenColumnMacro, carboAmount, totalCountMacro, greenLegendMacro);
-    updateColumn(redColumnMacro, proteinAmount, totalCountMacro, redLegendMacro);
-    updateColumn(yellowColumnMacro, fatsAmount, totalCountMacro, yellowLegendMacro);
-};
-
-updateCalorieChart();
-updateMacroChart();
-
-
 // Разница с целевым весом
 
 const getEarliestWeight = (weights) => {
@@ -231,19 +251,34 @@ const updateWeightInfo = () => {
     const today = new Date().toISOString().slice(0, 10);
     const weights = getWeightsByDate(today);
 
-    const lastWeight = weights[weights.length - 1] || undefined;
-    const targetWeight = parseInt(localStorage.getItem('targetWeight'), 10) || undefined;
-    const earliestWeight = getEarliestWeight(weights);
+    const lastWeight = weights[weights.length - 1];
+    const targetWeight = parseFloat(currentUser.goal.split(" ")[0]);
+    const earliestWeight = getEarliestWeight(weights) || lastWeight;
+    const droppedEl = document.querySelector('.charts-grid-weight-dropped-text');
+    const remainedEl = document.querySelector('.charts-grid-weight-remained-text');
+    const changesEl = document.querySelector('.charts-weight__changes');
 
-    const dropped = (lastWeight && targetWeight && earliestWeight) ? (lastWeight - earliestWeight - targetWeight) : 0;
-    const remained = (lastWeight && targetWeight) ? (targetWeight - lastWeight) : 0;
+    if (lastWeight === undefined || targetWeight === undefined || isNaN(lastWeight) || isNaN(targetWeight)) {
+        droppedEl.innerHTML = `<p class="charts-kg-green">-</p>`;
+        remainedEl.innerHTML = `<p class="charts-kg-green">-</p>`;
+        return;
+    }
+    
+    if (lastWeight === targetWeight) {
+        changesEl.innerHTML = `<p class="charts-kg-green" style="margin-left: 20%">Ваш вес идеален. Вы молодец!</p>`;
+        return;
+    }
 
-    const droppedText = document.querySelector('.charts-grid-weight-dropped-text');
-    const remainedText = document.querySelector('.charts-grid-weight-remained-text');
+    const isGain = lastWeight < targetWeight;
+    const isEarliestGreater = earliestWeight > lastWeight;
+    const droppedWeight = isEarliestGreater ? earliestWeight - lastWeight : lastWeight - earliestWeight;
+    const remainedWeight = isGain ? targetWeight - lastWeight : lastWeight - targetWeight;
+    const droppedText = isGain ? `${droppedWeight} кг набрано` : `${droppedWeight} кг сброшено`;
+    const remainedText = `${remainedWeight} кг осталось`;
 
-    droppedText.innerHTML = `Сброшено <span class="charts-kg-red">${dropped} кг</span>`;
-    remainedText.innerHTML = `Осталось <span class="charts-kg-green">${remained} кг</span>`;
-};
+    droppedEl.innerHTML = `<p class="charts-kg-${isGain ? 'green' : 'red'}">${droppedText}</p>`;
+    remainedEl.innerHTML = `<p class="charts-kg-${isGain && isEarliestGreater ? 'red' : 'green'}">${remainedText}</p>`;
+};  
 
 updateWeightInfo();
 
@@ -251,17 +286,11 @@ updateWeightInfo();
 
 const resetButton = document.querySelector('.charts-reset__button'); 
 resetButton.addEventListener('click', function() {
-    localStorage.removeItem('weightList');
-    location.reload();
+    if (currentUser && currentUser.weightList) {
+        currentUser.weightList = {};
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        location.reload();
+    }
 });
 
-// Сохранение значения lastWeight в localstorage в переменную currentUser 
-
-// const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
-// if (!currentUser.hasOwnProperty('weights')) {
-//     currentUser.weights = [];
-// }
-// currentUser.weights[4] = lastWeight;
-// localStorage.setItem('currentUser', JSON.stringify(currentUser));
-// const actualWeight = document.querySelector('.charts-weight__actual p');
-// actualWeight.textContent = 'Ваш вес - ' + (currentUser.weights[4] || '') + ' кг';
+// localStorage.clear();

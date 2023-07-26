@@ -78,16 +78,23 @@
   margin-left: 10%;
 }
 
-.topic-wrapper {
+.topic-wrapper-body {
   background-color: white;
-  margin-top: -5vh;
+}
+
+.topic-message {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .topic {
-  margin: 5vh 15vw 5vh 25vw;
+  margin: 0 15vw 5vh 25vw;
 }
 .topic__title {
-  padding-top: 6vh;
+  padding-top: 8vh;
+  margin-top: 0;
   letter-spacing: 0.7px;
   text-align: center;
 }
@@ -105,6 +112,14 @@
 }
 .topic__text_bold {
   font-weight: 700;
+}
+.topic__text_message {
+  text-align: center;
+  padding: 8vh 3vw;
+}
+.topic__border {
+  background-color: #E4EEEE;
+  border-radius: 15px;
 }
 .topic__img-left {
   border-radius: 5px;
@@ -135,6 +150,9 @@
 }
 .topic__top {
   margin: 3vh 0;
+}
+.topic__massege {
+  width: 40vw;
 }
 
 .articles-section__article,
@@ -222,5 +240,66 @@
     font-weight: 600;
     font-size: calc((100vw + 714.5px) / 119.75);
     font-family: "Montserrat", sans-serif;
+  }
+  .articles-section,
+  .articles-topics {
+    width: calc((100vw + 8751.3px) / 10.1);
+    margin-right: calc((100vw - 2466.6px) / -7);
+  }
+  .topic {
+    width: calc((100vw - 54.7px) / 1.6);
+    margin-left: calc((100vw - 3830.6px) / -6.6);
+    margin-right: calc((100vw - 1920px) / -2.2);
+  }
+}
+@media screen and (min-width: 1921px) {
+  .articles-topics__title {
+    font-weight: 600;
+    font-size: calc((100vw - 138.4px) / 81.2);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-topics__text,
+  .articles-section__article {
+    font-weight: 300;
+    font-size: calc((100vw - 161.5px) / 88);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-copy {
+    font-weight: 300;
+    font-size: calc((100vw - 189px) / 96);
+    font-family: "Montserrat", sans-serif;
+    margin-left: calc((100vw - 1270px) / 4.5);
+  }
+  .topic__text {
+    font-weight: 300;
+    font-size: calc((100vw - 138px) / 81);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__title {
+    font-weight: 600;
+    font-size: calc((100vw - 4px) / 79.8);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__subtitle {
+    font-weight: 600;
+    font-size: calc((100vw - 381.5px) / 96);
+    font-family: "Montserrat", sans-serif;
+  }
+  .topic__back {
+    font-weight: 600;
+    font-size: calc((100vw - 138.4px) / 81);
+    font-family: "Montserrat", sans-serif;
+  }
+  .articles-section,
+  .articles-topics {
+    width: calc((100vw - 246px) / 1.58);
+    margin-right: calc((100vw - 5000px) / -39);
+  }
+  .topic {
+    width: calc((100vw - 54.7px) / 1.6);
+    margin-left: calc((100vw + 102.5px) / 7);
+  }
+  .articles-topics__img {
+    width: calc((100vw - 424px) / 4.7);
   }
 }/*# sourceMappingURL=articles.css.map */

@@ -97,17 +97,23 @@
 
 // TOPICS 
 
-
-.topic-wrapper {
+.topic-wrapper-body {
     background-color: white;
-    margin-top: -5vh;
+}
+
+.topic-message {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .topic {
-    margin: 5vh 15vw 5vh 25vw;
+    margin: 0 15vw 5vh 25vw;
     
     &__title {
-        padding-top: 6vh;
+        padding-top: 8vh;
+        margin-top: 0;
         letter-spacing: 0.7px;
         text-align: center;
     }
@@ -128,6 +134,16 @@
         &_bold {
             font-weight: 700;
         }
+
+        &_message {
+            text-align: center;
+            padding: 8vh 3vw;
+        }
+    }
+
+    &__border {
+        background-color: $basic-color;
+        border-radius: 15px;
     }
 
     &__img-left {
@@ -164,6 +180,10 @@
 
     &__top {
         margin: 3vh 0;
+    }
+
+    &__massege {
+        width: 40vw;
 
     }
 }
@@ -183,65 +203,125 @@
 @media screen and (min-width: $desktop) and (max-width: $default-desktop) {
     
     .articles-topics__title {
-        @include font (600, calc(( 100vw - 720px ) / 40))
+        @include font (600, calc(( 100vw - 720px ) / 40));
     }
 
     .articles-topics__text,
     .articles-section__article {
-        @include font (300, calc(( 100vw - 160px ) / 80))
+        @include font (300, calc(( 100vw - 160px ) / 80));
     }
 
     .articles-copy {
-        @include font (300, calc(( 100vw - 320px ) / 80))
+        @include font (300, calc(( 100vw - 320px ) / 80));
     }
 
     .topic__text {
-        @include font (300, calc(( 100vw - 160px ) / 80))
+        @include font (300, calc(( 100vw - 160px ) / 80));
     }
 
     .topic__title {
-        @include font (600, calc(( 100vw - 2880px ) / -80))
+        @include font (600, calc(( 100vw - 2880px ) / -80));
     }
 
     .topic__subtitle {
-        @include font (600, 14px)
+        @include font (600, 14px);
     }
 
     .topic__back {
-        @include font (600, calc(( 100vw - 0px ) / 80))
+        @include font (600, calc(( 100vw - 0px ) / 80));
     }
     
 }
 
 @media screen and (min-width: ($default-desktop + 1px)) and (max-width: $large-desktop) {
     .articles-topics__title {
-        @include font (600, calc(( 100vw + 714.5px ) / 119.75))
+        @include font (600, calc(( 100vw + 714.5px ) / 119.75));
     }
 
     .articles-topics__text,
     .articles-section__article {
-        @include font (300, calc(( 100vw + 475px ) / 119.75))
+        @include font (300, calc(( 100vw + 475px ) / 119.75));
     }
 
     .articles-copy {
-        @include font (300, calc(( 100vw + 235.5px ) / 119.75))
+        @include font (300, calc(( 100vw + 235.5px ) / 119.75));
     }
 
     .topic__text {
-        @include font (300, calc(( 100vw + 714.5px ) / 119.75))
+        @include font (300, calc(( 100vw + 714.5px ) / 119.75));
     }
 
     .topic__title {
-        @include font (600, calc(( 100vw - 4px ) / 79.8))
+        @include font (600, calc(( 100vw - 4px ) / 79.8));
     }
 
     .topic__subtitle {
-        @include font (600, calc(( 100vw + 1912px ) / 239.5))
+        @include font (600, calc(( 100vw + 1912px ) / 239.5));
     }
 
     .topic__back {
-        @include font (600, calc(( 100vw + 714.5px ) / 119.75))
+        @include font (600, calc(( 100vw + 714.5px ) / 119.75));
     }
+
+    .articles-section,
+    .articles-topics {
+        width: calc(( 100vw + 8751.3px ) / 10.1);
+        margin-right: calc(( 100vw - 2466.6px ) / -7);
+    }
+
+    .topic {
+        width: calc(( 100vw - 54.7px ) / 1.6);
+        margin-left: calc(( 100vw - 3830.6px ) / -6.6);
+        margin-right: calc(( 100vw - 1920px ) / -2.2);
+    }
+}
+
+@media screen and (min-width: ($large-desktop + 1px)) {
+    .articles-topics__title {
+        @include font (600, calc(( 100vw - 138.4px ) / 81.2)) // готово
+    }
+
+    .articles-topics__text,
+    .articles-section__article {
+        @include font (300, calc(( 100vw - 161.5px ) / 88));
+    }
+
+    .articles-copy {
+        @include font (300, calc(( 100vw - 189px ) / 96));
+        margin-left: calc(( 100vw - 1270px ) / 4.5);
+    }
+
+    .topic__text {
+        @include font (300, calc(( 100vw - 138px ) / 81))
+    }
+
+    .topic__title {
+        @include font (600, calc(( 100vw - 4px ) / 79.8));
+    }
+
+    .topic__subtitle {
+        @include font (600, calc(( 100vw - 381.5px ) / 96));
+    }
+
+    .topic__back {
+        @include font (600, calc(( 100vw - 138.4px ) / 81));
+    }
+
+    .articles-section,
+    .articles-topics { 
+        width: calc(( 100vw - 246px ) / 1.58);
+        margin-right: calc(( 100vw - 5000px ) / -39);
+    }
+
+    .topic {
+        width: calc(( 100vw - 54.7px ) / 1.6); 
+        margin-left: calc(( 100vw + 102.5px ) / 7);
+    }
+
+    .articles-topics__img {
+        width: calc(( 100vw - 424px ) / 4.7);
+    }
+    
 }
 
 // Nastya Klm
