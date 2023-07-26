@@ -23,7 +23,7 @@
 .elem {
   display: flex;
   align-items: center;
-  max-width: 100%;
+  max-width: 70%;
   height: 70px;
   padding-left: 30px;
   justify-content: space-between;
@@ -44,20 +44,6 @@
 }
 
 #diary-loader {
-<<<<<<< HEAD
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid rgb(101, 195, 205);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
-  margin-left: 35vw;
-  margin-top: 10px;
-}
-
-@-webkit-keyframes spin {
-=======
   position: fixed;
   z-index: 11;
   top: 0;
@@ -76,7 +62,8 @@
 }
 
 .lds-roller div {
-  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   transform-origin: 40px 40px;
 }
 
@@ -92,7 +79,8 @@
 }
 
 .lds-roller div:nth-child(1) {
-  animation-delay: -0.036s;
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s;
 }
 
 .lds-roller div:nth-child(1):after {
@@ -101,7 +89,8 @@
 }
 
 .lds-roller div:nth-child(2) {
-  animation-delay: -0.072s;
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s;
 }
 
 .lds-roller div:nth-child(2):after {
@@ -110,7 +99,8 @@
 }
 
 .lds-roller div:nth-child(3) {
-  animation-delay: -0.108s;
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s;
 }
 
 .lds-roller div:nth-child(3):after {
@@ -119,7 +109,8 @@
 }
 
 .lds-roller div:nth-child(4) {
-  animation-delay: -0.144s;
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s;
 }
 
 .lds-roller div:nth-child(4):after {
@@ -128,7 +119,8 @@
 }
 
 .lds-roller div:nth-child(5) {
-  animation-delay: -0.18s;
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s;
 }
 
 .lds-roller div:nth-child(5):after {
@@ -137,7 +129,8 @@
 }
 
 .lds-roller div:nth-child(6) {
-  animation-delay: -0.216s;
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s;
 }
 
 .lds-roller div:nth-child(6):after {
@@ -146,7 +139,8 @@
 }
 
 .lds-roller div:nth-child(7) {
-  animation-delay: -0.252s;
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s;
 }
 
 .lds-roller div:nth-child(7):after {
@@ -155,7 +149,8 @@
 }
 
 .lds-roller div:nth-child(8) {
-  animation-delay: -0.288s;
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s;
 }
 
 .lds-roller div:nth-child(8):after {
@@ -163,8 +158,7 @@
   left: 12px;
 }
 
-@keyframes lds-roller {
->>>>>>> dev
+@-webkit-keyframes lds-roller {
   0% {
     transform: rotate(0deg);
   }
@@ -172,10 +166,23 @@
     transform: rotate(360deg);
   }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> dev
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -194,4 +201,24 @@
   align-items: center;
   margin-left: 0px;
   background-color: white;
+}
+
+.add-button {
+  align-self: center;
+  cursor: pointer;
+  justify-content: flex-start;
+  width: 20%;
+  height: 30%;
+  min-height: 44px;
+  max-height: 105px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #F7C78E;
+  color: rgba(0, 0, 0, 0.7);
+  transition-duration: 1s;
+}
+
+.add-button:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
 }/*# sourceMappingURL=search.css.map */

@@ -173,7 +173,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-  .articles-section__article {
+.articles-section__article {
     font-weight: 300;
     font-size: calc((100vw - 160px) / 80);
     font-family: "Montserrat", sans-serif;
@@ -211,7 +211,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-  .articles-section__article {
+.articles-section__article {
     font-weight: 300;
     font-size: calc((100vw + 475px) / 119.75);
     font-family: "Montserrat", sans-serif;
@@ -242,7 +242,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-section,
-  .articles-topics {
+.articles-topics {
     width: calc((100vw + 8751.3px) / 10.1);
     margin-right: calc((100vw - 2466.6px) / -7);
   }
@@ -259,7 +259,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-topics__text,
-  .articles-section__article {
+.articles-section__article {
     font-weight: 300;
     font-size: calc((100vw - 161.5px) / 88);
     font-family: "Montserrat", sans-serif;
@@ -291,7 +291,7 @@
     font-family: "Montserrat", sans-serif;
   }
   .articles-section,
-  .articles-topics {
+.articles-topics {
     width: calc((100vw - 246px) / 1.58);
     margin-right: calc((100vw - 5000px) / -39);
   }

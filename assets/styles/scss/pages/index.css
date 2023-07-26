@@ -551,20 +551,20 @@ input:hover {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 1440px) / 160);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw + 1760px) / 160);
     font-family: "Montserrat", sans-serif;
@@ -590,7 +590,7 @@ input:hover {
     font-size: calc((100vw + 160px) / 80);
   }
   .profile-user__date h2,
-  .profile-user__kkal-amount {
+.profile-user__kkal-amount {
     font-size: calc((100vw - 106px) / 53);
   }
   .profile-user__date-value {
@@ -640,20 +640,20 @@ input:hover {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
@@ -693,20 +693,20 @@ input:hover {
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-attribute,
-  .profile-paternity {
+.profile-paternity {
     font-weight: 300;
     font-size: calc((100vw - 40px) / 94);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-input,
-  .profile-welcome__form-input {
+.profile-welcome__form-input {
     font-weight: 300;
     font-size: calc((100vw + 70px) / 110);
     font-family: "Montserrat", sans-serif;
   }
   .profile-RSK__form-button,
-  .profile-welcome__form-button,
-  .profile-welcome__button-reg {
+.profile-welcome__form-button,
+.profile-welcome__button-reg {
     font-weight: 600;
     font-size: calc((100vw - 211px) / 85);
     font-family: "Montserrat", sans-serif;
@@ -721,23 +721,23 @@ input:hover {
     font-family: "Montserrat", sans-serif;
   }
   .profile-user__data-name,
-  .profile-user__states-name,
-  .profile-user__kkal-amount,
-  .profile-user__water-amount {
+.profile-user__states-name,
+.profile-user__kkal-amount,
+.profile-user__water-amount {
     font-size: calc((100vw + 365px) / 91);
   }
   .profile-user__data-age {
     font-size: calc((100vw - 457px) / 91);
   }
   .profile-user__states-value,
-  .profile-user__date h2 {
+.profile-user__date h2 {
     font-size: calc((100vw + 365px) / 91);
   }
   .profile-user__date-value {
     font-size: calc((100vw + 91px) / 91);
   }
   .profile-user__kkal-name,
-  .profile-user__macro-block h3 {
+.profile-user__macro-block h3 {
     font-size: calc((100vw - 91px) / 91);
   }
   .profile-user__macro-amount_span {

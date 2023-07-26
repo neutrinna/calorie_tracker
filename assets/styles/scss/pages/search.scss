@@ -31,12 +31,13 @@
 .elem {
   display: flex;
   align-items: center;
-  max-width: 100%;
+  max-width: 70%;
   height: 70px;
   padding-left: 30px;
   justify-content: space-between;
   background-color: white;
   position: sticky;
+ 
 }
 
 
@@ -176,4 +177,16 @@
   margin-left: 0px;
   background-color: white;
 
+}
+
+.add-button {
+  align-self: center;
+  cursor: pointer;
+  justify-content: flex-start;
+  @include button(20%, 30%);
+}
+
+.add-button:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
 }

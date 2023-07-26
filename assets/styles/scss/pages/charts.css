@@ -469,28 +469,28 @@
     font-size: 1.18em;
   }
   .charts-calorie__diagram,
-  .charts-macro__diagram {
+.charts-macro__diagram {
     height: 400px;
   }
   .charts-calorie__label,
-  .charts-macro__label {
+.charts-macro__label {
     width: 50%;
     font-size: 25px;
     margin-top: 5%;
   }
   .charts-calorie__btn,
-  .charts-macro__btn {
+.charts-macro__btn {
     width: 30%;
     height: 15%;
     font-size: 2rem;
     border-radius: 25px;
   }
   .charts-calorie__container,
-  .charts-macro__container {
+.charts-macro__container {
     width: 60%;
   }
   .charts-calorie__legend,
-  .charts-macro__legend {
+.charts-macro__legend {
     bottom: 30px;
     width: 30%;
     margin-bottom: 5%;
@@ -499,12 +499,12 @@
     margin-bottom: 10%;
   }
   .charts-calorie__legend-item__yellow,
-  .charts-calorie__legend-item__green,
-  .charts-calorie__legend-item__red,
-  .charts-calorie__legend-item__salad,
-  .charts-macro__legend-item__yellow,
-  .charts-macro__legend-item__green,
-  .charts-macro__legend-item__red {
+.charts-calorie__legend-item__green,
+.charts-calorie__legend-item__red,
+.charts-calorie__legend-item__salad,
+.charts-macro__legend-item__yellow,
+.charts-macro__legend-item__green,
+.charts-macro__legend-item__red {
     width: 30px;
     height: 30px;
   }
@@ -533,7 +533,7 @@
     margin-top: 15%;
   }
   .charts-weight__dropped > p,
-  .charts-weight__remained > p {
+.charts-weight__remained > p {
     font-size: 2rem;
   }
   .charts-weight__dynamics {
@@ -565,7 +565,7 @@
     font-size: 20px;
   }
   #charts-weight-input,
-  #charts-date-input {
+#charts-date-input {
     height: 50%;
     font-size: 2rem;
     margin-right: 5%;

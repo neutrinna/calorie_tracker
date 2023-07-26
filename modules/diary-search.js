@@ -91,7 +91,7 @@ render()
 function form() {
   
 
-  forms.forEach((form, index) => {
+  forms.forEach((form,index) => {
     const input = document.getElementById(`diary-search-${index + 1}`);
 
     input.addEventListener("keypress", function(event) {
@@ -109,18 +109,14 @@ function form() {
         grammInput.setAttribute('type', 'number');
         grammInput.setAttribute('placeholder', 'грамм');
 
-        const checkbox = document.createElement('input');
-        checkbox.setAttribute('type', 'checkbox');
-        checkbox.style.marginRight = '200px';
-        checkbox.style.verticalAlign = 'middle';
-        checkbox.style.transform = 'scale(1.5)';
 
         loader.style.display = 'block';
         loader.innerHTML = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
 
         // checkbox checked //
-        checkbox.addEventListener('change', function() {
-          if (checkbox.checked) {
+        grammInput.addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
               .then(response => response.json())
               .then(res => {
@@ -156,6 +152,7 @@ function form() {
                   diaryTableStringDiv.appendChild(mealNameDiv);
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
+                  
 
                    //Александра --- разбивка на классы в зависимости от родителя
 
@@ -272,7 +269,7 @@ function form() {
                 loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
-              commentElem.appendChild(checkbox);
+
               searchResultDiv.innerHTML = '';
               input.value = '';
               searchResultDiv.appendChild(commentElem);
