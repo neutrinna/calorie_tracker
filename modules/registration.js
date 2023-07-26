@@ -94,6 +94,22 @@
   function openCustomization() {
     document.getElementById("myDropdown").style.display = "none"
     document.getElementById("customization__pop-up").style.display = "block";
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let userData = JSON.parse(localStorage.getItem("userData"));
+    document.getElementById("customization__text_name").value = currentUser.name;
+    document.getElementById("customization__text_surname").value = currentUser.surname;
+    document.getElementById("customization__text_email").value = currentUser.email;
+
+    for (let i = 0; i < userData.length; i++) {
+      if (currentUser.email === userData[i].email) {
+        currentUser.bday = userData[i].bday;
+        currentUser.password = userData[i].password;
+      }
+    }
+    document.getElementById("customization__text_bday").value = currentUser.bday;
+    document.getElementById("customization__text_password").value = currentUser.password;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
   
   function closeCustomization() {
