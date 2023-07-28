@@ -40,8 +40,10 @@
            id="registration__text_email" onchange="validateEmail(this)"
             placeholder="E-mail" name="email"  size="30" required/>
           <label for="password"></label>
-          <input onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ0-9.'*$#%@&\/\s-]/i.test(this.value)){this.value='';}" class="registration__text registration__text_password" onchange="validatePassword(this)" type="password" id="registration__text_password"
-            placeholder="Пароль" name="password" min="6" max="12" required/>
+          <input onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ0-9.'*$#%@&\/\s-]/i.test(this.value)){this.value='';}" 
+            class="registration__text registration__text_password" 
+            onchange="validatePassword(this)" type="password" id="registration__text_password"
+            placeholder="Пароль" name="password" min="6" max="12" required/> 
           <label for="passwordRepeat"></label>
           <input onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ0-9.'*$#%@&\/\s-]/i.test(this.value)){this.value='';}" class="registration__text" id="registration__text_passwordRepeat" type="password"
             placeholder="Повторите пароль" name="passwordRepeat" required/>
@@ -69,10 +71,12 @@
           <input id="customization__text_surname"
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
             class="customization__text" type="text" placeholder="Фамилия" required>
-          <input id="customization__text_bday" class="customization__text" type="date" placeholder="Дата рождения" required>
+          <input id="customization__text_bday" class="customization__text" type="date" min="1945-01-01" max="2009-12-31" placeholder="Дата рождения"  onchange="validateDate(this)" required>
           <input id="customization__text_email" onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');"
             class="customization__text" type="text" placeholder="e-mail" disabled>
-          <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль" required>
+          <input id="customization__text_password" class="customization__text" type="password" 
+          onchange="validatePassword(this)" 
+          placeholder="Пароль" name="password" min="6" max="12" required/> 
         
           <button class="customization_submit" onclick="customizationSave()">Сохранить</button>
 

@@ -12,7 +12,7 @@ function validateDate(input) {
   const maxDate = new Date(input.max);
   if (enteredDate < minDate || enteredDate > maxDate) {
     alert("Неверная дата рождения!");
-    // input.value = ""; 
+    input.value = ""; 
   }
 }
 
@@ -20,15 +20,15 @@ function validateEmail(input) {
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(input.value)) {
     alert("Неправильный формат электронной почты!");
-    // input.value = ""; 
+    input.value = ""; 
   }
 }
 
 function validatePassword(input) { 
   const password = passwordInput.value; 
-  if (password.length < 6) {
+  if (password.length < 6 || password.length > 12 ) {
     alert("Пароль должен содержать не менее 6 символов и не более 12");
-    // input.value = ""; 
+    input.value = ""; 
   }
 } 
 
@@ -69,13 +69,7 @@ function registrationAdd() {
     alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`); 
 
     const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
-    userSessions[`${email}`] = {
-      name,
-      surname,
-      bday,
-      email, 
-      password,
-    };
+    userSessions[`${email}`] = {};
     localStorage.setItem("userSessions", JSON.stringify(userSessions));
 
     nameInput.value = ""; 
