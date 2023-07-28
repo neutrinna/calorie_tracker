@@ -34,6 +34,11 @@
             width: 100%;
 
             list-style-type: none;
+            
+            &:hover{
+                transition-duration: 0.3s;
+                transform: scale(1.05);
+            }
         }
     }
 }
@@ -49,10 +54,10 @@
     text-decoration: none;
     color: white;
 
-    :hover {
-        transition-duration: 0.6s;
-        margin-left: 20%;
-    }
+    // :hover {
+    //     transition-duration: 0.6s;
+    //     transform: scale(1.1);
+    // }
 
     img {
         width: 67%;

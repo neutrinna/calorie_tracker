@@ -100,6 +100,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 50%;
 }
 
@@ -108,15 +109,13 @@ button {
   flex-direction: column;
   justify-content: space-between;
   height: 80%;
+  width: 90%;
 }
 
 .profile-RSK__form-element {
   display: flex;
   align-items: center;
-}
-
-.profile-RSK__form-attribute {
-  padding-right: 3%;
+  justify-content: space-between;
 }
 
 .profile-RSK__form-input {
