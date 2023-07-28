@@ -18,7 +18,6 @@
 
 .customization__pop-up_container {
   display: flex;
-
   width: 100%;
   height: 100%;
 }
@@ -164,4 +163,9 @@
   font-size: 21px;
   cursor: pointer;
   color: white;
+}
+
+.customization_submit:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
 }

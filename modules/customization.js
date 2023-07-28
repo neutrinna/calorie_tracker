@@ -3,8 +3,8 @@ const formLog = document.querySelector(".profile-welcome__form");
 // localStorage.clear();
 
 function loginUser() {
-  const userData = JSON.parse(localStorage.getItem('userData'));
-  const userSessions = JSON.parse(localStorage.getItem('userSessions')) || {};
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  let userSessions = JSON.parse(localStorage.getItem('userSessions')) || {};
 
   const emailInputValue = document.getElementById('loginEmail').value;
   const passwordInputValue = document.getElementById('loginPassword').value;
@@ -87,15 +87,17 @@ function customizationSave() {
   let InputEmail = document.getElementById("customization__text_email").value;
   InputEmail = currentUser.email;
 
+  document.getElementById("profile-user__data-name").textContent = InputName;
+
   let foundUser = null;
   // перебираем каждый объект в массиве userData
   for (let i = 0; i < userData.length; i++) {
-    if (!InputBday) {
       if (userData[i].email === InputEmail) {
         // найден email, проверяем остальные данные 
         if (userData[i].name !== (InputName && "")) {
           userData[i].name = InputName; // присваиваем новое значение
           currentUser.name = InputName;
+          console.log (InputName)
         }
         if (userData[i].surname !== (InputSurname && "")) {
           userData[i].surname = InputSurname; // присваиваем новое значение
@@ -124,15 +126,14 @@ function customizationSave() {
 
         foundUser = userData[i]; // сохраняем найденного пользователя
         break; // выходим из цикла, если найденный пользователь уже обработан
-      }
     }
-
-    // сохраняем измененные данные в localStorage
-    localStorage.setItem('userData', JSON.stringify(userData));
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
     render()
-    document.getElementById("customization__pop-up").style.display = "none";
   }
+  
+  localStorage.setItem('userData', JSON.stringify(userData));
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  document.getElementById("customization__pop-up").style.display = "none";
+
 }
 
 

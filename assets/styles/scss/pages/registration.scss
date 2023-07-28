@@ -102,3 +102,8 @@
   font-size: calc((100vw + 1440px) / 160);
   line-height: 30px;
 }
+
+#registration__submit:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
+}

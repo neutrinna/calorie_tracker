@@ -32,17 +32,18 @@
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
             placeholder="Фамилия" name="surname" required/>
           <div>
-            <input type="date" id="registration__text_bday" name="bday"
-              class="registration__text_bday registration__text" required/>
+            <input type="date" id="registration__text_bday" name="bday" min="1945-01-01" max="2009-12-31"
+              class="registration__text_bday registration__text" onchange="validateDate(this)" required />
           </div>
           <input class="registration__text registration__text_email" type="email"
-            onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" id="registration__text_email"
-            placeholder="E-mail" name="email" required/>
+          onKeyUp="this.value=this.value.trim();if(/[^a-zA-Z0-9.'#%@&\/\s-]/i.test(this.value)){this.value='';}"
+           id="registration__text_email" onchange="validateEmail(this)"
+            placeholder="E-mail" name="email"  size="30" required/>
           <label for="password"></label>
-          <input class="registration__text registration__text_password" type="password" id="registration__text_password"
-            placeholder="Пароль" name="password" required/>
+          <input onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ0-9.'*$#%@&\/\s-]/i.test(this.value)){this.value='';}" class="registration__text registration__text_password" onchange="validatePassword(this)" type="password" id="registration__text_password"
+            placeholder="Пароль" name="password" min="6" max="12" required/>
           <label for="passwordRepeat"></label>
-          <input class="registration__text" id="registration__text_passwordRepeat" type="password"
+          <input onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ0-9.'*$#%@&\/\s-]/i.test(this.value)){this.value='';}" class="registration__text" id="registration__text_passwordRepeat" type="password"
             placeholder="Повторите пароль" name="passwordRepeat" required/>
           <button id="registration__submit" onclick="registrationAdd ()">Ввод</button>
           <p class="registration__pop-up_close" onclick="closeRegistration()">
@@ -73,7 +74,7 @@
             class="customization__text" type="text" placeholder="e-mail" disabled>
           <input id="customization__text_password" class="customization__text" type="text" placeholder="Пароль" required>
         
-          <button onclick="customizationSave()">Сохранить</button>
+          <button class="customization_submit" onclick="customizationSave()">Сохранить</button>
 
         </form>
 

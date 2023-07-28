@@ -862,12 +862,12 @@
     margin-top: 7%;
     margin-bottom: 5%;
     margin-left: 25%;
-    font-size: calc((100vw + 3410px) / 213);
+    font-size: 28px;
     padding: 2% 2% 1%;
     border-radius: 30px;
   }
   .charts-title > p {
-    font-size: 1.4em;
+    font-size: 1.18em;
   }
   .charts-calorie__diagram,
   .charts-macro__diagram {
@@ -1121,7 +1121,6 @@ body {
   justify-content: center;
   transform-origin: 50% 50%;
 }
-
 
 .diary-table-string-2 {
   width: 70%;

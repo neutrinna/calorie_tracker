@@ -169,4 +169,9 @@
   font-size: 21px;
   cursor: pointer;
   color: white;
+}
+
+.customization_submit:hover {
+  transition-duration: 1s;
+  background-color: #f7a337;
 }/*# sourceMappingURL=customization.css.map */

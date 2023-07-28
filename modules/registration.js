@@ -1,130 +1,137 @@
-  // получаем элементы формы
-  const nameInput = document.getElementById("registration__text_name");
-  const surnameInput = document.getElementById("registration__text_surname");
-  const bdayInput = document.getElementById("registration__text_bday");
-  const emailInput = document.getElementById("registration__text_email");
-  const passwordInput = document.getElementById("registration__text_password");
-  const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
-  const submitBtn = document.getElementById("registration__submit");
-  
+const nameInput = document.getElementById("registration__text_name");
+const surnameInput = document.getElementById("registration__text_surname");
+const bdayInput = document.getElementById("registration__text_bday");
+const emailInput = document.getElementById("registration__text_email");
+const passwordInput = document.getElementById("registration__text_password");
+const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
+const submitBtn = document.getElementById("registration__submit");
 
-  function registrationAdd() { 
-    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1); 
-    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1); 
-    const bday = bdayInput.value; 
-    const email = emailInput.value; 
-    const password = passwordInput.value; 
-    const passwordRepeat = passwordRepeatInput.value; 
-  
-    function checkPassword() { 
-      // if (password === '' || passwordRepeat === '') { 
-      //   alert('Заполните оба поля'); 
-      //   return false; 
-      // } 
-  
-      if (password !== passwordRepeat) { 
-        return false; 
-      } 
-  
-      // Пароль прошел проверку 
-      return true; 
+function validateDate(input) {
+  let enteredDate = new Date(input.value);
+  const minDate = new Date(input.min);
+  const maxDate = new Date(input.max);
+  if (enteredDate < minDate || enteredDate > maxDate) {
+    alert("Неверная дата рождения!");
+    // input.value = ""; 
+  }
+}
+
+function validateEmail(input) {
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(input.value)) {
+    alert("Неправильный формат электронной почты!");
+    // input.value = ""; 
+  }
+}
+
+function validatePassword(input) { 
+  const password = passwordInput.value; 
+  if (password.length < 6) {
+    alert("Пароль должен содержать не менее 6 символов и не более 12");
+    // input.value = ""; 
+  }
+} 
+
+function registrationAdd() { 
+  const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1).toLowerCase();
+  const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1).toLowerCase();  
+  const bday = bdayInput.value; 
+  const email = emailInput.value; 
+  const password = passwordInput.value; 
+  const passwordRepeat = passwordRepeatInput.value; 
+
+  function checkPassword() { 
+    if (password !== passwordRepeat) { 
+      return false; 
     } 
-  
-    if (name && surname && bday && email && password && passwordRepeat && checkPassword()) { 
-      // получаем текущий массив пользователей (если его нет, то создаем пустой массив) 
-      let userData = JSON.parse(localStorage.getItem("userData")) || []; 
-  
-      // проверка, что такой пользователь уже не зарегистрирован (по email) 
-      const existingUser = userData.find((user) => user.email === email); 
-      if (existingUser) { 
-        alert("Пользователь с таким email уже зарегистрирован!"); 
-        return; 
-      } 
-  
-     // создаем объект с данными нового пользователя 
-      const newUser = { 
-        name, 
-        surname, 
-        bday, 
-        email, 
-        password, 
-      }; 
-  
-      // добавляем нового пользователя в массив и сохраняем его в localStorage 
-      userData.push(newUser); 
-      localStorage.setItem("userData", JSON.stringify(userData)); 
-  
-      // выводим сообщение об успешной регистрации 
-      alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`); 
-  
-      const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {}; 
-      userSessions[`${email}`] = {}; 
-      console.log(userSessions); 
-      localStorage.setItem("userSessions", JSON.stringify(userSessions)); 
-  
-      // сбрасываем значения полей ввода 
-      nameInput.value = ""; 
-      surnameInput.value = ""; 
-      bdayInput.value = ""; 
-      emailInput.value = ""; 
-      passwordInput.value = ""; 
-      passwordRepeatInput.value = ""; 
-      closeRegistration()
-    } else { 
-      alert("Ошибка! Убедитесь что заполнены все поля и пароли совпадают!"); 
+    return true; 
+  } 
+
+  if (name && surname && bday && email && password && passwordRepeat && checkPassword()) { 
+    let userData = JSON.parse(localStorage.getItem("userData")) || []; 
+    const existingUser = userData.find((user) => user.email === email); 
+    if (existingUser) { 
+      alert("Пользователь с таким email уже зарегистрирован!"); 
+      return; 
     } 
-  }
-  
 
-  // // добавляем обработчик на кнопку "Зарегистрироваться"
-  // submitBtn.addEventListener("click", registrationAdd);
-  
-  // функции открытия/закрытия попапа "Регистрация"
-  function openRegistration() {
-    // e.eventPreventDefault();
-    document.getElementById("registration__pop-up").style.display = "block";
-    popUpHide()
-  }
-  
-  function closeRegistration() {
-    document.getElementById("registration__pop-up").style.display = "none";
-  }
-  
-  // функции открытия/закрытия попапа "Настройки"
-  function openCustomization() {
-    document.getElementById("myDropdown").style.display = "none"
-    document.getElementById("customization__pop-up").style.display = "block";
+    const newUser = { 
+      name, 
+      surname, 
+      bday, 
+      email, 
+      password, 
+    }; 
 
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let userData = JSON.parse(localStorage.getItem("userData"));
-    document.getElementById("customization__text_name").value = currentUser.name;
-    document.getElementById("customization__text_surname").value = currentUser.surname;
-    document.getElementById("customization__text_email").value = currentUser.email;
+    userData.push(newUser); 
+    localStorage.setItem("userData", JSON.stringify(userData)); 
 
-    for (let i = 0; i < userData.length; i++) {
-      if (currentUser.email === userData[i].email) {
-        currentUser.bday = userData[i].bday;
-        currentUser.password = userData[i].password;
-      }
+    alert(`Пользователь ${name} ${surname} успешно зарегистрирован!`); 
+
+    const userSessions = JSON.parse(localStorage.getItem("userSessions")) || {};
+    userSessions[`${email}`] = {
+      name,
+      surname,
+      bday,
+      email, 
+      password,
+    };
+    localStorage.setItem("userSessions", JSON.stringify(userSessions));
+
+    nameInput.value = ""; 
+    surnameInput.value = ""; 
+    bdayInput.value = ""; 
+    emailInput.value = ""; 
+    passwordInput.value = ""; 
+    passwordRepeatInput.value = ""; 
+    closeRegistration()
+  } else { 
+    alert("Ошибка! Убедитесь что заполнены все поля и пароли совпадают!"); 
+  } 
+}
+
+function openRegistration() {
+  document.getElementById("registration__pop-up").style.display = "block";
+  popUpHide()
+}
+
+function closeRegistration() {
+  document.getElementById("registration__pop-up").style.display = "none";
+}
+
+function openCustomization() {
+  document.getElementById("myDropdown").style.display = "none"
+  document.getElementById("customization__pop-up").style.display = "block";
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  let userData = JSON.parse(localStorage.getItem("userData"));
+  document.getElementById("customization__text_name").value = currentUser.name;
+  document.getElementById("customization__text_surname").value = currentUser.surname;
+  document.getElementById("customization__text_email").value = currentUser.email;
+
+  for (let i = 0; i < userData.length; i++) {
+    if (currentUser.email === userData[i].email) {
+      currentUser.bday = userData[i].bday;
+      currentUser.password = userData[i].password;
     }
-    document.getElementById("customization__text_bday").value = currentUser.bday;
-    document.getElementById("customization__text_password").value = currentUser.password;
-    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   }
-  
-  function closeCustomization() {
-    document.getElementById("customization__pop-up").style.display = "none";
-  }
-  
-  // выносим получение текущего массива пользователей в отдельную функцию
-  function getUsers() {
-    return JSON.parse(localStorage.getItem("userData")) || [];
-  }
-  
-  function openDropdown() {
-    document.getElementById("myDropdown").style.display = "block";
-  }
-  
-  function closeDropdown() {
-    document.getElementById("myDropdown").style.display = "none";
-  }
+  document.getElementById("customization__text_bday").value = currentUser.bday;
+  document.getElementById("customization__text_password").value = currentUser.password;
+  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+}
+
+function closeCustomization() {
+  document.getElementById("customization__pop-up").style.display = "none";
+}
+
+function getUsers() {
+  return JSON.parse(localStorage.getItem("userData")) || [];
+}
+
+function openDropdown() {
+  document.getElementById("myDropdown").style.display = "block";
+}
+
+function closeDropdown() {
+  document.getElementById("myDropdown").style.display = "none";
+}
