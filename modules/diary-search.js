@@ -109,6 +109,10 @@ function form() {
         grammInput.setAttribute('type', 'number');
         grammInput.setAttribute('placeholder', 'грамм');
 
+        const button = document.createElement('button');
+ button.textContent = 'Добавить';
+ button.classList.add('add-button');
+
 
         loader.style.display = 'block';
         loader.innerHTML = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
@@ -269,6 +273,7 @@ function form() {
                 loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
+              commentElem.appendChild(button);
 
               searchResultDiv.innerHTML = '';
               input.value = '';

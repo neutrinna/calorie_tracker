@@ -163,8 +163,11 @@ body {
   transition: 0.7s opacity, 0.55s visibility;
 }
 
+.diary-table-string-1__column-names,
 .diary-table-string__column-names {
   align-items: center;
+  width: 45vw;
+  font-size: 1vw;
 }
 
 .diary-water-tracker {
@@ -253,17 +256,11 @@ body {
   .diary-water-tracker__img {
     width: 3.5vw;
   }
-  .diary-table-string__column-names {
-    width: 45vw;
-  }
   .diary-water-tracker__text,
 .diary-water-tracker__top-bar-name,
 .diary-table-string__meal-name,
 .diary-diet-tracker__calendar-btn {
     font-size: 1.5vw;
-  }
-  .diary-table-string__column-names {
-    font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
 .diary-water-tracker__top-res,
@@ -291,9 +288,6 @@ body {
 .diary-table-string__meal-name,
 .diary-diet-tracker__calendar-btn {
     font-size: 1.2vw;
-  }
-  .diary-table-string__column-names {
-    font-size: 1vw;
   }
   .diary-water-tracker__crrnt-res,
 .diary-water-tracker__top-res,
