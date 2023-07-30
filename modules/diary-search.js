@@ -90,14 +90,12 @@ render()
 
 function form() {
   
-
   forms.forEach((form,index) => {
     const input = document.getElementById(`diary-search-${index + 1}`);
 
     input.addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
         event.preventDefault();
-
         const searchResultDiv = document.getElementById(`search__show__result-${index + 1}`);
         const searchResult = input.value;
         commentElem.classList.add('elem');
@@ -109,18 +107,18 @@ function form() {
         grammInput.setAttribute('type', 'number');
         grammInput.setAttribute('placeholder', 'грамм');
 
-        const button = document.createElement('button');
- button.textContent = 'Добавить';
- button.classList.add('add-button');
-
-
+        // const addButton = document.createElement('button');
+        // addButton.textContent = 'Добавить';
+        // addButton.classList.add('add-button');
+        
         loader.style.display = 'block';
         loader.innerHTML = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
-
-        // checkbox checked //
+      
+        //  //
         grammInput.addEventListener("keypress", function(event) {
           if (event.key === "Enter") {
             event.preventDefault();
+            
             fetch(`https://world.openfoodfacts.org/api/v0/product/${searchResult}`)
               .then(response => response.json())
               .then(res => {
@@ -137,10 +135,11 @@ function form() {
                   const diaryTableStringDiv = document.createElement('div');
                   diaryTableStringDiv.classList.add('diary-table-string-1');
 
+                  const shortProductName = productName.length > 15 ? `${productName.slice(0, 15)}...` : productName;
                   const mealNameDiv = document.createElement('div');
                   mealNameDiv.classList.add('diary-table-string-1__meal-name');
                   mealNameDiv.innerHTML = `
-                    <p>${productName}</p>`;
+                    <p>${shortProductName}</p>`;
 
                   const columnNamesDiv = document.createElement('div');
                   columnNamesDiv.classList.add('diary-table-string-1__column-names');
@@ -157,7 +156,7 @@ function form() {
                   diaryTableStringDiv.appendChild(columnNamesDiv);
                   loader.style.display = 'none';
                   
-
+                  
                    //Александра --- разбивка на классы в зависимости от родителя
 
                    const deleteProductButton = document.createElement('button');
@@ -273,7 +272,7 @@ function form() {
                 loader.style.display = 'none';
 
               commentElem.appendChild(grammInput);
-              commentElem.appendChild(button);
+              // commentElem.appendChild(addButton);
 
               searchResultDiv.innerHTML = '';
               input.value = '';
@@ -288,7 +287,9 @@ function form() {
           .catch(error => {
             console.log('Error:', error);
           });
+         
       }
+     
     });
   });
 }
